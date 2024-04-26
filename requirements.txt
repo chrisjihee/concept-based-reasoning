@@ -1,0 +1,14 @@
+matplotlib
+ipywidgets
+
+replicate
+langchain
+sentence_transformers
+pdf2image
+pdfminer
+pdfminer.six
+unstructured
+faiss-cpu
+#faiss-gpu
+
+chrisbase
