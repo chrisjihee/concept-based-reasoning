@@ -126,4 +126,4 @@ dmypy.json
 chrisbase*
 
 # custom
-.replicate_api_*
+*.key

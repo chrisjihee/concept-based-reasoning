@@ -14,4 +14,4 @@ git clone https://github.com/chrisjihee/chrisbase.git
 pip install --editable chrisbase*
 
 # list
-pip list | grep -E "torch|transformers|chris|langchain|replicate|faiss|jupyter"
+pip list | grep -E "langchain|transformers|torch|faiss|groq|replicate|chris"

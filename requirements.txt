@@ -2,6 +2,7 @@ jupyter
 matplotlib
 ipywidgets
 
+groq
 replicate
 langchain
 sentence_transformers
@@ -13,6 +14,5 @@ opencv-python
 pikepdf
 unstructured
 faiss-cpu
-#faiss-gpu
 
 chrisbase
