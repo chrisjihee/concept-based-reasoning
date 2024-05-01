@@ -8,6 +8,9 @@ sentence_transformers
 pdf2image
 pdfminer
 pdfminer.six
+pillow_heif
+opencv-python
+pikepdf
 unstructured
 faiss-cpu
 #faiss-gpu
