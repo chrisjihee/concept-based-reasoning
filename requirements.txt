@@ -5,7 +5,12 @@ ipywidgets
 groq
 replicate
 langchain
-sentence_transformers
+langchain-groq
+langchain-community
+sentence-transformers
+faiss-cpu
+bs4
+fake_useragent
 pdf2image
 pdfminer
 pdfminer.six
@@ -13,6 +18,5 @@ pillow_heif
 opencv-python
 pikepdf
 unstructured
-faiss-cpu
 
 chrisbase
