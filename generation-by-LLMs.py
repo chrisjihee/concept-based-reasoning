@@ -4,6 +4,7 @@ from getpass import getpass
 from together import Together
 from tqdm import tqdm
 
+from chrisbase.data import JobTimer
 from chrisbase.io import *
 
 # setup program
@@ -40,42 +41,43 @@ demo_knowledge_size = len(demo["triples"])
 demo_triples = "\n".join([f"  - {triple}" for triple in demo["triples"]])
 
 # chat with LLMs
-total_data = []
-input_data = input_data[:test_size]
-for i, item in enumerate(input_data, start=1):
-    difficulty = item["difficulty"]
-    real_question = item["question"]
-    real_answer_size = len(item["answer"].split())
-    real_knowledge_size = len(item["triples"])
-    generation_prompt = prompt_template.format(
-        real_question=real_question,
-        real_answer_size=real_answer_size,
-        real_knowledge_size=real_knowledge_size,
-        demo_question=demo_question,
-        demo_answer=demo_answer,
-        demo_answer_size=demo_answer_size,
-        demo_knowledge_size=demo_knowledge_size,
-        demo_triples=demo_triples,
-    )
-    total_data.append(item)
-    item["responses"] = []
-    item["no_responses"] = []
-    for target_model in tqdm(target_models, desc=f"* Answering question ({i}/{len(input_data)})", unit="model"):
-        based = datetime.now()
-        model_response = chat_with_llm(model_id=target_model,
-                                       messages=[{"role": "user", "content": generation_prompt}])
-        elasped = (datetime.now() - based).total_seconds()
-        if model_response:
-            item["responses"].append({
-                "model": target_model,
-                "output": model_response,
-                "num_words": len(model_response.split()),
-                "elasped": elasped,
-            })
-            item["responses"].sort(key=lambda x: x["num_words"])
-        else:
-            item["no_responses"].append(target_model)
-        save_json(total_data, output_file, indent=2, ensure_ascii=False)
+with JobTimer("Answer Generation", rt=1, rb=1, rw=114, rc='=', verbose=1):
+    total_data = []
+    input_data = input_data[:test_size]
+    for i, item in enumerate(input_data, start=1):
+        difficulty = item["difficulty"]
+        real_question = item["question"]
+        real_answer_size = len(item["answer"].split())
+        real_knowledge_size = len(item["triples"])
+        generation_prompt = prompt_template.format(
+            real_question=real_question,
+            real_answer_size=real_answer_size,
+            real_knowledge_size=real_knowledge_size,
+            demo_question=demo_question,
+            demo_answer=demo_answer,
+            demo_answer_size=demo_answer_size,
+            demo_knowledge_size=demo_knowledge_size,
+            demo_triples=demo_triples,
+        )
+        total_data.append(item)
+        item["responses"] = []
+        item["no_responses"] = []
+        for target_model in tqdm(target_models, desc=f"* Answering question ({i}/{len(input_data)})", unit="model"):
+            based = datetime.now()
+            model_response = chat_with_llm(model_id=target_model,
+                                           messages=[{"role": "user", "content": generation_prompt}])
+            elasped = (datetime.now() - based).total_seconds()
+            if model_response:
+                item["responses"].append({
+                    "model": target_model,
+                    "output": model_response,
+                    "num_words": len(model_response.split()),
+                    "elasped": elasped,
+                })
+                # item["responses"].sort(key=lambda x: x["num_words"])
+            else:
+                item["no_responses"].append(target_model)
+            save_json(total_data, output_file, indent=2, ensure_ascii=False)
 
 # write to output file (final save)
 save_json(total_data, output_file, indent=2, ensure_ascii=False)
