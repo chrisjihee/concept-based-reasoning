@@ -1,8 +1,8 @@
 Please extract the following items suggested by the model from the model response output for each of the {num_model} models for the given question and answer set.
-1) Model ID:
-2) Best (and True) Triple: (if it doesn't exist in the model response, mark them as none)
-3) Worst (or False) Triple: (if it doesn't exist in the model response, mark them as none)
-4) Answer:
+1) Model ID: (model_id without number prefix)
+2) Best (and true) Triples: (if they don't exist in the model response, mark them as none)
+3) Worst (false or fake) Triples: (if they don't exist in the model response, mark them as none)
+4) Answer: (answer suggested by the model)
 ==========
 * Question: {question}
 ==========
@@ -15,16 +15,16 @@ Please extract the following items suggested by the model from the model respons
 {model_responses}
 ==========
 Print the extracted items in the following format:
-1. (model_id)
- * Best: (best triple only if it exists, otherwise none)
- * Worst: (worst triple only if it exists, otherwise none)
- * Answer: (answer)
-2. (model_id)
- * Best: (best triple only if it exists, otherwise none)
- * Worst: (worst triple only if it exists, otherwise none)
- * Answer: (answer)
+1. model_id: (model_id without number prefix)
+ * Best: (best triples if they exist, otherwise none)
+ * Worst: (worst triples if they exist, otherwise none)
+ * Answer: (answer suggested by the model)
+2. model_id: (model_id without number prefix)
+ * Best: (best triples if they exist, otherwise none)
+ * Worst: (worst triples if they exist, otherwise none)
+ * Answer: (answer suggested by the model)
 ...
-{num_model}. (model_id)
- * Best: (best triple only if it exists, otherwise none)
- * Worst: (worst triple only if it exists, otherwise none)
- * Answer: (answer)
+{num_model}. model_id: (model_id without number prefix)
+ * Best: (best triples if they exist, otherwise none)
+ * Worst: (worst triples if they exist, otherwise none)
+ * Answer: (answer suggested by the model)
