@@ -23,5 +23,5 @@
     {"org": "upstage", "name": "Upstage SOLAR Instruct v1 (11B)", "full_id": "upstage/SOLAR-10.7B-Instruct-v1.0", "context": 4096},
     {"org": "OpenChat", "name": "OpenChat 3.5 (7B)", "full_id": "openchat/openchat-3.5-1210", "context": 8192},
     {"org": "OpenOrca", "name": "OpenOrca Mistral (7B) 8K", "full_id": "Open-Orca/Mistral-7B-OpenOrca", "context": 8192},
-    {"org": "WizardLM", "name": "WizardLM v1.2 (13B)", "full_id": "WizardLM/WizardLM-13B-V1.2", "context": 4096},
+    {"org": "WizardLM", "name": "WizardLM v1.2 (13B)", "full_id": "WizardLM/WizardLM-13B-V1.2", "context": 4096}
 ]

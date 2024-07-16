@@ -12,7 +12,8 @@ test_size = 3
 request_timeout = 60
 input_file = "data/LLM-test-with-KG-31.json"
 output_file = f"data/LLM-test-with-KG-responses-{test_size}.json"
-target_models = [x["full_id"] for x in load_json("conf/core_chat_models-40.json")]
+target_models = ([x["full_id"] for x in load_json("conf/core_lang_models.json")] +
+                 [x["full_id"] for x in load_json("conf/core_chat_models.json")])
 prompt_template = read_or("template/generation_prompt.txt") or getpass("Generation Prompt: ")
 api_client = Together(timeout=request_timeout,
                       api_key=read_or("conf/key-togetherai.txt") or getpass("TogetherAI API key: "))
@@ -74,7 +75,6 @@ with JobTimer("Answer Generation", rt=1, rb=1, rw=114, rc='=', verbose=1):
                     "num_words": len(model_response.split()),
                     "elasped": elasped,
                 })
-                # item["responses"].sort(key=lambda x: x["num_words"])
             else:
                 item["no_responses"].append(target_model)
             save_json(total_data, output_file, indent=2, ensure_ascii=False)
