@@ -11,7 +11,7 @@ test_size = 3
 request_timeout = 60
 input_file = "data/LLM-test-with-KG-31.json"
 output_file = f"data/LLM-test-with-KG-responses-{test_size}.json"
-target_models = [x["full_id"] for x in load_json("conf/full_chat_models.json")]
+target_models = [x["full_id"] for x in load_json("conf/core_chat_models-40.json")]
 prompt_template = read_or("template/generation_prompt.txt") or getpass("Generation Prompt: ")
 api_client = Together(timeout=request_timeout,
                       api_key=read_or("conf/key-togetherai.txt") or getpass("TogetherAI API key: "))

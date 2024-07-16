@@ -38,5 +38,5 @@
     {"org": "NousResearch", "name": "Nous Capybara v1.9 (7B)", "full_id": "NousResearch/Nous-Capybara-7B-V1p9", "context": 8192},
     {"org": "NousResearch", "name": "Nous Hermes-2 Yi (34B)", "full_id": "NousResearch/Nous-Hermes-2-Yi-34B", "context": 4096},
     {"org": "OpenChat", "name": "OpenChat 3.5 (7B)", "full_id": "openchat/openchat-3.5-1210", "context": 8192},
-    {"org": "WizardLM", "name": "WizardLM v1.2 (13B)", "full_id": "WizardLM/WizardLM-13B-V1.2", "context": 4096},
+    {"org": "WizardLM", "name": "WizardLM v1.2 (13B)", "full_id": "WizardLM/WizardLM-13B-V1.2", "context": 4096}
 ]
