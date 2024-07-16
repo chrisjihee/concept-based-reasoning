@@ -3,6 +3,7 @@ matplotlib
 ipywidgets
 
 groq
+together
 replicate
 langchain
 langchain-groq
