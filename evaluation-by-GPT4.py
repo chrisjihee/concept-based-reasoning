@@ -17,7 +17,7 @@ args = CommonArguments(
 test_size = 3
 input_file = "data/LLM-test-with-KG-responses-3.json"
 output_file = "data/LLM-test-with-KG-evaluation-prompt-{i}.txt"
-prompt_template = read_or("template/evaluation_prompt.txt") or getpass("Evaluation Prompt: ")
+prompt_template = read_or("template/evaluation_prompt-2.txt") or getpass("Evaluation Prompt: ")
 
 
 def limit_words(text, max_words):

@@ -1,6 +1,7 @@
 Please extract the following items suggested by the model from the response output for each of the {num_model} models for the given question and answer set.
-1) Answer:
-2) Triples:
+1) Model:
+2) Answer:
+3) Triples:
 ==========
 * Question: {question}
 ==========
