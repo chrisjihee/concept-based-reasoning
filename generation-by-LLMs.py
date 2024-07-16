@@ -1,19 +1,27 @@
-from datetime import datetime
 from getpass import getpass
 
 from together import Together
 from tqdm import tqdm
 
-from chrisbase.data import JobTimer
+from chrisbase.data import *
 from chrisbase.io import *
+
+logger = logging.getLogger(__name__)
+args = CommonArguments(
+    env=ProjectEnv(
+        project="LLM-based",
+        job_name="LLM-based-generation",
+        msg_level=logging.INFO,
+        msg_format=LoggingFormat.PRINT_00,
+    )
+)
 
 # setup program
 test_size = 3
 request_timeout = 60
 input_file = "data/LLM-test-with-KG-31.json"
 output_file = f"data/LLM-test-with-KG-responses-{test_size}.json"
-target_models = ([x["full_id"] for x in load_json("conf/core_lang_models.json")] +
-                 [x["full_id"] for x in load_json("conf/core_chat_models.json")])
+target_models = [x["full_id"] for x in load_json("conf/core_chat_models.json")]
 prompt_template = read_or("template/generation_prompt.txt") or getpass("Generation Prompt: ")
 api_client = Together(timeout=request_timeout,
                       api_key=read_or("conf/key-togetherai.txt") or getpass("TogetherAI API key: "))
@@ -63,7 +71,7 @@ with JobTimer("Answer Generation", rt=1, rb=1, rw=114, rc='=', verbose=1):
         total_data.append(item)
         item["responses"] = []
         item["no_responses"] = []
-        for target_model in tqdm(target_models, desc=f"* Answering question ({i}/{len(input_data)})", unit="model"):
+        for target_model in tqdm(target_models, desc=f"* Answering question ({i}/{len(input_data)})", unit="model", file=sys.stdout):
             based = datetime.now()
             model_response = chat_with_llm(model_id=target_model,
                                            messages=[{"role": "user", "content": generation_prompt}])
