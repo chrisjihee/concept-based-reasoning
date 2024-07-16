@@ -15,16 +15,16 @@ Please extract the following items suggested by the model from the model respons
 {model_responses}
 ==========
 Print the extracted items in the following format:
-1. model_id: (model_id without number prefix)
+1. (model_id without number prefix)
  * Best: (best triples if they exist, otherwise none)
  * Worst: (worst triples if they exist, otherwise none)
  * Answer: (answer suggested by the model)
-2. model_id: (model_id without number prefix)
+2. (model_id without number prefix)
  * Best: (best triples if they exist, otherwise none)
  * Worst: (worst triples if they exist, otherwise none)
  * Answer: (answer suggested by the model)
 ...
-{num_model}. model_id: (model_id without number prefix)
+25. (model_id without number prefix)
  * Best: (best triples if they exist, otherwise none)
  * Worst: (worst triples if they exist, otherwise none)
  * Answer: (answer suggested by the model)
