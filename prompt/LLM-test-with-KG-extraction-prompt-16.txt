@@ -1,0 +1,495 @@
+Please extract the following items suggested by the model from the model response output for each of the 25 models for the given question and answer set.
+1) Model ID: (model_id without number prefix)
+2) Best (and true) Triples: (if they don't exist in the model response, mark them as none)
+3) Worst (false or fake) Triples: (if they don't exist in the model response, mark them as none)
+4) Answer: (answer suggested by the model)
+==========
+* Question: Explain the historical development and impact of quantum mechanics in the 20th century.
+==========
+* Base Answer: Quantum mechanics revolutionized physics by introducing principles of wave-particle duality, uncertainty, and quantization. It led to the development of technologies like semiconductors, lasers, and quantum computing, profoundly impacting science and technology.
+==========
+* Base Triples:
+  - Quantum Mechanics -> Development -> Early 20th Century
+  - Quantum Mechanics -> Founders -> Max Planck, Albert Einstein, Niels Bohr, Werner Heisenberg
+  - Quantum Mechanics -> Key Principles -> Wave-Particle Duality, Uncertainty Principle, Quantization
+  - Max Planck -> Quantum Hypothesis -> 1900
+  - Albert Einstein -> Photoelectric Effect -> 1905
+  - Niels Bohr -> Bohr Model -> 1913
+  - Werner Heisenberg -> Uncertainty Principle -> 1927
+  - Quantum Mechanics -> Technologies -> Semiconductors, Lasers, Quantum Computing
+  - Quantum Mechanics -> Applications -> Electronics, Medicine, Cryptography
+  - Quantum Mechanics -> Impact -> Modern Physics, Technological Advancements
+  - Quantum Mechanics -> Philosophical Implications -> Nature of Reality, Measurement Problem
+==========
+* Total 25 Model Responses:
+
+<BEGIN_OF_MODEL_RESPONSE (1. Llama-2-7b-chat-hf)>
+Sure, I'd be happy to demonstrate my ability to structure and retrieve knowledge from a knowledge graph! Here's my answer to the given question along with some related triples:
+
+* Question: Explain the historical development and impact of quantum mechanics in the 20th century.
+* Answer (about 31 words): Quantum mechanics emerged in the early 20th century as a response to the limitations of classical physics. It revolutionized our understanding of matter and energy, leading to groundbreaking discoveries like the photoelectric effect and wave-particle duality. The principles of quantum mechanics have since permeated various fields, from chemistry to materials science, and continue to shape our understanding of the universe today.
+* Related triples (about 11 relationships):
+	- Quantum Mechanics -> Historical Development -> Early 20th century
+	- Quantum Mechanics -> Impact -> Revolutionized understanding of matter and energy
+	- Quantum Mechanics -> Principles -> Wave-particle duality, Uncertainty principle, Superposition principle
+	- Quantum Mechanics -> Applications -> Chemistry, Materials science, Electronics, Optics
+	- Quantum Mechanics -> Key Figures -> Max Planck, Albert Einstein, Niels Bohr, Erwin Schrödinger, Werner Heisenberg
+	- Quantum Mechanics -> Key Discoveries -> Photoelectric effect, Compton scattering, Zeeman effect, Franck-Hertz experiment
+	- Quantum Mechanics -> Nobel Prize Winners -> Max Planck, Albert Einstein, Niels Bohr, Erwin Schrödinger, Werner Heisenberg
+	- Quantum Mechanics -> Fields of Study -> Physics, Chemistry, Materials science, Engineering, Biology
+	- Quantum Mechanics -> Research Institutions -> Max Planck Institutes, IBM Research Laboratory, CERN, Stanford University
+
+I hope this demonstrates my ability to structure and retrieve knowledge from a knowledge graph! Let me know if you have any further questions or if you would like me to generate more examples.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (2. Llama-2-13b-chat-hf)>
+Sure! Here's my answer and related triples for the given question:
+
+Question: Explain the historical development and impact of quantum mechanics in the 20th century.
+
+Answer (about 31 words): Quantum mechanics emerged in the early 20th century as a revolutionary theory that challenged classical physics and led to groundbreaking discoveries and innovations in fields such as materials science, computing, and telecommunications. The theory was developed by pioneers like Max Planck, Niels Bohr, Louis de Broglie, Erwin Schrödinger, and Werner Heisenberg, who won Nobel Prizes for their work. Quantum mechanics has had a profound impact on our understanding of the behavior of matter and energy at the atomic and subatomic level, paving the way for technologies like transistors, lasers, and quantum computing.
+
+Related triples (about 11 relationships):
+
+1. Quantum Mechanics -> Developed By -> Max Planck, Niels Bohr, Louis de Broglie, Erwin Schrödinger, Werner Heisenberg
+2. Quantum Mechanics -> Won Nobel Prize -> Max Planck (Physics, 1918), Niels Bohr (Physics, 1922), Louis de Broglie (Physics, 1929), Erwin Schrödinger (Physics, 1933), Werner Heisenberg (Chemistry, 1932)
+3. Quantum Mechanics -> Challenged Classical Physics
+4. Quantum Mechanics -> Led To -> Groundbreaking discoveries and innovations in materials science, computing, and telecommunications
+5. Quantum Mechanics -> Impact On -> Our understanding of the behavior of matter and energy at the atomic and subatomic level
+6. Quantum Mechanics -> Technologies -> Transistors, lasers, quantum computing
+7. Max Planck -> Born -> April 23, 1858, Kiel, Germany
+8. Max Planck -> Died -> October 4, 1947, Göttingen, Germany
+9. Niels Bohr -> Born -> October 7, 1885, Copenhagen, Denmark
+10. Niels Bohr -> Died -> November 18
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (3. Llama-2-70b-chat-hf)>
+Sure, I'll do my best to provide a concise answer and relevant triples for the question you've provided.
+
+Question: Explain the historical development and impact of quantum mechanics in the 20th century.
+
+Answer (about 31 words): Quantum mechanics, developed by Planck, Einstein, Bohr, Heisenberg, and Schrödinger, revolutionized our understanding of matter and energy, leading to technological advancements in computing, cryptography, and material science.
+
+Related triples (about 11 relationships):
+
+1. Max Planck -> Developed -> Quantum Theory
+2. Albert Einstein -> Contributed -> Photoelectric Effect
+3. Niels Bohr -> Introduced -> Quantum Mechanics
+4. Werner Heisenberg -> Developed -> Uncertainty Principle
+5. Erwin Schrödinger -> Developed -> Wave Mechanics
+6. Quantum Mechanics -> Led to -> Technological Advancements
+7. Quantum Computing -> Developed from -> Quantum Mechanics
+8. Cryptography -> Enhanced by -> Quantum Mechanics
+9. Material Science -> Advanced by -> Quantum Mechanics
+10. 20th Century -> Witnessed -> Development of Quantum Mechanics
+11. Physics -> Revolutionized by -> Quantum Mechanics
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (4. Llama-3-8b-chat-hf)>
+<BEGIN_OF_YOUR_OUTPUT>
+* Question: Explain the historical development and impact of quantum mechanics in the 20th century.
+* Answer(about 31 words): Quantum mechanics emerged in the early 20th century as a fundamental shift in understanding physics, with pioneers like Max Planck, Albert Einstein, Niels Bohr, Louis de Broglie, Erwin Schrödinger, and Werner Heisenberg contributing to its development. Its impact revolutionized fields from electronics to chemistry and beyond.
+* Related triples(about 11 relationships):
+  - Max Planck -> Proposed -> Quantum Theory (1900)
+  - Max Planck -> Awarded -> Nobel Prize in Physics (1918)
+  - Albert Einstein -> Proposed -> Photoelectric Effect (1905)
+  - Albert Einstein -> Awarded -> Nobel Prize in Physics (1921)
+  - Niels Bohr -> Developed -> Atomic Model (1913)
+  - Louis de Broglie -> Suggested -> Wave-Particle Duality (1924)
+  - Erwin Schrödinger -> Developed -> Wave Mechanics (1926)
+  - Werner Heisenberg -> Developed -> Uncertainty Principle (1927)
+  - Quantum Mechanics -> Applied -> Transistors, Lasers, Computer Chips
+  - Quantum Mechanics -> Influenced -> Fields like Materials Science, Optics, and Biotechnology
+  - Quantum Mechanics -> Developed -> New Technologies and Industries
+<END_OF_YOUR_OUTPUT>
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (5. Llama-3-70b-chat-hf)>
+<BEGIN_OF_YOUR_OUTPUT>
+* Question: Explain the historical development and impact of quantum mechanics in the 20th century.
+* Answer(about 31 words): Quantum mechanics emerged in the early 20th century through works by Max Planck, Albert Einstein, Niels Bohr, Louis de Broglie, Erwin Schrödinger, and Werner Heisenberg, revolutionizing our understanding of matter and energy.
+* Related triples(about 11 relationships):
+  - Max Planck -> Introduced -> Concept of Quantized Energy (1900)
+  - Albert Einstein -> Proposed -> Theory of Special Relativity (1905)
+  - Niels Bohr -> Developed -> Model of Atomic Structure (1913)
+  - Louis de Broglie -> Hypothesized -> Wave-Particle Duality (1924)
+  - Erwin Schrödinger -> Formulated -> Equation for Quantum States (1926)
+  - Werner Heisenberg -> Introduced -> Uncertainty Principle (1927)
+  - Quantum Mechanics -> Impact -> Led to Development of Transistors, Lasers, and Computers
+  - Quantum Mechanics -> Application -> Explains Behavior of Atoms, Molecules, and Subatomic Particles
+  - Quantum Mechanics -> Influence -> Shaped Modern Physics, Chemistry, and Materials Science
+  - Quantum Mechanics -> Key Feature -> Probabilistic Nature of Physical Phenomena
+  - Quantum Mechanics -> Breakthrough -> Enabled Understanding of Superconductivity and Superfluidity
+<END_OF_YOUR_OUTPUT>
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (6. Qwen1.5-0.5B-Chat)>
+Sure, I'd be happy to help! Here is an answer with some relevant information about the historical development and impact of quantum mechanics in the 20th century:
+ históric development and impact of quantum mechanics in the 20th century:
+Quantum mechanics was developed by Albert Einstein in the early 20th century as a way to explain the behavior of matter and energy at very small scales. The concept of quantum mechanics laid the foundation for many of the major developments in modern physics, including the development of relativity, which describes the nature of space and time in terms of its curvature due to the existence of particles with superposition and entanglement.
+In the 20th century, quantum mechanics had a profound impact on many fields, from chemistry and materials science to medicine and finance. For example, quantum computing has revolutionized the way we process data and perform calculations, while quantum cryptography has secure communication systems that protect sensitive information from being intercepted or stolen.
+One of the most significant impacts of quantum mechanics was its role in the development of the原子 bomb. The atom bomb was invented in the 1940s and was used to create a powerful weapon that could cause widespread destruction. However, the discovery of quantum mechanics led to a new era of peace and understanding between nations, as scientists worked together to develop more effective ways to use quantum technology.
+Overall, the history of quantum mechanics has been shaped by the exploration of the fundamental principles of physics, and it continues to shape the way we think about the universe and the world around us today.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (7. Qwen1.5-1.8B-Chat)>
+Quantum mechanics emerged in the early 20th century as a branch of physics that explored the behavior of subatomic particles at the atomic and subatomic level. Its development was driven by several factors, including advances in experimental techniques, theoretical breakthroughs, and the discovery of new materials.
+
+Historical Development:
+
+1. Early experiments: In the late 19th century, scientists began to experiment with various physical phenomena, such as the photoelectric effect, which demonstrated the existence of electrons as particles rather than waves. This led to the development of theories that proposed the existence of atoms and their properties.
+
+2. The wave-particle duality: Quantum mechanics challenged the classical theory of particle behavior, which posited that particles had definite positions and velocities. The wave-particle duality, also known as Heisenberg's uncertainty principle, stated that it was impossible to simultaneously know both the position and momentum of a particle without introducing an infinite amount of uncertainty.
+
+3. The Bohr model: Niels Bohr, a Danish physicist, developed the Bohr model in 1905, which explained the behavior of electrons in atoms using the idea of energy levels and quantized states. This model predicted that electrons could exist in discrete energy levels, with each level corresponding to a specific spin state.
+
+4. The nuclear bomb: The development of nuclear weapons during World War II provided further motivation for the study of quantum mechanics. The bomb's use required precise calculations of the mass and energy of the uranium-235 nucleus, leading to the development of advanced mathematical techniques and algorithms.
+
+Impact on Society:
+
+1. Atomic energy and chemistry: Quantum mechanics played a crucial role in the development of atomic energy and chemistry, particularly in the
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (8. Qwen1.5-4B-Chat)>
+Quantum mechanics is the branch of physics that describes the behavior of matter and energy at the atomic and subatomic level. It emerged in the early 20th century as a response to the limitations of classical physics in explaining phenomena such as the photoelectric effect and the behavior of subatomic particles. The development of quantum mechanics was a major breakthrough in science, and its impact has been felt in many areas of modern technology and society. Some of the key concepts in quantum mechanics include wave-particle duality, superposition, entanglement, and uncertainty principle. These ideas have led to the development of new technologies such as lasers, transistors, and nuclear power plants, as well as important insights into the nature of reality itself.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (9. Qwen1.5-7B-Chat)>
+* Answer: Quantum mechanics revolutionized physics in the 20th century, starting with Planck's work on energy quanta in 1900. It led to the development of relativity theory and the wave-particle duality, influencing technology like computers and nuclear energy.
+* Related triples(about 11 relationships):
+  - Niels Bohr -> Developed Quantum Mechanics (1925)
+  - Max Planck -> Quantum Theory (1900) -> Energy Quantization
+  - Albert Einstein -> Special Relativity (1905) -> Impact on Quantum Mechanics
+  - Louis de Broglie -> Wave-Particle Duality (1924)
+  - Schrödinger Equation -> Foundation of Quantum Mechanics (1926)
+  - Quantum Computing (originated by Richard Feynman) -> Technological Impact
+  - Nuclear Fission (Enrico Fermi) -> Applications of Quantum Mechanics
+  - Quantum Entanglement (Einstein-Podolsky-Rosen paradox) -> Conceptual basis
+  - Quantum Mechanics Nobel Prizes: 1921 Niels Bohr, 1933 Erwin Schrödinger, 1965Richard Feynman
+  - Fields: Physics, Chemistry, Technology (e.g., telecommunications)
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (10. Qwen1.5-14B-Chat)>
+* Answer: Quantum mechanics revolutionized physics with key theories like Heisenberg's uncertainty principle (1927), Schrödinger's wave equation (1926), and Einstein's photoelectric effect explanation (1905). It led to quantum computing and laid the foundation for modern technology.
+
+* Related triples:
+  - Quantum Mechanics -> Developed by -> Werner Heisenberg (Uncertainty Principle, 1927)
+  - Quantum Mechanics -> Theory -> Schrödinger's Equation (1926)
+  - Quantum Mechanics -> Key Concept -> Einstein's Photoelectric Effect (1905)
+  - Impact -> Technological Advancements -> Quantum Computing
+  - Birth of Quantum Mechanics -> Early 20th Century
+  - Influenced Fields -> Physics, Information Theory
+  - Niels Bohr -> Contribution -> Bohr Model (1913)
+  - Erwin Schrödinger -> Wave Function -> Schrödinger's Cat thought experiment
+  - Paul Dirac -> Dirac Equation (1928)
+  - Quantum Mechanics -> Copenhagen Interpretation (1925)
+  - Foundations for -> Modern Technologies (semiconductors, lasers)
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (11. Qwen1.5-32B-Chat)>
+* Answer(about 31 words): Quantum mechanics emerged in the early 20th century, with Max Planck introducing quantization in 1900. Einstein explained光电效应 in 1905, and Bohr proposed a model for hydrogen atoms in 1913. Schrödinger's wave equation in 1926 described atomic behavior probabilistically.
+
+* Related triples(about 11 relationships):
+  - Quantum Mechanics -> Originated -> Early 20th Century
+  - Max Planck -> Contribution -> Quantization (1900)
+  - Albert Einstein -> Discovery -> Photoelectric Effect (1905)
+  - Niels Bohr -> Model -> Hydrogen Atom (1913)
+  - Erwin Schrödinger -> Equation -> Wave Equation (1926)
+  - Werner Heisenberg -> Principle -> Uncertainty (1927)
+  - Quantum Mechanics -> Applications -> Transistors, Lasers
+  - Quantum Mechanics -> Impact -> Foundation of Modern Technology
+  - Quantum Mechanics -> Developed By -> Bohr, Schrödinger, Heisenberg
+  - Quantum Mechanics -> Connected Fields -> Quantum Electrodynamics, Quantum Computing
+  - Quantum Mechanics -> Philosophical Implications -> Copenhagen Interpretation
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (12. Qwen1.5-72B-Chat)>
+* Question: Explain the historical development and impact of quantum mechanics in the 20th century.
+* Answer(about 31 words): Quantum mechanics emerged with Max Planck's theory in 1900, followed by Einstein's explanation of the photoelectric effect. It revolutionized physics, leading to advancements in technologies like transistors and lasers.
+* Related triples(about 11 relationships):
+  - Max Planck -> Developed -> Quantum Theory (1900)
+  - Albert Einstein -> Explained -> Photoelectric Effect (1905)
+  - Niels Bohr -> Contributed -> Bohr Model (1913)
+  - Werner Heisenberg -> Introduced -> Uncertainty Principle (1927)
+  - Erwin Schrödinger -> Formulated -> Schrödinger Equation (1926)
+  - Paul Dirac -> Combined -> Quantum Mechanics & Special Relativity
+  - Impact -> Technologies -> Transistor, Laser
+  - Impact -> Fields -> Solid State Physics, Chemistry
+  - Impact -> Theoretical Foundations -> Chaos Theory, Quantum Computing
+  - 20th Century Physics -> Milestones -> Atom Bomb, Cosmic Microwave Background Discovery
+  - Nobel Prizes -> Awarded -> Quantum Mechanics Researchers (Planck, Einstein, Bohr, Heisenberg, Schrödinger, etc.)
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (13. Qwen1.5-110B-Chat)>
+* Question: Explain the historical development and impact of quantum mechanics in the 20th century.
+* Answer(about 31 words): Quantum mechanics emerged in the early 20th century with groundbreaking theories from Planck, Einstein, Bohr, and Heisenberg, leading to the understanding of atomic structure, wave-particle duality, and uncertainty principle. It revolutionized physics, enabling the development of technologies like transistors, lasers, and laying the foundation for modern computing.
+
+* Related triples(about 11 relationships):
+  - Quantum Mechanics -> Founded -> Early 20th Century
+  - Max Planck -> Contribution -> Quantum Theory (1900)
+  - Albert Einstein -> Contribution -> Photoelectric Effect (1905)
+  - Niels Bohr -> Contribution -> Bohr Model of Atom (1913)
+  - Werner Heisenberg -> Contribution -> Uncertainty Principle (1927)
+  - Quantum Mechanics -> Concept -> Wave-Particle Duality
+  - Quantum Mechanics -> Principle -> Superposition
+  - Quantum Mechanics -> Impact -> Transistor Invention
+  - Quantum Mechanics -> Impact -> Laser Technology
+  - Quantum Mechanics -> Field -> Theoretical Physics
+  - Quantum Computing -> Based On -> Quantum Mechanics Principles
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (14. Qwen2-72B-Instruct)>
+<BEGIN_OF_YOUR_OUTPUT>
+* Answer: Quantum mechanics emerged in the 1920s with contributions from Heisenberg, Schrödinger, and Dirac, transforming physics by describing atomic and subatomic phenomena, influencing technology and philosophy.
+* Related triples:
+  - Quantum Mechanics -> Emergence -> Early 20th Century
+  - Werner Heisenberg -> Contribution -> Uncertainty Principle
+  - Erwin Schrödinger -> Equation -> Schrödinger's Equation
+  - Paul Dirac -> Development -> Dirac Equation
+  - Quantum Mechanics -> Impact -> Atomic Theory
+  - Quantum Mechanics -> Influence -> Technology Advancements
+  - Quantum Mechanics -> Influence -> Philosophical Debates
+  - Quantum Mechanics -> Concept -> Wave-Particle Duality
+  - Quantum Mechanics -> Experiment -> Double-Slit Experiment
+  - Quantum Mechanics -> Interpretation -> Copenhagen Interpretation
+  - Quantum Mechanics -> Application -> Quantum Computing
+<END_OF_YOUR_OUTPUT>
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (15. vicuna-7b-v1.5)>
+* Question: Explain the historical development and impact of quantum mechanics in the 20th century.
+* Answer: Quantum mechanics emerged in the early 20th century as a response to the limitations of classical physics. It revolutionized our understanding of matter and energy, leading to groundbreaking advancements in technology, such as lasers and transistors. Its impact on science and society has been immense, shaping modern physics, chemistry, biology, and computing.
+* Related triples:
+	+ Quantum Mechanics -> Developed -> Early 20th century
+	+ Quantum Mechanics -> Limitations -> Classical Physics
+	+ Quantum Mechanics -> Revolutionized -> Matter, Energy
+	+ Quantum Mechanics -> Advancements -> Lasers, Transistors
+	+ Quantum Mechanics -> Science -> Physics, Chemistry, Biology, Computing
+	+ Quantum Mechanics -> Scientists -> Max Planck, Albert Einstein, Niels Bohr, etc.
+	+ Quantum Mechanics -> Applications -> Atomic Bomb, Electronics, Optics, Computer Science
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (16. vicuna-13b-v1.5)>
+* Question: Explain the historical development and impact of quantum mechanics in the 20th century.
+* Answer(about 31 words): Quantum mechanics emerged as a major revolution in physics during the early 20th century, with significant contributions from scientists like Max Planck, Albert Einstein, Niels Bohr, Louis de Broglie, Erwin Schrödinger, Werner Heisenberg, and others. It led to a new understanding of atomic and subatomic structures, paving the way for numerous technological advancements and scientific breakthroughs, including the development of semiconductors, lasers, transistors, and computer technology.
+* Related triples(about 11 relationships):
+  - Quantum Mechanics -> Historical Development -> Early 20th Century
+  - Quantum Mechanics -> Key Contributors -> Max Planck, Albert Einstein, Niels Bohr, etc.
+  - Quantum Mechanics -> Scientific Breakthroughs -> Atomic and Subatomic Structures
+  - Quantum Mechanics -> Technological Advancements -> Semiconductors, Lasers, Transistors, Computer Technology
+  - Quantum Mechanics -> Research Areas -> Quantum Field Theory, Quantum Computing, Quantum Communication
+  - Quantum Mechanics -> Awards -> Nobel Prize in Physics (multiple awards)
+  - Quantum Mechanics -> Impact -> Shaped Modern Science and Technology
+  - Quantum Mechanics -> Criticism -> Interpretational Disagreement, Ethical Concerns
+  - Quantum Mechanics -> Relation to Other Fields -> Related to General Relativity, Particle Physics, Condensed Matter Physics
+  - Quantum Mechanics -> Schools of Thought -> Copenhagen Interpretation, Many-Worlds Interpretation, Pilot-Wave Theory
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (17. Mistral-7B-Instruct-v0.1)>
+* Answer(about 31 words): Quantum mechanics emerged as a fundamental theory of physics in the early 20th century, revolutionizing our understanding of matter and energy at the atomic and subatomic level. It led to numerous technological breakthroughs, including semiconductors, lasers, and MRI scanners.
+* Related triples(about 11 relationships):
+  - Quantum mechanics -> Historical Development -> Early 20th century
+  - Quantum mechanics -> Impact -> Revolutionized our understanding of matter and energy at the atomic and subatomic level
+  - Quantum mechanics -> Technological Breakthroughs -> Semiconductors, lasers, MRI scanners
+  - Quantum mechanics -> Founder -> Max Planck (1900)
+  - Quantum mechanics -> Key Figures -> Albert Einstein, Niels Bohr, Erwin Schrödinger
+  - Quantum mechanics -> Major Publications -> Annus Mirabilis papers (1905)
+  - Quantum mechanics -> Field -> Physics
+  - Quantum mechanics -> Branches -> Quantum field theory, Quantum statistical mechanics
+  - Quantum mechanics -> Influence -> Relativity, General relativity
+  - Quantum mechanics -> Work Institutions -> Max Planck Institute, CERN
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (18. Mistral-7B-Instruct-v0.2)>
+* Answer(about 31 words): Quantum mechanics, developed between 1900 and 1930, revolutionized our understanding of physics. Key figures like Max Planck, Albert Einstein, Niels Bohr, and Erwin Schrödinger introduced its fundamental concepts, including wave-particle duality, superposition, and uncertainty principle. Quantum mechanics explained atomic structures and led to technological advancements like transistors and lasers, shaping modern technology.
+* Related triples(about 11 relationships):
+  - Max Planck -> Born -> April 23, 1858, Kiel, Germany
+  - Max Planck -> Died -> October 4, 1947 (age 89 years), Göttingen, Germany
+  - Max Planck -> Introduced -> Quantum Theory, 1900
+  - Albert Einstein -> Born -> March 14, 1879, Ulm, Württemberg, Germany
+  - Albert Einstein -> Died -> April 18, 1955 (age 76 years), Princeton, New Jersey, USA
+  - Albert Einstein -> Developed -> Photoelectric Effect Theory, 1905
+  - Niels Bohr -> Born -> October 7, 1885, Copenhagen, Denmark
+  - Niels Bohr -> Died -> November 18, 1962 (age 77 years), Copenhagen, Denmark
+  - Niels Bohr -> Proposed -> Rutherford Atom Model with Shell Structure, 1913
+  - Erwin Schrödinger -> Born -> August 12, 1887, Vienna, Austria
+  - Erwin Schrödinger -> Died -> January 4, 1961 (age 75 years), Alpine Alps, Switzerland
+  - Erwin Schrödinger -> Introduced -> Wave Equation for Quantum Mechanics, 1926
+  - Quantum Mechanics -> Developed -> Between 1900 and 1930
+  - Quantum Mechanics -> Impact -> Modern Technology, Atomic Structures, Transistors, Lasers
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (19. Mistral-7B-Instruct-v0.3)>
+* Question: Explain the historical development and impact of quantum mechanics in the 20th century.
+* Answer(about 31 words): Quantum mechanics emerged as a fundamental theory in physics during the early 20th century, revolutionizing our understanding of atomic and subatomic particles. Its principles led to advancements in technologies like transistors, lasers, and MRI scanners, significantly influencing modern science and technology.
+* Related triples(about 11 relationships):
+  - Quantum Mechanics -> Developed By -> Max Planck, Niels Bohr, Erwin Schrödinger, Werner Heisenberg
+  - Quantum Mechanics -> Formulated -> 1900-1927
+  - Quantum Mechanics -> Key Principle -> Wave-Particle Duality
+  - Quantum Mechanics -> Key Principle -> Uncertainty Principle
+  - Quantum Mechanics -> Key Principle -> Superposition
+  - Quantum Mechanics -> Applications -> Transistor Technology
+  - Quantum Mechanics -> Applications -> Laser Technology
+  - Quantum Mechanics -> Applications -> Magnetic Resonance Imaging (MRI)
+  - Quantum Mechanics -> Influenced By -> Classical Physics, Electromagnetism, Atomic Theory
+  - Quantum Mechanics -> Impact On -> Modern Science and Technology
+  - Quantum Mechanics -> Work Institutions -> Kaiser Wilhelm Institute for Physics, University of Copenhagen, University of Cambridge, California Institute of Technology
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (20. Mixtral-8x7B-Instruct-v0.1)>
+* Question: Explain the historical development and impact of quantum mechanics in the 20th century.
+* Answer(about 31 words): Quantum mechanics emerged in the early 20th century, transforming physics with its probabilistic nature and particle-wave duality. Its concepts led to inventions like lasers and semiconductors.
+* Related triples(about 11 relationships):
+  - Quantum Mechanics -> Developed -> Early 20th Century
+  - Quantum Mechanics -> Transformation -> Physics
+  - Quantum Mechanics -> Nature -> Probabilistic
+  - Quantum Mechanics -> Concepts -> Particle-Wave Duality
+  - Quantum Mechanics -> Led To -> Inventions (Lasers, Semiconductors)
+  - Quantum Mechanics -> Foundations -> Max Planck, Albert Einstein, Niels Bohr, Werner Heisenberg, Erwin Schrödinger
+  - Quantum Mechanics -> Impact -> Modern Electronics, Atomic Energy, Quantum Computing
+  - Quantum Mechanics -> Influenced -> Chemistry, Biology, Technology
+  - Quantum Mechanics -> Notable Experiments -> Double-slit Experiment, Young's Experiment, Stern-Gerlach Experiment
+  - Quantum Mechanics -> Mathematical Framework -> Wave Function, Hilbert Space, Operators, Uncertainty Principle
+  - Quantum Mechanics -> Applications -> Medical Imaging, Material Science, Quantum Cryptography
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (21. Mixtral-8x22B-Instruct-v0.1)>
+* Question: Explain the historical development and impact of quantum mechanics in the 20th century.
+* Answer(about 31 words): Quantum mechanics emerged in early 20th century with Planck's quanta hypothesis. Einstein, Bohr, Heisenberg, and Schrödinger further developed it. Its probabilistic nature revolutionized physics, leading to technologies like lasers and semiconductors.
+* Related triples(about 11 relationships):
+  - Max Planck -> Proposed -> Quantum Theory (1900)
+  - Albert Einstein -> Contributed -> Photoelectric Effect (1905)
+  - Niels Bohr -> Developed -> Atomic Model (1913)
+  - Werner Heisenberg -> Formulated -> Uncertainty Principle (1927)
+  - Erwin Schrödinger -> Developed -> Wave Equation (1926)
+  - Paul Dirac -> Combined -> Quantum Mechanics and Special Relativity (1928)
+  - Quantum Mechanics -> Impact -> Lasers, Semiconductors, MRI, Transistors
+  - Quantum Mechanics -> Revolutionized -> Understanding of Subatomic Particles
+  - Quantum Mechanics -> Challenged -> Classical Physics Principles
+  - Quantum Mechanics -> Influenced -> Philosophy, Art, Literature
+  - Quantum Mechanics -> Led To -> Quantum Computing, Cryptography
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (22. SOLAR-10.7B-Instruct-v1.0)>
+Question: Explain the historical development and impact of quantum mechanics in the 20th century.
+Answer: Quantum mechanics emerged in the early 20th century as physicists sought to understand subatomic phenomena. Key figures like Niels Bohr, Werner Heisenberg, and Erwin Schrödinger contributed with their theories and mathematical models. This new branch of physics revolutionized our understanding of matter and energy at atomic and subatomic levels, leading to advancements in fields like nuclear energy, electronics, and modern computing.
+
+Related triples:
+1. Niels Bohr -> Born -> October 7, 1885, Copenhagen, Denmark
+2. Werner Heisenberg -> Born -> December 5, 1901, Würzburg, Germany
+3. Erwin Schrödinger -> Born -> August 12, 1887, Vienna, Austria-Hungary
+4. Niels Bohr -> Nobel Prize in Physics -> 1922
+5. Werner Heisenberg -> Nobel Prize in Physics -> 1932
+6. Erwin Schrödinger -> Nobel Prize in Physics -> 1933
+7. Niels Bohr -> Theory -> Bohr model of the atom
+8. Werner Heisenberg -> Theory -> Uncertainty principle
+9. Erwin Schrödinger -> Theory -> Schrödinger equation
+10. Quantum mechanics -> Application -> Nuclear energy
+11. Quantum mechanics -> Application -> Electronics & modern computing
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (23. openchat-3.5-1210)>
+* Answer(about 31 words): Quantum mechanics revolutionized our understanding of the microscopic world, explaining phenomena like wave-particle duality and the probabilistic nature of particles. This led to groundbreaking technologies like transistors, lasers, and superconductors, which have transformed modern society and continue to drive advancements in computing, telecommunications, and materials science.
+* Related triples(about 11 relationships):
+* Quantum mechanics -> Emerged -> Early 20th century
+* Quantum mechanics -> Key Figures -> Albert Einstein, Werner Heisenberg, Niels Bohr, Erwin Schrödinger, Max Planck, Paul Dirac, etc.
+* Quantum mechanics -> Principles -> Wave-particle duality, Superposition, Quantum entanglement, Uncertainty principle
+* Quantum mechanics -> Impact -> Transistors, Lasers, Superconductors, Quantum computing, Quantum communication
+* Quantum mechanics -> Applications -> Semiconductor industry, Telecommunications, Materials science, Atomic and molecular physics, Quantum chemistry
+* Quantum mechanics -> Influenced by -> Classical mechanics, Thermodynamics, Electromagnetism, Special relativity
+* Quantum mechanics -> Led to -> Quantum field theory, Quantum information theory, Quantum biology, Quantum cryptography
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (24. Mistral-7B-OpenOrca)>
+* Answer(about 31 words): Quantum mechanics emerged as a fundamental theory in the early 20th century, with its foundations laid by Max Planck, Albert Einstein, Niels Bohr, Werner Heisenberg, Erwin Schrödinger, and others. It revolutionized our understanding of physical phenomena at atomic and subatomic scales, challenging classical Newtonian mechanics and giving rise to new concepts like wave-particle duality, uncertainty principle, and entanglement. The field has significantly influenced modern physics, chemistry, materials science, and technology.
+* Related triples(about 11 relationships):
+  - Max Planck -> Born -> April 23, 1858, Kiel, Germany
+  - Max Planck -> Died -> October 4, 1947, Göttingen, Germany
+  - Max Planck -> Contribution -> Quantum Theory
+  - Albert Einstein -> Born -> March 14, 1879, Ulm, Germany
+  - Albert Einstein -> Died -> April 18, 1955, Princeton, New Jersey, USA
+  - Albert Einstein -> Contribution -> Photoelectric effect, mass-energy equivalence
+  - Niels Bohr -> Born -> October 7, 1885, Copenhagen, Denmark
+  - Niels Bohr -> Died -> November 18, 1962, Copenhagen, Denmark
+  - Niels Bohr -> Contribution -> Atomic model, quantum postulates
+  - Werner Heisenberg -> Born -> December 5, 1901, Würzburg, Germany
+  - Werner Heisenberg -> Died -> February 1, 1976, Munich, Germany
+  - Werner Heisenberg -> Contribution -> Uncertainty principle, matrix mechanics
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (25. WizardLM-13B-V1.2)>
+* Question: Explain the historical development and impact of quantum mechanics in the 20th century.
+* Answer(about 31 words): Quantum mechanics revolutionized our understanding of the universe, with pioneers like Max Planck, Albert Einstein, Niels Bohr, Erwin Schrödinger, and Werner Heisenberg contributing significant theories. It led to technologies like transistors, lasers, and MRI machines, shaping modern physics and computing.
+* Related triples(about 11 relationships):
+  - Quantum Mechanics -> Developed By -> Max Planck, Albert Einstein, Niels Bohr, Erwin Schrödinger, Werner Heisenberg
+  - Quantum Mechanics -> Theory -> Quantum Theory, Wave-Particle Duality, Uncertainty Principle
+  - Quantum Mechanics -> Impact -> Transistors, Lasers, MRI Machines
+  - Quantum Mechanics -> Contributed To -> Modern Physics, Computing
+  - Quantum Mechanics -> Work Institutions -> Various universities and research institutions
+  - Quantum Mechanics -> Timeline -> 20th Century
+<END_OF_MODEL_RESPONSE>
+
+
+==========
+Print the extracted items in the following format:
+1. (model_id without number prefix)
+ * Best: (best triples if they exist, otherwise none)
+ * Worst: (worst triples if they exist, otherwise none)
+ * Answer: (answer suggested by the model)
+2. (model_id without number prefix)
+ * Best: (best triples if they exist, otherwise none)
+ * Worst: (worst triples if they exist, otherwise none)
+ * Answer: (answer suggested by the model)
+...
+25. (model_id without number prefix)
+ * Best: (best triples if they exist, otherwise none)
+ * Worst: (worst triples if they exist, otherwise none)
+ * Answer: (answer suggested by the model)

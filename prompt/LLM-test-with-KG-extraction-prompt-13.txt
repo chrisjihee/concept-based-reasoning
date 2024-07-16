@@ -1,0 +1,489 @@
+Please extract the following items suggested by the model from the model response output for each of the 25 models for the given question and answer set.
+1) Model ID: (model_id without number prefix)
+2) Best (and true) Triples: (if they don't exist in the model response, mark them as none)
+3) Worst (false or fake) Triples: (if they don't exist in the model response, mark them as none)
+4) Answer: (answer suggested by the model)
+==========
+* Question: Evaluate the significance of the Magna Carta in the development of constitutional law.
+==========
+* Base Answer: The Magna Carta is significant for establishing the principle that the monarch is subject to the law, influencing the development of constitutional law by promoting ideas of due process, limited government, and individual rights.
+==========
+* Base Triples:
+  - Magna Carta -> Issued -> 1215
+  - King John -> Forced to Sign -> Magna Carta
+  - Magna Carta -> Key Principles -> Rule of Law, Due Process
+  - Magna Carta -> Clause 39 -> Right to Fair Trial
+  - Magna Carta -> Clause 40 -> Justice Delayed
+  - Magna Carta -> Limited Government -> Restrictions on Royal Power
+  - Magna Carta -> Influence -> English Common Law, US Constitution
+  - Magna Carta -> Reissues -> 13th Century
+  - Magna Carta -> Symbol -> Liberty, Rights
+  - Magna Carta -> Legacy -> Constitutional Law
+  - Magna Carta -> Modern Relevance -> Human Rights, Legal Precedents
+==========
+* Total 25 Model Responses:
+
+<BEGIN_OF_MODEL_RESPONSE (1. Llama-2-7b-chat-hf)>
+Great! I'd be happy to demonstrate my ability to structure and retrieve knowledge from a knowledge graph. Here's my answer to the given question, along with some related triples to reference:
+
+* Question: Evaluate the significance of the Magna Carta in the development of constitutional law.
+* Answer (about 34 words): The Magna Carta, sealed in 1215, is a foundational document in constitutional law, as it established the principle of rule of law and limited the power of the monarch.
+* Related triples (about 11 relationships):
+	+ Magna Carta -> Sealed -> 1215, Runnymede, England
+	+ Magna Carta -> Principle -> Rule of Law
+	+ Magna Carta -> Limited -> Power of the Monarch
+	+ Monarch -> Power -> Limited by Magna Carta
+	+ England -> Constitutional Law -> Magna Carta
+	+ Magna Carta -> Signatories -> Barons, King John
+	+ King John -> Signature -> Magna Carta
+	+ Magna Carta -> Provisions -> Due process, Habeas corpus, Trial by jury
+	+ Due process -> Protection -> Individual rights
+	+ Habeas corpus -> Protection -> Individual liberty
+	+ Trial by jury -> Protection -> Fair trial
+
+I hope this demonstrates my ability to structure and retrieve knowledge from a knowledge graph! Let me know if you have any further questions or tasks for me to complete.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (2. Llama-2-13b-chat-hf)>
+Sure! Here's my answer and related triples for the given question:
+
+Question: Evaluate the significance of the Magna Carta in the development of constitutional law.
+
+Answer (about 34 words): The Magna Carta, signed in 1215 by King John of England, is a significant document in the development of constitutional law as it established the principle that the king was not above the law and that even he was subject to the rule of law. This principle has been influential in the development of constitutional law in many countries, including the United States.
+
+Related triples (about 11 relationships):
+
+1. Magna Carta -> Signed -> 1215, Runnymede, England
+2. Magna Carta -> King -> John of England
+3. Magna Carta -> Principle -> Rule of Law
+4. Magna Carta -> Influence -> Constitutional Law
+5. Constitutional Law -> Developed from -> Common Law
+6. Common Law -> Based on -> Judicial Decisions, Statutes, and Customs
+7. Constitutional Law -> Applies to -> Government, Laws, and Individual Rights
+8. Magna Carta -> Importance -> Historical, Symbolic, and Legal
+9. Magna Carta -> Historical Context -> Medieval England, Feudalism, and the Norman Conquest
+10. Magna Carta -> Symbolic Value -> Limitations on Power, Justice, and Human Rights
+11. Magna Carta -> Legal Significance -> Precedent for Future Constitutional Developments
+
+I hope this helps! Let me know if you have any questions or need further clarification.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (3. Llama-2-70b-chat-hf)>
+Sure, I can help you with that! Here's my answer and related triples for the question you provided:
+
+* Question: Evaluate the significance of the Magna Carta in the development of constitutional law.
+* Answer(about 34 words): The Magna Carta, signed in 1215, was a landmark document that established the principle of rule of law and limited the power of the monarch, paving the way for the development of constitutional law.
+* Related triples(about 11 relationships):
+  - Magna Carta -> Signed -> June 15, 1215, Runnymede, England
+  - Magna Carta -> Issued by -> King John of England
+  - Magna Carta -> Purpose -> Limit the power of the monarch, establish rule of law
+  - Magna Carta -> Key provisions -> Due process, trial by jury, protection against arbitrary imprisonment
+  - Magna Carta -> Influence -> Development of constitutional law, English Bill of Rights, US Constitution
+  - Magna Carta -> Historical context -> Medieval England, First Barons' War
+  - Magna Carta -> Significance -> Established principle of rule of law, limited monarch's power, protected individual rights
+  - Magna Carta -> Impact -> Shaped the English legal system, influenced the development of democracy
+  - Magna Carta -> Authors -> Stephen Langton, William Marshal
+  - Magna Carta -> Original document -> housed at the British Library, London
+  - Magna Carta -> Translation -> Available in various languages, including English, Latin, and French.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (4. Llama-3-8b-chat-hf)>
+<BEGIN_OF_YOUR_OUTPUT>
+* Question: Evaluate the significance of the Magna Carta in the development of constitutional law.
+* Answer(about 34 words): The Magna Carta is a landmark document that significantly influenced the development of constitutional law by establishing the principle of rule of law, limiting monarchic power, and protecting individual rights and liberties, contributing to modern democratic governance.
+* Related triples(about 11 relationships):
+  - Magna Carta -> Signed -> June 15, 1215, Runnymede, England
+  - Magna Carta -> Signer -> King John of England
+  - Magna Carta -> Principle -> Rule of Law
+  - Magna Carta -> Limitation -> Monarchic Power
+  - Magna Carta -> Protection -> Individual Rights and Liberties
+  - Magna Carta -> Influence -> Development of Constitutional Law
+  - Magna Carta -> Impact -> Modern Democratic Governance
+  - Magna Carta -> Historical Event -> English Civil War
+  - Magna Carta -> Historical Event -> Feudal System
+  - Magna Carta -> Historical Event -> Medieval Period
+  - Magna Carta -> Legacy -> Bill of Rights, US Constitution, Universal Declaration of Human Rights
+<END_OF_YOUR_OUTPUT>
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (5. Llama-3-70b-chat-hf)>
+Here is my output:
+
+<BEGIN_OF_YOUR_OUTPUT>
+* Question: Evaluate the significance of the Magna Carta in the development of constitutional law.
+* Answer(about 34 words): The Magna Carta, signed in 1215, limited the power of the monarch, establishing due process, protecting individual rights, and influencing constitutional law development in England and beyond.
+* Related triples(about 11 relationships):
+  - Magna Carta -> Signed -> June 15, 1215, Runnymede, England
+  - Magna Carta -> Issued by -> King John of England
+  - Magna Carta -> Influenced -> English Bill of Rights (1689), US Constitution (1787)
+  - Magna Carta -> Established -> Due Process, Rule of Law
+  - Magna Carta -> Protected -> Individual Rights, Liberties
+  - Magna Carta -> Limited -> Power of the Monarch, Absolute Power
+  - Magna Carta -> Affected -> Development of Constitutional Law, Democracy
+  - Magna Carta -> Considered -> Cornerstone of Liberty, Foundation of Freedom
+  - Magna Carta -> Written in -> Latin
+  - Magna Carta -> Consists of -> 63 clauses
+  - Magna Carta -> Original purpose -> Resolve conflict between King John and barons
+<END_OF_YOUR_OUTPUT>
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (6. Qwen1.5-0.5B-Chat)>
+The Magna Carta is a document written by the Spanish king of Spain in 1189 outlining the rights and duties of citizens of the kingdom under the rule of King Charles I. The document played a significant role in the development of constitutional law, as it provided a clear and concise framework for the creation of a system of government.
+Here is an example of a related triple:
+BBEGIN_OF_DEMO_EX例>
+* Question: How did the Magna Carta influence the development of modern-day constitutions?
+* Answer(about 34 words): The Magna Carta had a profound impact on the development of modern-day constitutions, particularly in the United States. It established a set of principles for individual rights and responsibilities, which helped to lay the foundation for the modern concept of democracy.
+* Related triples(about 11 relationships):
+  - The Magna Carta -> Written -> 1189
+  - The Magna Carta -> Author -> Charles I
+  - The Magna Carta -> Content -> Rights and duties of citizens
+  - The Magna Carta -> Significance -> Influence on modern-day constitutions
+  - The Magna Carta -> Influence -> Role in the development of democracy
+  - The Magna Carta -> Influence -> Impact on world history
+  - The Magna Carta -> Significance -> Spread of democratic ideas
+  - The Magna Carta -> Significance -> Spread of legal systems
+  - The Magna Carta -> Significance -> Influence on international relations
+  - The Magna Carta -> Significance -> Influence on politics and governance
+  - The Magna Carta -> Significance -> Influence on economics and trade
+  - The
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (7. Qwen1.5-1.8B-Chat)>
+Magna Carta, also known as the "Document of Human Freedom," was a legal charter issued by King John of England in 1215. It marked a significant milestone in the development of constitutional law and established several fundamental principles that continue to shape modern democratic systems.
+One of the most important aspects of the Magna Carta is its commitment to individual rights, including freedom of speech, assembly, and property. The document explicitly stated that no one could be forced to support or pay taxes without their consent, which directly challenged the traditional power dynamics within medieval Europe. This principle laid the foundation for the concept of habeas corpus, which guarantees individuals the right to challenge government actions and retain their property.
+Another crucial aspect of the Magna Carta is its emphasis on the role of the monarchy as a guardian of the common good and the protection of the rights of ordinary people. By limiting the power of the king and his advisors, the Magna Carta created a system where citizens had some degree of control over the government and could participate in the decision-making process.
+The Magna Carta also laid the groundwork for the idea of a separation of powers between the executive, legislative, and judicial branches of government. This principle became the cornerstone of modern federalism and constitutional democracy, where each branch has distinct responsibilities and checks and balances prevent any one institution from becoming too powerful.
+In addition to these core principles, the Magna Carta also introduced concepts like the rule of law, the principle of habeas corpus, and the principle of due process, which have been central to the development of international human rights law and
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (8. Qwen1.5-4B-Chat)>
+Magna Carta is a significant document in the development of constitutional law as it established the principle of habeas corpus, which protects individuals from unreasonable searches and seizures by government officials. It also established the rule of law and the concept of due process, which ensures that citizens are treated fairly by the government. Additionally, Magna Carta recognized the importance of property rights and limited the power of the king to raise taxes without the consent of the nobility and the people. These principles laid the foundation for many of the core values of modern constitutional law, including individual rights, the separation of powers, and the protection of civil liberties.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (9. Qwen1.5-7B-Chat)>
+* Answer(about 34 words): The Magna Carta laid foundation for individual rights and limited government power, establishing principles like due process and the rule of law, which influenced constitutional law globally.
+* Related triples(about 11 relationships):
+  - Magna Carta -> Signed -> 1215, Runnymede, England
+  - Magna Carta -> Signatories -> King John of England, Barons
+  - Magna Carta -> Key Provisions -> Habeas Corpus, Trial by jury, Protection against arbitrary detention
+  - Magna Carta -> Influence -> English Bill of Rights, US Constitution, European Constitutional Law
+  - Magna Carta -> Concept -> Natural Rights, Limited Monarchy, Separation of Powers
+  - Magna Carta -> Year -> 1215
+  - Magna Carta -> Location -> Royal Court at Westminster
+  - Habeas Corpus Act (1679) -> Derived from -> Magna Carta principle
+  - William of Blackstone's "Commentaries on the Laws of England" -> Cites Magna Carta as precedent
+  - UK Parliament's bill-making powers -> Derived from Magna Carta's concept of consent
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (10. Qwen1.5-14B-Chat)>
+* Answer(about 34 words): The Magna Carta laid the foundation for limited government, individual rights, and the rule of law, influencing future constitutions around the world.
+
+* Related triples(about 11 relationships):
+  - Magna Carta -> Issued -> June 1215, England
+  - Magna Carta -> Significance -> First significant restriction on royal power
+  - Magna Carta -> Central Provision -> Protection from arbitrary arrest (Clause 39)
+  - Magna Carta -> Impact -> Basis for modern legal concepts
+  - Magna Carta -> Influenced -> English Bill of Rights (1689)
+  - Magna Carta -> Constitutional Law -> Limited monarchy, due process
+  - Magna Carta -> Legacy -> Foundational document for democratic governance
+  - Natural Law Theory -> Connection to Magna Carta
+  - European Legal History -> Key turning point
+  - Comparison -> U.S. Constitution, French Declaration of the Rights of Man
+  - Influence > American Revolution, subsequent constitutional frameworks
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (11. Qwen1.5-32B-Chat)>
+* Answer(about 34 words): The Magna Carta, signed in 1215, significantly influenced constitutional law by establishing limits on royal power, protecting individual liberties, and laying foundations for the rule of law.
+* Related triples(about 11 relationships):
+  - Magna Carta -> Signed -> June 15, 1215
+  - Magna Carta -> Location -> Runnymede, England
+  - Magna Carta -> Significance -> Influenced constitutional law
+  - Magna Carta -> Principles -> Limitations on power, Individual rights
+  - Magna Carta -> Inspired -> US Constitution, Bill of Rights
+  - Magna Carta -> Influence on -> Common Law, Habeas Corpus Act
+  - Magna Carta -> Drafted by -> Archbishop Stephen Langton
+  - Magna Carta -> King -> King John (John Lackland)
+  - Magna Carta -> Revisions -> 1216, 1217, 1225 versions
+  - Magna Carta -> Interpretation -> Developed into English constitutional law
+  - Magna Carta -> Historical Context -> Barons' Revolt against King John
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (12. Qwen1.5-72B-Chat)>
+* Question: Evaluate the significance of the Magna Carta in the development of constitutional law.
+* Answer(about 34 words): The Magna Carta, signed in 1215, is a cornerstone of modern democracy, establishing the principle that everyone, including the king, is subject to the law. It laid the foundation for human rights, due process, and limited government power.
+* Related triples(about 11 relationships):
+  - Magna Carta -> Signed -> June 15, 1215
+  - Magna Carta -> Location -> Runnymede, England
+  - Magna Carta -> Signatories -> King John of England, Barons
+  - Magna Carta -> Impact -> Constitutional Law, Human Rights
+  - Magna Carta -> Key Principles -> Rule of Law, Due Process, Habeas Corpus
+  - Magna Carta -> Historical Context -> feudal system, conflicts between king and barons
+  - Magna Carta -> Later Versions -> 1216, 1217, 1225
+  - Magna Carta -> Influence -> English Bill of Rights, US Constitution
+  - Magna Carta -> Importance -> Limiting Monarchical Power, Judicial Review
+  - Magna Carta -> Legacy -> Global Legal System, Civil Liberties
+  - Magna Carta -> UNESCO Memory of the World Register -> 2003
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (13. Qwen1.5-110B-Chat)>
+* Question: Evaluate the significance of the Magna Carta in the development of constitutional law.
+* Answer(about 34 words): The Magna Carta, signed in 1215, laid the foundation for modern constitutional law by establishing the principle that everyone, including the king, was subject to the law. It inspired concepts like due process and habeas corpus, influencing subsequent legal documents and the protection of individual liberties.
+
+* Related triples(about 11 relationships):
+  - Magna Carta -> Signed -> June 15, 1215
+  - Magna Carta -> Location -> Runnymede, England
+  - Magna Carta -> Principle -> Rule of Law
+  - Magna Carta -> Inspired -> Due Process, Habeas Corpus
+  - Magna Carta -> Influenced -> English Bill of Rights (1689)
+  - Magna Carta -> Impact -> U.S. Constitution, Universal Declaration of Human Rights
+  - Magna Carta -> Key Clause -> No Taxation Without Representation
+  - Magna Carta -> Protection -> Liberties of the Church and Nobles
+  - Magna Carta -> Legacy -> Foundation of Constitutional Liberties
+  - Magna Carta -> Reaffirmed By -> Later monarchs, solidifying its legal status
+  - Magna Carta -> Historical Context -> Limiting the Monarch's Power (King John)
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (14. Qwen2-72B-Instruct)>
+<BEGIN_OF_YOUR_OUTPUT>
+* Answer(about 34 words): The Magna Carta, signed in 1215, laid foundational principles for modern democracy and human rights by limiting monarchial power and ensuring legal equality, inspiring future constitutions.
+* Related triples(about 11 relationships):
+  - Magna Carta -> Signed -> June 15, 1215, Runnymede, England
+  - Magna Carta -> Originated From -> King John of England
+  - Magna Carta -> Influenced -> US Constitution, Bill of Rights, Universal Declaration of Human Rights
+  - Magna Carta -> Principle -> Rule of Law over Monarchical Power
+  - Magna Carta -> Principle -> Protection Against Arbitrary Imprisonment
+  - Magna Carta -> Principle -> Right to Fair Trial
+  - Magna Carta -> Principle -> No Taxation Without Representation
+  - Magna Carta -> Principle -> Due Process of Law
+  - Magna Carta -> Event -> English Civil War (1642-1651)
+  - Magna Carta -> Document Type -> Charter of Liberties
+  - Magna Carta -> Impact -> Development of Constitutionalism
+<END_OF_YOUR_OUTPUT>
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (15. vicuna-7b-v1.5)>
+* Question: Evaluate the significance of the Magna Carta in the development of constitutional law.
+* Answer: The Magna Carta is considered one of the most significant documents in the development of constitutional law as it established the principle that everyone, including the monarch, was subject to the law. It also laid the foundation for many legal rights and protections that are still in use today.
+* Related triples:
+	+ Magna Carta -> Signed by King John -> June 15, 1215, Runnymede, England
+	+ Magna Carta -> Significance -> Established the rule of law, Protected private property, Limited the power of the monarch
+	+ Magna Carta -> Influence on -> Constitutional law, Common law, Human rights
+	+ Magna Carta -> Provisions -> Due process, Habeas corpus, Right to trial by jury
+	+ Magna Carta -> Later developments -> English Bill of Rights (1689), American Declaration of Independence (1776)
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (16. vicuna-13b-v1.5)>
+* Question: Evaluate the significance of the Magna Carta in the development of constitutional law.
+* Answer(about 34 words): The Magna Carta is considered one of the most significant legal documents in history, as it established the principle that everyone, including the king, was subject to the law. This laid the foundation for modern constitutional law and influenced the development of human rights and democratic principles around the world.
+* Related triples(about 11 relationships):
+	+ Magna Carta -> Signed -> June 15, 1215, Runnymede, England
+	+ Magna Carta -> Issued by -> King John of England
+	+ Magna Carta -> Influenced -> Constitutional law, Human rights, Democratic principles
+	+ Magna Carta -> Key Provisions -> Limitations on royal power, Right to a fair trial
+	+ Magna Carta -> Reissued -> 1216, 1217, 1225
+	+ Magna Carta -> Legacy -> Inspired the development of similar documents in other countries, such as the U.S. Bill of Rights and the Universal Declaration of Human Rights
+	+ Magna Carta -> Historical Significance -> Considered a milestone in the evolution of individual liberties and the rule of law
+	+ Magna Carta -> Place in British History -> One of the most important legal documents in British history
+	+ Magna Carta -> Contribution to International Law -> Established the idea that even monarchs are subject to the law
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (17. Mistral-7B-Instruct-v0.1)>
+* Question: Evaluate the significance of the Magna Carta in the development of constitutional law.
+* Answer(about 34 words): The Magna Carta, signed in 1215 by King John of England, established the principle of rule of law by limiting the power of the monarch and protecting individual rights. It laid the foundation for modern constitutional law and has been cited as a key influence on legal systems around the world.
+* Related triples(about 11 relationships):
+  - The Magna Carta -> Signed -> June 15, 1215, Runnymede, Surrey, England
+  - The Magna Carta -> Amended -> June 1216, London, England
+  - The Magna Carta -> Renewed -> 1219, London, England
+  - The Magna Carta -> Confirmed -> 1225, London, England
+  - The Magna Carta -> Stolen -> 1291, Winchester, Hampshire, England
+  - The Magna Carta -> Lost -> 1294, Winchester, Hampshire, England
+  - The Magna Carta -> Rediscovered -> 1609, Westminster Abbey, London, England
+  - The Magna Carta -> Translated -> 1651, Westminster Abbey, London, England
+  - The Magna Carta -> Influenced -> United States Constitution
+  - The Magna Carta -> Influenced -> French Declaration of the Rights of Man and Citizen
+  - The Magna Carta -> Influenced -> German Basic Law
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (18. Mistral-7B-Instruct-v0.2)>
+* Answer(about 34 words): The Magna Carta, signed in 1215, is considered one of the most significant legal documents in history as it established the principle that everyone, including the monarchy, is subject to the law. It introduced the concept of due process and habeas corpus, limiting the power of the monarchy and protecting the rights of the nobility and common people.
+* Related triples(about 11 relationships):
+  - Magna Carta -> Signed -> June 15, 1215, Runnymede, England
+  - Magna Carta -> Key Provisions -> Habeas Corpus, Due Process
+  - Magna Carta -> Impacted -> English Common Law, Constitutional Law
+  - Magna Carta -> Influenced -> United States Constitution's Bill of Rights, Universal Declaration of Human Rights
+  - Magna Carta -> Monarch -> King John of England
+  - Magna Carta -> Historical Context -> Feudal System, English Civil War
+  - Magna Carta -> Legal Precedents -> English Bill of Rights (1689), Habeas Corpus Act (1679)
+  - Magna Carta -> Signatories -> Archbishop Stephen Langton, Barons of England
+  - Magna Carta -> Reissued -> 1217, 1225, 1297
+  - Magna Carta -> Legacy -> Inspired similar documents in other countries, Shaped modern legal systems
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (19. Mistral-7B-Instruct-v0.3)>
+* Question: Evaluate the significance of the Magna Carta in the development of constitutional law.
+* Answer(about 34 words): The Magna Carta, signed in 1215, is considered the foundation of modern constitutional law. It established fundamental principles like due process, habeas corpus, and the rule of law, which have been instrumental in shaping democratic societies.
+* Related triples(about 11 relationships):
+  - Magna Carta -> Signed -> June 15, 1215, Runnymede, England
+  - Magna Carta -> King who signed -> John I of England (1199-1216)
+  - Magna Carta -> Clause -> Clause 39 (Habeas Corpus)
+  - Magna Carta -> Clause -> Clause 40 (Trial by Jury)
+  - Magna Carta -> Clause -> Clause 61 (Prohibition of arbitrary arrest)
+  - Magna Carta -> Influence on -> United States Constitution (1787)
+  - Magna Carta -> Influence on -> English Bill of Rights (1689)
+  - Magna Carta -> Impact on -> Development of constitutional law
+  - Magna Carta -> Historical Context -> Feudalism in Europe during Middle Ages
+  - Magna Carta -> Legal Precedent -> Petition of Right (1628)
+  - Magna Carta -> Legal Precedent -> Habeas Corpus Act (1679)
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (20. Mixtral-8x7B-Instruct-v0.1)>
+* Question: Evaluate the significance of the Magna Carta in the development of constitutional law.
+* Answer(about 34 words): The Magna Carta marked a shift in power from the monarchy to the nobility, establishing the idea of limited royal authority and laying the foundation for modern constitutional law.
+* Related triples(about 11 relationships):
+  - Magna Carta -> Year: 1215
+  - Magna Carta -> Location: Runnymede, England
+  - Magna Carta -> Original purpose: Limited King John's powers
+  - Magna Carta -> Key principle: Limited royal authority
+  - Magna Carta -> Influence: English Bill of Rights (1689)
+  - Magna Carta -> Influence: US Constitution (1787)
+  - Magna Carta -> Influence: Universal Declaration of Human Rights (1948)
+  - Magna Carta -> Impact: Established rule of law
+  - Magna Carta -> Impact: Protected individual rights
+  - Magna Carta -> Modern relevance: Foundation of modern constitutional law
+  - Magna Carta -> Key clause examples: Habeas corpus, Trial by jury
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (21. Mixtral-8x22B-Instruct-v0.1)>
+* Question: Evaluate the significance of the Magna Carta in the development of constitutional law.
+* Answer(about 34 words): The Magna Carta marked a pivotal moment in constitutional law, establishing principles of limited government power, individual rights, and rule of law, influencing legal systems worldwide.
+* Related triples(about 11 relationships):
+  - Magna Carta -> Signed -> June 15, 1215, Runnymede, England
+  - King John of England -> Issued -> Magna Carta
+  - Barons -> Rebelled Against -> King John of England
+  - Limited Government Power -> Established by -> Magna Carta
+  - Individual Rights -> Protected by -> Magna Carta
+  - Rule of Law -> Affirmed by -> Magna Carta
+  - Habeas Corpus Act -> Influenced by -> Magna Carta
+  - United States Constitution -> Inspired by -> Magna Carta
+  - Universal Declaration of Human Rights -> Traces Roots to -> Magna Carta
+  - English Bill of Rights -> Built Upon -> Magna Carta
+  - Constitutional Monarchy -> Emerged from -> Magna Carta
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (22. SOLAR-10.7B-Instruct-v1.0)>
+Answer: The Magna Carta significantly contributed to the establishment of constitutional law by limiting monarchical power, protecting individual rights, and establishing legal due process as a foundational principle for many modern legal systems.
+
+Related triples:
+1. Magna Carta -> Date signed -> June 15, 1215
+2. Magna Carta -> Location signed -> Runnymede, England
+3. King John of England -> Signer of Magna Carta -> Yes
+4. Pope Innocent III -> Annulment of Magna Carta -> November 1216
+5. Reissued Magna Carta -> Date signed -> June 1217
+6. Magna Carta Clauses -> Influenced by -> Ancient Anglo-Saxon laws
+7. Magna Carta Clauses -> Influenced by -> Customary laws of feudalism
+8. Habeas Corpus principle -> Derived from Magna Carta -> True
+9. No Trial by Ordeal principle -> Derived from Magna Carta -> True
+10. Petition of Right Act (1628) -> Directly influenced by Magna Carta -> True
+11. United States Constitution -> Indirectly influenced by Magna Carta -> True
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (23. openchat-3.5-1210)>
+* Question: Evaluate the significance of the Magna Carta in the development of constitutional law.
+* Answer(about 34 words): The Magna Carta, signed in 1215, established the principle that everyone is subject to the law, including the king, and that due process must be followed. It laid the foundation for modern constitutional law and has influenced numerous legal systems around the world.
+* Related triples(about 11 relationships):
+  - Magna Carta -> Signed -> June 15, 1215, Runnymede, England
+  - Magna Carta -> By -> King John
+  - Magna Carta -> Influenced -> United States Constitution
+  - Magna Carta -> Influenced -> Habeas Corpus
+  - Magna Carta -> Influenced -> Rule of Law
+  - Magna Carta -> Key Principles -> Due Process
+  - Magna Carta -> Key Principles -> Equality Before the Law
+  - Magna Carta -> Key Principles -> No Trial Without Indictment
+  - Magna Carta -> Key Principles -> Limitation of Monarchical Power
+  - Magna Carta -> Historical Context -> English Civil War
+  - Magna Carta -> Historical Context -> Feudalism
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (24. Mistral-7B-OpenOrca)>
+* Question: Evaluate the significance of the Magna Carta in the development of constitutional law.
+* Answer(about 34 words): The Magna Carta established the principle of limited government power, protecting individual rights and liberties, and laid the foundation for modern constitutional law. It also influenced later documents like the United States Constitution and the English Bill of Rights.
+* Related triples(about 11 relationships): (your triples here)
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (25. WizardLM-13B-V1.2)>
+* Question: Evaluate the significance of the Magna Carta in the development of constitutional law.
+* Answer(about 34 words): The Magna Carta, signed in 1215, was a pivotal document in the evolution of constitutional law. It established the principle that everyone, including the monarch, is subject to the law, laying the foundation for modern democratic principles and human rights. Its clauses protected the church, nobility, and common people from arbitrary arrest and punishment. Over time, its provisions have been incorporated into many national constitutions, shaping the concept of due process of law and limited government.
+* Related triples(about 11 relationships):
+  - Magna Carta -> Signed -> June 15, 1215, Runnymede, England
+  - Magna Carta -> Issued by -> King John of England
+  - Magna Carta -> Principle -> Everyone is subject to the law; no one is above it
+  - Magna Carta -> Protected -> Church, Nobility, Common People
+  - Magna Carta -> Incorporated into -> Many national constitutions
+  - Magna Carta -> Due Process of Law -> Concept
+  - Magna Carta -> Limited Government -> Principle
+<END_OF_MODEL_RESPONSE>
+
+
+==========
+Print the extracted items in the following format:
+1. (model_id without number prefix)
+ * Best: (best triples if they exist, otherwise none)
+ * Worst: (worst triples if they exist, otherwise none)
+ * Answer: (answer suggested by the model)
+2. (model_id without number prefix)
+ * Best: (best triples if they exist, otherwise none)
+ * Worst: (worst triples if they exist, otherwise none)
+ * Answer: (answer suggested by the model)
+...
+25. (model_id without number prefix)
+ * Best: (best triples if they exist, otherwise none)
+ * Worst: (worst triples if they exist, otherwise none)
+ * Answer: (answer suggested by the model)

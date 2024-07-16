@@ -1,0 +1,503 @@
+Please extract the following items suggested by the model from the model response output for each of the 25 models for the given question and answer set.
+1) Model ID: (model_id without number prefix)
+2) Best (and true) Triples: (if they don't exist in the model response, mark them as none)
+3) Worst (false or fake) Triples: (if they don't exist in the model response, mark them as none)
+4) Answer: (answer suggested by the model)
+==========
+* Question: Evaluate the scientific and technological advancements made during the Islamic Golden Age.
+==========
+* Base Answer: The Islamic Golden Age saw advancements in medicine, mathematics, astronomy, and engineering. Scholars like Al-Khwarizmi, Avicenna, and Alhazen made significant contributions that influenced both Islamic and European scientific traditions.
+==========
+* Base Triples:
+  - Islamic Golden Age -> Period -> 8th to 14th Century
+  - Al-Khwarizmi -> Contribution -> Algebra
+  - Avicenna -> Contribution -> Canon of Medicine
+  - Alhazen -> Contribution -> Optics
+  - Islamic Golden Age -> Key Institutions -> House of Wisdom, Baghdad
+  - Medicine -> Advancements -> Surgery, Pharmacology
+  - Mathematics -> Advancements -> Arabic Numerals, Algorithm
+  - Astronomy -> Advancements -> Astrolabe, Star Catalogues
+  - Engineering -> Advancements -> Water Clocks, Mechanical Devices
+  - Translation Movement -> Greek Texts -> Arabic
+  - Islamic Golden Age -> Influence -> Renaissance, European Science
+==========
+* Total 25 Model Responses:
+
+<BEGIN_OF_MODEL_RESPONSE (1. Llama-2-7b-chat-hf)>
+Thank you for the task! Here's my answer and related triples to the given question:
+
+* Question: Evaluate the scientific and technological advancements made during the Islamic Golden Age.
+* Answer (about 29 words): The Islamic Golden Age saw significant scientific and technological progress in fields like mathematics, astronomy, medicine, and chemistry.
+* Related triples (about 11 relationships):
+	+ Islamic Golden Age -> Began -> 8th century CE
+	+ Islamic Golden Age -> Ended -> 13th century CE
+	+ Mathematics -> Developed -> Algebra, Geometry, Trigonometry
+	+ Astronomy -> Made significant contributions -> Observations of celestial bodies, development of astronomical tables
+	+ Medicine -> Advancements -> Development of surgical techniques, introduction of new drugs and medical instruments
+	+ Chemistry -> Developed -> Alchemy, distillation, acid-base chemistry
+	+ Islamic World -> Contributed -> Scholars, scientists, philosophers, inventors
+	+ Scientific and technological advancements -> Made significant contributions -> Navigation, cartography, irrigation systems, paper production
+	+ Mathematicians and scientists -> Influenced -> Al-Khwarizmi, Ibn Sina, Avicenna, Averroes, Ibn Rushd
+	+ Inventions and innovations -> Introduced -> Astrolabe, quadrant, sundial, water clock, windmill
+
+I hope this meets your requirements!
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (2. Llama-2-13b-chat-hf)>
+Sure, I'd be happy to help! Here's my answer and related triples for the given question:
+
+Question: Evaluate the scientific and technological advancements made during the Islamic Golden Age.
+
+Answer (about 29 words): During the Islamic Golden Age, significant scientific and technological advancements were made, including the development of algebra, the refinement of the Arabic numeral system, and the translation of Greek philosophical texts into Arabic, leading to the emergence of Islamic mathematics, astronomy, and medicine as major intellectual disciplines.
+
+Related triples (about 11 relationships):
+
+1. Islamic Golden Age -> Time Period -> 8th to 13th centuries CE
+2. Islamic Golden Age -> Location -> Middle East and North Africa
+3. Islamic Golden Age -> Scientific Disciplines -> Mathematics, Astronomy, Medicine
+4. Islamic Golden Age -> Translation Movement -> Greek philosophical texts into Arabic
+5. Islamic Golden Age -> Major Figures -> Al-Khwarizmi, Ibn Sina, Ibn Rushd
+6. Islamic Golden Age -> Contributions -> Development of algebra, refinement of Arabic numeral system
+7. Islamic Golden Age -> Scientific Achievements -> Emergence of Islamic mathematics, astronomy, and medicine as major intellectual disciplines
+8. Islamic Golden Age -> Technological Advancements -> Development of paper manufacturing, improvements in astrolabes and other astronomical instruments
+9. Islamic Golden Age -> Cultural Exchange -> With other civilizations, such as the Byzantine Empire and ancient Greece
+10. Islamic Golden Age -> Intellectual Legacy -> Continues to influence modern science and mathematics
+11. Islamic Golden Age -> Historical Significance -> Marked a period of significant intellectual and cultural
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (3. Llama-2-70b-chat-hf)>
+Sure, I can help you with that! Here's my answer and related triples for the question:
+
+* Question: Evaluate the scientific and technological advancements made during the Islamic Golden Age.
+* Answer(about 29 words): The Islamic Golden Age saw significant scientific and technological advancements, including the development of algebra, the refinement of the Arabic numeral system, and the translation of Greek philosophical works into Arabic.
+* Related triples(about 11 relationships):
+  - Muhammad ibn Musa al-Khwarizmi -> Contributed to -> Development of algebra
+  - Al-Kindi -> Contributed to -> Cryptography, philosophy
+  - Al-Khwarizmi -> Contributed to -> Geography, cartography
+  - Ibn Sina (Avicenna) -> Contributed to -> Medicine, philosophy
+  - Ibn Rushd (Averroes) -> Contributed to -> Philosophy, law
+  - Al-Farabi -> Contributed to -> Political philosophy, logic
+  - Ibn Khaldun -> Contributed to -> Historiography, sociology
+  - Al-Biruni -> Contributed to -> Astronomy, mathematics
+  - Ibn Yunus -> Contributed to -> Astronomy, mathematics
+  - Al-Zahrawi -> Contributed to -> Surgery, medicine
+  - Ibn Zuhr -> Contributed to -> Medicine, surgery
+
+Note: These triples are not exhaustive but rather a selection of some of the key contributors and their contributions during the Islamic Golden Age.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (4. Llama-3-8b-chat-hf)>
+<BEGIN_OF_YOUR_OUTPUT>
+* Question: Evaluate the scientific and technological advancements made during the Islamic Golden Age.
+* Answer(about 29 words): The Islamic Golden Age witnessed significant scientific and technological advancements, including algebraic geometry, optics, astronomy, medicine, and engineering innovations, which had a lasting impact on human civilization.
+* Related triples(about 11 relationships):
+  - Al-Khwarizmi -> Contributed to -> Algebraic Geometry
+  - Ibn Sina -> Contributed to -> Medicine
+  - Ibn Rushd -> Contributed to -> Philosophy, Law
+  - Al-Biruni -> Contributed to -> Astronomy, Cartography
+  - Al-Kindi -> Contributed to -> Cryptography, Mathematics
+  - Banu Musa Brothers -> Invented -> Automatic Door, Water Clock
+  - Al-Razi -> Contributed to -> Medicine, Chemistry
+  - Jabir ibn Hayyan -> Invented -> Distillation, Chemical Reactions
+  - Muhammad ibn Zakariya al-Razi -> Contributed to -> Medicine, Philosophy
+  - Al-Kindi -> Wrote -> "On the Use of the Astrolabe"
+  - Islamic Golden Age -> Period -> 8th-13th centuries CE
+</END_OF_YOUR_OUTPUT>
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (5. Llama-3-70b-chat-hf)>
+<BEGIN_OF_YOUR_OUTPUT>
+* Question: Evaluate the scientific and technological advancements made during the Islamic Golden Age.
+* Answer(about 29 words): The Islamic Golden Age saw significant advancements in mathematics, astronomy, medicine, and architecture, with notable contributions from scholars like Ibn Sina, Al-Khwarizmi, and Ibn Rushd.
+* Related triples(about 11 relationships):
+  - Islamic Golden Age -> Time period -> 8th-13th century
+  - Islamic Golden Age -> Region -> Middle East, North Africa, Iberia
+  - Ibn Sina -> Contributions -> Canon of Medicine, philosophical works
+  - Al-Khwarizmi -> Contributions -> Algebra, algorithm development
+  - Ibn Rushd -> Contributions -> Philosophy, commentary on Aristotle's works
+  - Islamic Golden Age -> Fields -> Mathematics, Astronomy, Medicine, Architecture
+  - Islamic Golden Age -> Notable Scholars -> Ibn Sina, Al-Khwarizmi, Ibn Rushd, Al-Biruni
+  - Islamic Golden Age -> Influences -> Greek, Persian, Indian knowledge systems
+  - Islamic Golden Age -> Achievements -> Development of algebra, discovery of new stars
+  - Islamic Golden Age -> Legacy -> Preservation of classical knowledge, foundation for Renaissance
+  - Islamic Golden Age -> Centers of Learning -> House of Wisdom, Al-Azhar University
+<END_OF_YOUR_OUTPUT>
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (6. Qwen1.5-0.5B-Chat)>
+To evaluate the scientific and technological advancements made during the Islamic Golden Age, we need to refer to the knowledge graph provided earlier. The graph shows Marie Curie's discoveries and achievements, including the discovery of Radium and Polonium. We also reference related triple including the birth date of Marie Curie, the death of her husband Pierre Curie, the discovery of Radium and Polonium, the marriage of Marie Curie and Pierre Curie, the burial of Marie Curie and her children, the education of Marie Curie at the University of Paris, the children of Marie Curie, the Nobel Prize in Physics awarded to Marie Curie in 1903, and the Nobel Prize in Chemistry awarded to Marie Curie in 1911.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (7. Qwen1.5-1.8B-Chat)>
+The Islamic Golden Age, also known as the Islamic Renaissance, was a period of significant scientific and technological advancement in Islam, spanning from the 7th century to the 13th century CE. Some of the major contributions made during this time include:
+1. Mathematics: The development of algebraic equations and geometric concepts by Al-Khwarizmi laid the foundation for later mathematical developments, including the Pythagorean theorem, Euclidean geometry, and calculus.
+2. Astronomy: The work of Arab astronomers like Al-Biruni and Ibn al-Haytham paved the way for understanding celestial bodies and their motion. They developed astronomical instruments like the astrolabe, telescope, and pangenesis, which allowed them to observe stars, planets, and other celestial objects with greater accuracy.
+3. Medicine: Islamic medicine made significant advancements, particularly in pharmacology and surgery. Muslim scholars produced works on herbal remedies, pharmacognostics, and surgical techniques, contributing to the development of modern medical practices.
+4. Philosophy: Islamic philosophers like Avicenna and al-Farabi contributed to the philosophical understanding of life, knowledge, and ethics. Their ideas influenced the development of Aristotle's corpus and laid the groundwork for the emergence of Western philosophy.
+5. Engineering: Islamic engineers, such as Al-Idrisi, made significant contributions to the construction of structures like mosques, bridges, and irrigation systems. These innovations not only improved infrastructure but also helped in urban planning and water management.
+6. Literature: Islamic literature flourished during this time, with works of poetry, prose, and drama reflecting the cultural and intellectual landscape of the region.阿拉伯诗人穆罕默德·伊本·赫拉利尔、艾哈迈德·阿卜杜勒·法塔赫·卡西姆等创作了许多脍炙人口的文学作品, including the famous epic poem "Arabian Nights."
+7. Science and technology: Islamic scientists
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (8. Qwen1.5-4B-Chat)>
+* Question: Evaluate the scientific and technological advancements made during the Islamic Golden Age.
+* Answer(about 29 words): The Islamic Golden Age was a period of great scientific and technological advancement, with significant contributions in fields such as mathematics, astronomy, medicine, and engineering. Key figures in this era include Al-Khwarizmi, who developed algebra, and Ibn al-Haytham, who made important contributions to optics.
+* Related triples(about 11 relationships):
+  - Al-Khwarizmi -> Developed -> Algebra
+  - Ibn al-Haytham -> Made Contributions To -> Optics
+  - Al-Khwarizmi -> Born -> 780 AD
+  - Al-Khwarizmi -> Died -> 850 AD
+  - Ibn al-Haytham -> Born -> 965 AD
+  - Ibn al-Haytham -> Died -> 1040 AD
+  - Al-Khwarizmi -> Influenced -> Muhammad ibn Musa al-Khwarizmi
+  - Al-Khwarizmi -> Influenced -> Nasir al-Din Tusi
+  - Al-Khwarizmi -> Influenced -> Avicenna
+  - Al-Khwarizmi -> Influenced -> Averroes
+  - Al-Khwarizmi -> Influenced -> Leonardo da Vinci
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (9. Qwen1.5-7B-Chat)>
+Answer: The Islamic Golden Age witnessed significant advancements in mathematics, astronomy, medicine, and optics. Notable achievements include Al-Khwarizmi's contributions to algebra, the development of the astrolabe, and advances in pharmacology.
+
+Related triples(about 11 relationships):
+
+- Islamic Golden Age -> Time period -> 8th-14th centuries CE
+- Al-Khwarizmi -> Contribution -> Algebra
+- Al-Hazen (Al-Biruni) -> Field -> Optics
+- Ibn Sina (Avicenna) -> Medical work -> Canon of Medicine
+- Al-Andalus (Islamic Spain) -> Centers of learning -> Cordoba, Madinah
+- Astronomical instruments -> Astrolabe, Qibla direction finder
+- Mathematical concepts -> Geometry, Trigonometry
+- Scientific discoveries -> Properties of light, Pulmonary circulation
+- Islamic civilization -> Influence on Europe (e.g., Fibonacci's works)
+- Islamic Golden Age -> Cultural exchange with Byzantine Empire, Greek scholars
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (10. Qwen1.5-14B-Chat)>
+* Answer: The Islamic Golden Age saw significant progress in mathematics, astronomy, medicine, and algebra, with notable figures like Al-Khwarizmi and Ibn Sina.
+* Related triples:
+  - Islamic Golden Age -> Timeframe -> c. 8th-13th centuries
+  - Al-Khwarizmi -> Contribution -> Algebra, Numerals
+  - Ibn Sina (Avicenna) -> Fields -> Medicine, Philosophy
+  - Al-Hazen -> Optics -> Book of Optics ("Kitab al-Manazir")
+  - Al-Biruni -> Astronomy -> Earth's circumference measurement
+  - Archimedes -> Influence (Islamic era) -> Calculus, Geometry
+  - Islamic Science Institutes -> Location -> Baghdad, Cordoba, Samarkand
+  - Translation Movement -> Impact -> Preservation of Greek works
+  - Paper Production -> Innovations -> From China to Islamic world
+  - Scientific Method -> Development -> Early stages of empirical reasoning
+  - Technology Transfer -> To Europe -> Printing press, Astrology instruments
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (11. Qwen1.5-32B-Chat)>
+* Answer(about 29 words): The Islamic Golden Age witnessed significant advancements in mathematics, astronomy, medicine, chemistry, and physics, influencing later European development.
+* Related triples(about 11 relationships):
+  - Islamic Golden Age -> Start -> 8th century
+  - Islamic Golden Age -> End -> 14th century
+  - Al-Khwarizmi -> Contribution -> Algebra, trigonometry
+  - Ibn Sina -> Contribution -> Canon of Medicine
+  - Al-Idrisi -> Work -> Tabula Rogeriana
+  - Avicenna -> Contribution -> The Book of Healing
+  - Jabir ibn Hayyan -> Contribution -> Chemistry, alchemy
+  - Al-Farabi -> Work -> Maqala fi al-'ilm
+  - Abū Rayhān Bīrūnī -> Discovery -> Earth's rotation, circumference
+  -伊斯兰教黄金时代 -> 影响 -> 欧洲文艺复兴科学发展
+  - House of Wisdom -> Location -> Baghdad, Iraq
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (12. Qwen1.5-72B-Chat)>
+* Question: Evaluate the scientific and technological advancements made during the Islamic Golden Age.
+* Answer(about 29 words): The Islamic Golden Age saw significant advancements in astronomy, mathematics, medicine, and optics. Key figures like Al-Khwarizmi, Al-Kindi, and Ibn Sina contributed to these fields, laying foundations for future scholars.
+* Related triples(about 11 relationships):
+  - Islamic Golden Age -> Duration -> 8th to 14th centuries
+  - Islamic Golden Age -> Region -> Islamic Empire (Arabia, North Africa, Iberian Peninsula)
+  - Al-Khwarizmi -> Contribution -> Algebra, Algorithms
+  - Al-Kindi -> Contribution -> Philosophy, Cryptography, Music theory
+  - Ibn Sina (Avicenna) -> Contribution -> Medicine, Philosophy
+  - Scientific Fields -> Advancements -> Astronomy, Mathematics
+  - Scientific Fields -> Advancements -> Medicine, Optics
+  - Key Texts -> Examples -> "Almagest" (Ptolemy), "Kitab al-Manazir" (Ibn al-Haytham)
+  - Education Centers -> Example -> House of Wisdom (Baghdad)
+  - Cultural Exchange -> Between -> Arabs, Greeks, Persians, Indians
+  - Impact -> On -> European Renaissance
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (13. Qwen1.5-110B-Chat)>
+* Question: Evaluate the scientific and technological advancements made during the Islamic Golden Age.
+* Answer(about 29 words): The Islamic Golden Age saw significant advancements in astronomy, mathematics (including algebra), medicine (such as Avicenna's Canon of Medicine), optics, and philosophy, with scholars like Al-Khwarizmi, Ibn Sina, and Alhazen contributing to these fields.
+
+* Related triples(about 11 relationships):
+  - Islamic Golden Age -> Time Period -> 8th-14th centuries
+  - Al-Khwarizmi -> Invented -> Algebra
+  - Ibn Sina (Avicenna) -> Wrote -> Canon of Medicine
+  - Alhazen -> Contributed To -> Optics
+  - Islamic Golden Age -> Contributions -> Astronomy, Mathematics, Medicine, Philosophy
+  - Al-Razi -> Developed -> Medical Treatises
+  - Ibn Rushd (Averroes) -> Commentaries On -> Aristotle's works
+  - Muslim Scholars -> Advanced -> Astrolabes for navigation
+  - Jabir ibn Hayyan -> Father Of -> Chemical Technology
+  - Al-Zahrawi (Abulcasis) -> Pioneer In -> Surgery
+  - Islamic Empire -> Centers Of Learning -> Baghdad, Córdoba, Cairo
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (14. Qwen2-72B-Instruct)>
+<BEGIN_OF_YOUR_OUTPUT>
+* Answer: The Islamic Golden Age saw advancements like Al-Khwarizmi's algebra, Ibn al-Haytham's optics, and Al-Razi's medical works, fostering a culture of learning and innovation.
+* Related triples:
+  - Islamic Golden Age -> Started -> 8th century
+  - Islamic Golden Age -> Ended -> 13th century
+  - Al-Khwarizmi -> Contributed -> Algebra, Algorithms
+  - Ibn al-Haytham -> Contributed -> Optics, Mathematics
+  - Al-Razi -> Contributed -> Medicine, Chemistry
+  - Islamic Golden Age -> Influenced by -> Greek Philosophy, Indian Mathematics
+  - Islamic Golden Age -> Center -> Baghdad, House of Wisdom
+  - Al-Farabi -> Contributed -> Philosophy, Music Theory
+  - Al-Idrisi -> Contributed -> Geography, Cartography
+  - Ibn Sina -> Contributed -> Medicine, Avicenna Canon
+  - Islamic Golden Age -> Spread Knowledge -> Europe via translations
+<END_OF_YOUR_OUTPUT>
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (15. vicuna-7b-v1.5)>
+* Question: Evaluate the scientific and technological advancements made during the Islamic Golden Age.
+* Answer(about 29 words): During the Islamic Golden Age (8th-13th centuries), significant scientific and technological advancements were made in various fields, including mathematics, astronomy, medicine, and optics. Contributions were made by scholars like Al-Khwarizmi, Al-Hasan Ibn al-Haytham, and Ibn Rushd.
+* Related triples(about 11 relationships):
+	+ Islamic Golden Age -> Began -> 8th century
+	+ Islamic Golden Age -> Ended -> 13th century
+	+ Islamic Golden Age -> Location -> Middle East, North Africa
+	+ Al-Khwarizmi -> Developed -> Algorithm, Number System
+	+ Al-Hasan Ibn al-Haytham -> Contribution -> Camera Obscura, Optics
+	+ Ibn Rushd -> Contribution -> Logic, Metaphysics, Medicine
+	+ Islamic Golden Age -> Field -> Mathematics, Astronomy, Medicine, Optics
+	+ Islamic Golden Age -> Influence -> Renaissance, European Enlightenment
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (16. vicuna-13b-v1.5)>
+* Question: Evaluate the scientific and technological advancements made during the Islamic Golden Age.
+* Answer(about 29 words): The Islamic Golden Age witnessed significant advancements in various fields, including astronomy, medicine, mathematics, and optics. Key figures like Alhazen, Ibn Rushd, and al-Hasan Ibn al-Haytham contributed to these advancements.
+* Related triples(about 11 relationships):
+	+ Alhazen -> Contributions -> Optics
+	+ Ibn Rushd -> Contributions -> Philosophy, Medicine
+	+ Al-Hasan Ibn al-Haytham -> Contributions -> Optics, Mathematics
+	+ Islamic Golden Age -> Time Period -> 8th-13th centuries
+	+ Islamic Golden Age -> Geographical Location -> Islamic world
+	+ Islamic Golden Age -> Science and Technology -> Astronomy, Medicine, Mathematics, Optics
+	+ Islamic Golden Age -> Figures Involved -> Alhazen, Ibn Rushd, Al-Hasan Ibn al-Haytham
+	+ Alhazen -> Born -> c. 973, Basra, Iraq
+	+ Alhazen -> Died -> c. 1039, Cairo, Egypt
+	+ Ibn Rushd -> Born -> 1126, Cordoba, Al-Andalus (modern-day Spain)
+	+ Ibn Rushd -> Died -> 1198, Marrakesh, Morocco
+	+ Al-Hasan Ibn al-Haytham -> Born -> 965, Basra, Iraq
+	+ Al-Hasan Ibn al-Haytham -> Died -> 1040, Cairo, Egypt
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (17. Mistral-7B-Instruct-v0.1)>
+* Question: Evaluate the scientific and technological advancements made during the Islamic Golden Age.
+* Answer(about 29 words): During the Islamic Golden Age, there were significant advancements in mathematics, astronomy, medicine, and engineering. The development of the zero digit and algebraic equations were major contributions to mathematics. Astronomers like Al-Khwarizmi and Al-Tusi made significant progress in understanding the movements of celestial bodies and calculating astronomical tables. In medicine, physicians like Avicenna and Galen developed new theories and practices that influenced Western medicine for centuries. Engineers like Al-Jahiz and Al-Rasid built impressive structures such as bridges, aqueducts, and palaces.
+* Related triples(about 11 relationships):
+  - Al-Khwarizmi -> Developed -> Zero digit, algebraic equations
+  - Al-Tusi -> Developed -> Astronomical tables
+  - Avicenna -> Developed -> New theories and practices in medicine
+  - Galen -> Developed -> New theories and practices in medicine
+  - Al-Jahiz -> Built -> Impressive structures such as bridges, aqueducts
+  - Al-Rasid -> Built -> Impressive structures such as palaces
+  - Islamic Golden Age -> Began -> 7th century
+  - Islamic Golden Age -> Ended -> 15th century
+  - Science -> Advancements -> During the Islamic Golden Age
+  - Technology -> Advancements -> During the Islamic Golden Age
+  - Islam -> Religion -> Influenced science and technology during the Islamic Golden Age
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (18. Mistral-7B-Instruct-v0.2)>
+* Answer(about 29 words): The Islamic Golden Age, spanning from the 8th to the 13th centuries, saw significant advancements in various scientific fields including mathematics, astronomy, medicine, and chemistry. Notable figures like Al-Khwarizmi, Al-Farabi, Ibn Rushd, and Ibn Sina made groundbreaking contributions.
+* Related triples(about 11 relationships):
+  - Al-Khwarizmi -> Born -> c. 780, Khwarezm, Persia
+  - Al-Farabi -> Born -> c. 870, Farab, Transoxania
+  - Ibn Rushd -> Born -> January 5, 1126, Cordoba, Spain
+  - Ibn Sina -> Born -> September 15, 980, Amol, Persia
+  - Mathematics -> Developed -> Diophantine equations, Algebra, Geometry
+  - Astronomy -> Developed -> Algorithms for calculating planetary positions, Sextant, Quadrant
+  - Medicine -> Developed -> Anatomy, Surgery, Pharmacology
+  - Chemistry -> Developed -> Alchemical processes, Distillation, Ibn Sina's "Canon of Medicine"
+  - Al-Khwarizmi -> Contribution -> Algorithmic solutions for equations, "Al-Kitāb al-mukāshif ʿalā l-ḥisāb"
+  - Al-Farabi -> Contribution -> "The Political Regime," "The Attainment of Happiness," "Introductory Science"
+  - Ibn Rushd -> Contribution -> "Commentaries on Aristotle's 'De Caelo', 'Physics,' 'Metaphysics'"
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (19. Mistral-7B-Instruct-v0.3)>
+* Question: Evaluate the scientific and technological advancements made during the Islamic Golden Age.
+* Answer(about 29 words): The Islamic Golden Age saw significant advancements in various fields including astronomy, mathematics, medicine, and philosophy. Notable figures like Al-Khwarizmi, Ibn Sina, and Al-Biruni made groundbreaking contributions.
+* Related triples(about 11 relationships):
+  - Abu Ja'far Muhammad ibn Musa al-Khwarizmi -> Lived -> 8th century, Persia
+  - Abu Ali al-Hussein ibn Abd Allah ibn Sina -> Lived -> 10th-11th century, Bukhara, Uzbekistan
+  - Al-Biruni -> Lived -> 10th-11th century, Khwarazm, Uzbekistan
+  - Al-Khwarizmi -> Contribution -> Development of algebra and number systems, including decimal positional numeral system
+  - Ibn Sina -> Contribution -> Authoring "The Canon of Medicine," one of the most influential medical texts in history
+  - Al-Biruni -> Contribution -> Accurate measurements of Earth's circumference, latitude, and longitude, as well as studies on minerals, geography, and Indian culture
+  - Al-Khwarizmi -> Influenced -> Gerbert of Aurillac, who later became Pope Sylvester II and introduced Arabic numerals to Europe
+  - Ibn Sina -> Influenced -> Leonardo Fibonacci, who popularized the Fibonacci sequence in Europe
+  - Al-Biruni -> Influenced -> Averroes, another prominent thinker of the Islamic Golden Age
+  - Islamic Golden Age -> Period -> 8th to 13th centuries
+  - Islamic Golden Age -> Location -> Caliphates of Baghdad, Córdoba, and Samarkand
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (20. Mixtral-8x7B-Instruct-v0.1)>
+* Question: Evaluate the scientific and technological advancements made during the Islamic Golden Age.
+* Answer(about 29 words): The Islamic Golden Age saw significant advancements in mathematics, astronomy, and medicine, with the development of algebra, the creation of accurate astronomical instruments, and the establishment of hospitals.
+* Related triples(about 11 relationships):
+  - Islam -> Golden Age -> Approximately 8th Century to 13th Century
+  - Islam -> Contribution -> Mathematics (algebra, geometry)
+  - Islam -> Contribution -> Astronomy (astrolabes, astronomical tables)
+  - Islam -> Contribution -> Medicine (hospitals, medical texts)
+  - Islam -> Influence -> Arabic numerals, Decimal point system
+  - Islam -> Scholars -> Al-Khwarizmi, Al-Farghani, Ibn Sina
+  - Al-Khwarizmi -> Achievement -> Developed algebra
+  - Al-Farghani -> Achievement -> Improved astronomical measurements
+  - Ibn Sina -> Achievement -> Wrote influential medical text "The Canon of Medicine"
+  - Islam -> Cultural Impact -> Translation movement (Baghdad House of Wisdom)
+  - Islam -> Interaction -> Collaboration with Persian, Indian, and Greek scholars
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (21. Mixtral-8x22B-Instruct-v0.1)>
+* Question: Evaluate the scientific and technological advancements made during the Islamic Golden Age.
+* Answer(about 29 words): The Islamic Golden Age saw significant advancements in mathematics, astronomy, medicine, chemistry, and philosophy. Major contributions included Algebra by Al-Khwarizmi and medical works by Ibn Sina.
+* Related triples(about 11 relationships):
+  - Islamic Golden Age -> Started -> Around 750 AD
+  - Islamic Golden Age -> Ended -> Around 1258 AD
+  - Islamic Golden Age -> Centered In -> Baghdad, Cairo, Cordoba
+  - Muhammad ibn Musa al-Khwarizmi -> Contribution -> Development of algebra and algorithms
+  - Ibn Sina (Avicenna) -> Contribution -> Medical encyclopedia "The Canon of Medicine"
+  - Al-Biruni -> Contribution -> Accurate determination of latitude and longitude
+  - Al-Zahrawi -> Contribution -> Advancement in surgical procedures and instruments
+  - Ibn al-Haytham -> Contribution -> Optics and vision science
+  - Omar Khayyám -> Contribution -> Solutions for cubic equations
+  - Abbasid Caliphate -> Role -> Patronizing arts and sciences
+  - House of Wisdom -> Role -> Translation and preservation of Greek texts
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (22. SOLAR-10.7B-Instruct-v1.0)>
+Question: Evaluate the scientific and technological advancements made during the Islamic Golden Age.
+Answer: The Islamic Golden Age (c. 786 - 1258 AD) witnessed significant progress in various fields including mathematics, astronomy, medicine, and alchemy. Notable figures like Al-Khwarizmi, Al-Biruni, Ibn Sina, and Al-Razi contributed immensely to these developments.
+Related triples:
+1. Al-Khwarizmi -> Main field -> Mathematics, Geography
+2. Al-Khwarizmi -> Known for -> Development of algebra, Algorism
+3. Al-Biruni -> Main field -> Astronomy, Mathematics, Geography
+4. Al-Biruni -> Known for -> Calculation of earth's circumference
+5. Ibn Sina -> Main field -> Medicine, Philosophy
+6. Ibn Sina -> Known for -> Authoring "The Canon of Medicine"
+7. Al-Razi -> Main field -> Medicine, Chemistry
+8. Al-Razi -> Known for -> Establishment of pharmacology as a science
+9. Abbasid Caliphate -> Encouraged -> Scientific advancements
+10. House of Wisdom -> Established in -> Baghdad, Abbasid Caliphate
+11. House of Wisdom -> Role -> Translation center for Greek, Persian, Indian texts into Arabic
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (23. openchat-3.5-1210)>
+* Question: Evaluate the scientific and technological advancements made during the Islamic Golden Age.
+* Answer(about 29 words): The Islamic Golden Age saw significant advancements in mathematics, astronomy, medicine, and literature. Key figures like Al-Khwarizmi, Al-Razi, and Ibn Sina contributed greatly to the development of these fields.
+* Related triples(about 11 relationships):
+  - Muhammad ibn Musa al-Khwarizmi -> Lived -> Baghdad, Iraq
+  - Muhammad ibn Musa al-Khwarizmi -> Known for -> Algorithm
+  - Muhammad ibn Musa al-Khwarizmi -> Contribution -> Mathematics
+  - Abu Bakr al-Razi -> Lived -> Rey, Persia
+  - Abu Bakr al-Razi -> Known for -> Al-Razi's Balances
+  - Abu Bakr al-Razi -> Contribution -> Medicine
+  - Abu Ali al-Husayn ibn Sina -> Lived -> Balkh, Persia
+  - Abu Ali al-Husayn ibn Sina -> Known as -> Avicenna
+  - Abu Ali al-Husayn ibn Sina -> Contribution -> Medicine, Philosophy
+  - Abu Ali al-Husayn ibn Sina -> Written works -> Canon of Medicine, Book of Healing
+  - Al-Idrisi -> Lived -> Palermo, Sicily
+  - Al-Idrisi -> Known for -> Geography
+  - Al-Idrisi -> Contribution -> Cartography
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (24. Mistral-7B-OpenOrca)>
+* Question: Evaluate the scientific and technological advancements made during the Islamic Golden Age.
+* Answer(about 29 words): The Islamic Golden Age saw significant advancements in mathematics, astronomy, medicine, chemistry, and architecture. Scholars like Al-Khwarizmi, Ibn Sina, Ibn al-Haytham, and Al-Razi contributed greatly to these fields.
+* Related triples(about 11 relationships):
+  - Al-Khwarizmi -> Developed -> Algebra
+  - Ibn Sina -> Known for -> Medical Encyclopedia "Al-Qanun fi al-Tibb"
+  - Ibn al-Haytham -> Contributed to -> Optics and Astronomy
+  - Al-Razi -> Pioneered -> Pharmacology and Chemistry
+  - Ibn al-Haytham -> Wrote -> "Kitab al-Manazir" (Book of Optics)
+  - Ibn Sina -> Wrote -> "Al-Qanun fi al-Tibb" (Canon of Medicine)
+  - Al-Razi -> Wrote -> "al-Hawi fi al-Tibb" (Comprehensive Book of Medicine)
+  - Ibn al-Haytham -> Influenced -> Western scholars like Roger Bacon and Leonardo da Vinci
+  - Al-Razi -> Influenced -> Western medicine, pharmacology, and chemistry
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (25. WizardLM-13B-V1.2)>
+* Question: Evaluate the scientific and technological advancements made during the Islamic Golden Age.
+* Answer(about 29 words): The Islamic Golden Age, from the 8th to the 13th century, saw significant advancements in mathematics, astronomy, medicine, geography, and more. Key figures like Al-Khwarizmi, Ibn Sina, and Al-Idrisi contributed greatly to these areas.
+* Related triples(about 11 relationships):
+  - Islamic Golden Age -> Time Period -> 8th to 13th century
+  - Islamic Golden Age -> Contributions -> Mathematics, Astronomy, Medicine, Geography
+  - Al-Khwarizmi -> Work -> Algebra, Geometry
+  - Ibn Sina -> Work -> Medicine, Philosophy
+  - Al-Idrisi -> Work -> Geography, Cartography
+<END_OF_MODEL_RESPONSE>
+
+
+==========
+Print the extracted items in the following format:
+1. (model_id without number prefix)
+ * Best: (best triples if they exist, otherwise none)
+ * Worst: (worst triples if they exist, otherwise none)
+ * Answer: (answer suggested by the model)
+2. (model_id without number prefix)
+ * Best: (best triples if they exist, otherwise none)
+ * Worst: (worst triples if they exist, otherwise none)
+ * Answer: (answer suggested by the model)
+...
+25. (model_id without number prefix)
+ * Best: (best triples if they exist, otherwise none)
+ * Worst: (worst triples if they exist, otherwise none)
+ * Answer: (answer suggested by the model)

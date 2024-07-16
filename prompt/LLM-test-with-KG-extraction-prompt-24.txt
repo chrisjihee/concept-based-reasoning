@@ -1,0 +1,512 @@
+Please extract the following items suggested by the model from the model response output for each of the 25 models for the given question and answer set.
+1) Model ID: (model_id without number prefix)
+2) Best (and true) Triples: (if they don't exist in the model response, mark them as none)
+3) Worst (false or fake) Triples: (if they don't exist in the model response, mark them as none)
+4) Answer: (answer suggested by the model)
+==========
+* Question: Evaluate the significance of the Kyoto Protocol in addressing global climate change and its effectiveness.
+==========
+* Base Answer: The Kyoto Protocol was a significant international treaty aimed at reducing greenhouse gas emissions. While it established important mechanisms for climate action, its effectiveness was limited by lack of participation from major emitters and challenges in enforcement.
+==========
+* Base Triples:
+  - Kyoto Protocol -> Adoption -> 1997
+  - Entered into Force -> 2005
+  - Greenhouse Gas Emissions -> Reduction Targets -> Binding Commitments
+  - Mechanisms -> Emissions Trading -> Carbon Credits
+  - Clean Development Mechanism -> Concept -> Sustainable Projects
+  - Major Emitters -> Non-participation -> United States, China
+  - Challenges -> Enforcement -> Compliance Issues
+  - Effectiveness -> Limited -> Mixed Results
+  - Successor -> Paris Agreement -> 2015
+  - Global Impact -> Climate Policy -> Awareness, Framework
+  - Long-term Significance -> International Cooperation -> Climate Change
+==========
+* Total 25 Model Responses:
+
+<BEGIN_OF_MODEL_RESPONSE (1. Llama-2-7b-chat-hf)>
+Sure, I'd be happy to demonstrate my ability to structure and retrieve knowledge from a knowledge graph! Here is my answer to the given question, along with some related triples to reference:
+
+* Question: Evaluate the significance of the Kyoto Protocol in addressing global climate change and its effectiveness.
+* Answer: The Kyoto Protocol is significant in addressing global climate change as it sets legally binding targets for reducing greenhouse gas emissions for over 190 countries. It has been effective in promoting clean energy technologies and reducing emissions, but its success has been limited by the lack of participation from major emitters like the United States.
+* Related triples:
+	+ Kyoto Protocol -> Signed -> December 11, 1997, Kyoto, Japan
+	+ Kyoto Protocol -> Entered into force -> February 16, 2005
+	+ Kyoto Protocol -> Parties -> Over 190 countries
+	+ Kyoto Protocol -> Targets -> Reduce greenhouse gas emissions by at least 5% below 1990 levels
+	+ Kyoto Protocol -> Participation -> Countries -> Australia, Canada, Russia, Japan, New Zealand, etc.
+
+I hope this demonstrates my ability to structure and retrieve knowledge from a knowledge graph! Let me know if you have any questions or need further clarification.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (2. Llama-2-13b-chat-hf)>
+Sure, I'd be happy to help! Here's my answer to the given question, along with the related triples to reference my answer:
+
+Question: Evaluate the significance of the Kyoto Protocol in addressing global climate change and its effectiveness.
+
+Answer (about 37 words): The Kyoto Protocol is a landmark international agreement aimed at reducing greenhouse gas emissions and mitigating the impacts of global climate change. It has been instrumental in setting binding targets for developed countries to reduce their emissions, and has played a crucial role in raising awareness and promoting actions to address climate change.
+
+Related triples (about 11 relationships):
+
+1. Kyoto Protocol -> Signed -> December 11, 1997, Kyoto, Japan
+2. Kyoto Protocol -> Entered into force -> February 16, 2005
+3. Kyoto Protocol -> Objective -> Reduce greenhouse gas emissions, mitigate impacts of global climate change
+4. Kyoto Protocol -> Participating countries -> Developed countries (Annex I countries)
+5. Kyoto Protocol -> Targets -> Binding targets for developed countries to reduce emissions
+6. Kyoto Protocol -> Emission reduction -> 5.2% below 1990 levels by 2008-2012
+7. Kyoto Protocol -> Compliance -> Non-compliance can lead to financial penalties and other consequences
+8. Kyoto Protocol -> Impact -> Has contributed to a reduction in greenhouse gas emissions, but more effort is needed to meet the target
+9. Kyoto Protocol -> Criticism -> Accusations of unfairness, lack of participation by major emitters (e.g., United States)
+10. Kyoto Protocol -> Successor -> Paris Agreement (2015)
+11. Kyoto Protocol -> Relevance -> Continues to play a role in international efforts to address climate change, despite being superseded by the Paris Agreement.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (3. Llama-2-70b-chat-hf)>
+Sure, I can help you with that! Here's my answer and related triples for the question you provided:
+
+* Question: Evaluate the significance of the Kyoto Protocol in addressing global climate change and its effectiveness.
+* Answer(about 37 words): The Kyoto Protocol was a landmark international agreement that aimed to reduce greenhouse gas emissions and mitigate the impacts of climate change. Although it had some success in promoting sustainable development and reducing emissions, its effectiveness was limited by the lack of participation from major emitters and the absence of binding targets.
+* Related triples(about 11 relationships):
+  - Kyoto Protocol -> Signed -> December 11, 1997, Kyoto, Japan
+  - Kyoto Protocol -> Implemented -> February 16, 2005
+  - Kyoto Protocol -> Parties -> 192 countries
+  - Kyoto Protocol -> Objective -> Reduce greenhouse gas emissions
+  - Kyoto Protocol -> Key provisions -> Emissions trading, carbon credits, clean development mechanism
+  - Kyoto Protocol -> Criticisms -> Lack of participation from major emitters, absence of binding targets
+  - Kyoto Protocol -> Impact -> Promoted sustainable development, reduced emissions in some countries
+  - Kyoto Protocol -> Expiration -> December 31, 2012
+  - Kyoto Protocol -> Replaced by -> Paris Agreement
+  - Kyoto Protocol -> Significance -> First international agreement to address climate change
+
+I hope this helps! Let me know if you have any questions or need further assistance.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (4. Llama-3-8b-chat-hf)>
+<BEGIN_OF_YOUR_OUTPUT>
+* Question: Evaluate the significance of the Kyoto Protocol in addressing global climate change and its effectiveness.
+* Answer(about 37 words): The Kyoto Protocol played a crucial role in setting emissions targets for developed countries, marking a significant step towards combating global warming. Although it had limitations, it laid the groundwork for subsequent agreements like the Paris Agreement, which built upon its framework.
+* Related triples(about 11 relationships):
+  - Kyoto Protocol -> Signed -> December 11, 1997, United Nations Framework Convention on Climate Change
+  - Kyoto Protocol -> Objective -> Reduce greenhouse gas emissions by at least 5% below 1990 levels by 2008-2012
+  - Kyoto Protocol -> Target -> Developed countries' emissions reduction targets
+  - Kyoto Protocol -> Limitation -> Excluded developing countries from binding targets
+  - Kyoto Protocol -> Effectiveness -> Criticized for being too lenient and not binding enough
+  - Kyoto Protocol -> Successor -> Paris Agreement (2015)
+  - Paris Agreement -> Objective -> Limit global warming to well below 2°C and pursue efforts to limit it to 1.5°C above pre-industrial levels
+  - Paris Agreement -> Binding -> Applies to all parties, including developing countries
+  - Global Warming -> Cause -> Human activities releasing greenhouse gases
+  - Greenhouse Gases -> Effect -> Trapping heat in the atmosphere
+  - United Nations -> Role -> Facilitate international cooperation on climate change issues
+</END_OF_YOUR_OUTPUT>
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (5. Llama-3-70b-chat-hf)>
+Here is my output:
+
+<BEGIN_OF_YOUR_OUTPUT>
+* Question: Evaluate the significance of the Kyoto Protocol in addressing global climate change and its effectiveness.
+* Answer(about 37 words): The Kyoto Protocol is a landmark agreement aiming to reduce greenhouse gas emissions, with significant importance in addressing global climate change, but its effectiveness has been limited due to lack of universal participation and inadequate emission reduction targets.
+* Related triples(about 11 relationships):
+  - Kyoto Protocol -> Signed -> December 11, 1997
+  - Kyoto Protocol -> Effective -> February 16, 2005
+  - Kyoto Protocol -> Aim -> Reduce greenhouse gas emissions
+  - Kyoto Protocol -> Targets -> 5% reduction below 1990 levels by 2012
+  - Kyoto Protocol -> Participants -> 187 countries, including EU, Japan, Canada
+  - Kyoto Protocol -> Non-participants -> United States, Australia, China
+  - Kyoto Protocol -> Successor -> Paris Agreement
+  - Kyoto Protocol -> Limitations -> Lack of universal participation, inadequate emission reduction targets
+  - Kyoto Protocol -> Impact -> Limited effectiveness in reducing global emissions
+  - Climate Change -> Causes -> Greenhouse gas emissions, deforestation, industrial activities
+  - Climate Change -> Consequences -> Rising sea levels, extreme weather events, biodiversity loss
+<END_OF_YOUR_OUTPUT>
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (6. Qwen1.5-0.5B-Chat)>
+Begins ofemo Example:
+* Question: What are the key findings of Marie Curie's work on radioactivity and its potential applications for medicine?
+* Answer: Marie Curie's work on radioactivity focused on discovering new elements with unknown properties and the possibility of using them as medical treatments.
+* Related triples(about 11 relationships):
+  - Marie Curie -> Found -> Radioactive materials
+  - Marie Curie -> Discovered -> Radioactive drugs
+  - Marie Curie -> Spouse -> Pierre Curie (m. 1895–1906)
+  - Marie Curie -> Education -> University of Paris (1903), University of Paris (1894), etc.
+  - Marie Curie -> Children -> Ève Curie, Irène Joliot-Curie
+  - Marie Curie -> Nobel Prize in Physics -> 1903
+  - Marie Curie -> Nobel Prize in Chemistry -> 1911
+  - Marie Curie -> Field -> Physics, Chemistry
+  - Marie Curie -> Work Institutions -> University of Paris, Radium Institute
+  - Marie Curie -> Children -> Ève Curie, Irène Joliot-Curie
+  - Marie Curie -> Nobel Prize in Medicine -> 1900
+  - Marie Curie -> International Community -> United Nations (UN)
+  - Marie Curie -> Climate Change -> Reduction in greenhouse gas emissions
+  - Marie Curie -> Environmental Protection -> Reducing pollution from industrial processes
+  - Marie Curie -> Scientific Research -> Advancements in technology for detecting and preventing radiation and other forms of environmental damage.
+
+End of Output:
+
+Question: Evaluate the significance of the Kyoto Protocol in addressing global climate change and its effectiveness.
+Answer: The Kyoto Protocol is an international agreement between countries aimed at reducing greenhouse gas emissions and mitigating the effects of climate change. It was signed in 1988 by 193 countries
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (7. Qwen1.5-1.8B-Chat)>
+The Kyoto Protocol, signed in 1997 by 192 countries, aims to reduce greenhouse gas emissions and limit global warming to well below 2°C above pre-industrial levels. The protocol has been widely recognized as a significant step towards addressing global climate change due to its ambitious targets, strong commitments from participating countries, and the comprehensive approach it takes to address multiple sectors, including agriculture, forestry, transportation, industry, and energy.
+One of the key achievements of the Kyoto Protocol is its emphasis on reducing greenhouse gas emissions from fossil fuels, particularly those associated with deforestation and land use changes. By setting binding targets for coal, oil, and gas emissions reductions, the protocol encourages participating countries to adopt cleaner technologies, promote reforestation efforts, and implement sustainable land management practices. This has led to significant progress in the transition away from fossil fuels, resulting in a reduction of carbon dioxide emissions worldwide by around 23% since the protocol came into force.
+
+In addition to its focus on reducing emissions, the Kyoto Protocol also includes provisions for adaptation measures to help vulnerable communities cope with the impacts of climate change, such as droughts, floods, and sea-level rise. These measures aim to minimize the negative effects of climate change on ecosystems, infrastructure, and human settlements, while promoting resilience and adaptive capacity.
+
+Furthermore, the Kyoto Protocol has been instrumental in raising awareness about the need for global action on climate change and fostering international cooperation. It has engaged a vast network of governments, businesses, civil society organizations, and individuals, demonstrating the importance of collective action and the potential for collective benefits in addressing a shared challenge.
+
+Overall, the Kyoto Protocol has proven to be a crucial tool in addressing global climate change and has contributed significantly to the global effort to mitigate and
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (8. Qwen1.5-4B-Chat)>
+Kyoto Protocol -> Implemented -> 1997
+ Kyoto Protocol -> Aimed At -> Reducing Greenhouse Gas Emissions
+ Kyoto Protocol -> Key Components -> Emission Reduction Targets, Technology Transfer, Financial Mechanisms
+ Kyoto Protocol -> Achievements -> Reduced Greenhouse Gas Emissions by 17% below 1990 levels by 2012
+ Kyoto Protocol -> Limitations -> Failure to meet emissions reduction targets for some countries and regions
+ Kyoto Protocol -> Effectiveness -> Effective in reducing greenhouse gas emissions, but more needs to be done to address global climate change.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (9. Qwen1.5-7B-Chat)>
+* Answer: The Kyoto Protocol, signed in 1997, aimed to reduce greenhouse gas emissions by setting national targets for developed countries. It was significant for initiating international cooperation on climate change but faced limitations due to lack of enforcement and subsequent negotiations.相关关系：(京都议定书 -> 签署年份 -> 1997)
+(京都议定书 -> 目的 -> 减少温室气体排放)
+(京都议定书 -> 类型 -> 国际协议)
+(京都议定书 -> 针对国家 -> 发达国家)
+(京都议定书 -> 功效限制 -> 强制执行不足)
+(京都议定书 -> 后续事件 -> 气候变化谈判)
+(京都议定书 -> 关键议题 -> 温室气体减排)
+(联合国气候变化框架公约 -> 成员参与 -> 京都议定书)
+(环保组织 -> 对京都议定书评价 -> 质疑成效)
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (10. Qwen1.5-14B-Chat)>
+* Answer: The Kyoto Protocol, adopted in 1997, established legally binding emissions targets for participating countries, aiming to reduce greenhouse gas emissions by 2012. However, its effectiveness was limited due to non-participation by major emitters and lack of clear mechanisms for enforcement.
+
+* Related triples:
+  - Kyoto Protocol -> Adopted -> December 11, 1997, Kyoto, Japan
+  - Kyoto Protocol -> Aim -> Reduce greenhouse gas emissions
+  - Kyoto Protocol -> Effective Until -> 2012
+  - Key Participants -> Annex I Countries (binding commitments)
+  - Non-Participating Countries -> United States, China
+  - Enforcement Mechanisms -> Limited
+  - Success Factors -> Clean Development Mechanism (CDM), Joint Implementation (JI)
+  - Failure Points -> Lack of commitment from major emitters
+  - Renewal Efforts -> Paris Agreement (2015), successor treaty
+  - Impact Assessment -> Mixed, partial reduction but未能 meet ambitious goals
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (11. Qwen1.5-32B-Chat)>
+* Answer(about 37 words): The Kyoto Protocol was a landmark international agreement in 1997 to combat global climate change by reducing greenhouse gas emissions. It marked a significant commitment from developed countries but faced limitations due to non-participation by some major emitters like the US and China.
+* Related triples(about 11 relationships):
+  - Kyoto Protocol -> Year Signed -> 1997
+  - Kyoto Protocol -> Purpose -> Combat global climate change
+  - Kyoto Protocol -> Key Component -> Emissions reduction targets for developed countries
+  - Kyoto Protocol -> Signatories -> Over 190 countries (excluding USA, China)
+  - Kyoto Protocol -> Effective Date -> February 16, 2005
+  - Kyoto Protocol -> Successor -> Paris Agreement (2015)
+  - Kyoto Protocol -> Limitations -> No binding commitments for major emitters
+  - Kyoto Protocol -> Importance -> First global effort with legally binding targets
+  - Kyoto Protocol -> Impact -> Inspired national policies and clean energy investments
+  - Kyoto Protocol -> Enforcement Mechanism -> Compliance Committee
+  - Kyoto Protocol -> Significance -> Set precedence for international climate cooperation
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (12. Qwen1.5-72B-Chat)>
+* Question: Evaluate the significance of the Kyoto Protocol in addressing global climate change and its effectiveness.
+* Answer(about 37 words): The Kyoto Protocol, signed in 1997, was a landmark international treaty aiming to reduce greenhouse gas emissions. It established legally binding reduction targets for developed countries, fostering awareness and commitment to combat climate change, yet its effectiveness was limited due to non-participation by some major emitters and lack of binding commitments for developing nations.
+* Related triples(about 11 relationships):
+  - Kyoto Protocol -> Signed -> December 11, 1997
+  - Kyoto Protocol -> Aim -> Reduce greenhouse gas emissions
+  - Kyoto Protocol -> Parties -> Developed countries
+  - Kyoto Protocol -> Targets -> Emission reduction percentages
+  - Kyoto Protocol -> Ratified -> February 16, 2005
+  - Kyoto Protocol -> Expiration Date -> 2012
+  - Kyoto Protocol -> Successor -> Paris Agreement
+  - Kyoto Protocol -> Major Emitters -> Non-participating countries (e.g., USA)
+  - Kyoto Protocol -> Limitation -> Developing countries not bound
+  - Kyoto Protocol -> Impact -> Global climate change awareness
+  - Kyoto Protocol -> Type -> International environmental treaty
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (13. Qwen1.5-110B-Chat)>
+* Question: Evaluate the significance of the Kyoto Protocol in addressing global climate change and its effectiveness.
+* Answer(about 37 words): The Kyoto Protocol marked a pivotal international commitment to combat climate change by setting greenhouse gas reduction targets for developed countries. Its significance lies in raising global awareness and initiating legally binding emissions cuts, though its effectiveness was limited due to non-participation by major emitters and modest emission reductions.
+* Related triples(about 11 relationships):
+  - Kyoto Protocol -> Aimed At -> Reducing Greenhouse Gas Emissions
+  - Kyoto Protocol -> Adopted -> December 11, 1997, Kyoto, Japan
+  - Kyoto Protocol -> Entered Into Force -> February 16, 2005
+  - Kyoto Protocol -> Target Countries -> Developed Nations
+  - Kyoto Protocol -> Emission Reduction Goal -> 5% below 1990 levels by 2012
+  - Kyoto Protocol -> Duration -> First Commitment Period (2008-2012)
+  - Kyoto Protocol -> Successor -> Paris Agreement
+  - Kyoto Protocol -> Parties -> 192 countries (excluding some major emitters)
+  - Kyoto Protocol -> Criticism -> Lack of participation from the U.S. and China
+  - Kyoto Protocol -> Impact -> Initiated international carbon market
+  - Kyoto Protocol -> Importance -> Foundation for future climate agreements
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (14. Qwen2-72B-Instruct)>
+<BEGIN_OF_YOUR_OUTPUT>
+* Answer: The Kyoto Protocol, established in 1997, marked a significant step in international efforts to combat climate change by setting binding targets for reducing greenhouse gas emissions, primarily focusing on developed nations.
+
+* Related triples:
+  - Kyoto Protocol -> Established -> December 11, 1997, Kyoto, Japan
+  - Kyoto Protocol -> Signatories -> Over 190 countries as of 2021
+  - Kyoto Protocol -> Target -> Reduce greenhouse gas emissions
+  - Kyoto Protocol -> Focus -> Developed nations
+  - Kyoto Protocol -> Predecessor -> United Nations Framework Convention on Climate Change (UNFCCC)
+  - Kyoto Protocol -> Successor -> Paris Agreement
+  - Kyoto Protocol -> Mechanisms -> Emissions trading, Clean Development Mechanism, Joint Implementation
+  - Kyoto Protocol -> Criticism -> Exclusion of major emitters like USA and China from mandatory emission reductions
+  - Kyoto Protocol -> Impact -> Led to increased public awareness and political action on climate change
+  - Kyoto Protocol -> Compliance -> Monitored by the Conference of the Parties (COP)
+  - Kyoto Protocol -> First commitment period -> 2008-2012
+<END_OF_YOUR_OUTPUT>
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (15. vicuna-7b-v1.5)>
+* Answer: The Kyoto Protocol was a significant international agreement aimed at mitigating global warming by reducing greenhouse gas emissions. It was effective in bringing together various nations to combat climate change, but its success was limited due to non-binding emission reduction targets and lack of participation from major emitters like the United States.
+* Related triples:
+	+ Kyoto Protocol -> Signed -> December 12, 1997, Kyoto, Japan
+	+ Kyoto Protocol -> Goal -> Reduce greenhouse gas emissions
+	+ Kyoto Protocol -> Participating Countries -> Australia, Canada, EU, Japan, New Zealand, Russia, South Korea, USA
+	+ Kyoto Protocol -> Emission Reduction Targets -> 5% reduction target for Annex I countries (industrialized countries)
+	+ Kyoto Protocol -> Expiration -> December 2012, extended until 2020 under the Paris Agreement
+	+ Kyoto Protocol -> Success -> Limited due to non-binding targets and lack of participation from major emitters
+	+ Kyoto Protocol -> Paris Agreement -> 2015, replaced Kyoto Protocol
+	+ Kyoto Protocol -> Fossil Fuels -> Coal, Oil, Gas
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (16. vicuna-13b-v1.5)>
+* Question: Evaluate the significance of the Kyoto Protocol in addressing global climate change and its effectiveness.
+* Answer(about 37 words): The Kyoto Protocol was a landmark international agreement signed in 1997 aimed at reducing greenhouse gas emissions to combat global warming. It established binding targets for developed countries to reduce their emissions by an average of 5% compared to 1990 levels during the period 2008-2012. Despite its significance, the effectiveness of the protocol has been debated due to varying commitments among signatory countries, the United States' withdrawal, and the emergence of new polluters like China and India.
+* Related triples(about 11 relationships):
+	+ Kyoto Protocol -> Signed -> December 11, 1997
+	+ Kyoto Protocol -> Objective -> Reduce greenhouse gas emissions
+	+ Kyoto Protocol -> Participating Countries -> Developed countries
+	+ Kyoto Protocol -> Emission Targets -> Average 5% reduction from 1990 levels
+	+ Kyoto Protocol -> Implementation Period -> 2008-2012
+	+ United States -> Withdrew -> 2001
+	+ China -> Emerged as major polluter
+	+ India -> Emerged as major polluter
+	+ Climate Change -> Caused by -> Greenhouse gas emissions
+	+ Greenhouse Gas Emissions -> Contribute to -> Global Warming
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (17. Mistral-7B-Instruct-v0.1)>
+* Question: Evaluate the significance of the Kyoto Protocol in addressing global climate change and its effectiveness.
+* Answer(about 37 words): The Kyoto Protocol has been instrumental in reducing greenhouse gas emissions by setting binding targets for developed countries. However, its effectiveness is limited by the lack of participation from developing countries and insufficient measures to support developing nations in transitioning to low-carbon economies.
+* Related triples(about 11 relationships):
+  - Kyoto Protocol -> Signed -> December 11, 1997, Kyoto, Japan
+  - Kyoto Protocol -> Entered into force -> March 16, 2005
+  - Kyoto Protocol -> Targets -> Developed countries, developed countries with emission reduction targets
+  - Kyoto Protocol -> Developing countries -> Exemptions from emission reduction targets
+  - Kyoto Protocol -> Greenhouse gases -> Carbon dioxide, methane, nitrous oxide
+  - Kyoto Protocol -> Emissions reduction -> Targets, monitoring, reporting
+  - Kyoto Protocol -> Carbon sinks -> Forests, wetlands, oceans
+  - Kyoto Protocol -> Adaptation measures -> Developing countries, vulnerable communities
+  - Kyoto Protocol -> International cooperation -> Support mechanisms, technology transfer, financing
+  - Kyoto Protocol -> Climate change -> Mitigation, adaptation, vulnerability assessment
+  - Kyoto Protocol -> Follow-up mechanisms -> Post-2012 framework, Paris Agreement
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (18. Mistral-7B-Instruct-v0.2)>
+* Answer(about 37 words): The Kyoto Protocol, adopted in 1997, was the first international agreement aimed at reducing greenhouse gas emissions. It established legally binding emission reduction targets for developed countries, accounting for approximately 30% of global CO2 emissions. The Protocol has contributed to a decrease in emissions in participating countries, with the European Union reducing emissions by over 20% between 1990 and 2010. However, its impact has been limited due to non-participation from major emitters like China and the US.
+* Related triples(about 11 relationships):
+  - Kyoto Protocol -> Adopted -> December 11, 1997, Kyoto, Japan
+  - Kyoto Protocol -> Targets -> Developed countries
+  - Developed countries -> Emissions -> Approximately 30% of global CO2 emissions
+  - Kyoto Protocol -> Effectiveness -> Limited due to non-participation from major emitters
+  - European Union -> Emissions -> Over 20% reduction between 1990 and 2010
+  - European Union -> Participation -> Kyoto Protocol
+  - United States -> Participation -> Non-ratification of the Kyoto Protocol
+  - China -> Participation -> Non-participation in the Kyoto Protocol
+  - Greenhouse Gases -> Reduction -> Target of the Kyoto Protocol
+  - Global Warming -> Mitigation -> Objective of the Kyoto Protocol
+  - International Agreements -> Significance -> Addressing global climate change
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (19. Mistral-7B-Instruct-v0.3)>
+* Question: Evaluate the significance of the Kyoto Protocol in addressing global climate change and its effectiveness.
+* Answer(about 37 words): The Kyoto Protocol was a landmark agreement aimed at reducing greenhouse gas emissions to mitigate global warming. It established binding emission reduction targets for industrialized countries, paving the way for international cooperation on climate change. However, its effectiveness has been debated due to insufficient participation from major emitters like the United States and China.
+* Related triples(about 11 relationships):
+  - Kyoto Protocol -> Adopted -> December 11, 1997, Kyoto, Japan
+  - Kyoto Protocol -> Entered into force -> February 16, 2005
+  - Kyoto Protocol -> Targets -> Reduce greenhouse gas emissions by an average of 5% below 1990 levels over the five-year period 2008–2012 for Annex I Parties
+  - Kyoto Protocol -> Signed -> March 16, 1998 – January 16, 2005
+  - Kyoto Protocol -> Countries -> Australia, Austria, Belgium, Canada, Denmark, Finland, France, Germany, Greece, Iceland, Ireland, Italy, Japan, Liechtenstein, Luxembourg, Monaco, Netherlands, New Zealand, Norway, Portugal, Sweden, Switzerland, United Kingdom
+  - United Nations Framework Convention on Climate Change -> Protocol -> Kyoto Protocol
+  - Greenhouse gases -> Emissions -> Kyoto Protocol target reduction
+  - Global warming -> Cause -> Greenhouse gas emissions
+  - International cooperation -> Facilitated by -> Kyoto Protocol
+  - United States -> Withdrew from Kyoto Protocol -> 2001
+  - China -> Non-ratification of Kyoto Protocol -> 2001
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (20. Mixtral-8x7B-Instruct-v0.1)>
+* Question: Evaluate the significance of the Kyoto Protocol in addressing global climate change and its effectiveness.
+* Answer(about 37 words): The Kyoto Protocol, signed in 1997, was significant as it marked the first major international step to combat global warming by setting binding greenhouse gas emissions targets for developed countries. However, its effectiveness has been limited due to the non-participation of major emitters like the United States and China, as well as the lack of enforcement mechanisms.
+* Related triples(about 11 relationships):
+  - Kyoto Protocol -> Signed -> December 11, 1997, Kyoto, Japan
+  - Kyoto Protocol -> Objective -> Reduce greenhouse gases
+  - Kyoto Protocol -> Targeted Countries -> Developed countries
+  - Kyoto Protocol -> Major Provisions -> Binding emission reduction targets
+  - Kyoto Protocol -> Non-Participating Countries -> United States, China
+  - Kyoto Protocol -> Limitations -> Lack of enforcement mechanisms
+  - Kyoto Protocol -> Successor Agreement -> Paris Agreement (2015)
+  - Kyoto Protocol -> Year in Force -> 2005
+  - Kyoto Protocol -> Greenhouse Gases Covered -> Carbon dioxide, methane, nitrous oxide, hydrofluorocarbons, perfluorocarbons, sulfur hexafluoride
+  - Kyoto Protocol -> Flexibility Mechanisms -> Emissions trading, Clean Development Mechanism, Joint Implementation
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (21. Mixtral-8x22B-Instruct-v0.1)>
+* Question: Evaluate the significance of the Kyoto Protocol in addressing global climate change and its effectiveness.
+* Answer(about 37 words): The Kyoto Protocol aimed to reduce greenhouse gas emissions, being the first major international agreement on combating climate change. However, its effectiveness has been limited due to non-participation by some countries and insufficient reduction targets.
+* Related triples(about 11 relationships):
+  - Kyoto Protocol -> Adopted -> December 11, 1997
+  - Kyoto Protocol -> Entered into force -> February 16, 2005
+  - Kyoto Protocol -> Target -> Reduce GHG emissions by 5% compared to 1990 levels (first commitment period)
+  - Kyoto Protocol -> Signatories -> 192 parties as of March 2021
+  - Kyoto Protocol -> Non-signatory countries -> United States, Canada (withdrew)
+  - Kyoto Protocol -> First commitment period -> 2008-2012
+  - Kyoto Protocol -> Second commitment period -> 2013-2020
+  - Kyoto Protocol -> Successor -> Paris Agreement (2015)
+  - Kyoto Protocol -> Criticism -> Insufficient emission reductions, lack of participation from major emitters
+  - Kyoto Protocol -> Legacy -> Paved way for future agreements like Paris Agreement
+  - Kyoto Protocol -> Achievement -> Promoted awareness of climate change impacts
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (22. SOLAR-10.7B-Instruct-v1.0)>
+* Question: Evaluate the significance of the Kyoto Protocol in addressing global climate change and its effectiveness.
+
+* Answer (about 37 words): The Kyoto Protocol, signed in 1997, played a significant role in combating climate change by being the first international treaty to establish binding greenhouse gas emission targets for developed countries. Although not including major emitters like the U.S. and China, it promoted cleaner technologies, led to overall emission reductions in participating countries, and paved the way for further climate agreements like the Paris Agreement.
+
+* Related triples (about 11 relationships):
+1. Kyoto Protocol -> Signed -> 1997
+2. Kyoto Protocol -> Type -> International Treaty
+3. Kyoto Protocol -> Focus -> Combating Climate Change
+4. Kyoto Protocol -> Established -> Binding Greenhouse Gas Emission Targets
+5. Kyoto Protocol -> Target Countries -> Developed Countries
+6. Kyoto Protocol -> Exclusion -> Major Emitting Countries like U.S. and China
+7. Kyoto Protocol -> Promoted -> Cleaner Technologies
+8. Kyoto Protocol -> Result -> Emission Reductions for Participating Countries
+9. Kyoto Protocol -> Influenced -> Paris Agreement
+10. Paris Agreement -> Followed -> Kyoto Protocol
+11. Greenhouse Gases ->
+Contribution -> Global Climate Change
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (23. openchat-3.5-1210)>
+* Question: Evaluate the significance of the Kyoto Protocol in addressing global climate change and its effectiveness.
+* Answer(about 37 words): The Kyoto Protocol is a significant international agreement aimed at reducing greenhouse gas emissions, which play a major role in global climate change. It has been effective in setting legally binding targets for industrialized countries and promoting cleaner technologies. However, it has faced criticism for not including major emitters like the United States and for not achieving significant reductions in emissions.
+* Related triples(about 11 relationships):
+  - Kyoto Protocol -> Adopted -> September 11, 1997, Kyoto, Japan
+  - Kyoto Protocol -> Entered into force -> February 16, 2005
+</global_warming>
+  - Kyoto Protocol -> Objective -> Reduce greenhouse gas emissions
+  - Kyoto Protocol -> Targets -> Industrialized countries
+  - Kyoto Protocol -> Cleaner technologies -> Promote
+  - Kyoto Protocol -> Criticism -> Not including major emitters
+  - Kyoto Protocol -> Criticism -> Not achieving significant reductions in emissions
+  - Kyoto Protocol -> United States -> Not a party to the agreement
+  - Global warming -> Greenhouse gases -> Major contributor
+  - Global warming -> Climate change -> Major impact
+  - Climate change -> Effects -> Rising temperatures, extreme weather events, sea level rise
+  - Climate change -> Mitigation -> Reducing greenhouse gas emissions
+  - Climate change -> Adaptation -> Preparing for impacts
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (24. Mistral-7B-OpenOrca)>
+* Question: Evaluate the significance of the Kyoto Protocol in addressing global climate change and its effectiveness.
+* Answer: The Kyoto Protocol played a crucial role in addressing global climate change by setting legally binding targets for greenhouse gas emissions reduction for industrialized countries. It aimed to limit global warming to 2 degrees Celsius and has been credited with reducing carbon dioxide emissions worldwide. However, it faced criticism for not including major emitters like the United States and China, and some argue it has not been sufficiently effective in achieving its goals.
+* Related triples:
+  - Kyoto Protocol -> Ratified -> December 11, 1997
+  - Kyoto Protocol -> Targets -> Greenhouse Gas Emissions Reduction
+  - Kyoto Protocol -> Goal -> Limiting Global Warming to 2 degrees Celsius
+  - Kyoto Protocol -> Included Countries -> Industrialized Countries
+  - Kyoto Protocol -> Excluded Countries -> United States, China
+  - Kyoto Protocol -> Effectiveness -> Debated, Reduced Carbon Dioxide Emissions Worldwide
+  - Kyoto Protocol -> Replacement -> Paris Agreement (2016)
+  - Kyoto Protocol -> Legally Binding Targets -> Yes
+  - Kyoto Protocol -> Major Emitters Not Included -> United States, China
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (25. WizardLM-13B-V1.2)>
+* Question: Evaluate the significance of the Kyoto Protocol in addressing global climate change and its effectiveness.
+* Answer(about 37 words): The Kyoto Protocol, adopted in 1997, is a landmark international agreement aimed at reducing greenhouse gas emissions. It has been significant in raising awareness and setting targets for developed countries to reduce their emissions. However, its effectiveness has been debated due to its limited scope and non-inclusion of major emitters like the US and China. Despite this, it paved the way for future agreements like the Paris Agreement, which seeks to limit global warming to below 2 degrees Celsius.
+* Related triples(about 11 relationships):
+  - Kyoto Protocol -> Signed -> December 11, 1997
+  - Kyoto Protocol -> Goal -> Reduce greenhouse gas emissions
+  - Kyoto Protocol -> Parties -> Developed countries
+  - Kyoto Protocol -> Effective from -> February 16, 2005
+  - Kyoto Protocol -> Replaced by -> Paris Agreement
+  - Kyoto Protocol -> Signatories -> 192 parties
+  - Kyoto Protocol -> Controversies -> Limited scope, non-inclusion of major emitters
+  - Kyoto Protocol -> Key milestone -> First legally binding international agreement on climate change
+  - Kyoto Protocol -> Followed by -> Paris Agreement
+<END_OF_MODEL_RESPONSE>
+
+
+==========
+Print the extracted items in the following format:
+1. (model_id without number prefix)
+ * Best: (best triples if they exist, otherwise none)
+ * Worst: (worst triples if they exist, otherwise none)
+ * Answer: (answer suggested by the model)
+2. (model_id without number prefix)
+ * Best: (best triples if they exist, otherwise none)
+ * Worst: (worst triples if they exist, otherwise none)
+ * Answer: (answer suggested by the model)
+...
+25. (model_id without number prefix)
+ * Best: (best triples if they exist, otherwise none)
+ * Worst: (worst triples if they exist, otherwise none)
+ * Answer: (answer suggested by the model)

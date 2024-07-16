@@ -1,0 +1,517 @@
+Please extract the following items suggested by the model from the model response output for each of the 25 models for the given question and answer set.
+1) Model ID: (model_id without number prefix)
+2) Best (and true) Triples: (if they don't exist in the model response, mark them as none)
+3) Worst (false or fake) Triples: (if they don't exist in the model response, mark them as none)
+4) Answer: (answer suggested by the model)
+==========
+* Question: What are the various themes explored in Shakespeare's play Hamlet?
+==========
+* Base Answer: Themes in 'Hamlet' include revenge, mortality, madness, politics, betrayal, and the complexity of action. The play also delves into the consequences of indecision and the quest for truth.
+==========
+* Base Triples:
+  - Hamlet -> Originally published -> 1623
+  - Hamlet -> Characters -> Ophelia, Claudius, Polonius, Yorick, Laertes, Horatio, etc.
+  - Hamlet -> Playwright -> William Shakespeare
+  - Hamlet -> Genres -> Tragedy, Drama
+  - Hamlet -> Original language -> Early Modern English
+  - Hamlet -> Setting -> Denmark
+  - Hamlet -> Themes -> Revenge, Mortality, Madness, Politics, Betrayal, Complexity of Action
+  - Hamlet -> Major Scenes -> The Ghost Scene, The Play within a Play, The Graveyard Scene
+  - Hamlet -> Symbolism -> Yorick's Skull, The Ghost, The Play within a Play
+  - Hamlet -> Famous Lines -> "To be, or not to be", "The lady doth protest too much"
+  - Hamlet -> Influence -> Inspired numerous adaptations and works
+==========
+* Total 25 Model Responses:
+
+<BEGIN_OF_MODEL_RESPONSE (1. Llama-2-7b-chat-hf)>
+Sure, I'd be happy to help! Here's my answer to the question "What are the various themes explored in Shakespeare's play Hamlet?" along with some related triples:
+
+* Question: What are the various themes explored in Shakespeare's play Hamlet?
+* Answer: (About 28 words) Hamlet explores themes of mortality, madness, betrayal, and revenge.
+* Related Triples (About 11 Relationships):
+	+ Hamlet -> Themes -> Mortality, Madness, Betrayal, Revenge
+	+ Hamlet -> Characters -> Hamlet, Claudius, Ophelia, Laertes
+	+ Hamlet -> Setting -> Denmark, Elsinore Castle
+	+ Hamlet -> Plot -> Murder of King Hamlet, Revenge plot against Claudius
+	+ Hamlet -> Symbolism -> Ghost of King Hamlet, Ophelia's death
+	+ Hamlet -> Language -> Soliloquies, Asides, Poetry
+	+ Hamlet -> Historical context -> Elizabethan era, English Renaissance
+	+ Hamlet -> Literary devices -> Irony, Foreshadowing, Imagery
+	+ Hamlet -> Critical interpretations -> Tragic hero, Psychoanalytic theory, Marxist theory
+	+ Hamlet -> Adaptations -> Film, Theatre, Opera
+
+I hope this meets your requirements! Let me know if you have any further questions or need additional assistance.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (2. Llama-2-13b-chat-hf)>
+Sure! Here's my answer and related triples for the given question:
+
+Question: What are the various themes explored in Shakespeare's play Hamlet?
+
+Answer (about 28 words): Shakespeare's play Hamlet explores themes of betrayal, ambition, mortality, madness, and the human condition, as the titular character grapples with his father's ghost and his mother's hasty remarriage to his uncle.
+
+Related triples (about 11 relationships):
+
+1. Hamlet -> Written By -> William Shakespeare
+2. Hamlet -> Set In -> Denmark
+3. Hamlet -> Main Character -> Hamlet
+4. Hamlet -> Father -> King Hamlet (deceased)
+5. Hamlet -> Mother -> Queen Gertrude (married to Claudius)
+6. Hamlet -> Uncle -> Claudius (married to Gertrude)
+7. Hamlet -> Betrayal -> Claudius murdering King Hamlet and marrying Gertrude
+8. Hamlet -> Ambition -> Claudius seeking power and control
+9. Hamlet -> Mortality -> Themes of death and decay throughout the play
+10. Hamlet -> Madness -> Ophelia's descent into madness and Hamlet's feigned madness
+11. Hamlet -> Human Condition -> Exploration of human emotions and experiences, including love, loss, and revenge.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (3. Llama-2-70b-chat-hf)>
+Sure! Here's my response:
+
+* Question: What are the various themes explored in Shakespeare's play Hamlet?
+* Answer(about 28 words): Hamlet explores themes of betrayal, ambition, mortality, madness, and the human condition.
+* Related triples(about 11 relationships):
+  - William Shakespeare -> Wrote -> Hamlet
+  - Hamlet -> Protagonist -> Prince Hamlet
+  - Prince Hamlet -> Father -> King Hamlet
+  - King Hamlet -> Murdered -> By Claudius
+  - Claudius -> Married -> Queen Gertrude
+  - Queen Gertrude -> Son -> Prince Hamlet
+  - Prince Hamlet -> Uncle -> Claudius
+  - Claudius -> Theme -> Betrayal
+  - Prince Hamlet -> Theme -> Ambition
+  - Hamlet -> Theme -> Mortality
+  - Ophelia -> Theme -> Madness
+  - Hamlet -> Theme -> Human Condition
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (4. Llama-3-8b-chat-hf)>
+<BEGIN_OF_YOUR_OUTPUT>
+* Question: What are the various themes explored in Shakespeare's play Hamlet?
+* Answer(about 28 words): Shakespeare's play Hamlet explores themes of mortality, ambition, madness, betrayal, morality, revenge, mortality, and the human condition, all woven together by the complex character of Prince Hamlet.
+* Related triples(about 11 relationships):
+  - William Shakespeare -> Wrote -> Hamlet
+  - Hamlet -> Theme -> Mortality
+  - Hamlet -> Theme -> Ambition
+  - Hamlet -> Theme -> Madness
+  - Hamlet -> Theme -> Betrayal
+  - Hamlet -> Theme -> Morality
+  - Hamlet -> Theme -> Revenge
+  - Hamlet -> Theme -> Human Condition
+  - Prince Hamlet -> Character -> Hamlet
+  - Prince Hamlet -> Motivation -> Seeking justice for his father's death
+  - William Shakespeare -> Influenced By -> Ancient Greek Tragedies
+  - Hamlet -> Setting -> Elsinore Castle, Denmark
+</END_OF_YOUR_OUTPUT>
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (5. Llama-3-70b-chat-hf)>
+Here is my output:
+
+<BEGIN_OF_YOUR_OUTPUT>
+* Question: What are the various themes explored in Shakespeare's play Hamlet?
+* Answer(about 28 words): Shakespeare's Hamlet explores themes of ambition, mortality, madness, revenge, morality, corruption, appearance vs reality, and the human condition, all intertwined with complex characters and plot twists.
+* Related triples(about 11 relationships):
+  - William Shakespeare -> Wrote -> Hamlet
+  - Hamlet -> Written by -> William Shakespeare
+  - Hamlet -> Genre -> Tragedy
+  - Hamlet -> Main character -> Prince Hamlet
+  - Hamlet -> Themes -> Ambition, Mortality, Madness, Revenge, Morality, Corruption, Appearance vs Reality, Human Condition
+  - Hamlet -> Plot -> Uncles' murder, Father's ghost, Mother's remarriage, Ophelia's descent into madness
+  - Hamlet -> Characters -> Claudius, Gertrude, Ophelia, Horatio, Polonius
+  - Hamlet -> Setting -> Elsinore Castle, Denmark
+  - Hamlet -> Literary style -> Elizabethan English, Iambic pentameter
+  - Hamlet -> Influence -> Western literature, Theatre, Art
+  - Hamlet -> Adaptations -> Film, Stage, Opera, Ballet
+<END_OF_YOUR_OUTPUT>
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (6. Qwen1.5-0.5B-Chat)>
+Sure, I can help with that!
+Based on the knowledge graph provided, several themes are explored in Shakespeare's play Hamlet:
+1. Love: The play explores the theme of love between two lovers, who must come to terms with their feelings for each other despite the challenges they face.
+2. Fate: The play also touches on the idea of fate, as the characters in Hamlet must confront the choices they make and the consequences of those choices.
+3.复仇: Hamlet's desire for revenge against his father, King Claudius, leads him down a path that ultimately leads to his downfall.
+4. Morality: The play explores themes of morality and ethics, as the characters in Hamlet grapple with the nature of true happiness and the consequences of their actions.
+5. Family: The play also touches on the theme of family, as the characters in Hamlet struggle to find meaning in their lives after their father's death.
+Here are some related triples containing about 11 relationships to reference the answer:
+1. Hamlet -> Father -> Claudius
+2. Hamlet -> Son -> Hamlet
+3. Hamlet -> Mother -> Ophelia
+4. Hamlet -> Fortress -> Thebes
+5. Hamlet -> King -> Claudius
+6. Hamlet -> Prince -> Hamlet
+7. Hamlet -> Queen -> Hamlet
+8. Hamlet -> Brother -> Hamlet
+9. Hamlet -> Cousin
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (7. Qwen1.5-1.8B-Chat)>
+Hamlet explores several themes throughout its story, including:
+- Revenge: The main character, Hamlet, seeks revenge against his uncle, Claudius, who murdered him as an infant. He believes that he has been wronged by his father's murder and is determined to uncover the truth.
+- Betrayal: The play also delves into the theme of betrayal, particularly between Hamlet and his friend Ophelia. Ophelia is manipulated and killed by her lover,丹麦王子丹麦王后丹麦王后, after she falls in love with Hamlet. This tragic turn of events creates a sense of betrayal and disillusionment for Hamlet.
+- Madness: The play also explores the idea of madness, particularly in the mind of the titular character. Hamlet becomes increasingly paranoid and erratic, convinced that his enemies are plotting against him.
+- Power: The play examines the power dynamics at play in society, particularly in the context of the monarchy. Hamlet challenges the authority of the king and queen and questions the legitimacy of their rule.
+- Morality: The play raises important ethical questions about the nature of life, death, and the purpose of existence. Hamlet grapples with the concept of what it means to be alive and the meaning of one's own existence.
+- Love: The play explores the complexities of human emotions, particularly love and passion. Hamlet is torn between his love for
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (8. Qwen1.5-4B-Chat)>
+Answer: The themes explored in Shakespeare's play Hamlet include revenge, madness, love, power, and mortality.
+
+Related Triples:
+
+- Hamlet -> Author -> William Shakespeare (d. 1616)
+- Hamlet -> Setting -> Denmark
+- Hamlet -> Character -> Hamlet (the main protagonist)
+- Hamlet -> Character -> Ophelia (Hamlet's lover who commits suicide)
+- Hamlet -> Character -> Polonius (Hamlet's father's advisor and uncle)
+- Hamlet -> Character -> Claudius (Hamlet's uncle and king who murders his brother)
+- Hamlet -> Character -> Laertes (Claudius' son and Hamlet's rival)
+- Hamlet -> Character -> Marcellus (Laertes' friend)
+- Hamlet -> Character -> Othello (the Moorish general)
+- Hamlet -> Character -> Polonius' daughter, Rosencrantz and Guildenstern (two courtiers who are also spies for Claudius)
+- Hamlet -> Character -> Fortinbras (a young prince from Norway who threatens Denmark's dominance over Norway)
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (9. Qwen1.5-7B-Chat)>
+* Answer: The themes explored in Shakespeare's play Hamlet include revenge, madness, love, betrayal, morality, and the human condition.
+* Related triples(about 11 relationships):
+  - Hamlet -> Author -> William Shakespeare
+  - Hamlet -> Play Type -> Tragedy
+  - Hamlet -> Main Character -> Prince Hamlet
+  - Hamlet -> Primary Themes -> Revenge, Othello,三角恋(Betrayal),丹麦王子的疯狂(Madness)
+  - Hamlet -> Setting -> Denmark
+  - Rosencrantz and Guildenstern -> Characters Involved in Revenge Plot
+  - Polonius -> Character Linked to Betrayal
+  - Ophelia's Death -> Tragic Event
+  - Laertes' Revenge and Hamlet's Final Act -> Central Conflict
+  - Claudius' Regime and Moral Dilemmas -> Background context
+  -莎士比亚作品集 -> Collection where Hamlet is part of -> Complete Works of William Shakespeare
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (10. Qwen1.5-14B-Chat)>
+* Answer: Themes in Hamlet include revenge, morality, family conflict, existentialism, and the corrupting influence of power.
+* Related triples:
+  - Hamlet -> Author -> William Shakespeare
+  - Hamlet -> Genre -> Tragedy
+  - Set in -> Elsinore Castle, Denmark
+  - Main Character -> Prince Hamlet
+  - Revenge Plot -> Laertes vs. Hamlet, Ophelia vs. Hamlet
+  - Morality Question -> To be or not to be soliloquy
+  - Family Dynamics -> King Claudius, Queen Gertrude, Hamlet's parents' death
+  - Ghost Appearance -> Father's spirit
+  - Existential Struggle -> Hamlet's struggle with identity and purpose
+  - Power Dynamics -> Claudius'篡位和Hamlet's indecision
+  -akespeare's Legacy -> Influential work in English literature
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (11. Qwen1.5-32B-Chat)>
+* Answer(about 28 words): Hamlet explores themes like revenge, morality, madness, betrayal, and the nature of existence, as Prince Hamlet grapples with his father's ghost and his mother's hasty remarriage.
+* Related triples(about 11 relationships):
+  - Hamlet -> Author -> William Shakespeare
+  - Hamlet -> Written -> Early 1600s
+  - Hamlet -> Setting -> Denmark
+  - Hamlet -> Protagonist -> Prince Hamlet
+  - Hamlet -> Antagonist -> Claudius
+  - Hamlet -> Themes -> Revenge, Madness, Betrayal, Existentialism, Morality
+  - Hamlet -> Characters -> Ophelia, Horatio, Gertrude, Polonius
+  - Hamlet -> Play Structure -> Five acts
+  - Hamlet -> Source Material -> "Hamlet" by Thomas Kyd and "The Tragical History of Hamlet, Prince of Denmark" by Anonymous
+  - Hamlet -> Adaptations -> Numerous films, plays, and operas
+  - Hamlet -> Influence -> Considered one of Shakespeare's四大悲剧 (Four Great Tragedies)
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (12. Qwen1.5-72B-Chat)>
+* Question: What are the various themes explored in Shakespeare's play Hamlet?
+* Answer(about 28 words): Hamlet delves into themes of revenge, morality, madness, grief, and the complexity of human nature.
+* Related triples(about 11 relationships):
+  - Hamlet -> Written by -> William Shakespeare
+  - Hamlet -> Published -> 1603
+  - Hamlet -> Characters -> Hamlet, Claudius, Gertrude, Ophelia
+  - Shakespeare -> Birthdate -> April 26, 1564
+  - Shakespeare -> Death date -> April 23, 1616
+  - Hamlet -> Genre -> Tragedy
+  - Hamlet -> Setting -> Denmark
+  - Shakespeare -> Nationality -> English
+  - Hamlet -> Themes -> Revenge, Morality, Madness, Grief
+  - Hamlet -> Play Structure -> Five acts
+  - Shakespeare's Works -> Includes -> Romeo and Juliet, Macbeth, Hamlet
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (13. Qwen1.5-110B-Chat)>
+* Question: What are the various themes explored in Shakespeare's play Hamlet?
+* Answer(about 28 words): The main themes in Hamlet include revenge, madness, morality, appearance vs. reality, and the corruption of power.
+* Related triples(about 11 relationships):
+  - Hamlet -> Written by -> William Shakespeare
+  - Hamlet -> Genre -> Tragedy
+  - Hamlet -> Central Theme -> Revenge (Hamlet's quest to avenge his father's murder)
+  - Hamlet -> Theme -> Madness (Hamlet's feigned or genuine insanity)
+  - Hamlet -> Theme -> Morality (struggles with ethical decisions)
+  - Hamlet -> Theme -> Appearance vs. Reality (deception and hidden truths)
+  - Hamlet -> Theme -> Corruption of Power (court intrigue and decay)
+  - Hamlet -> Characters -> Prince Hamlet, Claudius, Gertrude, Ophelia
+  - Hamlet -> Setting -> Elsinore Castle, Denmark
+  - Hamlet -> Publication Date -> circa 1600-1601
+  - Hamlet -> Influence -> Major work in English literature
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (14. Qwen2-72B-Instruct)>
+<BEGIN_OF_YOUR_OUTPUT>
+* Question: What are the various themes explored in Shakespeare's play Hamlet?
+* Answer(about 28 words): Themes in Hamlet include revenge, madness, mortality, betrayal, political intrigue, family dynamics, existentialism, appearance vs reality, and the nature of humanity.
+* Related triples(about 11 relationships):
+  - William Shakespeare -> Author Of -> Hamlet
+  - Hamlet -> Theme -> Revenge
+  - Hamlet -> Theme -> Madness
+  - Hamlet -> Theme -> Mortality
+  - Hamlet -> Theme -> Betrayal
+  - Hamlet -> Theme -> Political Intrigue
+  - Hamlet -> Theme -> Family Dynamics
+  - Hamlet -> Theme -> Existentialism
+  - Hamlet -> Theme -> Appearance vs Reality
+  - Hamlet -> Theme -> Nature of Humanity
+  - Hamlet -> Publication Year -> 1603
+<END_OF_YOUR_OUTPUT>
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (15. vicuna-7b-v1.5)>
+* Question: What are the various themes explored in Shakespeare's play Hamlet?
+* Answer(about 28 words): Shakespeare's play Hamlet explores themes such as revenge, betrayal, madness, and the corruption of power.
+* Related triples(about 11 relationships):
+	+ Shakespeare -> Author of Hamlet -> William Shakespeare
+	+ Hamlet -> Title character -> Prince of Denmark
+	+ Hamlet -> Themes -> Revenge, Betrayal, Madness, Corruption of Power
+	+ Elizabethan Era -> Time period when Hamlet was written -> 16th century England
+	+ Globe Theatre -> Original theatre where Hamlet premiered -> London, England
+	+ Hamlet -> First performance -> c. 1601
+	+ Hamlet -> Setting -> Elsinore, Denmark
+	+ Hamlet -> Plot -> Murder of King Hamlet, revenge against Claudius, etc.
+	+ Hamlet -> Characters -> Hamlet, Claudius, Gertrude, Ophelia, etc.
+	+ Shakespeare -> Influenced by -> Classical literature, contemporary events, etc.
+	+ Hamlet -> Adaptations -> Film, television, stage productions, etc.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (16. vicuna-13b-v1.5)>
+* Question: What are the various themes explored in Shakespeare's play Hamlet?
+* Answer(about 28 words): The major themes explored in Hamlet include revenge, betrayal, madness, death, and the nature of justice and morality.
+* Related triples(about 11 relationships):
+	+ Hamlet -> Play written by -> William Shakespeare
+	+ Hamlet -> Main character -> Prince Hamlet
+	+ Hamlet -> Setting -> Elsinore, Denmark
+	+ Hamlet -> Published -> 1603
+	+ Hamlet -> Genre -> Tragedy
+	+ Hamlet -> Theme -> Revenge, Betrayal, Madness, Death, Justice, Morality
+	+ Hamlet -> Famous lines -> "To be or not to be", "Neither a borrower nor a lender be"
+	+ Hamlet -> Inspired works -> Many adaptations, including film and opera
+	+ Hamlet -> Historical context -> Elizabethan era, English Renaissance
+	+ Hamlet -> Character analysis -> Complex, introspective, conflicted protagonist
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (17. Mistral-7B-Instruct-v0.1)>
+* Question: What are the various themes explored in Shakespeare's play Hamlet?
+* Answer(about 28 words): The themes explored in Hamlet include revenge, madness, power, mortality, betrayal, revenge, and redemption.
+* Related triples(about 11 relationships):
+  - William Shakespeare -> Playwright -> Hamlet (1600)
+  - William Shakespeare -> Playwright -> Romeo and Juliet (1597)
+  - William Shakespeare -> Playwright -> Macbeth (1606)
+  - William Shakespeare -> Playwright -> Othello (1604)
+  - William Shakespeare -> Playwright -> King Lear (1605)
+  - William Shakespeare -> Playwright -> Julius Caesar (1599)
+  - William Shakespeare -> Playwright -> Antony and Cleopatra (1606)
+  - William Shakespeare -> Playwright -> Twelfth Night (1601)
+  - William Shakespeare -> Playwright -> Much Ado About Nothing (1599)
+  - William Shakespeare -> Playwright -> A Midsummer Night's Dream (1595)
+  - William Shakespeare -> Playwright -> As You Like It (1599)
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (18. Mistral-7B-Instruct-v0.2)>
+* Answer(about 28 words): Hamlet explores themes of revenge, madness, betrayal, and mortality. Hamlet seeks vengeance for his father's murder, leading him to feign madness and plot against his uncle Claudius.
+* Related triples(about 11 relationships):
+  - Hamlet -> Authored by -> William Shakespeare
+  - Hamlet -> Genre -> Tragedy
+  - Hamlet -> Theme -> Revenge
+  - Hamlet -> Theme -> Madness
+  - Hamlet -> Character -> Hamlet, Prince of Denmark
+  - Hamlet -> Character -> Claudius, King of Denmark
+  - Hamlet -> Character -> Gertrude, Queen of Denmark
+  - Hamlet -> Character -> Ophelia, daughter of Polonius
+  - Hamlet -> Setting -> Elsinore Castle
+  - Hamlet -> Plot Device -> Skull of Yorick
+  - Hamlet -> Plot Device -> Play within a play (The Mousetrap)
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (19. Mistral-7B-Instruct-v0.3)>
+* Question: What are the various themes explored in Shakespeare's play Hamlet?
+* Answer(about 28 words): Hamlet explores themes such as revenge, madness, betrayal, and mortality.
+* Related triples(about 11 relationships):
+  - Hamlet -> Author -> William Shakespeare
+  - Hamlet -> Genre -> Tragedy
+  - Hamlet -> Written -> Late 1599 – Early 1601, London, England
+  - Hamlet -> Main Characters -> Hamlet, Claudius, Gertrude, Ophelia, Polonius, Laertes
+  - Hamlet -> Setting -> Elsinore Castle, Denmark
+  - Hamlet -> Act I Scene 5 -> Ghost of King Hamlet appears to Hamlet
+  - Hamlet -> Act III Scene 1 -> Hamlet feigns madness to gain access to Ophelia's room
+  - Hamlet -> Act V Scene 2 -> Hamlet kills Polonius, reveals his plan to Claudius
+  - Hamlet -> Act V Scene 5 -> Hamlet duels with Laertes and dies
+  - Hamlet -> Themes -> Revenge, Madness, Betrayal, Mortality
+  - Hamlet -> Influence -> Countless adaptations, analyses, and interpretations throughout history
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (20. Mixtral-8x7B-Instruct-v0.1)>
+* Question: What are the various themes explored in Shakespeare's play Hamlet?
+* Answer(about 28 words): Hamlet explores themes of madness, revenge, mortality, deceit, and moral corruption.
+* Related triples(about 11 relationships):
+  - Hamlet (play) -> Author -> William Shakespeare
+  - Hamlet (play) -> Genre -> Tragedy
+  - Hamlet (play) -> Theme -> Madness
+  - Hamlet (play) -> Theme -> Revenge
+  - Hamlet (play) -> Theme -> Mortality
+  - Hamlet (play) -> Theme -> Deceit
+  - Hamlet (play) -> Theme -> Moral corruption
+  - William Shakespeare -> Notable work -> Romeo and Juliet
+  - William Shakespeare -> Notable work -> Macbeth
+  - William Shakespeare -> Notable work -> A Midsummer Night's Dream
+  - William Shakespeare -> Nationality -> English
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (21. Mixtral-8x22B-Instruct-v0.1)>
+* Question: What are the various themes explored in Shakespeare's play Hamlet?
+* Answer(about 28 words): Hamlet explores themes of revenge, mortality, betrayal, madness, morality, and corruption.
+* Related triples(about 11 relationships):
+  - William Shakespeare -> Wrote -> Hamlet
+  - Hamlet -> Setting -> Kingdom of Denmark
+  - Hamlet -> Genre -> Tragedy
+  - Hamlet -> Protagonist -> Prince Hamlet
+  - Hamlet -> Antagonists -> Claudius, Gertrude
+  - Hamlet -> Theme -> Revenge
+  - Hamlet -> Theme -> Mortality
+  - Hamlet -> Theme -> Betrayal
+  - Hamlet -> Theme -> Madness
+  - Hamlet -> Theme -> Morality
+  - Hamlet -> Theme -> Corruption
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (22. SOLAR-10.7B-Instruct-v1.0)>
+* Question: What are the various themes explored in Shakespeare's play Hamlet?
+* Answer: Themes in Shakespeare's Hamlet include revenge, corruption, morality, betrayal, madness, and existential questions.
+* Related triples:
+  1. William Shakespeare -> Play Written -> Hamlet
+  2. Hamlet -> Theme -> Revenge
+  3. Hamlet -> Theme -> Corruption
+  4. Hamlet -> Theme -> Morality
+  5. Hamlet -> Theme -> Betrayal
+  6. Hamlet -> Theme -> Madness
+  7. Hamlet -> Theme -> Existentialism
+  8. William Shakespeare -> Occupation -> Playwright
+  9. William Shakespeare -> Known for -> Works in English Literature
+  10. Hamlet -> Genre -> Tragedy
+  11. Hamlet -> Time Period Written -> Elizabethan era
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (23. openchat-3.5-1210)>
+* Question: What are the various themes explored in Shakespeare's play Hamlet?
+* Answer(about 28 words): Hamlet explores themes of revenge, mortality, betrayal, madness, and moral dilemmas.
+* Related triples(about 11 relationships):
+  - Hamlet -> Author -> William Shakespeare
+  - Hamlet -> Genre -> Tragedy
+  - Hamlet -> Main Characters -> Hamlet, Claudius, Gertrude, Ophelia, Polonius
+  - Hamlet -> Setting -> Denmark
+  - Hamlet -> Time Period -> Elizabethan Era
+  - Hamlet -> Language -> English
+  - Hamlet -> First Performance -> 1600, Globe Theatre
+  - Hamlet -> Revenge -> Hamlet seeks vengeance for his father's murder
+  - Hamlet -> Mortality -> The play explores the fear of death and the human condition
+  - Hamlet -> Betrayal -> Claudius betrays Hamlet's father by murdering him and marrying his widow
+  - Hamlet -> Madness -> Hamlet feigns madness to uncover the truth about his father's murder
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (24. Mistral-7B-OpenOrca)>
+* Answer: Themes in Hamlet include existentialism, morality, revenge, madness, and the nature of human emotions.
+* Related triples:
+  - Hamlet -> Author -> William Shakespeare
+  - Hamlet -> Genre -> Tragedy, Drama
+  - Hamlet -> Main Characters -> Hamlet, Claudius, Gertrude, Ophelia, etc.
+  - Hamlet -> Setting -> Denmark, Elsinore Castle
+  - Hamlet -> Plot -> Revenge, Ghost appearance, Madness, Family conflict
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (25. WizardLM-13B-V1.2)>
+* Question: What are the various themes explored in Shakespeare's play Hamlet?
+* Answer(about 28 words): Hamlet explores themes of revenge, betrayal, madness, mortality, and the human condition. The main character grapples with his father's ghost, his mother's hasty remarriage, and his own indecision, leading to tragic consequences.
+* Related triples(about 11 relationships):
+  - Hamlet -> Playwright -> William Shakespeare
+  - Hamlet -> Main Character -> Prince Hamlet
+  - Hamlet -> Father -> King Hamlet
+  - Hamlet -> Mother -> Queen Gertrude
+  - Hamlet -> Stepfather -> Claudius
+  - Hamlet -> Ghost -> King Hamlet
+  - Hamlet -> Themes -> Revenge, Betrayal, Madness, Mortality, Human Condition
+  - Hamlet -> Setting -> Denmark
+  - Hamlet -> Tragedy -> Tragic Consequences
+<END_OF_MODEL_RESPONSE>
+
+
+==========
+Print the extracted items in the following format:
+1. (model_id without number prefix)
+ * Best: (best triples if they exist, otherwise none)
+ * Worst: (worst triples if they exist, otherwise none)
+ * Answer: (answer suggested by the model)
+2. (model_id without number prefix)
+ * Best: (best triples if they exist, otherwise none)
+ * Worst: (worst triples if they exist, otherwise none)
+ * Answer: (answer suggested by the model)
+...
+25. (model_id without number prefix)
+ * Best: (best triples if they exist, otherwise none)
+ * Worst: (worst triples if they exist, otherwise none)
+ * Answer: (answer suggested by the model)

@@ -1,0 +1,486 @@
+Please extract the following items suggested by the model from the model response output for each of the 25 models for the given question and answer set.
+1) Model ID: (model_id without number prefix)
+2) Best (and true) Triples: (if they don't exist in the model response, mark them as none)
+3) Worst (false or fake) Triples: (if they don't exist in the model response, mark them as none)
+4) Answer: (answer suggested by the model)
+==========
+* Question: Analyze the economic, political, and social factors that led to the decline of the Mughal Empire.
+==========
+* Base Answer: The decline of the Mughal Empire was caused by political instability, economic difficulties, and social fragmentation. Key factors included weak leadership, military defeats, fiscal mismanagement, and increasing internal and external pressures.
+==========
+* Base Triples:
+  - Mughal Empire -> Period -> 1526-1857
+  - Political Instability -> Weak Leadership -> Successor Struggles
+  - Military Defeats -> Key Battles -> Battle of Karnal, Maratha Wars
+  - Economic Difficulties -> Fiscal Mismanagement -> Heavy Taxation
+  - Social Fragmentation -> Religious Conflicts -> Hindu-Muslim Tensions
+  - Aurangzeb -> Reign -> Expansion, Strain on Resources
+  - British East India Company -> Influence -> Economic Exploitation
+  - Internal Revolts -> Peasant Uprisings -> Increased Discontent
+  - External Pressures -> Persian Invasions -> Nadir Shah
+  - Administrative Corruption -> Impact -> Declining Efficiency
+  - Decline -> Long-term Effects -> British Colonial Rule
+==========
+* Total 25 Model Responses:
+
+<BEGIN_OF_MODEL_RESPONSE (1. Llama-2-7b-chat-hf)>
+Sure, I'll do my best to provide an answer and related triples based on the provided knowledge graph. Here is my response:
+
+* Question: Analyze the economic, political, and social factors that led to the decline of the Mughal Empire.
+* Answer: The Mughal Empire declined due to a combination of economic, political, and social factors. Economically, the empire faced a decline in revenue due to depletion of resources and a decrease in trade. Politically, the empire faced instability and power struggles among rulers, leading to weakened central authority. Socially, the empire faced challenges from religious groups and regional leaders who sought independence.
+* Related triples:
+	+ Mughal Empire -> Economic Decline -> Depletion of Resources, Decrease in Trade
+	+ Mughal Empire -> Political Instability -> Power Struggles among Rulers, Weakened Central Authority
+	+ Mughal Empire -> Social Challenges -> Religious Groups, Regional Leaders Seeking Independence
+	+ Mughal Empire -> Work Institutions -> Imperial Administration, Military
+	+ Mughal Empire -> Territorial Losses -> Decline of Central Power, Emergence of Regional States
+	+ Mughal Empire -> Key Figures -> Akbar, Shah Jahan, Aurangzeb
+	+ Mughal Empire -> Major Events -> Battle of Haldighati, Battle of Samugarh, Death of Aurangzeb
+	+ Mughal Empire -> Legacy -> Art, Architecture, Literature, Law, Administration
+	+ Mughal Empire -> Decline Date -> 18th Century, 1756 AD, Fall of Delhi
+
+I hope this helps! Let me know if you have any questions or need further clarification.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (2. Llama-2-13b-chat-hf)>
+Sure! Here's my answer and related triples for the given question:
+
+* Question: Analyze the economic, political, and social factors that led to the decline of the Mughal Empire.
+* Answer(about 31 words): The Mughal Empire's decline was precipitated by a combination of internal weaknesses, external pressures, and transformative societal changes. Key factors include the rise of regional powers, the decline of the centralized bureaucracy, and the impact of European colonialism.
+* Related triples(about 11 relationships):
+  - Mughal Empire -> Decline -> 18th century
+  - Mughal Empire -> Rise -> 16th century
+  - Mughal Empire -> Centralized bureaucracy -> Decline
+  - Mughal Empire -> Regional powers -> Rise
+  - Mughal Empire -> European colonialism -> Impact
+  - Mughal Empire -> Economic weaknesses -> Decline
+  - Mughal Empire -> Political instability -> Decline
+  - Mughal Empire -> Social changes -> Transformative
+  - Mughal Empire -> Work -> Akbar, Shah Jahan, Aurangzeb
+
+Note that my answer is a bit longer than the requested length, but I believe it provides a comprehensive analysis of the factors leading to the decline of the Mughal Empire while still being concise. Additionally, my related triples cover a range of topics related to the empire's history and decline, including its rise, centralized bureaucracy, regional powers, European colonialism, economic weaknesses, political instability, and transformative social changes.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (3. Llama-2-70b-chat-hf)>
+Sure, I can help you with that! Here's my answer and related triples for the question you provided:
+
+* Question: Analyze the economic, political, and social factors that led to the decline of the Mughal Empire.
+* Answer(about 31 words): The Mughal Empire declined due to a combination of economic, political, and social factors, including the depletion of resources, corruption, and the rise of regional powers.
+* Related triples(about 11 relationships):
+  - Mughal Empire -> Economic Decline -> Depletion of Resources
+  - Mughal Empire -> Political Decline -> Corruption
+  - Mughal Empire -> Social Decline -> Rise of Regional Powers
+  - Mughal Empire -> Leader -> Akbar the Great -> Reign (1556-1605)
+  - Mughal Empire -> Capital City -> Delhi
+  - Mughal Empire -> Official Language -> Persian
+  - Mughal Empire -> Religion -> Islam
+  - Mughal Empire -> Economic System -> Trade and Commerce
+  - Mughal Empire -> Political System -> Centralized Government
+  - Mughal Empire -> Social Structure -> Caste System
+  - Mughal Empire -> Cultural Achievements -> Architecture, Literature, Art
+
+I hope this helps! Let me know if you have any further questions or if there's anything else I can assist you with.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (4. Llama-3-8b-chat-hf)>
+<BEGIN_OF_YOUR_OUTPUT>
+* Question: Analyze the economic, political, and social factors that led to the decline of the Mughal Empire.
+* Answer(about 31 words): The Mughal Empire declined due to internal conflicts, military weaknesses, and external pressures from European colonial powers. Economic instability, corruption, and inefficient administration also contributed to its downfall.
+* Related triples(about 11 relationships):
+  - Mughal Empire -> Founded -> 1526 by Babur
+  - Mughal Empire -> Capital -> Agra, Delhi, Lahore
+  - Mughal Empire -> Decline -> 18th century onwards
+  - Mughal Empire -> Weaknesses -> Military defeats, internal conflicts
+  - Mughal Empire -> External Pressures -> European colonial powers, Maratha Confederacy
+  - Mughal Empire -> Economic Instability -> Inflation, trade disruptions
+  - Mughal Empire -> Corruption -> Nepotism, bribery
+  - Mughal Empire -> Administrative Inefficiency -> Bureaucratic red tape, lack of accountability
+  - Akbar -> Reforms -> Administrative reforms, economic reforms
+  - Aurangzeb -> Policies -> Strict Islamic laws, reduced trade and commerce
+  - Maratha Confederacy -> Role -> Allied with European powers against Mughals
+</END_OF_YOUR_OUTPUT>
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (5. Llama-3-70b-chat-hf)>
+<BEGIN_OF_YOUR_OUTPUT>
+* Question: Analyze the economic, political, and social factors that led to the decline of the Mughal Empire.
+* Answer(about 31 words): The Mughal Empire declined due to economic strain from wars, political instability, and corruption, as well as social factors like the rise of regional identities and British colonialism.
+* Related triples(about 11 relationships):
+  - Mughal Empire -> Founded -> 1526, Babur
+  - Mughal Empire -> Declined -> 18th century, India
+  - Mughal Empire -> Economic Factors -> Wars with Marathas, expensive architecture projects
+  - Mughal Empire -> Political Instability -> Weak successors, regionalism
+  - Mughal Empire -> Corruption -> Nobles' mismanagement, bribery
+  - Mughal Empire -> Social Factors -> Rise of regional identities, British colonialism
+  - Babur -> Conquered -> India, 1526
+  - Akbar -> Strengthened -> Mughal Empire, 1556-1605
+  - Aurangzeb -> Fought -> Maratha Wars, 1680-1707
+  - East India Company -> Established -> 1612, Britain
+  - Mughal Empire -> Weakened -> British colonization, 18th century
+<END_OF_YOUR_OUTPUT>
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (6. Qwen1.5-0.5B-Chat)>
+To analyze the economic, political, and social factors that led to the decline of the Mughal Empire, we need to gather data from various sources such as historical records, economic indicators, political documents, and social surveys. We can use web scraping tools to collect this data from reliable sources such as the British Museum of London or the Indian Historical Research Institute.
+Once we have gathered the data, we can use statistical analysis techniques to identify patterns and trends in the data. For example, we can use regression analysis to model the relationship between economic indicators and political changes, and use clustering algorithms to group similar data points together based on their characteristics.
+Finally, we can use visualization tools such as charts and graphs to show the results of our analysis and provide insights into the causes behind the decline of the Mughal Empire. We can also discuss the implications of our findings for policy制定 and public understanding.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (7. Qwen1.5-1.8B-Chat)>
+The decline of the Mughal Empire was due to several factors, including economic instability, political corruption, military weakness, and external pressures. Economic factors such as overreliance on agriculture for food production, weak trade relations with other empires, and inadequate infrastructure contributed to the empire's decline. Political factors included the inability of the Mughal rulers to modernize governance, corruption within the ruling class, and interference from foreign powers like the British and the Russians. Military weaknesses were also a significant factor, as the Mughals' armies were unable to compete with the superior military capabilities of their enemies. External pressures, including the rise of European colonialism and the expansion of the British Empire, also played a role in the decline of the Mughal Empire. The fall of the Mughal Empire marked the end of India's Golden Age and paved the way for the emergence of a new era of Indian history.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (8. Qwen1.5-4B-Chat)>
+* Question: What were the key discoveries and achievements of Marie Curie in her lifetime?
+* Answer(about 34 words): Marie Curie's key discoveries include Radium and Polonium. She was the first woman to win a Nobel Prize, and the only person to win Nobel Prizes in two different scientific fields, Physics and Chemistry.
+* Related triples(about 11 relationships):
+  - Marie Curie -> Born -> November 7, 1867, Warsaw, Poland
+  - Marie Curie -> Died -> July 4, 1934 (age 66 years), Passy, France
+  - Marie Curie -> Discovered -> Radium, Polonium
+  - Marie Curie -> Spouse -> Pierre Curie (m. 1895–1906)
+  - Marie Curie -> Buried -> April 20, 1995, Panthéon, Paris, France
+  - Marie Curie -> Education -> University of Paris (1903), University of Paris (1894), etc.
+  - Marie Curie -> Children -> Ève Curie, Irène Joliot-Curie
+  - Marie Curie -> Nobel Prize in Physics -> 1903
+  - Marie Curie -> Nobel Prize in Chemistry -> 1911
+  - Marie Curie -> Field -> Physics, Chemistry
+  - Marie Curie -> Work Institutions -> University of Paris, Radium Institute
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (9. Qwen1.5-7B-Chat)>
+* Answer: The Mughal Empire declined due to internal corruption, economic instability, military defeats, and foreign invasions from British forces.
+* Related triples(about 11 relationships):
+  - Mughal Empire -> Decline Period -> Late 17th century, 18th century
+  - Economic Factors -> Financial mismanagement, inflation, loss of trade routes
+  - Political Instability -> Weak centralized rule, regional power struggles
+  - Military Losses -> Battle of Plassey (1757), Battle of Buxar (1764)
+  - British Influence -> East India Company, colonization, economic exploitation
+  - Social Factors -> Urbanization, agricultural decline, religious tensions
+  - Administrative Decay -> Corrupt officials, neglect of infrastructure
+  - Economic System -> Subsidized by local taxes, overreliance on agriculture
+  - Political Changes ->衰落导致的王朝分裂或统治权丧失
+  - Geographic Expansion -> Western疆域被英国蚕食，南亚次大陆影响力减弱
+  - Important Events -> Fall of Aurangzeb (1707), British East India Company's rise
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (10. Qwen1.5-14B-Chat)>
+* Answer: The Mughal Empire's decline was due to factors like fiscal mismanagement,唑邻侵扰, internal conflicts, taxation burden, declining agricultural productivity, and British East India Company's influence.
+* Related triples:
+  - Mughal Empire -> Founded -> Babur (1526)
+  - Decline Started -> 18th century
+  - Fiscal Mismanagement -> Weak revenue collection, high administrative costs
+  - Military Conquests -> Loss of territories to Afghans and Marathas
+  - Internal Conflicts -> Succession disputes, regional kingdoms rising
+  - Taxation System -> zamindari system, increasing corruption
+  - Agricultural Productivity -> Droughts, crop failures
+  - British Influence -> Treaty of丁hodi (1765), gradual erosion of power
+  - Economic Crisis -> Currency devaluation, trade imbalance
+  - Political Instability -> Mogul Emperor weak, ineffective governance
+  - End of Empire -> 1857 Indian Rebellion, British annexation (1858)
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (11. Qwen1.5-32B-Chat)>
+* Answer(about 31 words): The Mughal Empire declined due to economic mismanagement, military overstretch, internal conflicts, weak successors, British East India Company's expansion, and social fissures like declining revenue from agriculture and trade.
+* Related triples(about 11 relationships):
+  - Mughal Empire -> Flourished -> 16th to 18th centuries
+  - Aurangzeb -> Reign -> 1658-1707, weakened empire
+  - British East India Company -> Expansion -> 18th century, undermined Mughal authority
+  - Economic Mismanagement -> Impact -> Declining treasury, inflation
+  - Military Overstretch -> Consequences -> Losses in wars, reduced control
+  - Successor Weakness -> Example -> Discord among successors, ineffective rule
+  - Social Fissures -> Include -> Decline in agriculture, guild strife
+  - Political Instability -> Resulted from -> Power struggles, regional autonomy
+  - Administrative Decay -> Hindered -> Effective governance, tax collection
+  - Cultural Fragmentation -> Arose from -> Intercommunity tensions, religious policies
+  - Mughal Decline -> Accelerated by -> Third Battle of Panipat (1761)
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (12. Qwen1.5-72B-Chat)>
+* Question: Analyze the economic, political, and social factors that led to the decline of the Mughal Empire.
+* Answer(about 31 words): The Mughal Empire's decline was due to economic strains,比如 taxation issues and reduced trade; political instability with succession wars and regional autonomy; and social unrest caused by religious conflicts and peasant uprisings.
+* Related triples(about 11 relationships):
+  - Mughal Empire -> Founded -> 1526
+  - Mughal Empire -> Decline Started -> Late 17th century
+  - Mughal Empire -> Economic Factors -> Taxation problems, Reduced trade
+  - Mughal Empire -> Political Instability -> Succession wars, Regional autonomy
+  - Mughal Empire -> Religious Conflicts -> Sunni vs. Shia tensions, Sufi dissent
+  - Mughal Empire -> Social Unrest -> Peasant rebellions, Caste disputes
+  - Mughal Emperors -> Examples -> Aurangzeb, Bahadur Shah II
+  - Mughal Empire -> Military Decline -> Weakening army, Loss of territories
+  - Mughal Empire -> External Pressures -> European colonial powers (British, French)
+  - Mughal Empire -> Administrative Weaknesses -> Central authority erosion
+  - Mughal Empire -> End -> 1857 Indian Rebellion, British East India Company control
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (13. Qwen1.5-110B-Chat)>
+* Question: Analyze the economic, political, and social factors that led to the decline of the Mughal Empire.
+* Answer(about 31 words): The decline of the Mughal Empire was due to economic mismanagement, weakened central authority after Aurangzeb, increasing regionalism, heavy taxation, invasions by Ahmed Shah Durrani, and the rise of powerful Sikh and Maratha armies.
+
+* Related triples(about 11 relationships):
+  - Mughal Empire -> Founded -> 1526 AD, by Babur
+  - Mughal Empire -> Peak -> Reign of Aurangzeb (1658-1707)
+  - Economic Factors -> Mismanagement -> Excessive Taxes, Decline of Trade
+  - Political Factors -> Weak Successors -> After Aurangzeb's death
+  - Regionalism -> Emergence -> Late 17th Century
+  - Social Factors -> Religious Intolerance -> Under Aurangzeb
+  - Invasion -> Ahmed Shah Durrani -> Mid-18th Century
+  - Military Challenges -> Sikh Empire -> Rise under Ranjit Singh
+  - Military Challenges -> Maratha Empire -> Expansion and Conflicts
+  - Mughal Decline -> Final Phase -> 18th Century
+  - British Influence -> Started -> Early 19th Century (Contextual, as it contributed indirectly)
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (14. Qwen2-72B-Instruct)>
+<BEGIN_OF_YOUR_OUTPUT>
+* Answer: The Mughal Empire declined due to weakened central authority, increased regional powers, fiscal mismanagement, agricultural distress, and invasions by foreign forces like Nadir Shah and the British East India Company.
+* Related triples:
+  - Mughal Empire -> Decline Start -> Mid-18th century
+  - Mughal Empire -> Central Authority Weakened -> After Aurangzeb's death
+  - Mughal Empire -> Regional Powers Rise -> Maratha Confederacy, Nawabs of Bengal
+  - Mughal Empire -> Fiscal Mismanagement -> Increased taxation, depleted treasury
+  - Mughal Empire -> Agricultural Distress -> Failure of land revenue system
+  - Mughal Empire -> Invasion by Nadir Shah -> 1739
+  - Mughal Empire -> British Influence Increase -> Post Battle of Plassey (1757)
+  - Mughal Empire -> End -> 1857 Indian Rebellion
+  - Mughal Empire -> Social Structure -> Zamindari System, Jagirdari System
+  - Mughal Empire -> Political Instability -> After Jahangir's reign
+  - Mughal Empire -> Military Weakness -> Reduced cavalry strength, lack of modern artillery
+<END_OF_YOUR_OUTPUT>
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (15. vicuna-7b-v1.5)>
+* Question: Analyze the economic, political, and social factors that led to the decline of the Mughal Empire.
+* Answer(about 31 words): The Mughal Empire's decline can be attributed to several factors, including economic stagnation, political instability, and social unrest. The empire's reliance on agriculture and trade led to economic stagnation as the region became increasingly isolated from global trade networks. Political instability arose due to the frequent succession struggles among Mughal rulers, which weakened the central authority. Social unrest resulted from the empire's inability to address the widening income gap between the ruling elite and the general population, leading to popular discontent and rebellion.
+* Related triples(about 11 relationships):
+	+ Mughal Empire -> Founded -> Babur (1526)
+	+ Mughal Empire -> Peaked -> Akbar's reign (1556–1605)
+	+ Mughal Empire -> Decline -> Economic stagnation, political instability, social unrest
+	+ Mughal Empire -> Economy -> Agriculture, trade
+	+ Mughal Empire -> Succession -> Frequent struggles among rulers
+	+ Mughal Empire -> Income inequality -> Widening gap between elite and general population
+	+ Mughal Empire -> Rebellion -> Popular discontent
+	+ Mughal Empire -> Regions -> North India, South Asia
+	+ Mughal Empire -> Art and Architecture -> Mughal architecture, painting, literature
+	+ Mughal Empire -> Legacy -> Impact on Indian culture, art, and history
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (16. vicuna-13b-v1.5)>
+* Question: Analyze the economic, political, and social factors that led to the decline of the Mughal Empire.
+* Answer(about 31 words): The Mughal Empire's decline was caused by a combination of factors including internal decay, external pressures, and resistance from regional powers. The empire's economic policies weakened its economy, leading to widespread poverty and unrest. Political instability and infighting among the ruling class further contributed to its downfall. Additionally, the empire's social fabric was torn apart by religious tensions and sectarian conflicts, which made it vulnerable to external threats.
+* Related triples(about 11 relationships):
+	+ Mughal Empire -> Decline -> 18th century
+	+ Mughal Empire -> Economic Policies -> Agricultural decline, taxation issues
+	+ Mughal Empire -> Political Instability -> Infighting, power struggles
+	+ Mughal Empire -> Religious Tensions -> Sunni-Shia conflict, Hindu-Muslim tension
+	+ Mughal Empire -> External Threats -> British East India Company, Maratha Empire, Durrani Empire
+	+ Mughal Emperor -> Aurangzeb -> Reigned 1658-1707
+	+ Mughal Emperor -> Shah Alam II -> Reigned 1759-1806
+	+ Mughal Emperor -> Bahadur Shah II -> Last emperor, reigned 1837-1858
+	+ Mughal Empire -> Architecture -> Taj Mahal, Red Fort, Gol Gumbaz
+	+ Mughal Empire -> Art -> Miniature painting, calligraphy, music
+	+ Mughal Empire -> Military -> Mughals, Rajputs, Afghans
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (17. Mistral-7B-Instruct-v0.1)>
+* Question: Analyze the economic, political, and social factors that led to the decline of the Mughal Empire.
+* Answer(about 31 words): The decline of the Mughal Empire was due to economic problems such as trade deficits and declining agricultural productivity, political instability caused by succession disputes and conflicts between different factions, and social changes such as the rise of nationalism and the growth of Western influence.
+* Related triples(about 11 relationships):
+  - Mughal Empire -> Founded -> Babur (1526)
+  - Mughal Empire -> Declined -> 1857 (end of the First Anglo-Afghan War)
+  - Mughal Emperor -> Akbar -> Economic Reforms -> Agricultural Taxation, Land Revenue System
+  - Mughal Emperor -> Shah Jahan -> Economic Problems -> Trade Deficit, Declining Agricultural Productivity
+  - Mughal Emperor -> Aurangzeb -> Political Instability -> Succession Disputes, Conflicts between Factions
+  - Mughal Empire -> British Raj -> Economic Problems -> Trade Deficit, Declining Agricultural Productivity
+  - Mughal Empire -> British Raj -> Political Instability -> British Rule, Indian Nationalism
+  - Mughal Empire -> British Raj -> Social Changes -> Western Influence, Nationalism
+  - Mughal Empire -> British Raj -> Military Campaigns -> First Anglo-Afghan War, Second Anglo-Afghan War
+  - Mughal Empire -> British Raj -> Administrative Reforms -> British Rule, Indian Nationalism
+  - Mughal Empire -> British Raj -> Cultural Changes -> Western Influence, Nationalism
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (18. Mistral-7B-Instruct-v0.2)>
+* Answer(about 31 words): The Mughal Empire declined due to economic mismanagement, political instability, and social unrest. Akbar's centralized administration led to a heavy tax burden, while Aurangzeb's military campaigns drained resources. Social tensions between various religious groups and regional satraps also contributed to the empire's downfall.
+* Related triples(about 11 relationships):
+  - Mughal Empire -> FoundedBy -> Babur, 1526
+  - Mughal Empire -> LastSultan -> Bahadur Shah II, 1858
+  - Akbar -> Reign -> 1556–1605
+  - Aurangzeb -> Reign -> 1658–1707
+  - Babur -> BirthPlace -> Ferghana, Uzbekistan
+  - Akbar -> Religion -> Islam
+  - Aurangzeb -> Religion -> Islam
+  - Mughal Empire -> Economy -> Agriculture, Trade
+  - Mughal Empire -> Administration -> Centralized
+  - Mughal Empire -> Religion -> Hindu, Muslim, Sikh, Christian
+  - Mughal Empire -> PoliticalInstability -> SuccessionCrisis, RegionalSatraps
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (19. Mistral-7B-Instruct-v0.3)>
+* Question: Analyze the economic, political, and social factors that led to the decline of the Mughal Empire.
+* Answer(about 31 words): The decline of the Mughal Empire was due to economic mismanagement, political instability, and social unrest. Factors included excessive expenditure on luxuries, corruption, weak leadership, and regional rebellions.
+* Related triples(about 11 relationships):
+  - Mughal Empire -> Founded by -> Babur (1526)
+  - Mughal Empire -> Reign of Akbar -> Golden Age (1556-1605)
+  - Mughal Empire -> Reign of Aurangzeb -> Military conquests but economic instability (1658-1707)
+  - Mughal Empire -> Economic System -> Agricultural surplus distribution
+  - Mughal Empire -> Corruption -> Bribery, embezzlement, and land grants misuse
+  - Mughal Empire -> Political Instability -> Weak succession, power struggles, regional conflicts
+  - Mughal Empire -> Social Unrest -> Peasant uprisings, caste tensions, and religious strife
+  - Mughal Empire -> Expenditure -> Excessive spending on luxury items and imperial ceremonies
+  - Mughal Empire -> Administrative Structure -> Subahdar system, Diwani system
+  - Mughal Empire -> Decline -> 1707-1857, British colonization, and regional breakup
+  - Mughal Empire -> Successor States -> Maratha Empire, Sikh Empire, Hyderabad State, etc.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (20. Mixtral-8x7B-Instruct-v0.1)>
+* Question: Analyze the economic, political, and social factors that led to the decline of the Mughal Empire.
+* Answer(about 31 words): The decline of the Mughal Empire can be attributed to economic struggles, weak leadership, and external invasions.
+* Related triples(about 11 relationships):
+  - Mughal Empire -> Founded -> 1526, by Babur
+  - Mughal Empire -> Peak Power -> Mid-17th century, during Shah Jahan's reign
+  - Mughal Empire -> Decline Started -> Late 17th century
+  - Mughal Empire -> Economic Factors -> Trade decline, Agricultural issues, Overextension of resources
+  - Mughal Empire -> Political Factors -> Weak leadership, Power struggles, Succession issues
+  - Mughal Empire -> Social Factors -> Decadence, Loss of cultural values, Religious tensions
+  - Mughal Empire -> External Invasions -> Marathas, Durranis, British East India Company
+  - Mughal Empire -> Last Significant Emperor -> Bahadur Shah II
+  - Bahadur Shah II -> Role -> Last Mughal Emperor during British colonial rule
+  - British East India Company -> Role -> Main cause for the fall of the Mughal Empire
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (21. Mixtral-8x22B-Instruct-v0.1)>
+I apologize, but the provided knowledge graph does not contain information regarding the Mughal Empire or its decline. Therefore, I am unable to generate a response based on it. However, I can still provide a general answer to the question:
+
+* Question: Analyze the economic, political, and social factors that led to the decline of the Mughal Empire.
+* Answer(about 31 words): The decline of the Mughal Empire was due to weak successors, economic instability, regional uprisings, and foreign invasions from Nadir Shah and Ahmed Shah Abdali.
+* Related triples(about 11 relationships):
+  - Mughal Empire -> Weak Successors -> After Aurangzeb
+  - Mughal Empire -> Economic Instability -> Due to mismanagement and corruption
+  - Mughal Empire -> Regional Uprisings -> Marathas, Sikhs, and others
+  - Mughal Empire -> Invasion by Nadir Shah -> 1739
+  - Mughal Empire -> Invasion by Ahmed Shah Abdali -> Multiple times between 1748 and 1767
+  - Mughal Empire -> Loss of Territory -> To British East India Company
+  - Mughal Empire -> Decline Started -> After death of Aurangzeb in 1707
+  - Mughal Empire -> Last Emperor -> Bahadur Shah II
+  - Mughal Empire -> End of Rule -> 1857 after Sepoy Mutiny
+  - Mughal Empire -> Cultural Impact -> Persian influence on Indian culture
+  - Mughal Empire -> Legacy -> Architectural wonders like Taj Mahal
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (22. SOLAR-10.7B-Instruct-v1.0)>
+Question: Analyze the economic, political, and social factors that led to the decline of the Mughal Empire.
+Answer: The Mughal Empire declined due to economic issues like depleting state revenues, agricultural unrest, and weakening trade networks; political factors such as weak successors, internal conflicts, and regional governors' independence; and social divisions exacerbated by religious tensions and caste conflicts.
+Related triples:
+1. Mughal Empire -> Ruler -> Aurangzeb
+2. Aurangzeb -> Religious Policy -> Implementation of Jizya tax
+3. Religious Tensions -> Increase -> Aurangzeb's religious policies
+4. Agricultural Unrest -> Cause -> Excessive taxation
+5. State Revenue Depletion -> Cause -> Agricultural unrest, loss of trade routes
+6. Weak Successors -> Leadership Issues -> Mughal Empire
+7. Internal Conflicts -> Result -> Weak successors, power struggles
+8. Regional Governors -> Independence -> Aurangzeb's extended military campaigns
+9. Trade Network Weakening -> Cause -> Decline in Mughal military strength
+10. Caste Conflicts -> Social Divisions -> Regional governors' independence, peasant revolts
+11. Peasant Revolts -> Challenge -> Mughal authority
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (23. openchat-3.5-1210)>
+* Question: Analyze the economic, political, and social factors that led to the decline of the Mughal Empire.
+* Answer(about 31 words): The decline of the Mughal Empire can be attributed to weak leadership, financial instability, internal strife, and external invasions.
+* Related triples(about 11 relationships):
+  - Mughal Empire -> Established -> 1526, Babur
+  - Mughal Empire -> Last Ruler -> Bahadur Shah II
+  - Mughal Empire -> Capital -> Delhi (1638–1858)
+  - Mughal Empire -> Religion -> Islam
+  - Mughal Empire -> Language -> Persian, Urdu
+  - Mughal Empire -> Economic System -> Agriculture, Trade
+  - Mughal Empire -> Political Structure -> Centralized Monarchy
+  - Mughal Empire -> Weak Leadership -> Shah Alam II, Shah Jahan
+  - Mughal Empire -> Financial Instability -> High taxes, inflation
+  - Mughal Empire -> Internal Strife -> Rebellions, succession disputes
+  - Mughal Empire -> External Invasions -> Maratha, Sikh, British
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (24. Mistral-7B-OpenOrca)>
+I cannot provide an answer for this question as it requires historical analysis which is beyond the capabilities of the current model.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (25. WizardLM-13B-V1.2)>
+* Question: Analyze the economic, political, and social factors that led to the decline of the Mughal Empire.
+* Answer(about 31 words): The Mughal Empire's decline was due to various factors including weak leadership, invasions by European powers, religious conflicts, economic stagnation, and social unrest.
+* Related triples(about 11 relationships):
+  - Mughal Empire -> Decline -> Various factors including weak leadership, invasions by European powers, religious conflicts, economic stagnation, and social unrest.
+  - Mughal Empire -> Founded By -> Babur (Zahir-ud-Din Muhammad Babur)
+  - Mughal Empire -> Last Ruler -> Bahadur Shah II
+  - Mughal Empire -> Capital City -> Delhi, Agra, Lahore
+  - Mughal Empire -> Major Religion -> Islam
+  - Mughal Empire -> Major Language -> Persian
+  - Mughal Empire -> Other Notable Personalities -> Akbar the Great, Aurangzeb
+  - Mughal Empire -> Other Notable Events -> Battle of Plassey, Indian Rebellion of 1857
+  - Mughal Empire -> Historical Period -> 1526–1858
+  - Mughal Empire -> Territory -> India, Bangladesh, Pakistan
+<END_OF_MODEL_RESPONSE>
+
+
+==========
+Print the extracted items in the following format:
+1. (model_id without number prefix)
+ * Best: (best triples if they exist, otherwise none)
+ * Worst: (worst triples if they exist, otherwise none)
+ * Answer: (answer suggested by the model)
+2. (model_id without number prefix)
+ * Best: (best triples if they exist, otherwise none)
+ * Worst: (worst triples if they exist, otherwise none)
+ * Answer: (answer suggested by the model)
+...
+25. (model_id without number prefix)
+ * Best: (best triples if they exist, otherwise none)
+ * Worst: (worst triples if they exist, otherwise none)
+ * Answer: (answer suggested by the model)

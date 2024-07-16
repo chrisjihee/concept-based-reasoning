@@ -1,0 +1,496 @@
+Please extract the following items suggested by the model from the model response output for each of the 25 models for the given question and answer set.
+1) Model ID: (model_id without number prefix)
+2) Best (and true) Triples: (if they don't exist in the model response, mark them as none)
+3) Worst (false or fake) Triples: (if they don't exist in the model response, mark them as none)
+4) Answer: (answer suggested by the model)
+==========
+* Question: Explain the contributions of Isaac Newton to science and how they impacted the scientific community.
+==========
+* Base Answer: Isaac Newton's contributions include the laws of motion, the law of universal gravitation, and the development of calculus. His work laid the foundation for classical mechanics and significantly influenced the Enlightenment and the scientific revolution.
+==========
+* Base Triples:
+  - Isaac Newton -> Born -> January 4, 1643, Woolsthorpe, England
+  - Isaac Newton -> Died -> March 31, 1727 (age 84 years), Kensington, England
+  - Isaac Newton -> Known for -> Laws of Motion, Law of Universal Gravitation, Calculus
+  - Isaac Newton -> Major Work -> Principia Mathematica (1687)
+  - Isaac Newton -> Education -> Trinity College, Cambridge
+  - Isaac Newton -> Influence -> Enlightenment, Scientific Revolution
+  - Isaac Newton -> Titles -> Lucasian Professor of Mathematics, President of the Royal Society
+  - Isaac Newton -> Fields -> Physics, Mathematics, Astronomy, Alchemy
+  - Isaac Newton -> Experiments -> Optics, Reflecting Telescope
+  - Isaac Newton -> Recognitions -> Knighted by Queen Anne in 1705
+  - Isaac Newton -> Legacy -> Fundamental principles in physics and mathematics
+==========
+* Total 25 Model Responses:
+
+<BEGIN_OF_MODEL_RESPONSE (1. Llama-2-7b-chat-hf)>
+Great, let's get started! Here's my answer to the question "Explain the contributions of Isaac Newton to science and how they impacted the scientific community":
+
+Isaac Newton made groundbreaking contributions to science, particularly in the fields of mathematics, optics, and physics. He is best known for his laws of motion and universal gravitation, which laid the foundation for classical mechanics and revolutionized our understanding of the natural world. His work in calculus helped develop mathematical techniques that enabled scientists to analyze complex phenomena with greater precision. Additionally, Newton's experiments with light and color led to significant advances in optics and our understanding of the behavior of light.
+
+Newton's contributions had a profound impact on the scientific community, as they provided a framework for understanding and predicting natural phenomena with unprecedented accuracy. His laws of motion and universal gravitation, for instance, helped explain the motion of celestial bodies and the behavior of physical systems, while his calculus enabled scientists to model complex systems with greater ease. Moreover, Newton's work in optics led to the development of new technologies, such as telescopes and microscopes, which greatly expanded our understanding of the natural world.
+
+Here are some related triples that reference my answer:
+
+* Isaac Newton -> Contributions -> Mathematics, Optics, Physics
+* Isaac Newton -> Laws of Motion -> Universal Gravitation, First Law, Second Law, Third Law
+* Isaac Newton -> Calculus -> Development, Mathematical Techniques
+* Isaac Newton -> Experiments -> Light, Color, Optics
+* Isaac Newton -> Scientific Community -> Impact, Reputation, Influence
+
+I hope this meets your requirements! Let me know if you have any further questions or need additional assistance.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (2. Llama-2-13b-chat-hf)>
+Sure! Here's my answer and related triples for the given question:
+
+* Question: Explain the contributions of Isaac Newton to science and how they impacted the scientific community.
+* Answer(about 35 words): Isaac Newton made groundbreaking contributions to physics, mathematics, and astronomy, most notably formulating the laws of motion and universal gravitation, which revolutionized our understanding of the natural world and laid the foundation for modern classical mechanics and astronomy. His work had a profound impact on the scientific community, shaping the way we understand the universe and inspiring future generations of scientists and thinkers.
+* Related triples(about 11 relationships):
+  - Isaac Newton -> Laws of Motion -> Formulated
+  - Isaac Newton -> Universal Gravitation -> Theory developed
+  - Isaac Newton -> Mathematics -> Made significant contributions
+  - Isaac Newton -> Astronomy -> Made important discoveries
+  - Isaac Newton -> Scientific Community -> Had a profound impact
+  - Isaac Newton -> Inspiration -> Future generations of scientists and thinkers
+  - Isaac Newton -> Work Institutions -> Trinity College, Cambridge University
+  - Isaac Newton -> Awards -> Copley Medal, Royal Society President
+  - Isaac Newton -> Field -> Physics, Mathematics, Astronomy
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (3. Llama-2-70b-chat-hf)>
+Sure, I can help you with that! Here's my answer and related triples for the question:
+
+* Question: Explain the contributions of Isaac Newton to science and how they impacted the scientific community.
+* Answer(about 35 words): Isaac Newton's contributions to science include his laws of motion and universal gravitation, which laid the foundation for classical mechanics and revolutionized our understanding of the natural world. His work in calculus and optics also had significant impacts on the scientific community.
+* Related triples(about 11 relationships):
+  - Isaac Newton -> Born -> January 4, 1643, Woolsthorpe, Lincolnshire, England
+  - Isaac Newton -> Died -> March 31, 1727 (age 85), Kensington, Middlesex, England
+  - Isaac Newton -> Education -> Trinity College, Cambridge (1661), University of Cambridge (1665)
+  - Isaac Newton -> Profession -> Mathematician, Physicist, Astronomer
+  - Isaac Newton -> Known for -> Laws of Motion, Universal Gravitation, Calculus, Optics
+  - Isaac Newton -> Influenced by -> Galileo Galilei, Johannes Kepler, René Descartes
+  - Isaac Newton -> Influenced -> Albert Einstein, Stephen Hawking, William Wordsworth
+  - Isaac Newton -> Awards -> Fellow of the Royal Society (1672), President of the Royal Society (1703)
+  - Isaac Newton -> Published works -> "Philosophiæ Naturalis Principia Mathematica" (1687), "Opticks" (1704)
+  - Isaac Newton -> Impact -> Revolutionized classical mechanics, laid foundation for modern physics, advanced calculus and optics.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (4. Llama-3-8b-chat-hf)>
+<BEGIN_OF_YOUR_OUTPUT>
+* Question: Explain the contributions of Isaac Newton to science and how they impacted the scientific community.
+* Answer(about 35 words): Isaac Newton's groundbreaking work laid the foundation for classical mechanics with his laws of motion and universal gravitation, revolutionizing our understanding of the natural world and paving the way for major advances in physics, mathematics, and astronomy.
+* Related triples(about 11 relationships):
+  - Isaac Newton -> Born -> January 4, 1643, Woolsthorpe, Lincolnshire, England
+  - Isaac Newton -> Died -> March 31, 1727, Kensington, Middlesex, England
+  - Isaac Newton -> Published -> Philosophiæ Naturalis Principia Mathematica (1687)
+  - Isaac Newton -> Laws of Motion -> Three laws governing force, motion, and gravity
+  - Isaac Newton -> Universal Gravitation -> Theory explaining gravity as a force between objects
+  - Isaac Newton -> Influenced -> Gottfried Wilhelm Leibniz, Joseph-Louis Lagrange, and other scientists
+  - Isaac Newton -> Field -> Mathematics, Physics, Astronomy
+  - Isaac Newton -> Work Institutions -> Trinity College, Cambridge University
+  - Isaac Newton -> Honors -> Fellow of the Royal Society, Member of Parliament
+  - Isaac Newton -> Impact -> Fundamental changes in understanding of space, time, and matter
+  - Isaac Newton -> Legacy -> Continued influence in modern physics, astronomy, and mathematics
+</END_OF_YOUR_OUTPUT>
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (5. Llama-3-70b-chat-hf)>
+Here is my output:
+
+<BEGIN_OF_YOUR_OUTPUT>
+* Question: Explain the contributions of Isaac Newton to science and how they impacted the scientific community.
+* Answer(about 35 words): Isaac Newton laid the foundation for classical mechanics with his laws of motion and universal gravitation, revolutionizing our understanding of the natural world and influencing centuries of scientific thought.
+* Related triples(about 11 relationships):
+  - Isaac Newton -> Born -> January 4, 1643, Woolsthorpe, Lincolnshire, England
+  - Isaac Newton -> Died -> March 31, 1727, Kensington, Middlesex, England
+  - Isaac Newton -> Contributions -> Laws of Motion, Universal Gravitation
+  - Isaac Newton -> Published -> Philosophiæ Naturalis Principia Mathematica (1687)
+  - Isaac Newton -> Influenced -> Albert Einstein, Gottfried Wilhelm Leibniz
+  - Isaac Newton -> Member -> Royal Society (1672)
+  - Isaac Newton -> Awards -> Copley Medal (1699)
+  - Isaac Newton -> Fields -> Mathematics, Optics, Physics
+  - Isaac Newton -> Work Institutions -> Trinity College, Cambridge, Royal Mint
+  - Isaac Newton -> Known for -> Calculus, Reflecting Telescope
+  - Isaac Newton -> Legacy -> Shaped modern scientific inquiry and methodology
+<END_OF_YOUR_OUTPUT>
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (6. Qwen1.5-0.5B-Chat)>
+Yes, I understand the task. Here is the answer:
+*Question: How did Albert Einstein contribute to the development of modern物理学?
+*Answer: Albert Einstein made significant contributions to the development of modern physics by providing theoretical frameworks for understanding the behavior of matter and energy, as well as developing new technologies for achieving these goals. He also developed the theory of relativity, which revolutionized our understanding of space and time, and his work on black holes has had a profound impact on our understanding of the universe.
+*Related triples(about 11 relationships): Albert Einstein -> Born -> December 18, 1879, Cambridge, England
+Albert Einstein ->死了 -> October 14, 1955, Chicago, Illinois
+Albert Einstein -> Discovered -> Spacetime, Gravitational Theory
+Albert Einstein -> Spouse -> Herta von Bismarck (m. 1878–1955)
+Albert Einstein -> Buried -> January 15, 1945, New York City, USA
+Albert Einstein -> Education -> Harvard University (1887), Massachusetts Institute of Technology (MIT)
+Albert Einstein -> Children -> Albert Einstein, Paul Einstein
+Albert Einstein -> Nobel Prize in Physics -> 1905
+Albert Einstein -> Nobel Prize in Chemistry -> 1906
+Albert Einstein -> Field -> Quantum Mechanics
+Albert Einstein -> Work Institutions -> Harvard University, MIT, California Institute of Technology, Stanford University
+Albert Einstein -> Children -> Albert Einstein, Paul Einstein
+Albert Einstein -> Nobel Prize in Physics -> 1905
+Albert Einstein -> Nobel Prize in Chemistry -> 1911
+Albert Einstein -> Field -> Electromagnetism
+Albert Einstein -> Work Institutions -> Harvard University, MIT, California Institute of Technology, Stanford University
+Albert Einstein -> Children -> Albert Einstein, Paul Einstein
+Albert Einstein -> Nobel Prize in Physics -> 1905
+Albert Einstein -> Nobel Prize in Chemistry -> 1911
+Albert Einstein ->
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (7. Qwen1.5-1.8B-Chat)>
+Isaac Newton made significant contributions to science, particularly in the field of mathematics and physics, which had a profound impact on the scientific community. His laws of motion, universal gravitation, and calculus laid the foundation for modern physics, revolutionizing our understanding of the universe. These principles have been used by scientists to study celestial bodies, planets, and even everyday objects, leading to numerous advancements in astronomy, engineering, and technology.
+
+Newton's laws of motion describe the relationship between an object's mass, acceleration, and velocity, providing precise mathematical equations that govern the behavior of objects at rest or in motion. This framework has been instrumental in understanding the motion of planets, stars, and other celestial bodies, as well as the Earth's rotation and orbit around the sun.
+
+Moreover, Newton's work in calculus provided a powerful tool for solving complex problems in mathematics and physics. The development of calculus allowed scientists to analyze and manipulate functions, enabling them to understand the behavior of physical systems at various scales. This fundamental concept has influenced countless areas of science, including mechanics, thermodynamics, and electrical engineering, among others.
+
+In addition to his theoretical contributions, Newton also played a crucial role in advancing the scientific method through his experiments and observations. He conducted groundbreaking experiments like the light experiment, in which he demonstrated that light travels faster than expected through a glass prism, challenging the prevailing belief in the speed of light. His work laid the groundwork for the scientific method, which involves repeatedly testing hypotheses using empirical evidence and critical thinking to draw accurate conclusions.
+
+Furthermore, Newton's influence extended beyond the realm of science, influencing art, literature, and philosophy. His ideas
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (8. Qwen1.5-4B-Chat)>
+* Question: What were the key achievements of Albert Einstein in his lifetime? * Answer(about 35 words): Albert Einstein's key achievements include the theory of relativity, the photoelectric effect, and the development of the mass-energy equivalence formula E=mc². He also made significant contributions to quantum mechanics and the understanding of black holes. * Related Triples(about 11 relationships): - Albert Einstein -> Born -> March 14, 1879, Ulm, Germany - Albert Einstein -> Died -> April 18, 1955, Princeton, New Jersey - Albert Einstein -> Theory of Relativity -> Proposed in 1905 - Albert Einstein -> Photoelectric Effect -> Proposed in 1905 - Albert Einstein -> Mass-Energy Equivalence Formula -> Proposed in 1905 - Albert Einstein -> Quantum Mechanics -> Made significant contributions to - Albert Einstein -> Black Holes -> Made significant contributions to
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (9. Qwen1.5-7B-Chat)>
+* Answer: Isaac Newton made significant contributions to physics with his laws of motion and universal gravitation. His work laid the foundation for classical mechanics and transformed our understanding of the universe. This led to advancements in astronomy, engineering, and calculus, shaping the scientific community and influencing countless other researchers.
+* Related triples(about 11 relationships):
+
+  - Isaac Newton -> Contributions -> Laws of Motion, Universal Gravitation
+  - Isaac Newton -> Field -> Physics
+  - Newton's laws -> Impact on Astronomy (e.g., Heliocentric Model, Kepler's laws)
+  - Calculus -> Developed by Newton and Gottfried Leibniz
+  - Principia Mathematica (book) -> Published in 1687, outlining his theories
+  - Sir Isaac Newton -> Member of Royal Society, Fellow of Trinity College, Cambridge
+  - Newton's gravitational force -> Influenced celestial mechanics and spacecraft navigation
+  - Newtonian dynamics -> Still used today in fundamental physics
+  - Scientific Revolution -> Triggered by Newton's work
+  - Optics (e.g., corpuscular theory, color classification) -> Advanced through his studies
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (10. Qwen1.5-14B-Chat)>
+* Answer: Isaac Newton contributed significantly to classical mechanics with his laws of motion and universal gravitation, revolutionizing physics. His work laid the foundation for modern engineering and astronomy.
+* Related triples:
+  - Isaac Newton -> Born -> December 25, 1642, Woolsthorpe, England
+  - Newton -> Died -> March 31, 1727, Kensington, England
+  - Newton -> Developed -> Laws of Motion (1687)
+  - Newton -> Proposed -> Universal Gravitation (1687)
+  - Newton -> Impact -> Scientific Revolution
+  - Newton -> Work -> Principia Mathematica (1687)
+  - Newton -> Inventions -> Reflecting Telescope (1668)
+  - Newton -> Fields -> Mathematics, Optics, Physics
+  - Newton -> Influence -> Gottfried Wilhelm Leibniz, Albert Einstein
+  - Newtonian Mechanics -> Foundation of Modern Science
+  - Newton -> Honors ->爵士爵位 (1705), Royal Society President (1703-1727)
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (11. Qwen1.5-32B-Chat)>
+* Answer(about 35 words): Isaac Newton developed the laws of motion and universal gravitation, advancing our understanding of physics. His work laid the foundation for classical mechanics and calculus, profoundly influencing the scientific community.
+* Related triples(about 11 relationships):
+  - Isaac Newton -> Born -> January 4, 1643, Woolsthorpe-by-Colsterworth, England
+  - Isaac Newton -> Died -> March 31, 1727 (age 84 years), Kensington, London
+  - Isaac Newton -> Discoveries -> Laws of Motion, Universal Gravitation
+  - Isaac Newton -> Developed -> Calculus
+  - Isaac Newton -> Influenced -> Sir Issac Barrow, Gottfried Leibniz
+  - Isaac Newton -> Published -> Principia Mathematica (1687)
+  - Isaac Newton -> Awards -> Royal Society Fellowship (1672)
+  - Isaac Newton -> Field -> Physics, Mathematics
+  - Isaac Newton -> Work Institutions -> Trinity College, Cambridge, Royal Mint
+  - Isaac Newton -> Known For -> Reflecting Telescope, Optics Research
+  - Isaac Newton -> President of the Royal Society -> 1703-1727
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (12. Qwen1.5-72B-Chat)>
+* Question: Explain the contributions of Isaac Newton to science and how they impacted the scientific community.
+* Answer(about 35 words): Sir Isaac Newton formulated the laws of motion and universal gravitation, laying the foundation for classical mechanics. He also made significant advancements in optics, discovering that white light is composed of colors, and developed calculus.
+* Related triples(about 11 relationships):
+  - Isaac Newton -> Born -> December 25, 1642, Woolsthorpe, England
+  - Isaac Newton -> Died -> March 31, 1727 (aged 84), London, England
+  - Isaac Newton -> Major Works -> Principia Mathematica, Opticks
+  - Isaac Newton -> Laws -> Laws of Motion, Universal Gravitation
+  - Isaac Newton -> Discipline -> Physics, Mathematics
+  - Isaac Newton -> Invented -> Calculus
+  - Isaac Newton -> Optical Discovery -> Color Spectrum
+  - Isaac Newton -> Membership -> Royal Society, French Academy of Sciences
+  - Isaac Newton -> Impact -> Classical Mechanics, Modern Science
+  - Isaac Newton -> Education -> Trinity College, Cambridge
+  - Isaac Newton -> Legacy -> Newtonian Mechanics
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (13. Qwen1.5-110B-Chat)>
+* Question: Explain the contributions of Isaac Newton to science and how they impacted the scientific community.
+* Answer(about 35 words): Isaac Newton formulated the laws of motion and universal gravitation, revolutionizing physics and mathematics with Calculus. His work laid the foundation for classical mechanics and influenced generations of scientists.
+
+* Related triples(about 11 relationships):
+  - Isaac Newton -> Formulated -> Laws of Motion
+  - Isaac Newton -> Developed -> Universal Gravitation
+  - Isaac Newton -> Contributed To -> Calculus
+  - Isaac Newton -> Field -> Physics, Mathematics
+  - Isaac Newton -> Impact -> Scientific Revolution
+  - Isaac Newton -> Born -> January 4, 1643, Woolsthorpe Manor, England
+  - Isaac Newton -> Died -> March 31, 1727, Kensington, London, England
+  - Isaac Newton -> Notable Work -> Principia Mathematica
+  - Isaac Newton -> Influenced Fields -> Optics, Astronomy
+  - Isaac Newton -> Honors -> Royal Society President (1703-1727)
+  - Isaac Newton -> Legacy -> Foundation of Modern Physics
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (14. Qwen2-72B-Instruct)>
+<BEGIN_OF_YOUR_OUTPUT>
+* Answer: Isaac Newton revolutionized physics with his laws of motion and universal gravitation, influencing modern physics and astronomy profoundly. He also developed calculus, impacting mathematics significantly.
+
+* Related triples:
+- Isaac Newton -> Born -> December 25, 1642, Woolsthorpe-by-Colsterworth, England
+- Isaac Newton -> Died -> March 20, 1727 (age 84 years), Kensington, London, England
+- Isaac Newton -> Known For -> Laws of Motion, Universal Gravitation, Calculus
+- Isaac Newton -> Field -> Mathematics, Physics, Astronomy
+- Isaac Newton -> Work Institutions -> University of Cambridge, Royal Mint
+- Isaac Newton -> Publications -> Philosophiæ Naturalis Principia Mathematica (1687)
+- Isaac Newton -> Influences -> Galileo Galilei, René Descartes
+- Isaac Newton -> Influenced -> Albert Einstein, James Clerk Maxwell
+- Isaac Newton -> Awards -> Fellow of the Royal Society (FRS)
+- Isaac Newton -> Education -> Trinity College, Cambridge (1661–1665)
+- Isaac Newton -> Burial Place -> Westminster Abbey, London, England
+<END_OF_YOUR_OUTPUT>
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (15. vicuna-7b-v1.5)>
+* Answer: Isaac Newton made significant contributions to the field of physics, including the development of calculus, laws of motion, and universal gravitation. His work revolutionized our understanding of the natural world and paved the way for modern science.
+* Related triples:
+	+ Isaac Newton -> Born -> December 25, 1642, Woolsthorpe, England
+	+ Isaac Newton -> Died -> March 31, 1726, Kensington, England
+	+ Isaac Newton -> Contributions -> Calculus, Laws of Motion, Universal Gravitation
+	+ Isaac Newton -> Scientific Community -> Impact -> Revolutionized understanding of natural world, paved way for modern science
+	+ Isaac Newton -> Field -> Physics
+	+ Isaac Newton -> Institutions -> Royal Society, Trinity College Cambridge
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (16. vicuna-13b-v1.5)>
+* Question: Explain the contributions of Isaac Newton to science and how they impacted the scientific community.
+* Answer(about 35 words): Isaac Newton made groundbreaking contributions to the fields of physics, mathematics, and astronomy, laying the foundation for modern science. His laws of motion and universal gravitation explained the behavior of objects in the natural world, revolutionizing our understanding of the universe.
+* Related triples(about 11 relationships):
+	+ Isaac Newton -> Born -> January 4, 1643, Woolsthorpe, England
+	+ Isaac Newton -> Died -> March 31, 1727 (age 84 years), Kensington, England
+	+ Isaac Newton -> Work Institutions -> Trinity College, Cambridge
+	+ Isaac Newton -> Laws of Motion -> First law (Law of Inertia), Second law (Force equals mass times acceleration), Third law (Action and reaction are equal and opposite)
+	+ Isaac Newton -> Universal Gravitation -> Every body continues in its state of rest, or of uniform motion right up to it.
+	+ Isaac Newton -> Opticks -> Study of light, color dispersion
+	+ Isaac Newton -> Mathematics -> Calculus, Fluxions
+	+ Isaac Newton -> Scientific Revolution -> Galileo Galilei, René Descartes, Johannes Kepler
+	+ Isaac Newton -> Philosophy -> Rationalism, Natural Philosophy
+	+ Isaac Newton -> Impact -> Foundations of classical mechanics, paved way for modern physics
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (17. Mistral-7B-Instruct-v0.1)>
+* Question: Explain the contributions of Isaac Newton to science and how they impacted the scientific community.
+* Answer(about 35 words): Isaac Newton's laws of motion and universal gravitation revolutionized physics and laid the foundation for classical mechanics. His work also had significant implications for astronomy and the understanding of the solar system.
+* Related triples(about 11 relationships):
+  - Isaac Newton -> Born -> January 4, 1643, Lincolnshire, England
+  - Isaac Newton -> Died -> March 20, 1727, London, England
+  - Isaac Newton -> Laws of motion -> First law of motion, Second law of motion, Third law of motion
+  - Isaac Newton -> Universal gravitation -> 1687
+  - Isaac Newton -> Principia Mathematica -> 1687
+  - Isaac Newton -> Field -> Optics, Astronomy, Philosophy of Science
+  - Isaac Newton -> Work Institutions -> Trinity College, Cambridge, Royal Society
+  - Isaac Newton -> Scientific influences -> Galileo Galilei, Johannes Kepler
+  - Isaac Newton -> Legacy -> Scientific Revolution, Enlightenment, Modern physics
+  - Isaac Newton -> Impact on society -> Industrial Revolution, Technological advancements
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (18. Mistral-7B-Instruct-v0.2)>
+* Answer(about 35 words): Isaac Newton made groundbreaking contributions to physics and mathematics with his laws of motion and universal gravitation. His work laid the foundation for classical mechanics and calculus.
+* Related triples(about 11 relationships):
+  - Isaac Newton -> Born -> January 4, 1643, Woolsthorpe Manor, England
+  - Isaac Newton -> Died -> March 31, 1727 (age 84 years), London, England
+  - Isaac Newton -> Published -> "Philosophiæ Naturalis Principia Mathematica" (1687)
+  - Isaac Newton -> Contribution -> Laws of Motion
+  - Isaac Newton -> Contribution -> Universal Gravitation
+  - Isaac Newton -> Contribution -> Calculus
+  - Isaac Newton -> Educated -> Trinity College, Cambridge
+  - Isaac Newton -> Influenced -> Albert Einstein, Galileo Galilei, etc.
+  - Isaac Newton -> Recognition -> Fellow of the Royal Society (1672)
+  - Isaac Newton -> Work Institutions -> Trinity College, Cambridge
+  - Isaac Newton -> Field -> Physics, Mathematics
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (19. Mistral-7B-Instruct-v0.3)>
+* Question: Explain the contributions of Isaac Newton to science and how they impacted the scientific community.
+* Answer(about 35 words): Isaac Newton made groundbreaking contributions to physics and mathematics, most notably his laws of motion and universal gravitation, which laid the foundation for classical mechanics. His work revolutionized our understanding of the universe and continues to influence science today.
+* Related triples(about 11 relationships):
+  - Isaac Newton -> Born -> January 4, 1643, Woolsthorpe Manor, England
+  - Isaac Newton -> Died -> March 31, 1727 (age 84 years), London, England
+  - Isaac Newton -> Work Institutions -> University of Cambridge, Royal Society
+  - Isaac Newton -> Published Works -> Philosophiæ Naturalis Principia Mathematica (1687)
+  - Isaac Newton -> Contribution -> Laws of Motion (Laws 1, 2, & 3)
+  - Isaac Newton -> Contribution -> Universal Gravitation
+  - Isaac Newton -> Impact -> Classical Mechanics Foundations
+  - Isaac Newton -> Impact -> Astronomy (e.g., explaining Kepler's laws)
+  - Isaac Newton -> Impact -> Calculus Development
+  - Isaac Newton -> Influence -> Albert Einstein, Stephen Hawking, and other physicists
+  - Isaac Newton -> Recognition -> Knighted (1705), Fellow of the Royal Society (1672)
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (20. Mixtral-8x7B-Instruct-v0.1)>
+* Question: Explain the contributions of Isaac Newton to science and how they impacted the scientific community.
+* Answer(about 35 words): Isaac Newton made groundbreaking contributions to physics with his laws of motion and universal gravitation, transforming our understanding of the natural world.
+* Related triples(about 11 relationships):
+  - Isaac Newton -> Born -> January 4, 1643, Woolsthorpe, Lincolnshire, England
+  - Isaac Newton -> Died -> March 31, 1727 (aged 84), Kensington, Middlesex, England
+  - Isaac Newton -> Discoveries & Inventions -> Calculus, Laws of Motion, Universal Gravitation
+  - Isaac Newton -> Publication -> Philosophiæ Naturalis Principia Mathematica
+  - Isaac Newton -> Membership & Honors -> Royal Society, Lucasian Professor of Mathematics at the University of Cambridge
+  - Isaac Newton -> Impact & Legacy -> Shaped classical physics, Inspired future scientists, Set standards for rigorous mathematical proof in physics
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (21. Mixtral-8x22B-Instruct-v0.1)>
+* Question: Explain the contributions of Isaac Newton to science and how they impacted the scientific community.
+* Answer(about 35 words): Isaac Newton made significant contributions to physics with his laws of motion and universal gravitation. His work laid the groundwork for classical mechanics and inspired further advancements in science.
+* Related triples(about 11 relationships):
+  - Isaac Newton -> Born -> January 4, 1643, Woolsthorpe Manor, United Kingdom
+  - Isaac Newton -> Died -> March 31, 1727 (aged 84), Kensington, London, Great Britain
+  - Isaac Newton -> Contribution -> Laws of Motion, Universal Gravitation
+  - Isaac Newton -> Influence -> Classical Mechanics
+  - Isaac Newton -> Inspired -> Further Advancements in Science
+  - Isaac Newton -> Education -> Trinity College, Cambridge (graduated 1665)
+  - Isaac Newton -> Occupation -> Mathematician, Physicist, Astronomer, & Author
+  - Isaac Newton -> Publications -> Philosophiæ Naturalis Principia Mathematica (1687)
+  - Isaac Newton -> Achievement -> Knighted by Queen Anne in 1705
+  - Isaac Newton -> Affiliation -> Royal Society (President from 1703 until death)
+  - Isaac Newton -> Legacy -> Sir Isaac Newton Institute for Mathematical Sciences
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (22. SOLAR-10.7B-Instruct-v1.0)>
+Answer: Isaac Newton significantly contributed to science with his three laws of motion and law of universal gravitation, revolutionizing our understanding of physics and laying the foundation for classical mechanics. His work had a profound impact on the scientific community, transforming various disciplines and inspiring generations of scientists.
+
+Related triples:
+1. Isaac Newton -> Born -> December 25, 1642, Woolsthorpe-by-Colsterworth, England
+2. Isaac Newton -> Died -> March 31, 1727 (age 84 years), London, England
+3. Isaac Newton -> Contribution -> Three laws of motion, Law of universal gravitation
+4. Isaac Newton -> Institution -> Trinity College, University of Cambridge
+5. Isaac Newton -> Occupation -> Mathematician, Astronomer, Physicist, Philosopher, Theologian
+6. Isaac Newton -> Influenced by -> René Descartes, Galileo Galilei, Robert Hooke
+7. Isaac Newton -> Influenced -> Edmund Halley, James Bradley, Leonhard Euler
+8. Isaac Newton -> Publications -> "Philosophiæ Naturalis Principia Mathematica"
+9. Isaac Newton -> Positions Held -> Member of Parliament for Grantham, Warden and Master of the Mint
+10. Isaac Newton -> Honors -> Knighted by Queen Anne in 1705
+11. Newtonian mechanics -> Founded by -> Isaac Newton
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (23. openchat-3.5-1210)>
+* Question: Explain the contributions of Isaac Newton to science and how they impacted the scientific community.
+* Answer(about 35 words): Isaac Newton made groundbreaking contributions to physics, mathematics, and astronomy. He formulated the laws of motion and universal gravitation, developed calculus, and studied optics and celestial mechanics. His work laid the foundation for modern physics and had a profound impact on the scientific community, shaping future research and understanding of the natural world.
+* Related triples(about 11 relationships):
+  - Isaac Newton -> Born -> December 25, 1642, Woolsthorpe, England
+  - Isaac Newton -> Died -> March 31, 1727 (aged 84), London, England
+  - Isaac Newton -> Law -> Laws of Motion
+  - Isaac Newton -> Law -> Universal Gravitation
+  - Isaac Newton -> Developed -> Calculus
+  - Isaac Newton -> Studied -> Optics
+  - Isaac Newton -> Studied -> Celestial Mechanics
+  - Isaac Newton -> Work Institutions -> Trinity College, Cambridge
+  - Isaac Newton -> Influenced -> Scientific Community
+  - Isaac Newton -> Field -> Physics, Mathematics, Astronomy
+  - Isaac Newton -> Publications -> Principia Mathematica
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (24. Mistral-7B-OpenOrca)>
+* Question: Explain the contributions of Isaac Newton to science and how they impacted the scientific community.
+* Answer: Isaac Newton made significant contributions to physics, mathematics, and optics. He developed the laws of motion and universal gravitation, which laid the foundation for classical mechanics. He also invented calculus independently and significantly advanced optics with his work on light and color. Newton's work had a profound impact on the scientific community, as it provided a framework for understanding the natural world and laid the groundwork for modern physics and mathematics.
+* Related triples:
+  - Isaac Newton -> Born -> January 4, 1643, Woolsthorpe, England
+  - Isaac Newton -> Died -> March 31, 1727, London, England
+  - Isaac Newton -> Major Works -> Philosophiæ Naturalis Principia Mathematica, Opticks, Arithmetica
+  - Isaac Newton -> Contribution -> Laws of Motion
+  - Isaac Newton -> Contribution -> Universal Gravitation
+  - Isaac Newton -> Contribution -> Calculus
+  - Isaac Newton -> Contribution -> Optics, Light and Color
+  - Isaac Newton -> Influence -> Classical Mechanics, Modern Physics, Mathematics
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (25. WizardLM-13B-V1.2)>
+* Question: Explain the contributions of Isaac Newton to science and how they impacted the scientific community.
+* Answer(about 35 words): Isaac Newton revolutionized modern physics with his laws of motion and law of universal gravitation. His work laid the foundation for classical mechanics and inspired generations of scientists. He also made significant advancements in mathematics, particularly calculus, which has been instrumental in various scientific disciplines.
+* Related triples(about 11 relationships):
+  - Isaac Newton -> Laws of Motion -> Three laws of motion
+  - Isaac Newton -> Law of Universal Gravitation -> Gravitational force between objects
+  - Isaac Newton -> Mathematics -> Calculus
+  - Isaac Newton -> Contributions to Science -> Classical Mechanics
+  - Isaac Newton -> Scientific Disciplines -> Astronomy, Physics
+  - Isaac Newton -> Influence -> Galileo Galilei, Johannes Kepler
+  - Isaac Newton -> Title -> Fellow of the Royal Society
+  - Isaac Newton -> Birthplace -> Woolsthorpe, Lincolnshire, England
+  - Isaac Newton -> Death -> March 31, 1727 (age 85), Kensington, Middlesex, England
+  - Isaac Newton -> Alma Mater -> Trinity College, Cambridge
+  - Isaac Newton -> Academic Advisor -> Samuel Pepys
+<END_OF_MODEL_RESPONSE>
+
+
+==========
+Print the extracted items in the following format:
+1. (model_id without number prefix)
+ * Best: (best triples if they exist, otherwise none)
+ * Worst: (worst triples if they exist, otherwise none)
+ * Answer: (answer suggested by the model)
+2. (model_id without number prefix)
+ * Best: (best triples if they exist, otherwise none)
+ * Worst: (worst triples if they exist, otherwise none)
+ * Answer: (answer suggested by the model)
+...
+25. (model_id without number prefix)
+ * Best: (best triples if they exist, otherwise none)
+ * Worst: (worst triples if they exist, otherwise none)
+ * Answer: (answer suggested by the model)

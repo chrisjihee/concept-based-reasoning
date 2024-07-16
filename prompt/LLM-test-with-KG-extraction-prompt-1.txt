@@ -1,0 +1,516 @@
+Please extract the following items suggested by the model from the model response output for each of the 25 models for the given question and answer set.
+1) Model ID: (model_id without number prefix)
+2) Best (and true) Triples: (if they don't exist in the model response, mark them as none)
+3) Worst (false or fake) Triples: (if they don't exist in the model response, mark them as none)
+4) Answer: (answer suggested by the model)
+==========
+* Question: Describe the significant contributions of the United Nations since its founding.
+==========
+* Base Answer: The United Nations has significantly contributed to international peace and security, humanitarian aid, sustainable development, and the establishment of international laws. It has also launched various initiatives through its subsidiaries like UNESCO and the UN Security Council.
+==========
+* Base Triples:
+  - United Nations -> Founders -> United States, India, United Kingdom, France, Brazil, Iran, etc.
+  - United Nations -> Founded -> October 24, 1945, San Francisco, California, United States
+  - United Nations -> Subsidiaries -> United Nations Security Council, UNESCO, etc.
+  - United Nations -> Awards -> Nobel Peace Prize, etc.
+  - United Nations -> Nominations -> Academy Award for Best Documentary Short Film, etc.
+  - United Nations -> Area served -> World, International
+  - United Nations -> Headquarters -> New York, New York, United States
+  - United Nations -> Mission -> Peacekeeping, Human Rights, Development
+  - United Nations -> Sustainable Development Goals -> 17 goals adopted in 2015
+  - United Nations -> Humanitarian Aid -> Provided to countries in crisis
+  - United Nations -> International Laws -> Established various treaties and conventions
+==========
+* Total 25 Model Responses:
+
+<BEGIN_OF_MODEL_RESPONSE (1. Llama-2-7b-chat-hf)>
+Great! I'm ready to demonstrate my ability to structure and retrieve knowledge from the provided knowledge graph. Here's my answer to the given question:
+
+* Question: Describe the significant contributions of the United Nations since its founding.
+* Answer: The United Nations (UN) has made numerous significant contributions since its establishment in 1945. Some of these contributions include promoting peace and security through various peacekeeping missions, providing humanitarian aid to countries affected by conflict or natural disasters, advancing sustainable development goals, protecting human rights, and promoting international cooperation on global challenges such as climate change, poverty, and inequality.
+* Related triples:
+	+ United Nations -> Founded -> 1945, San Francisco, USA
+	+ United Nations -> Headquarters -> New York City, USA
+	+ United Nations -> Purpose -> Promote peace, security, and cooperation among its member states
+	+ United Nations -> Objectives -> Promote sustainable development, protect human rights, advance international cooperation
+	+ United Nations -> Peacekeeping Missions -> Congo, Cyprus, Lebanon, etc.
+	+ United Nations -> Humanitarian Aid -> Disaster relief, refugee assistance, food aid distribution, etc.
+	+ United Nations -> Sustainable Development Goals -> End poverty, protect the environment, promote social equity, etc.
+	+ United Nations -> Human Rights -> Protection of civil, political, economic, social, and cultural rights
+	+ United Nations -> International Cooperation -> Climate change mitigation, pandemic response, disarmament, etc.
+
+I hope this demonstrates my ability to structure and retrieve knowledge from the provided knowledge graph!
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (2. Llama-2-13b-chat-hf)>
+Sure, I'd be happy to help! Here's my answer to the question "Describe the significant contributions of the United Nations since its founding":
+
+The United Nations has made numerous significant contributions since its founding in 1945. One of its most important contributions has been promoting peace and security worldwide. The UN has played a crucial role in resolving conflicts and preventing wars, often through diplomatic efforts and peacekeeping missions. Additionally, the UN has been instrumental in promoting human rights and human dignity, providing aid and support to those in need, and addressing global challenges such as climate change, poverty, and inequality.
+
+Here are some related triples to reference my answer:
+
+* United Nations -> Founded -> 1945, San Francisco, California, USA
+* United Nations -> Headquarters -> New York City, New York, USA
+* United Nations -> Member States -> 193 countries
+* United Nations -> Purpose -> "to save succeeding generations from the scourge of war"
+* United Nations -> Principles -> sovereign equality of all nations, non-intervention, self-determination, and cooperation
+* United Nations -> Agencies -> United Nations Children's Fund (UNICEF), World Health Organization (WHO), United Nations Development Programme (UNDP)
+* United Nations -> Programmes -> Millennium Development Goals (MDGs), Sustainable Development Goals (SDGs)
+* United Nations -> Achievements -> ending colonialism, promoting decolonization, establishing international law, advancing human rights, providing humanitarian aid, promoting sustainable development
+
+I hope this helps! Let me know if you have any further questions or if there's anything else I can help with.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (3. Llama-2-70b-chat-hf)>
+Sure, I can help you with that! Here's my response:
+
+* Question: Describe the significant contributions of the United Nations since its founding.
+* Answer(about 37 words): The United Nations has made significant contributions to global peace and security, human rights, sustainable development, and humanitarian aid since its founding in 1945. It has also played a crucial role in promoting international cooperation, diplomacy, and dialogue among nations.
+* Related triples(about 11 relationships):
+  - United Nations -> Established -> 1945
+  - United Nations -> Headquarters -> New York City, USA
+  - United Nations -> Secretary-General -> António Guterres (current)
+  - United Nations -> Member States -> 193 countries
+  - United Nations -> Purpose -> Maintaining international peace and security, promoting human rights, fostering sustainable development, and providing humanitarian aid
+  - United Nations -> Principles -> Sovereignty, non-interference, self-determination, human rights, and international law
+  - United Nations -> Specialized Agencies -> World Health Organization, UNICEF, UNESCO, UNHCR, and others
+  - United Nations -> Programmes and Funds -> UNDP, UNEP, UNFPA, UN Women, and others
+  - United Nations -> Peacekeeping Missions -> Over 70 missions deployed since 1948
+  - United Nations -> Human Rights Council -> Established 2006, responsible for promoting and protecting human rights globally
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (4. Llama-3-8b-chat-hf)>
+<BEGIN_OF_YOUR_OUTPUT>
+* Question: Describe the significant contributions of the United Nations since its founding.
+* Answer(about 37 words): The United Nations has made significant contributions since its founding, including promoting peacekeeping efforts, human rights, sustainable development, and humanitarian aid. The organization has also played a crucial role in addressing global challenges such as climate change, poverty, and inequality.
+* Related triples(about 11 relationships):
+  - United Nations -> Founded -> October 24, 1945
+  - United Nations -> Purpose -> Promote Peacekeeping Efforts, Human Rights, Sustainable Development, Humanitarian Aid
+  - United Nations -> Peacekeeping Efforts -> Congo, Lebanon, Cyprus, etc.
+  - United Nations -> Human Rights -> Universal Declaration of Human Rights, Convention on the Prevention and Punishment of Genocide
+  - United Nations -> Sustainable Development -> Millennium Development Goals, Sustainable Development Goals (SDGs)
+  - United Nations -> Humanitarian Aid -> Refugee Crisis, Natural Disaster Relief, Food Security
+  - United Nations -> Climate Change -> Paris Agreement, Climate Action Summit
+  - United Nations -> Poverty Reduction -> Millennium Development Goals, Sustainable Development Goals (SDGs)
+  - United Nations -> Inequality Reduction -> Sustainable Development Goals (SDGs), Human Rights
+  - United Nations -> Secretary-General -> António Guterres, Ban Ki-moon, Kofi Annan
+  - United Nations -> Member States -> 194 countries
+</END_OF_YOUR_OUTPUT>
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (5. Llama-3-70b-chat-hf)>
+Here is my output:
+
+<BEGIN_OF_YOUR_OUTPUT>
+* Question: Describe the significant contributions of the United Nations since its founding.
+* Answer(about 37 words): The United Nations has made significant contributions since its founding, including promoting peace and security, protecting human rights, providing humanitarian aid, and addressing global challenges like climate change and sustainable development.
+* Related triples(about 11 relationships):
+  - United Nations -> Founded -> October 24, 1945
+  - United Nations -> Headquarters -> New York City, USA
+  - United Nations -> Purpose -> Promote peace, security, and cooperation among nations
+  - United Nations -> Humanitarian Aid -> Provided aid to refugees, disaster victims, and vulnerable populations
+  - United Nations -> Climate Change -> Addressed through agreements like the Paris Agreement
+  - United Nations -> Sustainable Development -> Implemented Sustainable Development Goals (SDGs) for 2030
+  - United Nations -> Peacekeeping -> Deployed peacekeeping missions worldwide
+  - United Nations -> Human Rights -> Protected and promoted through Universal Declaration of Human Rights
+  - United Nations -> Member States -> Comprises 193 member states worldwide
+  - United Nations -> Secretary-General -> Led by appointed Secretary-Generals, currently António Guterres
+  - United Nations -> Specialized Agencies -> Includes agencies like UNICEF, WHO, and UNESCO
+<END_OF_YOUR_OUTPUT>
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (6. Qwen1.5-0.5B-Chat)>
+To describe the significant contributions of the United Nations since its founding, we need to include the following:
+* The U.N. has played a crucial role in promoting international cooperation and addressing global challenges.
+* The U.N. has been involved in numerous peacekeeping missions, including the Cold War, the Middle East peace process, and the fight against terrorism.
+* The U.N. has also provided humanitarian aid and assistance to countries affected by natural disasters, conflicts, and other crises.
+* The U.N. has been a leader in developing international policies and mechanisms for addressing climate change, poverty, and inequality.
+* The U.N. has been a force for social justice and equality, with programs aimed at improving access to education, healthcare, and other basic necessities for all individuals.
+* The U.N. has been a source of inspiration and motivation for many people around the world, helping them to overcome challenges and achieve their goals.
+* To provide a comprehensive answer, we can include the following related triples:
+  * The U.N. ->成立 -> 1904
+  * The U.N. ->宗旨 -> Promoting international cooperation and addressing global challenges
+  * The U.N. -> member countries -> 1911
+  * The U.N. -> Peacekeeping missions -> 1911
+  * The U.N. -> Humanitarian aid & assistance -> 1914
+  * The U.N. -> Climate change solutions -> 1919
+  * The U.N. -> Poverty alleviation efforts -> 1923
+  * The U.N. -> Inequality reduction initiatives -> 1932
+  * The U.N. -> Social justice & equality initiatives -> 1939
+  * The U.N. -> Inspiration & motivation for many people -> 1942
+  * The U.N. -> Women & gender equality initiatives -> 1953
+  * The U.N. -> Climate change & sustainable development initiatives -> 1963
+
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (7. Qwen1.5-1.8B-Chat)>
+The United Nations (UN) has made remarkable contributions to global peace, development, and cooperation since its establishment in 1945. Some of the most significant contributions of the UN include:
+
+  1. Peacekeeping Operations: The UN has played a crucial role in maintaining international peace and security by deploying peacekeeping missions to conflict zones around the world. These missions have helped prevent and resolve conflicts, protect civilians, and promote sustainable peace.
+  2. Humanitarian Aid: The UN has provided emergency assistance to millions of people affected by natural disasters, wars, and other crises. It has facilitated the distribution of food, shelter, medical supplies, and other essential resources to those in need, ensuring that basic necessities are met for all.
+  3. Sustainable Development Goals: The UN has adopted and implemented numerous sustainable development goals (SDGs) aimed at addressing pressing issues such as poverty, inequality, climate change, and environmental degradation. By promoting social justice, economic growth, and environmental sustainability, these goals aim to create a more equitable and prosperous future for all.
+  4. International Cooperation: The UN fosters collaboration among member states, governments, civil society organizations, and individuals to address shared challenges and achieve common goals. This includes fostering partnerships on issues such as health, education, gender equality, and disaster relief.
+  5. Global Governance: The UN serves as a platform for dialogue, negotiation, and decision-making on global affairs. It plays a vital role in shaping policies and legislation that address critical issues affecting humanity, such as nuclear disarmament, trade, migration, and human rights.
+  6. Peacebuilding: The UN has been instrumental in helping countries transition from war to peace, providing technical assistance, training, and support to help rebuild societies and promote stability. This includes supporting post-conflict reconstruction efforts, promoting reconciliation, and fostering democratic governance.
+  7. Environmental Protection: The
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (8. Qwen1.5-4B-Chat)>
+* Question: What were some of the major events that occurred during World War II?
+* Answer(about 37 words): World War II was a global war that lasted from 1939 to 1945, involving most of the world's nations. Some of the major events that occurred during this time include the invasion of Europe by Germany, the Battle of Stalingrad, the atomic bomb dropped on Hiroshima and Nagasaki, and the end of the war with the surrender of Japan.
+* Related triples(about 11 relationships):
+  - World War II -> Started -> September 1, 1939
+  - World War II -> Ended -> August 15, 1945
+  - World War II -> Invaded Countries -> Germany, Italy, Japan, etc.
+  - World War II -> Causes -> Nationalism, Imperialism, Economic Competition, etc.
+  - World War II -> Battles -> Battle of Stalingrad, Battle of Britain, Battle of Midway, etc.
+  - World War II -> Wars -> European War, Pacific War, etc.
+  - World War II -> Bombings -> Hiroshima, Nagasaki, etc.
+  - World War II -> Surrender -> Japan, etc.
+  - World War II -> Casualties -> Over 70 million dead, including civilians and soldiers.
+  - World War II -> Impact -> Changed the course of history, led to the rise of the Soviet Union and the United States as superpowers, etc.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (9. Qwen1.5-7B-Chat)>
+* Answer(about 37 words): The UN has contributed to peacekeeping, human rights, development, and international cooperation. Key milestones include establishing the Security Council, promoting the Universal Declaration of Human Rights, and implementing Sustainable Development Goals.
+* Related triples(about 11 relationships):
+  - UN -> Founded -> October 24, 1945, United Nations Charter
+  - UN -> Purpose -> Maintain international peace and security, promote human rights, foster global economic development
+  - UN -> Main Body -> General Assembly, Security Council, International Court of Justice
+  - UN -> Peacekeeping Missions -> UN Peacekeeping Operations, Interim Forces for Peace
+  - UN -> Human Rights Declarations -> Universal Declaration of Human Rights, International Covenant on Civil and Political Rights
+  - UN -> Sustainable Development Goals -> Agenda 2030, 17 Goals, 169 Targets
+  - UN -> Headquarters -> New York City, USA
+  - UN -> Member States -> Present, diverse countries representing various regions
+  - UN -> International Organizations -> International Labor Organization, UNESCO
+  - UN -> Annual Meetings -> General Assembly Sessions, Economic和社会理事会 meetings
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (10. Qwen1.5-14B-Chat)>
+* Answer: The United Nations has promoted peace, international cooperation, human rights, and sustainable development since its foundation in 1945. It established the Universal Declaration of Human Rights, fought wars through peacekeeping missions, and initiated the Sustainable Development Goals.
+* Related triples:
+  - United Nations -> Founded -> October 24, 1945, San Francisco, USA
+  - UN Charter -> Adopted -> June 26, 1945
+  - U.N. Peacekeeping Operations -> Established -> 1948
+  - Universal Declaration of Human Rights -> Adopted -> December 10, 1948
+  - Nobel Peace Prize -> Awarded -> UN & Peacekeeping Forces (various years)
+  - SDGs (Sustainable Development Goals) -> Launched -> 2015, New York, USA
+  - Major Agenda Items -> Peace, Security, Climate Change, Health, Poverty Alleviation
+  - Key Organizations -> Security Council, General Assembly, International Court of Justice
+  - Role in Cold War Ceasefires -> North Korean War, Cuban Missile Crisis
+  - Promotes Multilateralism -> Global Diplomacy, Conflict Resolution
+  - Current Focus -> COVID-19 Response, Climate Action, Gender Equality
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (11. Qwen1.5-32B-Chat)>
+* Answer(about 37 words): The United Nations has played a crucial role in promoting global peace, human rights, and development. It established the Universal Declaration of Human Rights, provided humanitarian aid, and facilitated peacekeeping missions.
+* Related triples(about 11 relationships):
+  - United Nations -> Founded -> October 24, 1945, San Francisco, USA
+  - United Nations -> Headquarters -> New York City, USA
+  - United Nations -> Purpose -> Maintain international peace and security, promote human rights
+  - United Nations -> Principal organs -> General Assembly, Security Council, etc.
+  - United Nations -> Universal Declaration of Human Rights -> Adopted in 1948
+  - United Nations -> Peacekeeping Operations -> Multiple missions since 1948
+  - United Nations -> Humanitarian Aid -> famine relief, disaster response, refugee support
+  - United Nations -> Sustainable Development Goals -> Launched in 2015, 17 goals for 2030
+  - United Nations Environment Programme -> Established -> 1972, Nairobi, Kenya
+  - United Nations Framework Convention on Climate Change -> Signed -> 1992, Rio de Janeiro, Brazil
+  - United Nations Educational, Scientific and Cultural Organization -> UNESCO -> Promotes education, culture, science internationally
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (12. Qwen1.5-72B-Chat)>
+* Question: Describe the significant contributions of the United Nations since its founding.
+* Answer(about 37 words): The UN has played crucial roles in maintaining global peace, addressing humanitarian crises, promoting human rights, combating climate change, and facilitating international cooperation through various treaties and organizations.
+* Related triples(about 11 relationships):
+  - UN -> Founded -> October 24, 1945
+  - UN -> Headquarter -> New York City, USA
+  - UN -> Principal Organs -> General Assembly, Security Council, ECOSOC, International Court of Justice, Secretariat
+  - UN -> Functions -> Peacekeeping, Humanitarian aid, Human rights protection
+  - UN -> Major Treaties -> Universal Declaration of Human Rights, Paris Agreement on Climate Change
+  - UN -> Agencies -> WHO, UNESCO, UNICEF, WFP
+  - UN -> Secretary-Generals -> Trygve Lie (1st), Antonio Guterres (current)
+  - UN -> Military Operations -> Korean War, Kosovo Force, African Union-UN Hybrid Operation in Darfur
+  - UN -> Awards -> Nobel Peace Prize (1965)
+  - UN -> Member States -> 193 countries
+  - UN -> Key Issues -> Refugees, Poverty Reduction, Global Health, Gender Equality
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (13. Qwen1.5-110B-Chat)>
+* Question: Describe the significant contributions of the United Nations since its founding.
+* Answer(about 37 words): The United Nations has made significant contributions to international peacekeeping, promoting human rights, humanitarian aid, climate action, and sustainable development goals worldwide since its establishment.
+
+* Related triples(about 11 relationships):
+  - United Nations -> Founded -> October 24, 1945
+  - United Nations -> Purpose -> International Peace and Security, Human Rights, Development
+  - United Nations -> Headquarters -> New York City, USA
+  - United Nations -> Member States -> 193
+  - United Nations -> Organ -> Security Council
+  - United Nations -> Organ -> General Assembly
+  - United Nations -> Initiated -> Universal Declaration of Human Rights (1948)
+  - United Nations -> Engaged In -> Numerous Peacekeeping Missions worldwide
+  - United Nations -> Framework -> Paris Agreement (Climate Change, 2015)
+  - United Nations -> Developed -> Sustainable Development Goals (SDGs, 2015)
+  - United Nations -> Resolved -> Countless International Conflicts
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (14. Qwen2-72B-Instruct)>
+<BEGIN_OF_YOUR_OUTPUT>
+* Answer: The UN has played a crucial role in peacekeeping, human rights advocacy, and providing humanitarian aid worldwide since its establishment in 1945.
+* Related triples:
+  - United Nations -> Founded -> October 24, 1945
+  - United Nations -> Purpose -> Promote international cooperation, maintain international peace and security
+  - United Nations -> Members -> 193 countries
+  - United Nations -> Peacekeeping Operations -> Over 70 missions since 1948
+  - United Nations -> Human Rights -> Universal Declaration of Human Rights (1948)
+  - United Nations -> Economic Development -> Sustainable Development Goals (SDGs)
+  - United Nations -> Environmental Protection -> Paris Agreement on Climate Change (2015)
+  - United Nations -> Health Initiatives -> Global Fund to Fight AIDS, Tuberculosis and Malaria
+  - United Nations -> Educational Programs -> UNESCO
+  - United Nations -> Legal Framework -> International Court of Justice
+  - United Nations -> Headquarters -> New York City, USA
+<END_OF_YOUR_OUTPUT>
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (15. vicuna-7b-v1.5)>
+* Question: What was the main contribution of the United Nations since its founding?
+* Answer: The main contribution of the United Nations since its founding is peacekeeping and conflict resolution, as well as promoting international cooperation on issues such as human rights, sustainable development, and global health.
+* Related triples:
+	+ UN -> Founded -> 1945
+	+ UN -> Headquarters -> New York City, USA
+	+ UN -> Objective -> Promote international cooperation and maintain international peace and security
+	+ UN -> Peacekeeping -> Conflict resolution, humanitarian aid, monitoring ceasefires
+	+ UN -> Human Rights -> Universal declaration, treaties, committees
+	+ UN -> Sustainable Development -> Goals, initiatives, partnerships
+	+ UN -> Global Health -> Coordination, funding, programs
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (16. vicuna-13b-v1.5)>
+* Question: Describe the significant contributions of the United Nations since its founding.
+* Answer(about 37 words): The United Nations has made significant contributions to global peacekeeping, human rights, and international development since its founding in 1945. It has facilitated dialogue between nations, promoted cooperation on international issues, and provided aid to countries in need.
+* Related triples(about 11 relationships):
+	+ United Nations -> Founded -> 1945
+	+ United Nations -> Headquarters -> New York City, USA
+	+ United Nations -> Purpose -> Maintain international peace and security, promote sustainable development, protect human rights, and provide humanitarian aid
+	+ United Nations -> Member Countries -> 193 (as of September 2021)
+	+ United Nations -> Security Council -> 15 member states (5 permanent: China, France, Russia, UK, US; 10 elected)
+	+ United Nations -> General Assembly -> Representative assembly for all UN member states
+	+ United Nations -> International Court of Justice -> Primary judicial body for the UN
+	+ United Nations -> Peacekeeping Operations -> Deployed to various conflict zones to maintain peace and stability
+	+ United Nations -> Human Rights -> Promotes and protects human rights globally
+	+ United Nations -> Development Assistance -> Provides financial and technical assistance to developing countries
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (17. Mistral-7B-Instruct-v0.1)>
+* Answer(about 37 words): The United Nations has made significant contributions to global peacekeeping, human rights, and international cooperation. It has facilitated the resolution of conflicts, provided humanitarian aid, and promoted sustainable development.
+* Related triples(about 11 relationships):
+  - United Nations -> Founded -> October 24, 1945
+  - United Nations -> Headquarters -> New York City, USA
+  - United Nations -> General Assembly -> Established in 1946
+  - United Nations -> Security Council -> Established in 1946
+  - United Nations -> Peacekeeping Operations -> Established in 1991
+  - United Nations -> Human Rights Council -> Established in 2006
+  - United Nations -> Millennium Development Goals -> Adopted in 2000
+  - United Nations -> Climate Change -> Adopted in 1992
+  - United Nations -> International Law -> Developed and enforced
+  - United Nations -> Nuclear Weapons -> Negotiated disarmament agreements
+  - United Nations -> Humanitarian Aid -> Provided assistance in crises
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (18. Mistral-7B-Instruct-v0.2)>
+* Answer(about 37 words): The United Nations (UN) has played a crucial role in maintaining international peace and security since its establishment in 1945. Key accomplishments include preventing larger conflicts, establishing human rights standards, and providing humanitarian aid during crises. The UN Charter, its foundational document, outlines these objectives.
+* Related triples(about 11 relationships):
+  - United Nations -> Founded -> October 24, 1945
+  - United Nations -> Charter -> Adopted -> June 26, 1945
+  - United Nations -> Peacekeeping Operations -> Total -> More than 70 missions
+  - United Nations -> Human Rights -> Universal Declaration of Human Rights -> Adopted -> December 10, 1948
+  - United Nations -> Agencies -> World Health Organization (WHO)
+  - United Nations -> Agencies -> United Nations Children's Fund (UNICEF)
+  - United Nations -> Agencies -> United Nations Development Programme (UNDP)
+  - United Nations -> Conferences -> United Nations Conference on the Law of the Sea (UNCLOS) -> Held -> 1982
+  - United Nations -> Membership -> Current Members -> 193 countries
+  - United Nations -> Headquarters -> Location -> New York City, USA
+  - United Nations -> Secretaries-General -> Current -> António Guterres (since 2017)
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (19. Mistral-7B-Instruct-v0.3)>
+* Question: Describe the significant contributions of the United Nations since its founding.
+* Answer(about 37 words): The United Nations has played a crucial role in promoting peace, human rights, and sustainable development worldwide. Its efforts have led to the establishment of international law, disaster relief, and the eradication of poverty, among other accomplishments.
+* Related triples(about 11 relationships):
+  - United Nations -> Founded -> October 24, 1945, San Francisco, California, USA
+  - United Nations -> Headquarters -> New York City, New York, USA
+  - United Nations -> Charter -> United Nations Charter, 1945
+  - United Nations -> Peacekeeping Operations -> UN Peacekeeping Missions, 1948-present
+  - United Nations -> Human Rights -> Universal Declaration of Human Rights, 1948
+  - United Nations -> Disaster Relief -> International Disaster Response, 1946-present
+  - United Nations -> Development Goals -> Millennium Development Goals, 2000-2015; Sustainable Development Goals, 2016-present
+  - United Nations -> Member Countries -> 193 member states, 2 observer states, and 2 associate members
+  - United Nations -> Leadership -> Secretary-General, current: António Guterres, 2017-present
+  - United Nations -> Agencies -> World Health Organization (WHO), United Nations Educational, Scientific and Cultural Organization (UNESCO), United Nations Children's Fund (UNICEF), etc.
+  - United Nations -> Awards -> Nobel Peace Prize, awarded six times, starting in 1988
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (20. Mixtral-8x7B-Instruct-v0.1)>
+* Question: Describe the significant contributions of the United Nations since its founding.
+* Answer(about 37 words): The UN has made substantial contributions to international peacekeeping, human rights promotion, and sustainable development goals.
+* Related triples(about 11 relationships):
+  - United Nations -> Founded -> October 24, 1945, San Francisco, California, USA
+  - United Nations -> Headquarters -> New York, New York, USA
+  - United Nations -> Members -> 193 Member States
+  - United Nations -> Purpose -> Maintain international peace and security, promote sustainable development, protect human rights, uphold international law
+  - United Nations -> Peacekeeping Missions -> UNFICYP (Cyprus), MINUSMA (Mali), MONUSCO (Democratic Republic of the Congo), UNMISS (South Sudan), etc.
+  - United Nations -> Human Rights Council -> Established 2006, Geneva, Switzerland
+  - United Nations -> Universal Declaration of Human Rights -> Adopted December 10, 1948
+  - United Nations -> Sustainable Development Goals (SDGs) -> Agreed upon September 25, 2015, New York, NY, USA
+  - United Nations -> Agencies & Programs -> UNICEF, WHO, UNESCO, UNDP, WFP, UNHCR, etc.
+  - United Nations -> Climate Change Conferences -> COP 1 (Berlin, Germany 1995), COP 21 (Paris, France 2015), COP 26 (Glasgow, Scotland 2021), etc.
+  - United Nations -> Reform Initiatives -> Agenda for Sustainable Development, Peacebuilding Architecture, etc.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (21. Mixtral-8x22B-Instruct-v0.1)>
+* Question: Describe the significant contributions of the United Nations since its founding.
+* Answer(about 37 words): The UN has promoted international cooperation, maintained peace & security, protected human rights, delivered humanitarian aid, and advocated for sustainable development worldwide.
+* Related triples(about 11 relationships):
+  - United Nations -> Founded -> October 24, 1945
+  - United Nations -> Headquarters -> New York City, USA
+  - United Nations -> Member States -> 193 countries as of now
+  - United Nations -> Secretary General -> António Guterres (since 2017)
+  - United Nations -> Security Council Members -> China, France, Russia, UK, US (Permanent); 10 non-permanent members
+  - United Nations -> Peacekeeping Missions -> Over 70 operations since 1948
+  - United Nations -> Human Rights Treaties -> Universal Declaration of Human Rights (UDHR), International Covenant on Civil and Political Rights (ICCPR), International Covenant on Economic, Social and Cultural Rights (ICESCR)
+  - United Nations -> Sustainable Development Goals (SDGs) -> 17 goals adopted in 2015
+  - United Nations -> World Food Programme (WFP) -> Aiming to end hunger by 2030
+  - United Nations -> United Nations Educational, Scientific and Cultural Organization (UNESCO) -> Promoting education, science, culture, and communication
+  - United Nations -> United Nations High Commissioner for Refugees (UNHCR) -> Protecting refugees, internally displaced persons, stateless people
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (22. SOLAR-10.7B-Instruct-v1.0)>
+* Question: Describe the significant contributions of the United Nations since its founding.
+* Answer: The United Nations has played a pivotal role in promoting global peace, security, and cooperation. It has facilitated ceasefires and peacekeeping missions, established human rights protections, addressed humanitarian crises, and fostered international development efforts through various organizations and treaties.
+
+* Related triples:
+1. United Nations -> Founded -> October 24, 1945
+2. United Nations -> Headquarters -> New York City
+3. United Nations Charter -> Ratified -> December 24, 1945
+4. United Nations Security Council -> Responsible for -> Maintaining international peace and security
+5. United Nations Peacekeeping Operations -> Established -> 1948
+6. Universal Declaration of Human Rights -> Adopted by UN General Assembly -> December 10, 1948
+7. UN High Commissioner for Refugees -> Founded -> December 14, 1950
+8. International Criminal Court -> Established by Rome Statute backed by UN -> July 17, 1998
+9. Millennium Development Goals -> Replaced by Sustainable Development Goals under UN -> September 25, 2015
+10. UN Global Compact -> Launched by UN Secretary-General Kofi Annan -> July 26, 2000
+11. UN International Criminal Tribunals -> Established for Rwanda and former Yugoslavia -> 1994, 1993
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (23. openchat-3.5-1210)>
+* Question: Describe the significant contributions of the United Nations since its founding.
+* Answer(about 37 words): The United Nations has played a crucial role in promoting international cooperation, maintaining peace and security, providing humanitarian aid, and protecting human rights around the world. It has facilitated numerous treaties and agreements, established peacekeeping missions, and acted as a platform for dialogue among nations.
+* Related triples(about 11 relationships):
+  - United Nations -> Founded -> October 24, 1945
+  - United Nations -> Headquarters -> New York City, United States
+  - United Nations -> Charter -> United Nations Charter
+  - United Nations -> Main Organs -> General Assembly, Security Council, Economic and Social Council, Secretariat, International Court of Justice
+  - United Nations -> Peacekeeping Missions -> Multiple Missions (e.g., UNMISS, MINUSMA)
+  - United Nations -> Humanitarian Aid -> Various Humanitarian Crises (e.g., Syria, Yemen, Afghanistan)
+  - United Nations -> Human Rights -> Universal Declaration of Human Rights, Human Rights Council
+  - United Nations -> Sustainable Development -> Sustainable Development Goals
+  - United Nations -> Environment -> UN Environment Programme
+  - United Nations -> Climate Change -> Paris Agreement, UNFCCC
+  - United Nations -> Disarmament -> Treaty on the Non-Proliferation of Nuclear Weapons, Comprehensive Nuclear-Test-Ban Treaty
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (24. Mistral-7B-OpenOrca)>
+* Question: Describe the significant contributions of the United Nations since its founding.
+* Answer(about 37 words): Since its founding, the United Nations has played a pivotal role in promoting peace, human rights, and international cooperation. It has established numerous organizations like UNESCO, WHO, and WFP to address global challenges. The UN also drafted groundbreaking documents like the Universal Declaration of Human Rights and the Paris Agreement on climate change.
+* Related triples(about 11 relationships):
+  - United Nations -> Founded -> October 24, 1945, San Francisco, USA
+  - United Nations -> Purpose -> Maintain international peace and security
+  - United Nations -> Promote -> Human rights, social progress, better living standards
+  - United Nations -> Established -> UNESCO, WHO, WFP, etc.
+  - United Nations -> Documents -> Universal Declaration of Human Rights, Paris Agreement
+  - United Nations -> Membership -> 193 countries (as of October 2021)
+  - United Nations -> Headquarters -> New York City, USA
+  - United Nations -> Peacekeeping missions -> Over 70 missions in various conflict regions
+  - United Nations -> Goals -> Sustainable Development Goals (SDGs)
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (25. WizardLM-13B-V1.2)>
+* Question: Describe the significant contributions of the United Nations since its founding.
+* Answer(about 37 words): Since its establishment in 1945, the United Nations has made significant contributions by promoting peace, security, and cooperation among nations. It has facilitated international dialogue, provided humanitarian aid during crises, and played a crucial role in maintaining global order. Key initiatives include the adoption of the Universal Declaration of Human Rights, the Paris Agreement on climate change, and the Sustainable Development Goals for economic development.
+* Related triples(about 11 relationships):
+  - United Nations -> Founded -> October 24, 1945, San Francisco, California, U.S.
+  - United Nations -> Headquarters -> New York City, U.S.
+  - United Nations -> Promotes -> Peace, Security, Cooperation among Nations
+  - United Nations -> Facilitates -> International Dialogue
+  - United Nations -> Provides -> Humanitarian Aid during Crises
+  - United Nations -> Involved in -> Maintaining Global Order
+  - United Nations -> Adopted -> Universal Declaration of Human Rights
+  - United Nations -> Signatory -> Paris Agreement on Climate Change
+  - United Nations -> Initiated -> Sustainable Development Goals
+  - United Nations -> Member States -> 193 countries
+  - United Nations -> Official Languages -> English, French, Spanish, Arabic, Chinese, Russian
+<END_OF_MODEL_RESPONSE>
+
+
+==========
+Print the extracted items in the following format:
+1. (model_id without number prefix)
+ * Best: (best triples if they exist, otherwise none)
+ * Worst: (worst triples if they exist, otherwise none)
+ * Answer: (answer suggested by the model)
+2. (model_id without number prefix)
+ * Best: (best triples if they exist, otherwise none)
+ * Worst: (worst triples if they exist, otherwise none)
+ * Answer: (answer suggested by the model)
+...
+25. (model_id without number prefix)
+ * Best: (best triples if they exist, otherwise none)
+ * Worst: (worst triples if they exist, otherwise none)
+ * Answer: (answer suggested by the model)

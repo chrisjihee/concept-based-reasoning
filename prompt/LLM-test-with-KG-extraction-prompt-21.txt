@@ -1,0 +1,492 @@
+Please extract the following items suggested by the model from the model response output for each of the 25 models for the given question and answer set.
+1) Model ID: (model_id without number prefix)
+2) Best (and true) Triples: (if they don't exist in the model response, mark them as none)
+3) Worst (false or fake) Triples: (if they don't exist in the model response, mark them as none)
+4) Answer: (answer suggested by the model)
+==========
+* Question: Evaluate the role of the Marshall Plan in the reconstruction of Europe after World War II and its long-term effects on international relations.
+==========
+* Base Answer: The Marshall Plan provided economic aid for European reconstruction, fostering economic recovery and political stability. It strengthened US-European ties, countered Soviet influence, and laid the groundwork for European integration and the Cold War dynamics.
+==========
+* Base Triples:
+  - Marshall Plan -> Official Name -> European Recovery Program
+  - Period -> Implementation -> 1948-1952
+  - Economic Aid -> Amount -> $13 billion
+  - Key Architect -> George C. Marshall -> US Secretary of State
+  - Objectives -> Economic Recovery -> Industrial Rebuilding
+  - Political Stability -> Goals -> Prevent Communism
+  - Beneficiaries -> Key Countries -> UK, France, West Germany
+  - Economic Recovery -> Impact -> Increased Production, Trade
+  - US-European Ties -> Strengthening -> Political Alliances
+  - Soviet Response -> COMECON -> Alternative Aid
+  - Long-term Effects -> European Integration -> Foundation for EU
+==========
+* Total 25 Model Responses:
+
+<BEGIN_OF_MODEL_RESPONSE (1. Llama-2-7b-chat-hf)>
+Sure, I'll do my best to demonstrate my ability to structure and retrieve knowledge from the provided knowledge graph! Here is my answer to the given question along with the related triples:
+
+* Question: Evaluate the role of the Marshall Plan in the reconstruction of Europe after World War II and its long-term effects on international relations.
+* Answer (about 34 words): The Marshall Plan played a crucial role in Europe's post-WWII reconstruction by providing over $12 billion in economic aid to 16 countries, helping them recover and rebuild their economies. This not only improved their standard of living but also fostered unity and cooperation among European nations, contributing to lasting peace and stability in the region.
+* Related triples (about 11 relationships):
+	+ The Marshall Plan -> Was introduced -> 1948 by US Secretary of State George Marshall
+	+ The Marshall Plan -> Affected countries -> 16 European countries, including Germany, Italy, France, and the UK
+	+ The Marshall Plan -> Amount -> Over $12 billion
+	+ The Marshall Plan -> Objective -> Reconstruction and economic recovery of post-WWII Europe
+	+ The Marshall Plan -> Implementing organization -> Economic Cooperation Administration (ECA)
+	+ The Marshall Plan -> Significance -> Long-term impact on international relations, fostering unity and cooperation among European nations
+	+ The Marshall Plan -> Contribution to peace and stability -> Lasting peace and stability in Europe
+	+ The Marshall Plan -> Influence on US foreign policy -> Shaped US foreign policy towards Europe and global economic development
+	+ The Marshall Plan -> Legacy -> Enduring model for international cooperation and development aid
+
+I hope this demonstrates my ability to structure and retrieve knowledge from the provided knowledge graph!
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (2. Llama-2-13b-chat-hf)>
+Sure, I'd be happy to help! Here's my answer and related triples for the given question:
+
+* Question: Evaluate the role of the Marshall Plan in the reconstruction of Europe after World War II and its long-term effects on international relations.
+* Answer (about 34 words): The Marshall Plan played a significant role in the post-war reconstruction of Europe by providing financial assistance and promoting economic cooperation among European countries. It helped to rebuild infrastructure, stimulate economic growth, and strengthen democratic institutions. The plan also had long-term effects on international relations by fostering European integration and setting a precedent for US economic aid to other regions.
+* Related triples (about 11 relationships):
+  - Marshall Plan -> Provided financial assistance -> European countries
+  - Marshall Plan -> Promoted economic cooperation -> European countries
+  - Marshall Plan -> Rebuilt infrastructure -> European countries
+  - Marshall Plan -> Stimulated economic growth -> European countries
+  - Marshall Plan -> Strengthened democratic institutions -> European countries
+  - European Union -> Fostered by the Marshall Plan
+  - European integration -> Facilitated by the Marshall Plan
+  - US foreign policy -> Influenced by the Marshall Plan
+  - International relations -> Affected by the Marshall Plan
+  - Precedent -> Set by the Marshall Plan for US economic aid
+
+I hope this helps! Let me know if you have any questions or need further clarification.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (3. Llama-2-70b-chat-hf)>
+Sure, I'll do my best to provide an answer and related triples for the question you've provided.
+
+Question: Evaluate the role of the Marshall Plan in the reconstruction of Europe after World War II and its long-term effects on international relations.
+
+Answer (about 34 words): The Marshall Plan played a crucial role in the post-WWII reconstruction of Europe by providing financial assistance and promoting economic cooperation, which helped to stabilize the region, foster economic growth, and promote peaceful international relations.
+
+Related triples (about 11 relationships):
+
+1. George Marshall -> Proposed -> Marshall Plan, 1948
+2. Marshall Plan -> Aimed to -> Reconstruct war-torn Europe, promote economic stability and cooperation
+3. European Recovery Program -> Implemented -> Marshall Plan, 1948-1952
+4. ERP -> Provided -> Financial assistance, technical aid, and trade liberalization
+5. ERP -> Benefited -> 16 European countries, including Germany, France, Italy, and the UK
+6. Marshall Plan -> Helped to -> Stabilize European economies, foster economic growth, promote peaceful international relations
+7. NATO -> Established -> 1949, as a response to the Soviet Union's aggressive policies
+8. NATO -> Strengthened -> Western European countries' defense capabilities, deterred Soviet aggression
+9. European Coal and Steel Community -> Established -> 1951, as a precursor to the European Union
+10. ECSC -> Facilitated -> Economic integration, coal and steel production coordination among member states
+11. Treaty of Rome -> Signed -> 1957, established the European Economic Community, a predecessor to the EU
+
+I hope this helps! Let me know if you have any further questions or need additional information.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (4. Llama-3-8b-chat-hf)>
+<BEGIN_OF_YOUR_OUTPUT>
+* Question: Evaluate the role of the Marshall Plan in the reconstruction of Europe after World War II and its long-term effects on international relations.
+* Answer(about 34 words): The Marshall Plan played a crucial role in the reconstruction of war-torn Europe, providing economic assistance and fostering cooperation among Western nations. It helped stabilize the global economy, promoted European integration, and contributed to the containment of Soviet expansionism.
+* Related triples(about 11 relationships):
+  - Marshall Plan -> Launched -> June 5, 1947
+  - Marshall Plan -> Purpose -> Reconstruction of Europe after World War II
+  - Marshall Plan -> Beneficiaries -> Western European countries, including Germany, Italy, and France
+  - Marshall Plan -> Funding -> United States government
+  - Marshall Plan -> Economic Impact -> Stabilized global economy, promoted European integration
+  - Marshall Plan -> Political Impact -> Contained Soviet expansionism, strengthened Western alliances
+  - Marshall Plan -> Duration -> 1948-1952
+  - Marshall Plan -> Key Figures -> George C. Marshall, Henry Morgenthau Jr.
+  - Marshall Plan -> Effects on International Relations -> Promoted cooperation among Western nations, led to formation of NATO
+  - Marshall Plan -> Legacy -> Considered a turning point in post-war international relations, shaped the course of European history
+  - Marshall Plan -> Context -> Cold War era, post-war reconstruction efforts
+<END_OF_YOUR_OUTPUT>
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (5. Llama-3-70b-chat-hf)>
+Here is my output:
+
+<BEGIN_OF_YOUR_OUTPUT>
+* Question: Evaluate the role of the Marshall Plan in the reconstruction of Europe after World War II and its long-term effects on international relations.
+* Answer(about 34 words): The Marshall Plan played a crucial role in reconstructing post-WWII Europe by providing economic aid, promoting economic integration, and fostering cooperation among European nations, ultimately shaping the Cold War era and modern international relations.
+* Related triples(about 11 relationships):
+  - Marshall Plan -> Established -> 1948
+  - Marshall Plan -> Purpose -> Reconstruct post-WWII Europe
+  - Marshall Plan -> Implemented_by -> United States
+  - Marshall Plan -> Beneficiaries -> Western European countries
+  - Marshall Plan -> Amount -> $13 billion
+  - Marshall Plan -> Duration -> 1948-1952
+  - Marshall Plan -> Result -> Rapid economic growth in Western Europe
+  - Marshall Plan -> Impact_on_international_relations -> Shaped Cold War dynamics
+  - Marshall Plan -> Promoted -> Economic integration among European nations
+  - Marshall Plan -> Led_to -> Creation of European Coal and Steel Community
+  - Marshall Plan -> Influenced -> Development of modern international institutions
+<END_OF_YOUR_OUTPUT>
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (6. Qwen1.5-0.5B-Chat)>
+To evaluate the role of the Marshall Plan in the reconstruction of Europe after World War II and its long-term effects on international relations, we need to provide a detailed explanation of the plan and its impact on various aspects of international relations. The Marshall Plan was a United Nations initiative aimed at promoting peace and stability in Europe by providing aid and support to countries struggling with economic, political, and social challenges. It was launched in 1947 and lasted for several years, during which it provided financial and military assistance to over 30 countries. The plan aimed to reduce tensions between the United States and other Western powers and increase cooperation among European nations. Its success in reducing tensions and promoting international cooperation led to the establishment of the European Economic Community (EEC) and the United Nations Security Council. However, the Marshall Plan also faced criticism for its emphasis on military aid and lack of international cooperation. As a result, the plan was replaced by the Cold War and the United States' policy of "Total War" in the 1990s. Overall, the Marshall Plan had a significant impact on the international community and helped to promote peace and stability in Europe after World War II.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (7. Qwen1.5-1.8B-Chat)>
+The Marshall Plan was a US economic aid program launched by President Franklin D. Roosevelt in 1948 to rebuild Europe after World War II. The plan aimed at helping countries in Western Europe recover from the war's devastation, including providing financial assistance, technical assistance, and rebuilding infrastructure. The plan had several key components:
+
+1. Financial Assistance: The program provided loans to European countries with a focus on industrialization and modernizing their economies. This included funding for research and development, investment in infrastructure, and the creation of new industries.
+
+2. Technical Assistance: The United States also provided training programs and technical expertise to help European countries improve their manufacturing capabilities and productivity. This included training programs for engineers, scientists, and other professionals, as well as assistance in developing new technologies.
+
+3. Infrastructure Reconstruction: The Marshall Plan supported the construction of roads, bridges, and other essential infrastructure projects in Western Europe. This helped to stimulate economic growth and create jobs, improving transportation networks and reducing dependency on foreign sources of goods.
+
+4. Inter-American Cooperation: The Marshall Plan also encouraged closer cooperation between Western European countries and the United States on issues such as trade, security, and defense. This helped to establish a framework for future cooperation between the two regions and fostered a more integrated global economy.
+
+The long-term effects of the Marshall Plan on international relations have been significant. It has contributed to the development of strong economic ties between Western Europe and the United States, which remain prevalent today. The plan has also played a role in promoting peace and stability in the region, particularly in the aftermath of the Cold War. Additionally, it has helped to shape the international order by promoting multilateralism and addressing the challenges posed by globalization
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (8. Qwen1.5-4B-Chat)>
+The Marshall Plan played a crucial role in the reconstruction of Europe after World War II by providing economic aid and support to countries devastated by the war. It helped to rebuild infrastructure, create jobs, and stimulate economic growth. The plan also had significant long-term effects on international relations, as it demonstrated the power and influence of the United States in shaping global affairs. Additionally, the Marshall Plan fostered closer ties between the United States and European countries, leading to increased cooperation and collaboration in the years that followed.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (9. Qwen1.5-7B-Chat)>
+* Answer: The Marshall Plan significantly contributed to Europe's post-war recovery by providing financial aid for rebuilding, fostering economic cooperation, and promoting integration. Its long-term effects included stability, reduced Cold War tensions, and the formation of the European Union.
+* Related triples(about 11 relationships):
+- Marshall Plan -> Initiated by -> United States国务院 (US Department of State)
+- Marshall Plan -> Aimed at -> Western European countries
+- Marshall Plan -> Duration -> 1948-1952
+- Marshall Plan -> Funding amount -> $13 billion (in today's currency)
+- Marshall Plan -> Objectives -> Economic assistance, rebuild infrastructure
+- Marshall Plan -> Impact on GDP -> Boosted European economies
+- European Economic Community (EEC) -> Formed as result -> Integration from 1957 onwards
+- Cold War -> Reduced due to -> Economic interdependence (through NATO and the EEC)
+- NATO -> Signed by -> Western European countries, US, etc. (after Marshall Plan support)
+- Bretton Woods Agreement -> Settled global monetary system influenced by -> Success of Marshall Plan's economic policies
+- GATT (General Agreement on Tariffs and Trade) -> Strengthened international trade relations -> Resulting from EU integration, partly inspired by Marshall Plan experience
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (10. Qwen1.5-14B-Chat)>
+* Answer: The Marshall Plan facilitated European recovery by providing financial aid, stimulating economic growth, and promoting integration. It solidified US influence and laid groundwork for NATO and the EU.
+* Related triples:
+  - Marshall Plan -> Implemented -> 1948-1952
+  - Marshall Plan -> Sponsored by -> United States
+  - Marshall Plan -> Targeted Countries -> Western Europe
+  - Economic Impact -> Boosted industrial production, infrastructure
+  - Political Outcome -> Strengthening of West Germany, weakened Soviet Bloc
+  - Security Implications -> Formation of NATO, containment of communism
+  - Long-term Effects -> Integration of Europe, precursor to European Union
+  - Involvement -> Harry S. Truman, George C. Marshall
+  - Role in Cold War -> Divided Europe, ideological competition
+  - International Relations Shift -> Bipolar world order, US-European partnership
+  - Legacy -> Economic cooperation, global development model.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (11. Qwen1.5-32B-Chat)>
+* Answer(about 34 words): The Marshall Plan, initiated in 1948, provided massive economic aid to rebuild war-torn Europe, fostering recovery, stability, and integration. It strengthened transatlantic ties, promoted democracy, and laid foundations for the European Union.
+* Related triples(about 11 relationships):
+  - Marshall Plan -> Start Year -> 1948
+  - Marshall Plan -> End Year -> 1952
+  - Marshall Plan -> Aim -> Economic recovery of Europe
+  - Marshall Plan -> Key Figure -> George C. Marshall
+  - Marshall Plan -> Beneficiary Countries -> West Germany, Italy, France, UK, etc.
+  - Marshall Plan -> Total Aid Provided -> $13 billion (USD)
+  - Marshall Plan -> Impact -> Boosted industrial production, trade
+  - Marshall Plan -> Outcome ->复兴欧洲, 促进民主
+  - Marshall Plan -> Role -> 扭转经济颓势, 稳定社会秩序
+  - Marshall Plan -> Long-Term Effect -> 强化跨大西洋关系, 推动欧盟建立
+  - Marshall Plan -> Inspiration -> 国际合作与援助的典范
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (12. Qwen1.5-72B-Chat)>
+* Question: Evaluate the role of the Marshall Plan in the reconstruction of Europe after World War II and its long-term effects on international relations.
+* Answer(about 34 words): The Marshall Plan, officially known as the European Recovery Program, aided post-WWII Europe by providing financial assistance for rebuilding. It fostered economic cooperation, strengthened democratic institutions, and contributed to the formation of NATO, shaping Cold War dynamics.
+* Related triples(about 11 relationships):
+  - Marshall Plan -> Official Name -> European Recovery Program
+  - Marshall Plan -> Started -> 1948
+  - Marshall Plan -> Ended -> 1952
+  - Marshall Plan -> Purpose -> Reconstruct Europe after WWII
+  - Marshall Plan -> Amount Distributed -> $13 billion (USD)
+  - Marshall Plan -> Countries Benefited -> Belgium, France, West Germany, Italy, etc.
+  - Marshall Plan -> Result -> Economic Growth, Stability
+  - Marshall Plan -> Influenced -> Formation of the European Coal and Steel Community
+  - Marshall Plan -> Impact -> NATO Establishment
+  - Marshall Plan -> Historical Context -> Cold War Era
+  - Marshall Plan -> Related Treaty -> Treaty of Brussels (pre-NATO alliance)
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (13. Qwen1.5-110B-Chat)>
+* Question: Evaluate the role of the Marshall Plan in the reconstruction of Europe after World War II and its long-term effects on international relations.
+* Answer(about 34 words): The Marshall Plan, initiated by the U.S. in 1948, significantly aided Europe's post-war economic recovery, fostering cooperation and preventing communism's spread. It laid the groundwork for the Cold War era's Western alliances and economic integration.
+* Related triples(about 11 relationships):
+  - Marshall Plan -> Started -> 1948
+  - Marshall Plan -> Aim -> Economic Reconstruction of Europe
+  - Marshall Plan -> Funded By -> United States
+  - Marshall Plan -> Beneficiary Countries -> Most European Nations
+  - Marshall Plan -> Ended -> 1952
+  - Marshall Plan -> Result -> Rapid Economic Growth in Europe
+  - Marshall Plan -> Impact -> Strengthening NATO
+  - Marshall Plan -> Tackled -> Post-WWII Devastation
+  - Marshall Plan -> Led To -> European Economic Community
+  - Marshall Plan -> Counter to -> Soviet Influence
+  - Marshall Plan -> Long-Term Effect -> Enhanced International Trade and Stability
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (14. Qwen2-72B-Instruct)>
+<BEGIN_OF_YOUR_OUTPUT>
+* Answer: The Marshall Plan significantly aided post-WWII European recovery, fostering economic growth and stability, strengthening transatlantic ties, and laying groundwork for the EU.
+* Related triples:
+  - Marshall Plan -> Initiated -> June 5, 1947
+  - Marshall Plan -> Ended -> December 31, 1951
+  - Marshall Plan -> Aim -> Reconstruction of Europe after WWII
+  - Marshall Plan -> Beneficiaries -> Western European countries
+  - Marshall Plan -> Total Aid -> Over $13 billion ($170 billion today)
+  - Marshall Plan -> Impact -> Boosted European economies
+  - Marshall Plan -> Creator -> George C. Marshall
+  - Marshall Plan -> Influenced -> Creation of the European Union
+  - Marshall Plan -> Strengthened -> Transatlantic relationship
+  - Marshall Plan -> Supported -> Democracy promotion
+  - Marshall Plan -> Contributed To -> Cold War containment strategy
+<END_OF_YOUR_OUTPUT>
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (15. vicuna-7b-v1.5)>
+As an AI language model, I am not able to provide answers to questions outside of my training data. However, I can generate a sample answer and related triples based on the provided format.
+
+* Question: What were the key discoveries and achievements of Marie Curie in her lifetime?
+* Answer: Marie Curie made significant contributions to science, including the discovery of radium and polonium, and she was the first woman to win a Nobel Prize.
+* Related triples:
+	+ Marie Curie -> Born -> November 7, 1867, Warsaw, Poland
+	+ Marie Curie -> Died -> July 4, 1934 (age 66 years), Passy, France
+	+ Marie Curie -> Discovered -> Radium, Polonium
+	+ Marie Curie -> Spouse -> Pierre Curie (m. 1895–1906)
+	+ Marie Curie -> Buried -> April 20, 1995, Panthéon, Paris, France
+	+ Marie Curie -> Education -> University of Paris (1903), University of Paris (1894), etc.
+	+ Marie Curie -> Children -> Ève Curie, Irène Joliot-Curie
+	+ Marie Curie -> Nobel Prize in Physics -> 1903
+	+ Marie Curie -> Nobel Prize in Chemistry -> 1911
+	+ Marie Curie -> Field -> Physics, Chemistry
+	+ Marie Curie -> Work Institutions -> University of Paris, Radium Institute
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (16. vicuna-13b-v1.5)>
+* Question: Evaluate the role of the Marshall Plan in the reconstruction of Europe after World War II and its long-term effects on international relations.
+* Answer(about 34 words): The Marshall Plan played a significant role in rebuilding European economies after WWII by providing over $12 billion in aid. It contributed to the revival of industries, infrastructure, and agriculture, fostering economic growth and stability across Western Europe. This led to increased trade, political cooperation, and ultimately, the formation of the European Union, which has had lasting positive impacts on international relations.
+* Related triples(about 11 relationships):
+	+ Marshall Plan -> Start Date -> April 3, 1948
+	+ Marshall Plan -> End Date -> December 31, 1952
+	+ Marshall Plan -> Total Cost -> $12 billion
+	+ Marshall Plan -> Countries involved -> United States, Western European countries
+	+ Marshall Plan -> Goal -> Rebuild European economies post-WWII
+	+ Marshall Plan -> Achievement -> Revival of industries, infrastructure, and agriculture
+	+ Marshall Plan -> Impact -> Increased trade, political cooperation, formation of the European Union
+	+ European Union -> Formation Date -> November 1, 1993
+	+ European Union -> Member countries -> 27 (as of September 2021)
+	+ International relations -> Key players -> United States, European Union, other regional organizations
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (17. Mistral-7B-Instruct-v0.1)>
+* Question: Evaluate the role of the Marshall Plan in the reconstruction of Europe after World War II and its long-term effects on international relations.
+* Answer(about 34 words): The Marshall Plan played a crucial role in the reconstruction of Europe by providing economic aid to countries devastated by World War II. It helped to rebuild infrastructure, promote economic growth, and strengthen international relations. In the long term, it helped to establish the United States as a global leader and laid the foundation for the creation of the European Union.
+* Related triples(about 11 relationships):
+  - The Marshall Plan -> Began -> 1948
+  - The Marshall Plan -> Ended -> 1952
+  - The Marshall Plan -> Aid -> Economic aid
+  - The Marshall Plan -> Recipients -> Western European countries
+  - The Marshall Plan -> Impact -> Reconstruction of Europe
+  - The Marshall Plan -> Impact -> Economic growth
+  - The Marshall Plan -> Impact -> International relations
+  - The Marshall Plan -> Criticism -> Some countries felt it was too restrictive
+  - The Marshall Plan -> Successor -> European Recovery Program
+  - The Marshall Plan -> Influence -> Established the United States as a global leader
+  - The Marshall Plan -> Influence -> Led to the creation of the European Union
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (18. Mistral-7B-Instruct-v0.2)>
+* Answer(about 34 words): The Marshall Plan, implemented in 1948, provided economic aid to European countries rebuilding after World War II. It led to the economic recovery and stabilization of Western Europe, reducing the influence of communist ideologies. Long-term effects included strengthened economic ties between Europe and the US, the establishment of the European Coal and Steel Community (later the European Union), and the beginning of the Cold War divide between East and West.
+* Related triples(about 11 relationships):
+  - Marshall Plan -> Announced -> April 3, 1948, Harvard University, Cambridge, Massachusetts, US
+  - Marshall Plan -> Implemented -> April 3, 1948 – December 31, 1951
+  - Western European Countries -> Received Aid From -> Marshall Plan
+  - Marshall Plan -> Aim -> Economic Recovery and Stabilization
+  - Western Europe -> Economically Recovered -> Late 1950s
+  - Marshall Plan -> Reduced Influence Of -> Communist Ideologies
+  - European Coal and Steel Community -> Established -> May 23, 1951, Paris, France
+  - Cold War -> Divide Between -> East and West
+  - United States -> Aided -> Western European Countries (through the Marshall Plan)
+  - United States -> Established Stronger Economic Ties With -> Western Europe
+  - Western Europe -> Joined -> European Union (post-1950s)
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (19. Mistral-7B-Instruct-v0.3)>
+* Question: Evaluate the role of the Marshall Plan in the reconstruction of Europe after World War II and its long-term effects on international relations.
+* Answer(about 34 words): The Marshall Plan provided economic aid to European countries, promoting their recovery and development after World War II. It fostered economic growth, reduced poverty, and established a foundation for lasting peace and cooperation among nations, leading to the formation of NATO and the EU.
+* Related triples(about 11 relationships):
+  - The Marshall Plan -> Established by -> George C. Marshall (U.S. Secretary of State)
+  - The Marshall Plan -> Implemented -> 1948-1952
+  - The Marshall Plan -> Recipient countries -> Austria, Belgium, Denmark, France, Greece, Iceland, Italy, Luxembourg, Netherlands, Norway, Portugal, Sweden, Switzerland, United Kingdom, West Germany
+  - The Marshall Plan -> Aid Provided -> Agriculture, Industry, Trade, Railways, Coal Mining, Steel Production, and Electric Power
+  - The Marshall Plan -> Contribution to European Economy -> Increased GDP, Reduced Unemployment, Stabilized Currencies
+  - The Marshall Plan -> Long-term Effects on International Relations -> Formation of NATO, European Economic Community (later EU), Increased U.S.-European Cooperation, Cold War Tensions Reduction
+  - The Marshall Plan -> Funding Source -> United States Congress, U.S. Treasury
+  - The Marshall Plan -> Influence on Post-war Politics -> De-Stalinization, German Reunification, Decolonization, and the creation of the European Coal and Steel Community
+  - The Marshall Plan -> Impact on Soviet Union Perception -> Perceived as a threat, led to the establishment of the Cominform and the Eastern Bloc
+  - The Marshall Plan -> Criticisms and Controversies -> Accusations of neocolonialism, allegations of corruption, concerns over dependence on American aid
+  - The Marshall
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (20. Mixtral-8x7B-Instruct-v0.1)>
+* Answer(about 34 words): The Marshall Plan provided critical financial aid for European post-WWII reconstruction, promoting economic stability and shaping positive international relations.
+* Related triples(about 11 relationships):
+  - The Marshall Plan -> InitiatedBy -> United States Secretary of State George C. Marshall
+  - The Marshall Plan -> Year -> 1948
+  - The Marshall Plan -> Purpose -> Post-World War II European reconstruction
+  - The Marshall Plan -> Beneficiaries -> European countries including United Kingdom, France, Italy, and West Germany
+  - The Marshall Plan -> Allocations -> $12 billion ($141 billion today)
+  - The Marshall Plan -> Impact -> Economic growth in recipient countries
+  - The Marshall Plan -> Impact -> Cold War containment strategy
+  - The Marshall Plan -> Impact -> Promotion of democratic values and economic cooperation
+  - The Marshall Plan -> Legacy -> Foundation of European integration and modern transatlantic partnerships
+  - The Marshall Plan -> Follow-up -> Establishment of the Organization for European Economic Cooperation (OEEC)
+  - The Marshall Plan -> Successor -> European Union's structural and investment funds
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (21. Mixtral-8x22B-Instruct-v0.1)>
+* Question: Evaluate the role of the Marshall Plan in the reconstruction of Europe after World War II and its long-term effects on international relations.
+* Answer(about 34 words): The Marshall Plan provided significant economic aid for rebuilding Western Europe post WWII, fostering political stability and economic cooperation, thus shaping modern international relations.
+* Related triples(about 11 relationships):
+  - Marshall Plan -> Implemented -> 1948-1951
+  - Marshall Plan -> Allocated Funding -> $13 billion USD
+  - Marshall Plan -> Aim -> Reconstruction of Europe
+  - Marshall Plan -> Countries Benefited -> Austria, Belgium, Denmark, France, West Germany, Greece, Iceland, Ireland, Italy, Luxembourg, Netherlands, Norway, Sweden, Switzerland, Turkey, United Kingdom
+  - Marshall Plan -> Administered by -> Economic Cooperation Administration
+  - Marshall Plan -> Promoted -> Economic integration, European unity, and NATO formation
+  - Marshall Plan -> Long-Term Effects -> Strengthened US-Europe ties, Cold War division, boosted global trade
+  - Marshall Plan -> Criticisms -> Encouraged dependency, fueled arms race, disregarded Eastern Bloc
+  - Marshall Plan -> Legacy -> Precursor to EU, OECD, IMF, World Bank
+  - Marshall Plan -> Historical Context -> Post-WWII recovery, Soviet containment
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (22. SOLAR-10.7B-Instruct-v1.0)>
+Answer: The Marshall Plan, providing economic aid to Western European nations post-WWII, played a pivotal role in rebuilding their economies and infrastructure. It fostered political stability, reduced poverty, and strengthened anti-communist sentiments, leading to the establishment of the transatlantic partnership and shaping Cold War dynamics.
+
+Related triples:
+1. The Marshall Plan -> Initiated by -> United States, under President Harry S. Truman
+2. The Marshall Plan -> Started -> 1948
+3. The Marshall Plan -> Aimed at -> Western European countries affected by WWII
+4. The Marshall Plan -> Provided funds for -> Economic recovery, food supply, and raw materials
+5. The Marshall Plan -> Helped establish -> European Coal and Steel Community and later European Union
+6. Economic recovery -> Reduced poverty levels in Western Europe
+7. Anti-communist sentiments -> Increased among Western European countries due to aid from the US
+8. Transatlantic partnership -> Strengthened between US and Western European countries
+9. Cold War dynamics -> Influenced by stabilizing Western Europe through the plan
+10. Soviet Union -> Viewed the plan as a political strategy against communism
+11. End of the plan -> 1952, successfully mitigating post-war hardships and promoting Western European growth and stability.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (23. openchat-3.5-1210)>
+* Question: Evaluate the role of the Marshall Plan in the reconstruction of Europe after World War II and its long-term effects on international relations.
+* Answer(about 34 words): The Marshall Plan played a crucial role in rebuilding Europe after World War II by providing financial aid and technical assistance to help restore economies and reduce tensions between nations. It fostered cooperation among European countries and laid the foundation for the formation of NATO and the European Union, which have had lasting impacts on international relations.
+* Related triples(about 11 relationships):
+  - Marshall Plan -> Implemented by -> United States
+  - Marshall Plan -> Started -> 1948
+  - Marshall Plan -> Ended -> 1952
+  - Marshall Plan -> Recipient Countries -> Western Europe
+  - Marshall Plan -> Aid Amount -> $13 billion (adjusted for inflation)
+  - Marshall Plan -> Goal -> Reconstruction of Europe
+  - Marshall Plan -> Result -> Economic recovery of Western Europe
+  - Marshall Plan -> Led to -> Formation of NATO
+  - Marshall Plan -> Led to -> Formation of European Union
+  - Marshall Plan -> Influenced -> Post-war international relations
+  - Marshall Plan -> Influenced -> Cold War dynamics
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (24. Mistral-7B-OpenOrca)>
+* Answer(about 34 words): The Marshall Plan played a crucial role in the rebuilding of Western Europe after World War II by providing financial aid, technical assistance, and resources for infrastructure development. It strengthened the economies of recipient countries, promoted trade and cooperation among European nations, and contributed to the formation of the European Union. The plan also helped to contain communism and reduce tensions between the East and West during the Cold War era.
+* Related triples(about 13 relationships):
+  - Marshall Plan -> Implementation period -> 1948-1952
+  - Marshall Plan -> Aims -> Reconstruction of Western Europe, economic stabilization, and containment of communism
+  - Marshall Plan -> Funding -> United States, contributions from European nations
+  - Marshall Plan -> Recipient countries -> Western European nations, including France, Germany, Italy, and others
+  - Marshall Plan -> Effects -> Economic recovery, political integration, and establishment of the European Coal and Steel Community which later evolved into the European Union
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (25. WizardLM-13B-V1.2)>
+* Question: Evaluate the role of the Marshall Plan in the reconstruction of Europe after World War II and its long-term effects on international relations.
+* Answer(about 34 words): The Marshall Plan played a crucial role in post-war reconstruction by providing economic aid to European countries, promoting economic growth, and strengthening democratic ideals. It also fostered lasting alliances and cooperation among nations, shaping modern international relations.
+* Related triples(about 11 relationships):
+  - Marshall Plan -> Initiated -> 1948
+  - Marshall Plan -> Provided -> Economic Aid
+  - Marshall Plan -> Countries -> Europe
+  - Marshall Plan -> Goal -> Reconstruction
+  - Marshall Plan -> Impact -> Strengthened Democracy
+  - Marshall Plan -> Promoted -> Economic Growth
+  - Marshall Plan -> Long-Term Effect -> Shaped International Relations
+  - Marshall Plan -> Implemented By -> United States Government
+  - Marshall Plan -> Lasting Impact -> Alliances and Cooperation
+  - Marshall Plan -> Time Period -> Post-World War II
+  - Marshall Plan -> Significance -> Global Economic Policy
+<END_OF_MODEL_RESPONSE>
+
+
+==========
+Print the extracted items in the following format:
+1. (model_id without number prefix)
+ * Best: (best triples if they exist, otherwise none)
+ * Worst: (worst triples if they exist, otherwise none)
+ * Answer: (answer suggested by the model)
+2. (model_id without number prefix)
+ * Best: (best triples if they exist, otherwise none)
+ * Worst: (worst triples if they exist, otherwise none)
+ * Answer: (answer suggested by the model)
+...
+25. (model_id without number prefix)
+ * Best: (best triples if they exist, otherwise none)
+ * Worst: (worst triples if they exist, otherwise none)
+ * Answer: (answer suggested by the model)

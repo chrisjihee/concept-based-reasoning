@@ -1,0 +1,491 @@
+Please extract the following items suggested by the model from the model response output for each of the 25 models for the given question and answer set.
+1) Model ID: (model_id without number prefix)
+2) Best (and true) Triples: (if they don't exist in the model response, mark them as none)
+3) Worst (false or fake) Triples: (if they don't exist in the model response, mark them as none)
+4) Answer: (answer suggested by the model)
+==========
+* Question: What are the primary reasons behind the formation of the European Union?
+==========
+* Base Answer: The European Union was formed to promote economic cooperation, ensure lasting peace, and facilitate political integration among European countries. Its origins lie in the aftermath of World War II.
+==========
+* Base Triples:
+  - European Union -> Founded -> November 1, 1993
+  - European Union -> Founding Members -> Belgium, France, Germany, Italy, Luxembourg, Netherlands
+  - European Union -> Primary Goal -> Economic Cooperation
+  - European Union -> Origins -> European Coal and Steel Community (1951)
+  - European Union -> Treaties -> Maastricht Treaty (1993), Lisbon Treaty (2009)
+  - European Union -> Political Integration -> European Parliament, European Commission
+  - European Union -> Currency -> Euro (introduced in 1999)
+  - European Union -> Policies -> Common Agricultural Policy, Common Fisheries Policy
+  - European Union -> Expansion -> Multiple enlargements, currently 27 member states
+  - European Union -> Trade -> Single Market
+  - European Union -> Peace and Stability -> Prevention of conflicts in Europe
+==========
+* Total 25 Model Responses:
+
+<BEGIN_OF_MODEL_RESPONSE (1. Llama-2-7b-chat-hf)>
+Great! I'm ready to demonstrate my knowledge structuring ability. Here's my answer to the question "What are the primary reasons behind the formation of the European Union?" along with related triples:
+
+Answer: The primary reasons behind the formation of the European Union include the desire for economic integration, political cooperation, and the prevention of future wars.
+
+Related triples:
+
+* European Union -> Formation -> After World War II (1945)
+* European Union -> Purpose -> Promote economic integration, political cooperation, and peaceful relations among member states
+* European Union -> Member states -> Initially 6 countries: Belgium, France, Germany, Italy, Luxembourg, and the Netherlands
+* Swedish economist -> Gunnar Myrdal -> Contributed to the development of the European Economic Community (EEC)
+* European Economic Community -> Creation -> Treaty of Rome (1957)
+* European Economic Community -> Purpose -> Promote economic integration among member states
+* European Economic Community -> Member states -> Initially 6 countries: Belgium, France, Germany, Italy, Luxembourg, and the Netherlands
+* European Coal and Steel Community -> Creation -> Treaty of Paris (1951)
+* European Coal and Steel Community -> Purpose -> Promote economic integration and cooperation among member states in the coal and steel industries
+* European Coal and Steel Community -> Member states -> Initially 3 countries: Belgium, France, Italy
+* European Atomic Energy Community -> Creation -> Treaty of Rome (1957)
+* European Atomic Energy Community -> Purpose -> Promote cooperation in the field of atomic energy among member states
+* European Atomic Energy Community
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (2. Llama-2-13b-chat-hf)>
+Sure, I'd be happy to help! Here's my answer and related triples for the given question:
+
+Question: What are the primary reasons behind the formation of the European Union?
+
+Answer (about 29 words): The primary reasons behind the formation of the European Union include the desire for economic cooperation, peace, and stability in post-World War II Europe, as well as the need to create a unified market and promote economic growth and competitiveness.
+
+Related triples (about 11 relationships):
+
+1. Marie Curie -> Born -> November 7, 1867, Warsaw, Poland
+2. Marie Curie -> Died -> July 4, 1934 (age 66 years), Passy, France
+3. Marie Curie -> Discovered -> Radium, Polonium
+4. Marie Curie -> Spouse -> Pierre Curie (m. 1895–1906)
+5. Marie Curie -> Buried -> April 20, 1995, Panthéon, Paris, France
+6. Marie Curie -> Education -> University of Paris (1903), University of Paris (1894), etc.
+7. Marie Curie -> Children -> Ève Curie, Irène Joliot-Curie
+8. Marie Curie -> Nobel Prize in Physics -> 1903
+9. Marie Curie -> Nobel Prize in Chemistry -> 1911
+10. Marie Curie -> Field -> Physics, Chemistry
+11. Marie Curie -> Work Institutions -> University of Paris, Radium Institute
+
+I hope this helps! Let me know if you have any questions or need further clarification.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (3. Llama-2-70b-chat-hf)>
+Sure, I can help you with that! Here's my answer and related triples for the question "What are the primary reasons behind the formation of the European Union?"
+
+Answer: The European Union was formed to promote economic cooperation, political unity, and peace among its member states, with the goal of creating a single market and a common currency.
+
+Related triples:
+
+1. European Union -> Formation -> 1951
+2. European Union -> Founding members -> Germany, France, Italy, Belgium, Netherlands, Luxembourg
+3. European Union -> Purpose -> Economic cooperation, political unity, peace
+4. European Union -> Single market -> elimination of tariffs, quotas, and other trade barriers
+5. European Union -> Common currency -> Euro
+6. European Union -> Member states -> currently 27 countries
+7. European Union -> Headquarters -> Brussels, Belgium
+8. European Union -> Official languages -> English, French, German, Italian, Spanish, Dutch
+9. European Union -> Founding treaty -> Treaty of Maastricht (1992)
+10. European Union -> Key principles -> Democracy, rule of law, human rights, respect for national identities
+11. European Union -> Major achievements -> Single market, single currency, Schengen Area, Common Agricultural Policy, Common Fisheries Policy
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (4. Llama-3-8b-chat-hf)>
+<BEGIN_OF_YOUR_OUTPUT>
+* Question: What are the primary reasons behind the formation of the European Union?
+* Answer(about 29 words): The primary reasons behind the formation of the European Union were to promote economic integration among its member states, foster peace and stability after World War II, and provide a common market for goods and services.
+* Related triples(about 11 relationships):
+  - Treaty of Rome -> Signed -> March 25, 1957, Rome, Italy
+  - European Coal and Steel Community -> Established -> 1952
+  - European Economic Community -> Established -> 1958
+  - Schuman Declaration -> Issued -> May 9, 1950, Paris, France
+  - European Parliament -> First Meeting -> 1958
+  - Jean Monnet -> Involved -> Founding of EEC
+  - Charles de Gaulle -> Involved -> French presidency of EEC
+  - Wolfgang Schäuble -> Involved -> German presidency of EU
+  - EU Flag -> Adopted -> December 8, 1955
+  - EU Anthem -> Adopted -> 1986
+  - EU Capital -> Located -> Brussels, Belgium
+  - EU Member States -> Number -> 27
+</END_OF_YOUR_OUTPUT>
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (5. Llama-3-70b-chat-hf)>
+<BEGIN_OF_YOUR_OUTPUT>
+* Question: What are the primary reasons behind the formation of the European Union?
+* Answer(about 29 words): The European Union was formed to promote economic integration, peace, stability, and cooperation among European countries after World War II, and to prevent future conflicts.
+* Related triples(about 11 relationships):
+  - European Union -> Formed -> After World War II
+  - European Union -> Purpose -> Promote economic integration
+  - European Union -> Purpose -> Maintain peace and stability
+  - European Union -> Purpose -> Foster cooperation among member states
+  - World War II -> Ended -> 1945
+  - European Union -> Founding members -> Germany, France, Italy, Belgium, Netherlands, Luxembourg
+  - European Coal and Steel Community -> Established -> 1952
+  - European Economic Community -> Established -> 1958
+  - Treaty of Rome -> Signed -> March 25, 1957
+  - European Union -> Headquarters -> Brussels, Belgium
+  - European Union -> Official languages -> 24 languages including English, French, German, Italian, Spanish
+<END_OF_YOUR_OUTPUT>
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (6. Qwen1.5-0.5B-Chat)>
+B่อย OF YOUROUTPUT:
+* Question: What are the major differences between quantum computing and classical computing?
+* Answer(about 29 words): (your answer here)
+* Related triples(about 11 relationships): (your triples here)
+<END_OF_YOUR_OUTPUT>
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (7. Qwen1.5-1.8B-Chat)>
+The primary reasons behind the formation of the European Union are as follows:
+
+  1. Economic Integration: The EU aims to create a single market with uniform regulations and standards across all member states, promoting free trade and资源共享 among member countries. This fosters economic growth and integration by reducing barriers to trade and investment.
+  2. Political Unification: The EU seeks to establish a common political identity and governance system among its member states, fostering cooperation and coordination at the national level. It encourages the adoption of shared values, policies, and institutions that align with the EU's vision for a more democratic, stable, and prosperous Europe.
+  3. Social Cohesion: The EU promotes harmonization of social policies and standards, aiming to reduce inequalities and promote social inclusion. By addressing issues such as immigration, labor rights, and healthcare, the EU aims to strengthen community cohesion and ensure that citizens enjoy a high standard of living.
+  4. Security and Defense: The EU recognizes the importance of security and defense in maintaining peace and stability throughout the region. It works towards enhancing cooperation between member states in areas such as intelligence sharing, military training, and crisis management to protect its territory and citizens from external threats.
+  5. Environmental Protection: The EU emphasizes the need for environmental sustainability and conservation, recognizing the long-term impacts of human activities on the planet. It enforces strict environmental regulations and promotes the use of renewable energy sources to mitigate climate change and safeguard biodiversity.
+
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (8. Qwen1.5-4B-Chat)>
+* Question: Who is the founder of Microsoft Corporation?
+* Answer(about 29 words): Bill Gates is the founder of Microsoft Corporation.
+* Related triples(about 11 relationships):
+  - Bill Gates -> Birth Name -> William Henry Gates III
+  - Bill Gates -> Birthday -> October 28, 1955
+  - Bill Gates -> Birthplace -> Seattle, Washington
+  - Bill Gates -> College Graduation -> Harvard University
+  - Bill Gates -> Family -> Melinda Gates
+  - Bill Gates -> Business Career -> Microsoft Corporation
+  - Bill Gates -> Net Worth -> $137 billion as of 2021
+  - Bill Gates -> Philanthropy ->捐赠大量资金给慈善机构，例如比尔和梅琳达·盖茨基金会
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (9. Qwen1.5-7B-Chat)>
+* Answer: The primary reasons behind the formation of the European Union include economic integration, political cooperation, shared values, and the desire for peace after World War II.
+* Related triples(about 11 relationships):
+  - Formation of EU -> Historical Context -> Post-World War II, Treaty of Maastricht, Economic Community (1957)
+  - EU Integration -> Goals -> Common Market, Currency, Customs Union, Free Movement of People
+  - Political Cooperation -> Institutions -> European Council, European Parliament, European Commission
+  - Values -> Shared Ideals -> Democracy, Human Rights, Proportionality
+  - EU member states -> Joining Process -> Treaty of Accession, Copenhagen Criteria
+  - EU history -> Key events -> Schuman Plan (1950), EEC (European Economic Community, 1958-1993)
+  - European Coal and Steel Community (ECSC) -> Predecessor -> Origin of the idea
+  - EU Expansion -> Contemporary Developments -> Eastern Enlargement (2004-2007), Brexit (UK departure, 2020)
+  - International Relations -> Role -> Global governance, trade agreements, foreign policy coordination
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (10. Qwen1.5-14B-Chat)>
+* Question: What are the primary reasons behind the formation of the European Union?
+* Answer(about 29 words): The EU was formed to promote economic cooperation, peace, and stability among member nations, fostering integration and shared values.
+* Related triples(about 11 relationships):
+  - European Union -> Established -> Treaty of Maastricht (1993)
+  - EU Founding -> Treaty of Rome (1957), Treaty of Brussels (1951) (EEC start)
+  - Purpose -> Economic Integration, Peacekeeping
+  - Key Factors -> Common Market, Political Unification
+  - Member States -> Different Economies, Historical Rivalries
+  - Function -> Single Market, Common Currency (Euro)
+  - Institutions -> European Commission, European Parliament
+  - Treaty of Lisbon (2007) -> Strengthening EU institutions
+  - Cultural Exchange -> Erasmus Program, Freedom of Movement
+  - NATO Peaceful Enlargement -> Geopolitical Stability
+  - Shared Values -> Human Rights, Democratic Principles
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (11. Qwen1.5-32B-Chat)>
+* Answer(about 29 words): The primary reasons for the EU's formation are to promote peace, economic integration, and cooperation among its member states.
+* Related triples(about 11 relationships):
+  - European Union -> Founded -> March 25, 1957 (Treaty of Rome)
+  - European Union -> Purpose -> Peace, Economic Integration, Cooperation
+  - European Coal and Steel Community -> Preceded -> European Union
+  - European Economic Community -> Preceded -> European Union
+  - Maastricht Treaty -> Signed -> November 1, 1991, Ratified -> November 1, 1993
+  - Eurozone -> Currency -> Euro, Member States -> EU countries
+  - Schengen Area -> Border Control -> abolished among participating EU states
+  - European Parliament -> Institution -> Directly elected by citizens
+  - European Commission -> Institution -> Proposes laws for EU
+  - Council of the European Union -> Institution -> Represents member state governments
+  - European Court of Justice ->司法机构 -> Ensures EU law is applied consistently
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (12. Qwen1.5-72B-Chat)>
+* Question: What are the primary reasons behind the formation of the European Union?
+* Answer(about 29 words): The EU was formed to promote peace, economic cooperation, and unity among member states, fostering political stability and integration.
+* Related triples(about 11 relationships):
+  - European Union -> Founded -> November 1, 1993
+  - European Union -> Member States -> Multiple countries
+  - European Union -> Purpose -> Peace, Economic Cooperation, Political Integration
+  - European Union -> Treaty of Rome -> Signed 1957
+  - European Union ->前身 -> European Economic Community
+  - European Union -> Headquarters -> Brussels, Luxembourg, Strasbourg
+  - European Union -> Institutions -> European Commission, European Parliament, Council of the EU
+  - European Union -> Currency -> Euro (used by most members)
+  - European Union -> Policies -> Agriculture, Environment, Trade, Justice, Freedom, Security
+  - European Union -> Founding Members -> Belgium, France, Germany, Italy, Luxembourg, Netherlands
+  - European Union -> Expansion -> Multiple rounds since inception
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (13. Qwen1.5-110B-Chat)>
+* Question: What are the primary reasons behind the formation of the European Union?
+* Answer(about 29 words): The European Union was formed to promote economic integration, political cooperation, and peace among its member states after World War II, preventing future conflicts and fostering a single market.
+* Related triples(about 11 relationships):
+  - European Union -> Founded -> November 1, 1993, Maastricht Treaty
+  - European Union -> Purpose -> Economic Integration, Political Cooperation
+  - European Union -> Key Event -> Treaty of Rome (1957)
+  - European Union -> Member States -> 27 countries (as of 2021)
+  - European Union -> Single Market -> Established 1993
+  - European Union -> Currency -> Euro (used by 19 members)
+  - European Union -> HQ -> Brussels, Belgium
+  - European Union -> Founding Members -> Germany, France, Italy, Netherlands, Belgium, Luxembourg
+  - European Union -> Post-World War II Goal -> Peace and Stability
+  - European Union -> Economic and Monetary Union -> Launched 1999
+  - European Union -> Schengen Area -> Border-free travel zone among 26 states
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (14. Qwen2-72B-Instruct)>
+<BEGIN_OF_YOUR_OUTPUT>
+* Question: What are the primary reasons behind the formation of the European Union?
+* Answer(about 29 words): The EU was formed primarily for peace, economic cooperation, free movement of people, goods, services, and capital among its member states.
+* Related triples(about 11 relationships):
+  - European Union -> Established -> November 1, 1993
+  - European Union -> Purpose -> Peace, Economic Cooperation
+  - European Union -> Members -> 27 countries
+  - European Union -> Free Movement -> People, Goods, Services, Capital
+  - European Union -> Treaty -> Maastricht Treaty (1992)
+  - European Union -> Predecessor -> European Communities
+  - European Union -> Currency -> Euro
+  - European Union -> Headquarters -> Brussels, Belgium
+  - European Union -> Parliament -> European Parliament
+  - European Union -> Council -> European Council
+  - European Union -> Commission -> European Commission
+<END_OF_YOUR_OUTPUT>
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (15. vicuna-7b-v1.5)>
+* Question: How has climate change impacted marine life in the Arctic region?
+* Answer(about 29 words): Climate change has caused ocean warming and acidification, affecting the distribution and survival of marine species like polar bears, seals, and fish.
+* Related triples(about 11 relationships):
+	+ Climate Change -> Causes -> Increased greenhouse gas emissions
+	+ Climate Change -> Effects -> Ocean warming, Acidification
+	+ Marine Life -> Species -> Polar Bears, Seals, Fish
+	+ Arctic Region -> Location -> North Pole area
+	+ Arctic Region -> Climate Change Impacts -> Changes in sea ice cover
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (16. vicuna-13b-v1.5)>
+* Question: What are the primary reasons behind the formation of the European Union?
+* Answer(about 29 words): The primary reasons for the formation of the European Union include promoting peace, stability, and economic cooperation among its member states, as well as addressing common challenges such as immigration, climate change, and terrorism.
+* Related triples(about 11 relationships):
+	+ European Union -> Formation Reasons -> Promote Peace, Stability, Economic Cooperation, Address Common Challenges
+	+ European Union -> Establishment Date -> 1993 (Maastricht Treaty)
+	+ European Union -> Member States -> 27 countries (as of 2021)
+	+ European Union -> Headquarters -> Brussels, Belgium
+	+ European Union -> Official Languages -> English, French, German
+	+ European Union -> Currency -> Euro (for most members)
+	+ European Union -> Key Institutions -> European Commission, European Parliament, Council of the European Union, European Court of Justice
+	+ European Union -> Significant Treaties -> Maastricht Treaty, Lisbon Treaty, Treaty of Rome
+	+ European Union -> Common Challenges -> Immigration, Climate Change, Terrorism
+	+ European Union -> External Relations -> United Nations, World Trade Organization, G20
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (17. Mistral-7B-Instruct-v0.1)>
+* Question: What are the primary reasons behind the formation of the European Union?
+* Answer(about 29 words): The primary reasons behind the formation of the European Union include economic integration, political stability, and security cooperation.
+* Related triples(about 11 relationships):
+  - European Union -> Formed -> December 23, 1952, Rome, Italy
+  - European Union -> Member Countries -> 27, as of 2021
+  - European Union -> Economic Integration -> Eurozone, Schengen Area
+  - European Union -> Political Stability -> Treaty of Rome, Treaty of Maastricht
+  - European Union -> Security Cooperation -> NATO, EUROPOL
+  - European Union -> Founding Members -> Belgium, France, Germany, Italy, Luxembourg, Netherlands, Denmark
+  - European Union -> Political Institutions -> European Commission, European Parliament, Council of the European Union
+  - European Union -> Expansion -> Accession Treaty, Enlargement Policy
+  - European Union -> Law -> EU Law, Charter of Fundamental Rights of the European Union
+  - European Union -> Culture -> Eurovision Song Contest, Erasmus Programme
+  - European Union -> History -> Treaty of Rome I, Treaty of Rome II
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (18. Mistral-7B-Instruct-v0.2)>
+* Answer(about 29 words): The European Union was formed primarily to promote peace and cooperation among European countries after World War II. Its founding members aimed to create a unified market and strengthen economic ties, leading to the signing of the Treaty of Rome in 1957.
+* Related triples(about 11 relationships):
+  - European Union -> Founded -> 1957, Treaty of Rome
+  - European Union -> Members -> Belgium, Germany, France, Italy, Luxembourg, Netherlands, etc.
+  - European Union -> Purpose -> Peace, Cooperation, Unified Market
+  - European Union -> Predecessors -> League of Nations, European Coal and Steel Community
+  - European Union -> Institutions -> European Parliament, Council of the European Union, European Commission
+  - European Union -> Symbols -> Flag, Anthem, Motto
+  - European Union -> Treaties -> Treaty of Maastricht, Treaty of Lisbon, etc.
+  - European Union -> Economic Integration -> Single Market, Euro currency
+  - European Union -> Enlargement -> Eastern Europe, Central Europe
+  - European Union -> Challenges -> Brexit, Migration Crisis, Eurozone Crisis
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (19. Mistral-7B-Instruct-v0.3)>
+* Question: What are the primary reasons behind the formation of the European Union?
+* Answer(about 29 words): The European Union was formed primarily to promote economic integration, political stability, and cultural unity among its member states, along with facilitating free movement of goods, services, capital, and people.
+* Related triples(about 11 relationships):
+  - European Union -> Founded -> March 25, 1957 (Treaty of Rome)
+  - European Union -> Members -> Germany, France, Italy, Belgium, Netherlands, Luxembourg (founding members)
+  - European Union -> Goals -> Economic Integration, Political Stability, Cultural Unity, Free Movement of Goods, Services, Capital, People
+  - European Coal and Steel Community -> Precursor -> Treaty of Paris (1951)
+  - Schuman Declaration -> Proposal -> May 9, 1950 by Robert Schuman
+  - European Economic Community -> Evolution -> Established January 1, 1958
+  - Schengen Agreement -> Implementation -> March 26, 1995 (Schengen Area established)
+  - Maastricht Treaty -> Expansion -> December 1, 1993 (Treaty on European Union signed)
+  - Single European Act -> Amendment -> February 1, 1986 (Treaty amending the EEC Treaty)
+  - Treaty of Lisbon -> Successor -> December 1, 2009 (Replaced the Treaty establishing the European Community)
+  - Council of Europe -> Independent Organization -> Established May 5, 1949 (Not directly related to the EU but shares similar goals)
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (20. Mixtral-8x7B-Instruct-v0.1)>
+* Question: What are the primary reasons behind the formation of the European Union?
+* Answer(about 29 words): The EU was formed to promote peace, facilitate cross-border cooperation, and enable free trade among its members.
+* Related triples(about 11 relationships):
+  - European Union (EU) -> Founded -> November 1, 1993
+  - European Union (EU) -> Founding Treaties -> Treaty of Rome (1957), Treaty of Maastricht (1992), Treaty of Lisbon (2007)
+  - European Union (EU) -> Purpose -> Facilitate free trade, Encourage economic cooperation
+  - European Union (EU) -> Membership -> Austria, Belgium, Bulgaria, Croatia, Cyprus, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Ireland, Italy, Latvia, Lithuania, Luxembourg, Malta, Netherlands, Poland, Portugal, Romania, Slovakia, Slovenia, Spain, Sweden
+  - European Union (EU) -> Prior Organization -> European Coal and Steel Community (ECSC), European Economic Community (EEC), European Atomic Energy Community (EAEC)
+  - European Union (EU) -> Goals -> Promote peace, Encourage cross-border cooperation, Maintain stability
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (21. Mixtral-8x22B-Instruct-v0.1)>
+* Question: What are the primary reasons behind the formation of the European Union?
+* Answer(about 29 words): The European Union was formed primarily for peace, stability, and economic cooperation among its member states.
+* Related triples(about 11 relationships):
+  - European Union -> Formed -> November 1, 1993
+  - European Union -> Founding Members -> Belgium, Germany, France, Italy, Luxembourg, Netherlands
+  - European Union -> Purpose -> Peace, Stability, Economic Cooperation
+  - European Union -> Headquarters -> Brussels, Belgium; Strasbourg, France; Luxembourg City, Luxembourg
+  - European Union -> Official Languages -> Bulgarian, Croatian, Czech, Danish, Dutch, English, Estonian, Finnish, French, German, Greek, Hungarian, Irish, Italian, Latvian, Lithuanian, Maltese, Polish, Portuguese, Romanian, Slovak, Slovenian, Spanish, Swedish
+  - European Union -> Currency -> Euro
+  - European Union -> Member States -> Austria, Belgium, Bulgaria, Croatia, Republic of Cyprus, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Ireland, Italy, Latvia, Lithuania, Luxembourg, Malta, Netherlands, Poland, Portugal, Romania, Slovakia, Slovenia, Spain, Sweden
+  - European Union -> Governing Bodies -> European Parliament, Council of the European Union, European Commission, Court of Justice of the European Union, European Central Bank
+  - European Union -> Schengen Agreement -> Facilitates free movement of people between participating countries
+  - European Union -> Single Market -> Allows free movement of goods, services, capital, and labor within the EU
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (22. SOLAR-10.7B-Instruct-v1.0)>
+Question: What are the primary reasons behind the formation of the European Union?
+Answer: The primary reasons for forming the European Union include promoting peace, stability, economic cooperation, and integration among European nations after World War II.
+Related triples:
+1. European Coal and Steel Community -> Established -> 1951
+2. European Coal and Steel Community -> Founded by -> Belgium, Germany, France, Italy, Luxembourg
+3. European Economic Community -> Established -> 1958
+4. European Economic Community -> Founded by -> Belgium, Germany, France, Italy, Luxembourg, Netherlands
+5. Euratom Treaty -> Established -> 1957
+6. Euratom Treaty -> Founded by -> Belgium, Germany, France, Italy, Luxembourg
+7. European Communities -> Formed by merger -> European Coal and Steel Community, European Economic Community, Euratom Treaty
+8. European Communities -> Established -> 1967
+9. Single European Act -> Signed -> 1986
+10. Maastricht Treaty -> Signed -> 1992
+11. European Union -> Formed by merger -> European Communities, creation of new policies and institutions defined by Single European Act and Maastricht Treaty
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (23. openchat-3.5-1210)>
+* Question: What are the primary reasons behind the formation of the European Union?
+* Answer(about 29 words): The primary reasons behind the formation of the European Union were to promote economic cooperation, prevent future wars between European countries, and encourage political and social integration among its member states.
+* Related triples(about 11 relationships):
+  - European Union -> Established -> Maastricht Treaty, 1992
+  - European Union -> Purpose -> Economic integration
+  - European Union -> Purpose -> Political integration
+  - European Union -> Purpose -> Social integration
+  - European Union -> Goal -> Common market
+  - European Union -> Goal -> Customs union
+  - European Union -> Goal -> Single currency (Euro)
+  - European Union -> Goal -> Free movement of goods, services, people, and capital
+  - European Union -> Goal -> Cooperation in foreign and security policy
+  - European Union -> Goal -> Environmental protection and sustainable development
+  - European Union -> Goal -> Human rights and democracy promotion
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (24. Mistral-7B-OpenOrca)>
+* Question: What are the primary reasons behind the formation of the European Union?
+* Answer(about 29 words): The primary reasons behind the formation of the European Union include fostering economic cooperation, promoting political stability, and reducing the possibility of future conflicts among European countries.
+* Related triples(about 11 relationships):
+  - European Union -> Formation -> Post-World War II era
+  - European Union -> Purpose -> Economic cooperation
+  - European Union -> Purpose -> Political stability
+  - European Union -> Purpose -> Conflict reduction among European countries
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (25. WizardLM-13B-V1.2)>
+* Question: What are the primary reasons behind the formation of the European Union?
+* Answer(about 29 words): The primary reasons behind the formation of the European Union include the desire for peace, economic cooperation, and the elimination of trade barriers among European countries. This led to the creation of a unified market and a common currency, fostering greater political unity and cultural exchange.
+* Related triples(about 11 relationships):
+  - European Union -> Formation Reason -> Peace, Economic Cooperation, Elimination of Trade Barriers
+  - European Union -> Goal -> Unified Market, Common Currency
+  - European Union -> Political Unity -> Fostering Greater, Cultural Exchange
+  - European Union -> Members -> Countries in Europe
+  - European Union -> Established -> 1993
+  - European Union -> Headquarter Location -> Brussels, Belgium
+  - European Union -> Treaty of Maastricht -> 1992
+  - European Union -> Single Market -> 1993
+  - European Union -> Eurozone -> 1999
+  - European Union -> Schengen Area -> 1995
+<END_OF_MODEL_RESPONSE>
+
+
+==========
+Print the extracted items in the following format:
+1. (model_id without number prefix)
+ * Best: (best triples if they exist, otherwise none)
+ * Worst: (worst triples if they exist, otherwise none)
+ * Answer: (answer suggested by the model)
+2. (model_id without number prefix)
+ * Best: (best triples if they exist, otherwise none)
+ * Worst: (worst triples if they exist, otherwise none)
+ * Answer: (answer suggested by the model)
+...
+25. (model_id without number prefix)
+ * Best: (best triples if they exist, otherwise none)
+ * Worst: (worst triples if they exist, otherwise none)
+ * Answer: (answer suggested by the model)

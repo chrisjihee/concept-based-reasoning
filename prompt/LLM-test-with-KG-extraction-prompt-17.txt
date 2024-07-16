@@ -1,0 +1,488 @@
+Please extract the following items suggested by the model from the model response output for each of the 25 models for the given question and answer set.
+1) Model ID: (model_id without number prefix)
+2) Best (and true) Triples: (if they don't exist in the model response, mark them as none)
+3) Worst (false or fake) Triples: (if they don't exist in the model response, mark them as none)
+4) Answer: (answer suggested by the model)
+==========
+* Question: Discuss the technological advancements during the Tang and Song dynasties and their impact on Chinese society and the world.
+==========
+* Base Answer: The Tang and Song dynasties witnessed significant technological advancements, including the development of gunpowder, the compass, and printing. These innovations revolutionized Chinese society and had a lasting impact on global technology and culture.
+==========
+* Base Triples:
+  - Tang Dynasty -> Period -> 618-907 AD
+  - Song Dynasty -> Period -> 960-1279 AD
+  - Gunpowder -> Invention -> Military Use
+  - Compass -> Development -> Navigation
+  - Printing -> Technology -> Woodblock, Movable Type
+  - Agriculture -> Innovations -> Rice Cultivation, Terracing
+  - Trade -> Expansion -> Silk Road, Maritime Routes
+  - Urbanization -> Impact -> Growth of Cities
+  - Cultural Flourishing -> Art, Literature -> Tang Poetry, Song Painting
+  - Civil Service -> Examination System -> Meritocracy
+  - Global Impact -> Technology Transfer -> Middle East, Europe
+==========
+* Total 25 Model Responses:
+
+<BEGIN_OF_MODEL_RESPONSE (1. Llama-2-7b-chat-hf)>
+Great! Here's my answer and related triples for the given question:
+
+* Question: Discuss the technological advancements during the Tang and Song dynasties and their impact on Chinese society and the world.
+* Answer (about 33 words): The Tang and Song dynasties saw significant technological advancements in fields like printing, agriculture, and transportation. These innovations transformed Chinese society and had far-reaching impacts on global trade and cultural exchange.
+* Related triples (about 11 relationships):
+	+ Tang Dynasty -> Founded -> 618 AD, Chang'an (modern-day Xi'an), China
+	+ Song Dynasty -> Founded -> 960 AD, Kaifeng, China
+	+ Printing Press -> Invented -> 8th century, during the Tang Dynasty
+	+ Agricultural Revolution -> Began -> 8th century, during the Tang Dynasty
+	+ Silk Road -> Established -> 2nd century BC, during the Han Dynasty
+	+ Transportation -> Improved -> 8th century, during the Tang Dynasty (with the invention of the sternpost rudder and the development of the treb)
+	+ Global Trade -> Expanded -> 8th century, during the Tang Dynasty (with the establishment of trade routes to India, Persia, and Southeast Asia)
+	+ Cultural Exchange -> Increased -> 8th century, during the Tang Dynasty (with the exchange of ideas, religions, and art between China and other civilizations)
+	+ Technological Advancements -> Accelerated -> 8th century, during the Tang Dynasty (with the development of new materials, machines, and techniques)
+	+ Society -> Transformed -> 8th century, during the Tang Dynasty (with the growth of cities, the rise of a middle class, and the expansion of education
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (2. Llama-2-13b-chat-hf)>
+Sure, I'd be happy to help! Here's my answer and related triples for the given question:
+
+* Question: Discuss the technological advancements during the Tang and Song dynasties and their impact on Chinese society and the world.
+* Answer(about 33 words): During the Tang and Song dynasties, China experienced significant technological advancements, including the invention of gunpowder, woodblock printing, and the compass. These innovations had a profound impact on Chinese society, allowing for greater communication and trade, and paving the way for the development of modern science and technology.
+* Related triples(about 11 relationships):
+  - Tang Dynasty -> Invented -> Gunpowder
+  - Song Dynasty -> Developed -> Woodblock printing
+  - Tang Dynasty -> Used -> Compass
+  - Song Dynasty -> Improved -> Gunpowder
+  - Tang Dynasty -> Capital -> Chang'an (modern-day Xi'an)
+  - Song Dynasty -> Capital -> Hangzhou
+  - Tang Dynasty -> Emperor -> Taizong
+  - Song Dynasty -> Emperor -> Gaozong
+  - Tang Dynasty -> Flourished -> 618-907 CE
+  - Song Dynasty -> Flourished -> 960-1279 CE
+  - Tang Dynasty -> Language -> Chinese
+  - Song Dynasty -> Literature -> Classical Chinese poetry and fiction
+
+I hope this helps! Let me know if you have any questions or if you'd like me to elaborate on any of the triples.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (3. Llama-2-70b-chat-hf)>
+Sure, I can help you with that! Here's my response:
+
+* Question: Discuss the technological advancements during the Tang and Song dynasties and their impact on Chinese society and the world.
+* Answer(about 33 words): The Tang and Song dynasties saw significant technological advancements, including the development of gunpowder, woodblock printing, and the compass. These inventions had a profound impact on Chinese society, facilitating communication, trade, and warfare. They also influenced the world, with gunpowder and printing technology spreading to Europe and the Middle East.
+* Related triples(about 11 relationships):
+  - Tang Dynasty -> Capital City -> Chang'an (modern-day Xi'an)
+  - Song Dynasty -> Capital City -> Hangzhou
+  - Gunpowder -> Invented -> 9th century, China
+  - Woodblock Printing -> Invented -> 9th century, China
+  - Compass -> Invented -> 11th century, China
+  - Gunpowder -> Used in Warfare -> Yes
+  - Woodblock Printing -> Facilitated Communication -> Yes
+  - Compass -> Aided Navigation -> Yes
+  - Tang Dynasty -> Ruled By -> Emperor Taizong
+  - Song Dynasty -> Ruled By -> Emperor Zhenzong
+  - Tang Dynasty -> Notable Achievements -> Great Wall expansion, Silk Road development
+  - Song Dynasty -> Notable Achievements -> Economic growth, cultural flowering
+
+I hope this helps! Let me know if you have any questions or need further clarification.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (4. Llama-3-8b-chat-hf)>
+<BEGIN_OF_YOUR_OUTPUT>
+* Question: Discuss the technological advancements during the Tang and Song dynasties and their impact on Chinese society and the world.
+* Answer(about 33 words): The Tang and Song dynasties witnessed significant technological advancements in areas like papermaking, printing, gunpowder, and navigation, which revolutionized communication, trade, and warfare, having a profound impact on Chinese society and global interactions.
+* Related triples(about 11 relationships):
+  - Tang Dynasty -> Established -> 618 AD, China
+  - Song Dynasty -> Established -> 960 AD, China
+  - Papermaking -> Invented -> Cai Lun, 105 AD, China
+  - Printing -> Invented -> Bi Sheng, 1045 AD, China
+  - Gunpowder -> Discovered -> Chinese alchemists, 850 AD, China
+  - Navigation -> Improved -> Development of the compass, 1040 AD, China
+  - Trade -> Facilitated -> Silk Road, Maritime trade routes, China
+  - Warfare -> Revolutionized -> Use of gunpowder and firearms, China
+  - Communication -> Enhanced -> Development of postal systems, China
+  - Education -> Promoted -> Establishment of universities and libraries, China
+  - Economy -> Boosted -> Growth of cities and commerce, China
+  - Culture -> Influenced -> Spread of Buddhism, Taoism, and Confucianism, Asia
+</END_OF_YOUR_OUTPUT>
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (5. Llama-3-70b-chat-hf)>
+<BEGIN_OF_YOUR_OUTPUT>
+* Question: Discuss the technological advancements during the Tang and Song dynasties and their impact on Chinese society and the world.
+* Answer(about 33 words): The Tang and Song dynasties saw significant technological advancements, including the invention of gunpowder, printing press, and compass, which transformed Chinese society and had far-reaching impacts on global trade, warfare, and communication.
+* Related triples(about 11 relationships):
+  - Tang Dynasty -> Time Period -> 618-907 CE
+  - Song Dynasty -> Time Period -> 960-1279 CE
+  - Gunpowder -> Invented -> China, Tang Dynasty
+  - Printing Press -> Invented -> China, Song Dynasty
+  - Compass -> Invented -> China, Song Dynasty
+  - Silk Road -> Established -> Han Dynasty, expanded during Tang Dynasty
+  - Maritime Trade -> Flourished -> Song Dynasty
+  - Gunpowder -> Used for -> Warfare, Fireworks
+  - Printing Press -> Used for -> Mass Production of Books, Newspapers
+  - Compass -> Used for -> Navigation, Exploration
+  - Tang and Song Dynasties -> Contributed to -> Globalization, Cultural Exchange
+<END_OF_YOUR_OUTPUT>
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (6. Qwen1.5-0.5B-Chat)>
+After examining the knowledge graph provided, I have identified the following related triplets:
+* Marie Curie -> Discovered -> Radium, Polonium
+* Marie Curie -> Spouse -> Pierre Curie (m. 1895–1906)
+* Marie Curie -> Education -> University of Paris (1903), University of Paris (1894), etc.
+* Marie Curie -> Children -> Ève Curie, Irène Joliot-Curie
+These relationships provide insight into the technological advancements during the Tang and Song dynasties and their impact on Chinese society and the world. The discovery of Radium and Polonium by Marie Curie marked significant milestones in the field of physics and chemistry, while her relationship with Pierre Curie and education at the University of Paris allowed for further development of these technologies. Additionally, the relationships between Marie Curie and children, including Eve Curie and Irène Joliot-Curie, highlight the importance of education in advancing scientific research and promoting social progress. Overall, the related triplets demonstrate the rich and complex interplay between science and culture during the Tang and Song dynasties.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (7. Qwen1.5-1.8B-Chat)>
+During the Tang Dynasty (618-907 AD), China experienced significant technological advancements, including the development of paper-making, iron冶铁技术, and gunpowder. These innovations not only transformed the manufacturing process but also had profound impacts on Chinese society and the global economy.
+One of the most significant technological developments during this period was the invention of paper-making, which revolutionized the way information was recorded, disseminated, and stored. The use of mulberry bark as raw material allowed for the creation of a flexible, durable, and writable medium, enabling scholars and writers to produce books, letters, and other written materials without the need for expensive parchment or silk. This led to increased literacy rates, as more people could access knowledge and communicate ideas through written texts.
+
+In addition to paper-making, the Tang Dynasty also saw advancements in iron冶铁技术, which enabled the production of robust, powerful weapons and tools. Iron casting became increasingly common, leading to the creation of elaborate castings like the famous Terracotta Army, showcasing the ingenuity and craftsmanship of ancient Chinese artisans. This technology not only facilitated warfare but also contributed to the growth of urban centers and the expansion of trade networks.
+
+Another notable technological advancement during the Tang Dynasty was the development of gunpowder, which played a crucial role in military conquest and state power. The use of gunpowder for artillery and焰火 displays marked a significant shift from traditional weapons, increasing the effectiveness of armies and enhancing the spectacle of battles. Gunpowder also fueled innovation in chemistry, with new compounds developed for producing explosive
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (8. Qwen1.5-4B-Chat)>
+I'm sorry, but I cannot provide an answer as there is no knowledge graph provided for me to use. Could you please provide me with the knowledge graph or additional information so that I can assist you better?
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (9. Qwen1.5-7B-Chat)>
+* Answer(about 33 words): The Tang and Song dynasties saw significant advancements in printing, papermaking, and porcelain. These innovations facilitated cultural diffusion, trade, and scientific progress, influencing global trade and inspiring inventions like the compass.
+* Related triples(about 11 relationships):
+- Tang Dynasty -> Inception -> 618 AD
+- Song Dynasty -> Inception -> 960 AD
+- Printing (Tang) -> invention by Zhang Heng or Bi Sheng
+- Papermaking (Tang) ->Improved techniques, mass production
+- Porcelain (Song) -> Blue and White Porcelain
+- Printing Revolution (Song) -> Woodblock printing, move to block printing
+- Silk Road Trade -> Expanded under both dynasties
+- Compass Development ->北宋沈括's "Compass Mariner's Manual"
+- Scientific advancements (e.g., Medicine, Math) -> Influenced by transmitted knowledge
+- Technological exchange with Islamic World -> Transmission of innovations
+- Cultural influence -> Spread to Japan, Korea, and West Asia
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (10. Qwen1.5-14B-Chat)>
+* Answer: The Tang and Song dynasties saw significant advancements in printing, gunpowder, compass, and paper money, transforming communication, warfare, and commerce.
+* Related triples:
+  - Tang Dynasty -> Technological Advancements -> Printing Press, Gunpowder, Compass
+  - Song Dynasty -> Innovations ->活字印刷术 (Woodblock Printing), Gunpowder, Paper Money
+  - Impact on Society ->文化传播 (Knowledge dissemination), Trade Expansion
+  - Impact on World -> Military Strategy, Navigation Technology
+  - Tang Dynasty -> Flourished -> 618-907 AD
+  - Song Dynasty -> Flourished -> 960-1279 AD
+  - Tang & Song Dynasties -> Successors -> Five Dynasties & Ten Kingdoms, Yuan Dynasty
+  - Tang & Song Culture -> Influence -> Korean, Japanese cultures
+  - Technological Transfer -> To West Asia, Europe via trade routes
+  - Economic Growth -> Boosted prosperity, urbanization
+  - Social Transformation -> Rise of merchant class, cultural exchange.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (11. Qwen1.5-32B-Chat)>
+* Answer(about 33 words): The Tang and Song dynasties witnessed significant technological advancements, including printing, gunpowder, paper money, and compass navigation. These innovations transformed Chinese society, facilitated trade, and greatly influenced global development.
+* Related triples(about 11 relationships):
+  - Tang Dynasty -> Started -> 618 AD
+  - Tang Dynasty -> Ended -> 907 AD
+  - Song Dynasty -> Started -> 960 AD
+  - Song Dynasty -> Ended -> 1279 AD
+  - Printing -> Invented -> Bi Sheng (Tang Dynasty)
+  - Gunpowder -> Developed -> Tang Dynasty
+  - Paper Money -> First used -> Song Dynasty
+  - Compass Navigation -> Improved -> Song Dynasty
+  - Chinese Almanac -> Advanced -> Song Dynasty
+  - Porcelain Technology -> Innovated -> Song Dynasty
+  - Canal Systems -> Expanded -> Song Dynasty
+  - Impact on Trade -> Global Reach -> Silk Road, Maritime Trade Routes
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (12. Qwen1.5-72B-Chat)>
+* Question: Discuss the technological advancements during the Tang and Song dynasties and their impact on Chinese society and the world.
+* Answer(about 33 words): The Tang and Song dynasties saw innovations like paper money, gunpowder, printing, and the compass. These advancements transformed trade, education, military strategies, and global navigation, shaping the world's economic and cultural landscape.
+* Related triples(about 11 relationships):
+  - Tang Dynasty -> Time Period -> 618-907 AD
+  - Song Dynasty -> Time Period -> 960-1279 AD
+  - Paper Money -> Invented -> Song Dynasty
+  - Gunpowder -> Invented -> Tang Dynasty
+  - Printing Technology -> Improved -> Song Dynasty (block printing, movable type)
+  - Compass -> Developed -> Tang Dynasty
+  - Trade -> Expanded -> Along the Silk Road, Maritime routes
+  - Education -> Spread -> With widespread availability of printed books
+  - Military -> Impacted -> By gunpowder usage
+  - Navigation -> Revolutionized -> By the magnetic compass
+  - Cultural Exchange -> Enhanced -> Through increased international trade
+  - Economic Growth -> Fueled -> By technological innovations
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (13. Qwen1.5-110B-Chat)>
+* Question: Discuss the technological advancements during the Tang and Song dynasties and their impact on Chinese society and the world.
+* Answer(about 33 words): The Tang and Song dynasties witnessed significant technological innovations like the invention of printing (woodblock and活字印刷), improvement of the compass for navigation, and advances in agriculture and gunpowder. These advancements facilitated cultural dissemination, enhanced maritime trade, and transformed warfare globally.
+
+* Related triples(about 11 relationships):
+  - Tang Dynasty -> Period -> 618-907 AD
+  - Song Dynasty -> Period -> 960-1279 AD
+  - Printing Technology -> Invented -> Tang Dynasty
+  - Moveable Type Printing -> Invented by -> Bi Sheng (Song Dynasty)
+  - Compass -> Improved for Navigation -> Song Dynasty
+  - Agriculture -> Innovations -> Seed Drill, High-Yield Rice Varieties
+  - Gunpowder -> Invention -> Tang-Song transition
+  - Impact on Trade -> Technological Advancements -> Increased Maritime Trade Routes
+  - Cultural Exchange -> Facilitated by -> Printed Books
+  - Military Revolution -> Contributed by -> Use of Gunpowder Weapons
+  - Global Impact -> Chinese Technology -> Spread via Silk Road
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (14. Qwen2-72B-Instruct)>
+<BEGIN_OF_YOUR_OUTPUT>
+* Answer: During the Tang and Song dynasties, China saw significant advancements like woodblock printing, movable type printing, gunpowder, and the magnetic compass, profoundly influencing global technology and culture.
+* Related triples:
+  - Tang Dynasty -> Time Period -> 618-907 AD
+  - Song Dynasty -> Time Period -> 960-1279 AD
+  - Woodblock Printing -> Invented -> Before 7th century AD
+  - Movable Type Printing -> Invented -> Around 1040 AD by Bi Sheng
+  - Gunpowder -> Invented -> Early Tang Dynasty
+  - Magnetic Compass -> Improved -> Song Dynasty
+  - Technological Advancements -> Impact -> Increased trade, military power, cultural exchange
+  - Woodblock Printing -> Spread -> Across Asia and Europe
+  - Movable Type Printing -> Influence -> European Renaissance and Enlightenment
+  - Gunpowder -> Military Use -> Changed warfare tactics globally
+  - Magnetic Compass -> Navigation -> Enhanced sea exploration and global connectivity
+<END_OF_YOUR_OUTPUT>
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (15. vicuna-7b-v1.5)>
+* Question: Discuss the technological advancements during the Tang and Song dynasties and their impact on Chinese society and the world.
+* Answer: The Tang and Song dynasties witnessed significant technological advancements, including the invention of woodblock printing, the expansion of the Silk Road trade network, and the development of new agricultural techniques. These innovations not only improved the standard of living in China but also had a profound impact on global trade, cultural exchange, and the spread of ideas across Asia, Europe, and beyond.
+* Related triples:
+	+ Tang Dynasty -> Founded -> 618 AD, Chang'an, China
+	+ Song Dynasty -> Founded -> 960 AD, Kaifeng, China
+	+ Woodblock Printing -> Invented -> Tang Dynasty
+	+ Silk Road -> Expanded -> Tang Dynasty
+	+ Agriculture -> Improved -> Song Dynasty
+	+ Chinese Society -> Impacted -> Tang and Song Dynasties
+	+ Global Trade -> Enhanced -> Tang and Song Dynasties
+	+ Cultural Exchange -> Facilitated -> Tang and Song Dynasties
+	+ Ideas -> Spread -> Tang and Song Dynasties
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (16. vicuna-13b-v1.5)>
+* Answer(about 33 words): During the Tang and Song dynasties, China experienced significant technological advancements in areas such as agriculture, transportation, and printing. These innovations had a profound impact on Chinese society, leading to economic growth and cultural flourishing, while also influencing neighboring regions and laying the groundwork for future global developments.
+* Related triples(about 11 relationships):
+	+ Tang Dynasty -> Dates -> 618–907 CE
+	+ Song Dynasty -> Dates -> 960–1279 CE
+	+ Agricultural Technology -> Advancements -> Introduction of new crops, improved irrigation systems
+	+ Transportation Technology -> Advancements -> Development of the horse carriage, improvement of roads and waterways
+	+ Printing Technology -> Advancements -> Invention of woodblock printing, movable type printing
+	+ Economic Growth -> Impact -> Expansion of trade, increased wealth and prosperity
+	+ Cultural Flourishing -> Impact -> Rise of arts, literature, and philosophy
+	+ Neighboring Regions -> Influence -> Korean Peninsula, Japanese Archipelago, Central Asia
+	+ Global Impact -> Examples -> Spread of Buddhism, Silk Road trade routes
+	+ Technological Innovations -> Legacy -> Foundation for modern Chinese science and technology
+	+ Scientific and Mathematical Achievements -> Examples -> Advances in astronomy, mathematics
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (17. Mistral-7B-Instruct-v0.1)>
+* Question: Discuss the technological advancements during the Tang and Song dynasties and their impact on Chinese society and the world.
+* Answer(about 33 words): During the Tang and Song dynasties, China experienced significant technological advancements in agriculture, transportation, printing, and naval warfare. These innovations transformed society, commerce, culture, and diplomacy, influencing the rest of the world.
+* Related triples(about 11 relationships):
+  - Technology -> Agriculture -> Tang Dynasty -> Irrigation Systems, Seed Drills
+  - Technology -> Transportation -> Tang Dynasty -> Horse-Drawn Carriages, Boats
+  - Technology -> Printing -> Song Dynasty -> Woodblock Printing, Inkwells
+  - Technology -> Warfare -> Tang Dynasty -> Gunpowder, Armored Vehicles
+  - Technology -> Warfare -> Song Dynasty -> Gunpowder, Shipbuilding, Navigation
+  - Society -> Culture -> Tang Dynasty -> Poetry, Music, Calligraphy
+  - Society -> Culture -> Song Dynasty -> Literature, Art, Architecture
+  - Diplomacy -> Trade -> Tang Dynasty -> Silk Road, Maritime Trade
+  - Diplomacy -> Trade -> Song Dynasty -> Porcelain, Textiles, Tea
+  - Diplomacy -> Religion -> Tang Dynasty -> Buddhism, Taoism
+  - Diplomacy -> Religion -> Song Dynasty -> Confucianism, Buddhism, Islam
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (18. Mistral-7B-Instruct-v0.2)>
+* Answer(about 33 words): The Tang and Song dynasties saw significant technological advancements in China, including the invention of gunpowder, printing technology, and the compass. These innovations revolutionized warfare, communication, and trade, contributing to China's economic and cultural influence on the world.
+* Related triples(about 11 relationships):
+  - Tang Dynasty -> Started -> AD 618, China
+  - Tang Dynasty -> Ended -> AD 907, China
+  - Song Dynasty -> Started -> AD 960, China
+  - Song Dynasty -> Ended -> AD 1279, China
+  - Gunpowder -> Invented -> Tang Dynasty, China
+  - Printed Books -> Invented -> Song Dynasty, China
+  - Compass -> Adopted -> Song Dynasty, China
+  - Gunpowder -> UsedFor -> Warfare, Hunting
+  - Printing Technology -> UsedFor -> Mass Production of Texts, Propaganda
+  - Trade -> Enhanced -> Maritime Trade Routes, Silk Road
+  - China -> CulturalInfluenceOn -> World, East Asia
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (19. Mistral-7B-Instruct-v0.3)>
+* Answer(about 33 words): During the Tang and Song dynasties, significant advancements were made in agriculture, trade, art, and technology. Inventions such as paper money, compass, and printing press had profound impacts on Chinese society and contributed to global development.
+* Related triples(about 11 relationships):
+  - Tang Dynasty -> Started -> AD 618, Xian, China
+  - Tang Dynasty -> Ended -> AD 907, Xian, China
+  - Song Dynasty -> Started -> AD 960, Kaifeng, China
+  - Song Dynasty -> Ended -> AD 1279, Hangzhou, China
+  - Tang Dynasty -> Technological Advancement -> Paper Money Invention
+  - Tang Dynasty -> Technological Advancement -> Compass Invention
+  - Song Dynasty -> Technological Advancement -> Printing Press Invention
+  - Tang Dynasty -> Social Impact -> Improved Agriculture Practices
+  - Song Dynasty -> Economic Impact -> Expansion of Trade Routes
+  - Tang Dynasty -> Cultural Impact -> Growth of Art and Literature
+  - Song Dynasty -> Global Impact -> Influence on World Economy and Technology
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (20. Mixtral-8x7B-Instruct-v0.1)>
+* Answer(about 33 words): The Tang and Song dynasties saw significant technological advances, including the development of papermaking, printing, gunpowder, and the compass. These inventions transformed Chinese society, enabling faster communication, improved warfare, and new cultural expressions. They also had far-reaching impacts on the world, spreading through trade and cultural exchange, and laying the groundwork for future technological innovations.
+* Related triples(about 11 relationships):
+  - Tang Dynasty -> Invention -> Papermaking
+  - Tang Dynasty -> Invention -> Printing
+  - Tang Dynasty -> Invention -> Gunpowder
+  - Song Dynasty -> Invention -> Compass
+  - Tang Dynasty -> Society Impact -> Communication Improvement
+  - Song Dynasty -> Society Impact -> Warfare Improvement
+  - Tang Dynasty -> Society Impact -> Cultural Expressions
+  - Tang Dynasty -> World Impact -> Technological Spread
+  - Song Dynasty -> World Impact -> Technological Spread
+  - Tang Dynasty -> World Significance -> Future Innovations
+  - Song Dynasty -> World Significance -> Future Innovations
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (21. Mixtral-8x22B-Instruct-v0.1)>
+* Question: Discuss the technological advancements during the Tang and Song dynasties and their impact on Chinese society and the world.
+* Answer(about 33 words): The Tang and Song dynasties saw advancements like woodblock printing, gunpowder, compass, movable type printing press, and porcelain production. These innovations revolutionized communication, warfare, navigation, and trade domestically and globally.
+* Related triples(about 11 relationships):
+  - Tang Dynasty -> Invention -> Woodblock Printing
+  - Tang Dynasty -> Invention -> Gunpowder
+  - Tang Dynasty -> Invention -> Compass
+  - Song Dynasty -> Invention -> Movable Type Printing Press
+  - Song Dynasty -> Invention -> Porcelain Production Techniques
+  - Woodblock Printing -> Impact -> Revolutionized Communication
+  - Gunpowder -> Impact -> Transformed Warfare
+  - Compass -> Impact -> Improved Navigation
+  - Movable Type Printing Press -> Impact -> Mass Production of Books
+  - Porcelain Production -> Impact -> Boosted International Trade
+  - Tang and Song Dynasties -> Legacy -> Major Contributors to Global Innovation
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (22. SOLAR-10.7B-Instruct-v1.0)>
+Answer: The Tang and Song dynasties witnessed significant advancements in technology, including papermaking innovations, the development of woodblock printing, the invention of gunpowder, and improvements in agriculture and navigation. These innovations contributed to social progress within China, facilitated wider dissemination of knowledge, and played a role in shaping global developments.
+
+Related triples:
+1. Papermaking -> Improvement -> Tang Dynasty
+2. Woodblock printing -> Invention -> Tang Dynasty
+3. Gunpowder -> Invention -> Song Dynasty
+4. Agriculture -> Improvement -> Song Dynasty
+5. Navigation -> Improvement -> Song Dynasty
+6. Woodblock printing -> Impact -> Enhanced literary production
+7. Literary production -> Impact -> Social progress within China
+8. Gunpowder -> Impact -> Military advancements and European diffusion
+9. Agriculture -> Impact -> Increased food production and population growth
+10. Navigation -> Impact -> Maritime trade expansion and cultural exchange
+11. Maritime trade expansion -> Impact -> Worldwide dissemination of Chinese technology and culture.
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (23. openchat-3.5-1210)>
+* Question: Discuss the technological advancements during the Tang and Song dynasties and their impact on Chinese society and the world.
+* Answer(about 33 words): During the Tang and Song dynasties, China experienced significant advancements in agriculture, transportation, and military technology. Innovations like the spinning wheel, gunpowder, and woodblock printing revolutionized daily life and contributed to China's global influence.
+* Related triples(about 11 relationships):
+  - Tang Dynasty -> Ruled -> China (618–907)
+  - Song Dynasty -> Ruled -> China (960–1279)
+  - Tang Dynasty -> Inventions -> Spinning Wheel
+  - Song Dynasty -> Inventions -> Gunpowder
+  - Song Dynasty -> Inventions -> Woodblock Printing
+  - Tang Dynasty -> Agricultural Techniques -> Irrigation, Crop Rotation
+  - Tang Dynasty -> Transportation -> Silk Road
+  - Song Dynasty -> Military Technology -> Crossbow, Gunpowder
+  - Tang Dynasty -> Culture -> Tang Dynasty Poetry
+  - Song Dynasty -> Culture -> Song Dynasty Painting
+  - Tang Dynasty -> Trade -> International Trade
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (24. Mistral-7B-OpenOrca)>
+* Question: Who are the parents of Marie Curie?
+* Answer(about 33 words): The parents of Marie Curie are Bronisław Curie and Zofia Mostowska.
+* Related triples(about 11 relationships):
+  - Marie Curie -> Born -> November 7, 1867, Warsaw, Poland
+  - Bronisław Curie -> Parent -> Marie Curie
+  - Zofia Mostowska -> Parent -> Marie Curie
+<END_OF_MODEL_RESPONSE>
+
+
+
+<BEGIN_OF_MODEL_RESPONSE (25. WizardLM-13B-V1.2)>
+* Question: Discuss the technological advancements during the Tang and Song dynasties and their impact on Chinese society and the world.
+* Answer(about 33 words): During the Tang and Song dynasties, China experienced significant technological advancements, including printing, gunpowder, and porcelain production. These innovations greatly influenced Chinese society, leading to widespread literacy and military prowess, and had a profound impact on the global stage through trade and cultural exchange.
+* Related triples (about 11 relationships):
+  - Tang Dynasty -> Started -> 618 AD
+  - Song Dynasty -> Started -> 960 AD
+  - Printing Press -> Invented -> Tang Dynasty
+  - Gunpowder -> Invented -> 9th century
+  - Porcelain -> Produced -> Tang Dynasty
+  - Silk Road -> Established -> Tang Dynasty
+  - Literacy Rate -> Increased -> Due to printing press
+  - Military Power -> Enhanced -> Due to gunpowder
+  - Cultural Exchange -> Occurred -> With neighboring regions
+  - Economic Growth -> Experienced -> Due to porcelain production
+  - Technological Advancements -> Led to -> Widespread use of printing, gunpowder, and porcelain
+<END_OF_MODEL_RESPONSE>
+
+
+==========
+Print the extracted items in the following format:
+1. (model_id without number prefix)
+ * Best: (best triples if they exist, otherwise none)
+ * Worst: (worst triples if they exist, otherwise none)
+ * Answer: (answer suggested by the model)
+2. (model_id without number prefix)
+ * Best: (best triples if they exist, otherwise none)
+ * Worst: (worst triples if they exist, otherwise none)
+ * Answer: (answer suggested by the model)
+...
+25. (model_id without number prefix)
+ * Best: (best triples if they exist, otherwise none)
+ * Worst: (worst triples if they exist, otherwise none)
+ * Answer: (answer suggested by the model)
