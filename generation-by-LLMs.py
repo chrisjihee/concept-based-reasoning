@@ -8,13 +8,13 @@ from chrisbase.io import *
 
 # setup program
 test_size = 3
-inference_timeout = 60
+request_timeout = 60
 input_file = "data/LLM-test-with-KG-31.json"
 output_file = f"data/LLM-test-with-KG-responses-{test_size}.json"
 target_models = [x["full_id"] for x in load_json("conf/full_chat_models.json")]
-prompt_template = read_or("template/inference_prompt.txt") or getpass("Enter the prompt template: ")
-api_client = Together(timeout=inference_timeout,
-                      api_key=read_or(first_path_or("together-tokens*")) or getpass("Enter your Together API key: "))
+prompt_template = read_or("template/generation_prompt.txt") or getpass("Generation Prompt: ")
+api_client = Together(timeout=request_timeout,
+                      api_key=read_or("conf/key-togetherai.txt") or getpass("TogetherAI API key: "))
 
 
 # define function to chat with LLM
@@ -31,8 +31,8 @@ def chat_with_llm(messages, model_id):
 
 
 # read input file
-test_set = load_json(input_file)
-demo, test_set = test_set[0], test_set[1:]
+input_data = load_json(input_file)
+demo, input_data = input_data[0], input_data[1:]
 demo_question = demo["question"]
 demo_answer = demo["answer"]
 demo_answer_size = len(demo["answer"].split())
@@ -41,13 +41,13 @@ demo_triples = "\n".join([f"  - {triple}" for triple in demo["triples"]])
 
 # chat with LLMs
 total_data = []
-test_set = test_set[:test_size]
-for i, item in enumerate(test_set, start=1):
+input_data = input_data[:test_size]
+for i, item in enumerate(input_data, start=1):
     difficulty = item["difficulty"]
     real_question = item["question"]
     real_answer_size = len(item["answer"].split())
     real_knowledge_size = len(item["triples"])
-    inference_prompt = prompt_template.format(
+    generation_prompt = prompt_template.format(
         real_question=real_question,
         real_answer_size=real_answer_size,
         real_knowledge_size=real_knowledge_size,
@@ -60,10 +60,10 @@ for i, item in enumerate(test_set, start=1):
     total_data.append(item)
     item["responses"] = []
     item["no_responses"] = []
-    for target_model in tqdm(target_models, desc=f"* Answering question ({i}/{len(test_set)})", unit="model"):
+    for target_model in tqdm(target_models, desc=f"* Answering question ({i}/{len(input_data)})", unit="model"):
         based = datetime.now()
         model_response = chat_with_llm(model_id=target_model,
-                                       messages=[{"role": "user", "content": inference_prompt}])
+                                       messages=[{"role": "user", "content": generation_prompt}])
         elasped = (datetime.now() - based).total_seconds()
         if model_response:
             item["responses"].append({

@@ -126,7 +126,9 @@ dmypy.json
 chrisbase*
 
 # custom
+key-*
 *.key
+*-key*
 *-token*
 *-extraction-prompt-*
 *-evaluation-prompt-*
