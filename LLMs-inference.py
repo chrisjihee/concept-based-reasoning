@@ -12,8 +12,7 @@ input_file = "data/LLM-test-with-KG-31.json"
 output_file = f"data/LLM-test-with-KG-responses-{test_size}.json"
 target_models = [x["full_id"] for x in load_json("conf/full_chat_models.json")]
 prompt_template = read_or("template/inference_prompt.txt") or getpass("Enter the prompt template: ")
-api_client = Together(timeout=10,
-                      max_retries=3,
+api_client = Together(timeout=30,
                       api_key=read_or(first_path_or("together-tokens*")) or getpass("Enter your Together API key: "))
 
 
@@ -59,6 +58,7 @@ for i, item in enumerate(test_set, start=1):
     )
     total_data.append(item)
     item["responses"] = []
+    item["no_responses"] = []
     for target_model in tqdm(target_models, desc=f"* Answering question ({i}/{len(test_set)})", unit="model"):
         based = datetime.now()
         model_response = chat_with_llm(model_id=target_model,
@@ -70,6 +70,8 @@ for i, item in enumerate(test_set, start=1):
                 "output": model_response,
                 "elasped": str(elasped),
             })
+        else:
+            item["no_responses"].append(target_model)
         save_json(total_data, output_file, indent=2, ensure_ascii=False)
 
 # write to output file (final save)
