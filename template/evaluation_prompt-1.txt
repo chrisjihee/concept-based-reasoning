@@ -1,4 +1,4 @@
-You are tasked with evaluating a set of answers and associated triples provided above.
+Now we need to evaluate each model's response based on the answers it provided, and evaluate the entire list of triples that each model presented as relevant.
 The evaluation should focus on the following aspects:
 
 1. Accuracy (accuracy):
