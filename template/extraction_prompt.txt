@@ -1,6 +1,6 @@
 Please extract the following items suggested by the model from the response output for each of the {num_model} models for the given question and answer set.
-1) The correct answer suggested by the model
-2) Knowledge graph triple list presented by the model
+1) Answer:
+2) Triples:
 ==========
 * Question: {question}
 ==========
@@ -9,6 +9,6 @@ Please extract the following items suggested by the model from the response outp
 * Base Triples:
 {base_triples}
 ==========
-* {num_model} Model Responses:
+* Response Outputs for Total {num_model} Models:
 {model_responses}
 ==========
