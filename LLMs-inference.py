@@ -47,32 +47,7 @@ target_models = [
     "Qwen/Qwen1.5-110B-Chat",
     "Qwen/Qwen2-72B-Instruct",
 ]
-prompt_template = """
-The following is a test to compare how well large language models (LLMs) structure and store knowledge through knowledge graphs (KGs).
-A knowledge graph typically represents knowledge in the form of a triple (subject -> relation -> object), and the following is an example of such a representation.
-
------
-Marie Curie -> Born -> November 7, 1867, Warsaw, Poland
-Marie Curie -> Died -> July 4, 1934 (age 66 years), Passy, France
-Marie Curie -> Discovered -> Radium, Polonium
-Marie Curie -> Spouse -> Pierre Curie (m. 1895–1906)
-Marie Curie -> Buried -> April 20, 1995, Panthéon, Paris, France
-Marie Curie -> Education -> University of Paris (1903), University of Paris (1894), MORE
-Marie Curie -> Children -> Ève Curie, Irène Joliot-Curie
------
-
-We want to check your knowledge structuring ability to ensure that you include this knowledge graph well.
-Print an answer of around {real_answer_size} words to a given question, along with a triple set containing about {real_knowledge_size} different relationships that reference the answer.
-* Question: {real_question}
-* Answer(about {real_answer_size} words): (your answer here)
-* Related triples(about {real_knowledge_size} relationships): (your knowledge graph triples here) 
-
-Below is a demo example of an answer to a question that can be answered based on the knowledge graph above, and a set of related triples to reference in the answer.
-* Question: {demo_question}
-* Answer(about {demo_answer_size} words): {demo_answer}
-* Related triples(about {demo_knowledge_size} relationships):
-{demo_triples}
-"""
+prompt_template = read_or("template/inference_prompt.txt") or getpass("Enter the prompt template: ")
 
 # read input file
 test_set = load_json(input_file)
@@ -90,7 +65,7 @@ for i, qa in enumerate(test_set[:2], start=1):
     real_question = qa["question"]
     real_answer_size = len(qa["answer"].split())
     real_knowledge_size = len(qa["triples"])
-    prompt = prompt_template.format(
+    inference_prompt = prompt_template.format(
         real_question=real_question,
         real_answer_size=real_answer_size,
         real_knowledge_size=real_knowledge_size,
@@ -105,7 +80,7 @@ for i, qa in enumerate(test_set[:2], start=1):
         r = {
             "model": model,
             "output": chat_with_llm(model=model,
-                                    messages=[{"role": "user", "content": prompt}]),
+                                    messages=[{"role": "user", "content": inference_prompt}]),
         }
         model_responses.append(r)
     qa["responses"] = model_responses
