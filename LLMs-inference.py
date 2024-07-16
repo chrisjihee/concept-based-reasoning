@@ -5,25 +5,26 @@ from tqdm import tqdm
 
 from chrisbase.io import *
 
-TOGETHER_API_TOKEN = read_or(first_path_or("together-tokens*")) or getpass()
-client = Together(api_key=TOGETHER_API_TOKEN)
+# setup program
+test_size = 3
+input_file = "data/LLM-test-with-KG-31.json"
+output_file = "data/LLM-test-with-KG-responses-2.json"
+target_models = [x["full_id"] for x in load_json("conf/full_chat_models.json")]
+prompt_template = read_or("template/inference_prompt.txt") or getpass("Enter the prompt template: ")
+api_client = Together(timeout=10,
+                      max_retries=3,
+                      api_key=read_or(first_path_or("together-tokens*")) or getpass("Enter your Together API key: "))
 
 
-def chat_with_llm(messages, model="meta-llama/Llama-3-8b-chat-hf"):
-    stream = client.chat.completions.create(
-        model=model,
+# define function to chat with LLM
+def chat_with_llm(messages, model_id):
+    stream = api_client.chat.completions.create(
+        model=model_id,
         messages=messages,
         stream=True,
     )
     return ''.join(chunk.choices[0].delta.content or "" for chunk in stream)
 
-
-# setup arguments
-test_size = 3
-input_file = "data/LLM-test-with-KG-31.json"
-output_file = "data/LLM-test-with-KG-responses.json"
-target_models = [x["full_id"] for x in load_json("conf/full_chat_models.json")]
-prompt_template = read_or("template/inference_prompt.txt") or getpass("Enter the prompt template: ")
 
 # read input file
 test_set = load_json(input_file)
@@ -53,15 +54,17 @@ for i, qa in enumerate(test_set, start=1):
         demo_triples=demo_triples,
     )
     model_responses = []
-    for model in tqdm(target_models, desc=f"* Answering question ({i}/{len(test_set)})", unit="model"):
+    for target_model in tqdm(target_models, desc=f"* Answering question ({i}/{len(test_set)})", unit="model"):
         r = {
-            "model": model,
-            "output": chat_with_llm(model=model,
+            "model": target_model,
+            "output": chat_with_llm(model_id=target_model,
                                     messages=[{"role": "user", "content": inference_prompt}]),
         }
         model_responses.append(r)
     qa["responses"] = model_responses
     total_responses.append(qa)
+    # save to output file (incremental save)
+    save_json(total_responses, output_file, indent=2, ensure_ascii=False)
 
-# write to output file
-save_json(total_responses, output_file)
+# write to output file (final save)
+save_json(total_responses, output_file, indent=2, ensure_ascii=False)

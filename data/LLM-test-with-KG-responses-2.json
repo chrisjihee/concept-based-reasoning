@@ -2,7 +2,6 @@
   {
     "question": "Describe the significant contributions of the United Nations since its founding.",
     "answer": "The United Nations has significantly contributed to international peace and security, humanitarian aid, sustainable development, and the establishment of international laws. It has also launched various initiatives through its subsidiaries like UNESCO and the UN Security Council.",
-    "number_of_words_in_answer": 39,
     "triples": [
       "United Nations -> Founders -> United States, India, United Kingdom, France, Brazil, Iran, MORE",
       "United Nations -> Founded -> October 24, 1945, San Francisco, California, United States",
@@ -16,7 +15,6 @@
       "United Nations -> Humanitarian Aid -> Provided to countries in crisis",
       "United Nations -> International Laws -> Established various treaties and conventions"
     ],
-    "number_of_triples": 11,
     "difficulty": 8,
     "responses": [
       {
@@ -120,7 +118,6 @@
   {
     "question": "What are the various themes explored in Shakespeare's play Hamlet?",
     "answer": "Themes in 'Hamlet' include revenge, mortality, madness, politics, betrayal, and the complexity of action. The play also delves into the consequences of indecision and the quest for truth.",
-    "number_of_words_in_answer": 29,
     "triples": [
       "Hamlet -> Originally published -> 1623",
       "Hamlet -> Characters -> Ophelia, Claudius, Polonius, Yorick, Laertes, Horatio, MORE",
@@ -134,7 +131,6 @@
       "Hamlet -> Famous Lines -> \"To be, or not to be\", \"The lady doth protest too much\"",
       "Hamlet -> Influence -> Inspired numerous adaptations and works"
     ],
-    "number_of_triples": 11,
     "difficulty": 8,
     "responses": [
       {
