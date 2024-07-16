@@ -33,33 +33,22 @@ The evaluation should focus on the following aspects:
   - Answer: Assess if the answer demonstrates an understanding of the context of the question.
   - Triple: Ensure that the triples reflect a contextual understanding relevant to the answer.
 
-Score each aspect of the answer and each aspect of the total triple list on a scale of 0.0 to 10.0.
+Score each aspect of the answer and each aspect of the entire list of triples list on a scale of 0.0 to 10.0.
 Rather than ignoring each aspect and evaluating all aspects with similar scores, please grade a faithful evaluation score from each aspect perspective.
+Summarize the scores for each model and provide a total score of the answer and a total score of the entire list of triples.
 Please respond in a JSON object format like below:
 [
   {
     "number": 1,
     "model_id": (model ID),
-    "accuracy": {"answer": x.x, "triple": x.x},
-    "completeness": {"answer": x.x, "triple": x.x},
-    "relevance": {"answer": x.x, "triple": x.x},
-    "consistency": {"answer": x.x, "triple": x.x},
-    "detail": {"answer": x.x, "triple": x.x},
-    "sophistication": {"answer": x.x, "triple": x.x},
-    "hierarchy": {"answer": x.x, "triple": x.x},
-    "context": {"answer": x.x, "triple": x.x}
+    "answer_score": { "sum": xx.x, "accuracy": x.x, "completeness": x.x, "relevance": x.x, "consistency": x.x, "detail": x.x, "sophistication": x.x, "hierarchy": x.x, "context": x.x },
+    "triples_score": { "sum": xx.x, "accuracy": x.x, "completeness": x.x, "relevance": x.x, "consistency": x.x, "detail": x.x, "sophistication": x.x, "hierarchy": x.x, "context": x.x }
   },
   ...
   {
     "number": (number of models),
     "model_id": (model ID),
-    "accuracy": {"answer": x.x, "triple": x.x},
-    "completeness": {"answer": x.x, "triple": x.x},
-    "relevance": {"answer": x.x, "triple": x.x},
-    "consistency": {"answer": x.x, "triple": x.x},
-    "detail": {"answer": x.x, "triple": x.x},
-    "sophistication": {"answer": x.x, "triple": x.x},
-    "hierarchy": {"answer": x.x, "triple": x.x},
-    "context": {"answer": x.x, "triple": x.x}
+    "answer_score": { "sum": xx.x, "accuracy": x.x, "completeness": x.x, "relevance": x.x, "consistency": x.x, "detail": x.x, "sophistication": x.x, "hierarchy": x.x, "context": x.x },
+    "triples_score": { "sum": xx.x, "accuracy": x.x, "completeness": x.x, "relevance": x.x, "consistency": x.x, "detail": x.x, "sophistication": x.x, "hierarchy": x.x, "context": x.x }
  }
 ]
