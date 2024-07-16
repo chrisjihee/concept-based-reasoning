@@ -1,3 +1,14 @@
+==========
+* Question: {question}
+==========
+* Base Answer: {base_answer}
+==========
+* Base Triples:
+{base_triples}
+==========
+* Response Outputs for Total {num_model} Models:
+{model_responses}
+==========
 You are tasked with evaluating a set of answers and associated triples provided above.
 The evaluation should focus on the following aspects:
 
@@ -34,4 +45,7 @@ The evaluation should focus on the following aspects:
   - Triple Context: Ensure that the triples reflect a contextual understanding relevant to the answer.
 
 Give a score of 0 to 10 points (decimal points possible) for each aspect of the answer and triples suggested by the model given above, and calculate and print the total score for each answer and triples.
-Please, response in a JSON format.
+Please respond with a list of records with the following fields in JSON format:
+  1) the model
+  2) answer_scores containing the total score and each aspect score
+  3) triple_scores containing the total score and each aspect score
