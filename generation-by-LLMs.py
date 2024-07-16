@@ -18,7 +18,7 @@ args = CommonArguments(
 )
 
 # setup program
-test_size = 3
+test_size = 30
 request_timeout = 60
 default_max_tokens = 512
 default_temperature = 0.5
