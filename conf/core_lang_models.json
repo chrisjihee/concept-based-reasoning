@@ -1,0 +1,20 @@
+[
+    {"org": "Google", "name": "Gemma (2B)", "full_id": "google/gemma-2b", "context": 8192},
+    {"org": "Google", "name": "Gemma (7B)", "full_id": "google/gemma-7b", "context": 8192},
+    {"org": "Microsoft", "name": "Microsoft Phi-2", "full_id": "microsoft/phi-2", "context": 2048},
+    {"org": "Meta", "name": "LLaMA-2 (7B)", "full_id": "meta-llama/Llama-2-7b-hf", "context": 4096},
+    {"org": "Meta", "name": "LLaMA-2 (13B)", "full_id": "meta-llama/Llama-2-13b-hf", "context": 4096},
+    {"org": "Meta", "name": "LLaMA-2 (70B)", "full_id": "meta-llama/Llama-2-70b-hf", "context": 4096},
+    {"org": "Meta", "name": "LLaMA-3 (8B)", "full_id": "meta-llama/Llama-3-8b-hf", "context": 8192},
+    {"org": "Meta", "name": "LLaMA-3 (70B)", "full_id": "meta-llama/Meta-Llama-3-70B", "context": 8192},
+    {"org": "Qwen", "name": "Qwen 1.5 (0.5B)", "full_id": "Qwen/Qwen1.5-0.5B", "context": 32768},
+    {"org": "Qwen", "name": "Qwen 1.5 (1.8B)", "full_id": "Qwen/Qwen1.5-1.8B", "context": 32768},
+    {"org": "Qwen", "name": "Qwen 1.5 (4B)", "full_id": "Qwen/Qwen1.5-4B", "context": 32768},
+    {"org": "Qwen", "name": "Qwen 1.5 (7B)", "full_id": "Qwen/Qwen1.5-7B", "context": 32768},
+    {"org": "Qwen", "name": "Qwen 1.5 (14B)", "full_id": "Qwen/Qwen1.5-14B", "context": 32768},
+    {"org": "Qwen", "name": "Qwen 1.5 (32B)", "full_id": "Qwen/Qwen1.5-32B", "context": 32768},
+    {"org": "Qwen", "name": "Qwen 1.5 (72B)", "full_id": "Qwen/Qwen1.5-72B", "context": 4096},
+    {"org": "mistralai", "name": "Mistral (7B)", "full_id": "mistralai/Mistral-7B-v0.1", "context": 8192},
+    {"org": "mistralai", "name": "Mixtral-8x7B (46.7B)", "full_id": "mistralai/Mixtral-8x7B-v0.1", "context": 32768},
+    {"org": "mistralai", "name": "Mixtral-8X22B", "full_id": "mistralai/Mixtral-8x22B", "context": 65536}
+]
