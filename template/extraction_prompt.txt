@@ -1,8 +1,8 @@
 Please extract the following items suggested by the model from the model response output for each of the {num_model} models for the given question and answer set.
 1) Model ID:
-2) Answer:
-3) First Triple: Only the first triple (if it doesn't exist in the model response, mark them as none)
-4) Last Triple: Only the last triple (if it doesn't exist in the model response, mark them as none)
+2) Best (and True) Triple: (if it doesn't exist in the model response, mark them as none)
+3) Worst (or False) Triple: (if it doesn't exist in the model response, mark them as none)
+4) Answer:
 ==========
 * Question: {question}
 ==========
@@ -16,15 +16,15 @@ Please extract the following items suggested by the model from the model respons
 ==========
 Print the extracted items in the following format:
 1. (model_id)
+ * Best: (best triple only if it exists, otherwise none)
+ * Worst: (worst triple only if it exists, otherwise none)
  * Answer: (answer)
- * First Triple: (first triple only if it exists, otherwise none)
- * Last Triple: (last triple only if it exists, otherwise none)
 2. (model_id)
+ * Best: (best triple only if it exists, otherwise none)
+ * Worst: (worst triple only if it exists, otherwise none)
  * Answer: (answer)
- * Triple: (first triple only if it exists, otherwise none)
- * Last: (last triple only if it exists, otherwise none)
 ...
 {num_model}. (model_id)
+ * Best: (best triple only if it exists, otherwise none)
+ * Worst: (worst triple only if it exists, otherwise none)
  * Answer: (answer)
- * Triple: (first triple only if it exists, otherwise none)
- * Last: (last triple only if it exists, otherwise none)
