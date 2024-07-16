@@ -1,7 +1,8 @@
-Please extract the following items suggested by the model from the response output for each of the {num_model} models for the given question and answer set.
+Please extract the following items suggested by the model from the model response output for each of the {num_model} models for the given question and answer set.
 1) Model ID:
 2) Answer:
-3) Triple: Only the first triple (if they don't exist in the response, mark them as none)
+3) First Triple: Only the first triple (if it doesn't exist in the model response, mark them as none)
+4) Last Triple: Only the last triple (if it doesn't exist in the model response, mark them as none)
 ==========
 * Question: {question}
 ==========
@@ -10,17 +11,20 @@ Please extract the following items suggested by the model from the response outp
 * Base Triples:
 {base_triples}
 ==========
-* Response Outputs for Total {num_model} Models:
+* Total {num_model} Model Responses:
 {model_responses}
 ==========
 Print the extracted items in the following format:
 1. (model_id)
  * Answer: (answer)
- * Triple: (first triple only if they exist, otherwise none)
+ * First Triple: (first triple only if it exists, otherwise none)
+ * Last Triple: (last triple only if it exists, otherwise none)
 2. (model_id)
  * Answer: (answer)
- * Triple: (first triple only if they exist, otherwise none)
+ * Triple: (first triple only if it exists, otherwise none)
+ * Last: (last triple only if it exists, otherwise none)
 ...
 {num_model}. (model_id)
  * Answer: (answer)
- * Triple: (first triple only if they exist, otherwise none)
+ * Triple: (first triple only if it exists, otherwise none)
+ * Last: (last triple only if it exists, otherwise none)

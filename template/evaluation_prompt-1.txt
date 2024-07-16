@@ -2,39 +2,64 @@ You are tasked with evaluating a set of answers and associated triples provided 
 The evaluation should focus on the following aspects:
 
 1. Accuracy (accuracy):
-  - Answer Accuracy: Assess if the provided answer is factually correct.
-  - Triple Accuracy: Check if the triples are factually accurate and reflect real-world knowledge.
+  - Answer: Assess if the provided answer is factually correct.
+  - Triple: Check if the triples are factually accurate and reflect real-world knowledge.
 
 2. Completeness (completeness):
-  - Answer Completeness: Determine if the answer comprehensively addresses the question without omitting crucial information.
-  - Triple Completeness: Ensure that all necessary triples required to support the answer are included.
+  - Answer: Determine if the answer comprehensively addresses the question without omitting crucial information.
+  - Triple: Ensure that all necessary triples required to support the answer are included.
 
 3. Relevance (relevance):
-  - Answer Relevance: Verify that the answer is directly related to the question.
-  - Triple Relevance: Confirm that the triples are pertinent to the provided answer.
+  - Answer: Verify that the answer is directly related to the question.
+  - Triple: Confirm that the triples are pertinent to the provided answer.
 
 4. Consistency (consistency):
-  - Answer Consistency: Ensure that the answer is internally consistent and free of logical contradictions.
-  - Triple Consistency: Check for internal consistency among the triples, ensuring no contradictions.
+  - Answer: Ensure that the answer is internally consistent and free of logical contradictions.
+  - Triple: Check for internal consistency among the triples, ensuring no contradictions.
 
 5. Depth of Detail (detail):
-  - Answer Detail: Evaluate if the answer provides an appropriate level of detail.
-  - Triple Detail: Assess if the triples include detailed information necessary to understand the context.
+  - Answer: Evaluate if the answer provides an appropriate level of detail.
+  - Triple: Assess if the triples include detailed information necessary to understand the context.
 
 6. Sophistication (sophistication):
-  - Answer Sophistication: Judge the answer’s complexity and its ability to handle nuanced or difficult questions.
-  - Triple Sophistication: Determine if the triples reflect complex knowledge structures.
+  - Answer: Judge the answer’s complexity and its ability to handle nuanced or difficult questions.
+  - Triple: Determine if the triples reflect complex knowledge structures.
 
 7. Hierarchy of Information (hierarchy):
-  - Answer Hierarchy: Verify that the answer organizes information by importance and relevance.
-  - Triple Hierarchy: Ensure that the triples represent a logical and hierarchical structure of information.
+  - Answer: Verify that the answer organizes information by importance and relevance.
+  - Triple: Ensure that the triples represent a logical and hierarchical structure of information.
 
 8. Context Understanding (context):
-  - Answer Context: Assess if the answer demonstrates an understanding of the context of the question.
-  - Triple Context: Ensure that the triples reflect a contextual understanding relevant to the answer.
+  - Answer: Assess if the answer demonstrates an understanding of the context of the question.
+  - Triple: Ensure that the triples reflect a contextual understanding relevant to the answer.
 
-Score each aspect of answer and each aspect of triples on a scale of 0 to 10 (decimals possible).
-Please respond with a list of records as many as the number of models in JSON format, including the following fields:
-  1) model_id
-  2) answer_scores with subfields for each aspect (accuracy, completeness, relevance, consistency, detail, sophistication, hierarchy, context) in a single line with NO line break
-  3) triple_scores with subfields for each aspect (accuracy, completeness, relevance, consistency, detail, sophistication, hierarchy, context) in a single line with NO line break
+Score each aspect of the answer and each aspect of the total triple list on a scale of 0.0 to 10.0.
+Rather than ignoring each aspect and evaluating all aspects with similar scores, please grade a faithful evaluation score from each aspect perspective.
+Please respond in a JSON object format like below:
+[
+  {
+    "number": 1,
+    "model_id": (model ID),
+    "accuracy": {"answer": x.x, "triple": x.x},
+    "completeness": {"answer": x.x, "triple": x.x},
+    "relevance": {"answer": x.x, "triple": x.x},
+    "consistency": {"answer": x.x, "triple": x.x},
+    "detail": {"answer": x.x, "triple": x.x},
+    "sophistication": {"answer": x.x, "triple": x.x},
+    "hierarchy": {"answer": x.x, "triple": x.x},
+    "context": {"answer": x.x, "triple": x.x}
+  },
+  ...
+  {
+    "number": (number of models),
+    "model_id": (model ID),
+    "accuracy": {"answer": x.x, "triple": x.x},
+    "completeness": {"answer": x.x, "triple": x.x},
+    "relevance": {"answer": x.x, "triple": x.x},
+    "consistency": {"answer": x.x, "triple": x.x},
+    "detail": {"answer": x.x, "triple": x.x},
+    "sophistication": {"answer": x.x, "triple": x.x},
+    "hierarchy": {"answer": x.x, "triple": x.x},
+    "context": {"answer": x.x, "triple": x.x}
+ }
+]
