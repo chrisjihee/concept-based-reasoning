@@ -16,7 +16,6 @@ args = CommonArguments(
 # setup arguments
 test_size = 3
 input_file = "data/LLM-test-with-KG-responses-3.json"
-output_file = "data/LLM-test-with-KG-evaluation-prompt-{i}.txt"
 prompt_template = read_or("template/evaluation_prompt-2.txt") or getpass("Evaluation Prompt: ")
 
 
@@ -44,12 +43,24 @@ with JobTimer("Prompt Generation", rt=1, rb=1, rw=114, rc='=', verbose=1):
         for response in item["responses"]:
             model = response["model"].split("/")[-1]
             output = limit_words(response["output"], max_words=max_output_words)
-            model_responses.append(f"\n<BEGIN_OF_MODEL_RESPONSE>\n[{model}]:\n{output}\n<END_OF_MODEL_RESPONSE>\n\n")
-        evaluation_prompt = prompt_template.format(
+            model_responses.append(f"\n<BEGIN_OF_MODEL_RESPONSE (model={model})>\n{output}\n<END_OF_MODEL_RESPONSE>\n\n")
+
+        extraction_template = read_or("template/extraction_prompt.txt") or getpass("Extraction Prompt: ")
+        extraction_prompt = extraction_template.format(
             question=question,
             base_answer=base_answer,
             base_triples=base_triples,
             model_responses="\n".join(model_responses),
             num_model=len(model_responses),
         )
-        write_or(output_file.format(i=i), evaluation_prompt)
+        write_or("data/LLM-test-with-KG-extraction-prompt-{i}.txt".format(i=i), extraction_prompt)
+
+        evaluation_template = read_or("template/evaluation_prompt-2.txt") or getpass("Evaluation Prompt: ")
+        evaluation_prompt = evaluation_template.format(
+            question=question,
+            base_answer=base_answer,
+            base_triples=base_triples,
+            model_responses="\n".join(model_responses),
+            num_model=len(model_responses),
+        )
+        write_or("data/LLM-test-with-KG-evaluation-prompt-{i}.txt".format(i=i), evaluation_prompt)
