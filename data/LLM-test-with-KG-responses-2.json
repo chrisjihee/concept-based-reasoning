@@ -1,7 +1,6 @@
 {
     "question": "What are the various themes explored in Shakespeare's play Hamlet?",
     "answer": "Themes in 'Hamlet' include revenge, mortality, madness, politics, betrayal, and the complexity of action. The play also delves into the consequences of indecision and the quest for truth.",
-    "number_of_words_in_answer": 29,
     "triples": [
       "Hamlet -> Originally published -> 1623",
       "Hamlet -> Characters -> Ophelia, Claudius, Polonius, Yorick, Laertes, Horatio, MORE",
@@ -15,7 +14,6 @@
       "Hamlet -> Famous Lines -> \"To be, or not to be\", \"The lady doth protest too much\"",
       "Hamlet -> Influence -> Inspired numerous adaptations and works"
     ],
-    "number_of_triples": 11,
     "difficulty": 8,
     "responses": [
       {
