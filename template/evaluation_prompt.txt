@@ -41,14 +41,14 @@ Please respond in a JSON object format like below:
   {
     "number": 1,
     "model_id": (model ID),
-    "answer_score": { "sum": xx.x, "accuracy": x.x, "completeness": x.x, "relevance": x.x, "consistency": x.x, "detail": x.x, "sophistication": x.x, "hierarchy": x.x, "context": x.x },
-    "triples_score": { "sum": xx.x, "accuracy": x.x, "completeness": x.x, "relevance": x.x, "consistency": x.x, "detail": x.x, "sophistication": x.x, "hierarchy": x.x, "context": x.x }
+    "answer_score (in a single line with NO line break)": { "sum": xx.x, "accuracy": x.x, "completeness": x.x, "relevance": x.x, "consistency": x.x, "detail": x.x, "sophistication": x.x, "hierarchy": x.x, "context": x.x },
+    "triples_score (in a single line with NO line break)": { "sum": xx.x, "accuracy": x.x, "completeness": x.x, "relevance": x.x, "consistency": x.x, "detail": x.x, "sophistication": x.x, "hierarchy": x.x, "context": x.x }
   },
   ...
   {
     "number": (number of models),
     "model_id": (model ID),
-    "answer_score": { "sum": xx.x, "accuracy": x.x, "completeness": x.x, "relevance": x.x, "consistency": x.x, "detail": x.x, "sophistication": x.x, "hierarchy": x.x, "context": x.x },
-    "triples_score": { "sum": xx.x, "accuracy": x.x, "completeness": x.x, "relevance": x.x, "consistency": x.x, "detail": x.x, "sophistication": x.x, "hierarchy": x.x, "context": x.x }
+    "answer_score (in a single line with NO line break)": { "sum": xx.x, "accuracy": x.x, "completeness": x.x, "relevance": x.x, "consistency": x.x, "detail": x.x, "sophistication": x.x, "hierarchy": x.x, "context": x.x },
+    "triples_score (in a single line with NO line break)": { "sum": xx.x, "accuracy": x.x, "completeness": x.x, "relevance": x.x, "consistency": x.x, "detail": x.x, "sophistication": x.x, "hierarchy": x.x, "context": x.x }
  }
 ]
