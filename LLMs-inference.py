@@ -1,3 +1,4 @@
+from datetime import datetime
 from getpass import getpass
 
 from together import Together
@@ -8,7 +9,7 @@ from chrisbase.io import *
 # setup program
 test_size = 3
 input_file = "data/LLM-test-with-KG-31.json"
-output_file = "data/LLM-test-with-KG-responses-2.json"
+output_file = f"data/LLM-test-with-KG-responses-{test_size}.json"
 target_models = [x["full_id"] for x in load_json("conf/full_chat_models.json")]
 prompt_template = read_or("template/inference_prompt.txt") or getpass("Enter the prompt template: ")
 api_client = Together(timeout=10,
@@ -39,13 +40,13 @@ demo_knowledge_size = len(demo["triples"])
 demo_triples = "\n".join([f"  - {triple}" for triple in demo["triples"]])
 
 # chat with LLMs
-total_responses = []
+total_data = []
 test_set = test_set[:test_size]
-for i, qa in enumerate(test_set, start=1):
-    difficulty = qa["difficulty"]
-    real_question = qa["question"]
-    real_answer_size = len(qa["answer"].split())
-    real_knowledge_size = len(qa["triples"])
+for i, item in enumerate(test_set, start=1):
+    difficulty = item["difficulty"]
+    real_question = item["question"]
+    real_answer_size = len(item["answer"].split())
+    real_knowledge_size = len(item["triples"])
     inference_prompt = prompt_template.format(
         real_question=real_question,
         real_answer_size=real_answer_size,
@@ -56,19 +57,20 @@ for i, qa in enumerate(test_set, start=1):
         demo_knowledge_size=demo_knowledge_size,
         demo_triples=demo_triples,
     )
-    model_responses = []
+    total_data.append(item)
+    item["responses"] = []
     for target_model in tqdm(target_models, desc=f"* Answering question ({i}/{len(test_set)})", unit="model"):
+        based = datetime.now()
         model_response = chat_with_llm(model_id=target_model,
                                        messages=[{"role": "user", "content": inference_prompt}])
+        elasped = datetime.now() - based
         if model_response:
-            model_responses.append({
+            item["responses"].append({
                 "model": target_model,
                 "output": model_response,
+                "elasped": str(elasped),
             })
-    qa["responses"] = model_responses
-    total_responses.append(qa)
-    # save to output file (incremental save)
-    save_json(total_responses, output_file, indent=2, ensure_ascii=False)
+        save_json(total_data, output_file, indent=2, ensure_ascii=False)
 
 # write to output file (final save)
-save_json(total_responses, output_file, indent=2, ensure_ascii=False)
+save_json(total_data, output_file, indent=2, ensure_ascii=False)
