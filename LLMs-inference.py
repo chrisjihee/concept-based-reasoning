@@ -1,15 +1,12 @@
-from tqdm import tqdm
 from getpass import getpass
 
 from together import Together
+from tqdm import tqdm
 
 from chrisbase.io import *
-from chrisbase.util import *
 
 TOGETHER_API_TOKEN = read_or(first_path_or("together-tokens*")) or getpass()
-os.environ["TOGETHER_API_KEY"] = TOGETHER_API_TOKEN
-
-client = Together(api_key=os.environ.get("TOGETHER_API_KEY"))
+client = Together(api_key=TOGETHER_API_TOKEN)
 
 
 def chat_with_llm(messages, model="meta-llama/Llama-3-8b-chat-hf"):
@@ -21,7 +18,9 @@ def chat_with_llm(messages, model="meta-llama/Llama-3-8b-chat-hf"):
     return ''.join(chunk.choices[0].delta.content or "" for chunk in stream)
 
 
-# setup target models
+# setup arguments
+input_file = "data/LLM-test-with-KG-31.json"
+output_file = "data/LLM-test-with-KG-responses.json"
 target_models = [
     "google/gemma-2b-it",
     "google/gemma-7b-it",
@@ -48,13 +47,6 @@ target_models = [
     "Qwen/Qwen1.5-110B-Chat",
     "Qwen/Qwen2-72B-Instruct",
 ]
-
-# read a json file
-input_file = "data/LLM-test-with-KG-31.json"
-output_file = "data/LLM-test-with-KG-responses.json"
-test_set = load_json(input_file)
-demo_set, test_set = test_set[:1], test_set[1:]
-
 prompt_template = """
 The following is a test to compare how well large language models (LLMs) structure and store knowledge through knowledge graphs (KGs).
 A knowledge graph typically represents knowledge in the form of a triple (subject -> relation -> object), and the following is an example of such a representation.
@@ -82,13 +74,16 @@ Below is a demo example of an answer to a question that can be answered based on
 {demo_triples}
 """
 
-demo = demo_set[0]
+# read input file
+test_set = load_json(input_file)
+demo, test_set = test_set[0], test_set[1:]
 demo_question = demo["question"]
 demo_answer = demo["answer"]
 demo_answer_size = len(demo["answer"].split())
 demo_knowledge_size = len(demo["triples"])
 demo_triples = "\n".join([f"  - {triple}" for triple in demo["triples"]])
 
+# chat with LLMs
 total_responses = []
 for i, qa in enumerate(test_set[:2], start=1):
     difficulty = qa["difficulty"]
@@ -115,4 +110,6 @@ for i, qa in enumerate(test_set[:2], start=1):
         model_responses.append(r)
     qa["responses"] = model_responses
     total_responses.append(qa)
+
+# write to output file
 save_json(total_responses, output_file)
