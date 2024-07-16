@@ -1,622 +1,560 @@
 [
-    {
-        "question": "What were the key discoveries and achievements of Marie Curie in her lifetime?",
-        "answer": "Marie Curie's key discoveries include Radium and Polonium. She was the first woman to win a Nobel Prize, and the only person to win Nobel Prizes in two different scientific fields, Physics and Chemistry.",
-        "number_of_words_in_answer": 33,
-        "triples": [
-            "Marie Curie -> Born -> November 7, 1867, Warsaw, Poland",
-            "Marie Curie -> Died -> July 4, 1934 (age 66 years), Passy, France",
-            "Marie Curie -> Discovered -> Radium, Polonium",
-            "Marie Curie -> Spouse -> Pierre Curie (m. 1895–1906)",
-            "Marie Curie -> Buried -> April 20, 1995, Panthéon, Paris, France",
-            "Marie Curie -> Education -> University of Paris (1903), University of Paris (1894), MORE",
-            "Marie Curie -> Children -> Ève Curie, Irène Joliot-Curie",
-            "Marie Curie -> Nobel Prize in Physics -> 1903",
-            "Marie Curie -> Nobel Prize in Chemistry -> 1911",
-            "Marie Curie -> Field -> Physics, Chemistry",
-            "Marie Curie -> Work Institutions -> University of Paris, Radium Institute"
-        ],
-        "number_of_triples": 11,
-        "difficulty": 7
-    },
-    {
-        "question": "Describe the significant contributions of the United Nations since its founding.",
-        "answer": "The United Nations has significantly contributed to international peace and security, humanitarian aid, sustainable development, and the establishment of international laws. It has also launched various initiatives through its subsidiaries like UNESCO and the UN Security Council.",
-        "number_of_words_in_answer": 39,
-        "triples": [
-            "United Nations -> Founders -> United States, India, United Kingdom, France, Brazil, Iran, MORE",
-            "United Nations -> Founded -> October 24, 1945, San Francisco, California, United States",
-            "United Nations -> Subsidiaries -> United Nations Security Council, UNESCO, MORE",
-            "United Nations -> Awards -> Nobel Peace Prize, MORE",
-            "United Nations -> Nominations -> Academy Award for Best Documentary Short Film, MORE",
-            "United Nations -> Area served -> World, International",
-            "United Nations -> Headquarters -> New York, New York, United States",
-            "United Nations -> Mission -> Peacekeeping, Human Rights, Development",
-            "United Nations -> Sustainable Development Goals -> 17 goals adopted in 2015",
-            "United Nations -> Humanitarian Aid -> Provided to countries in crisis",
-            "United Nations -> International Laws -> Established various treaties and conventions"
-        ],
-        "number_of_triples": 11,
-        "difficulty": 8
-    },
-    {
-        "question": "What are the various themes explored in Shakespeare's play Hamlet?",
-        "answer": "Themes in 'Hamlet' include revenge, mortality, madness, politics, betrayal, and the complexity of action. The play also delves into the consequences of indecision and the quest for truth.",
-        "number_of_words_in_answer": 29,
-        "triples": [
-            "Hamlet -> Originally published -> 1623",
-            "Hamlet -> Characters -> Ophelia, Claudius, Polonius, Yorick, Laertes, Horatio, MORE",
-            "Hamlet -> Playwright -> William Shakespeare",
-            "Hamlet -> Genres -> Tragedy, Drama",
-            "Hamlet -> Original language -> Early Modern English",
-            "Hamlet -> Setting -> Denmark",
-            "Hamlet -> Themes -> Revenge, Mortality, Madness, Politics, Betrayal, Complexity of Action",
-            "Hamlet -> Major Scenes -> The Ghost Scene, The Play within a Play, The Graveyard Scene",
-            "Hamlet -> Symbolism -> Yorick's Skull, The Ghost, The Play within a Play",
-            "Hamlet -> Famous Lines -> \"To be, or not to be\", \"The lady doth protest too much\"",
-            "Hamlet -> Influence -> Inspired numerous adaptations and works"
-        ],
-        "number_of_triples": 11,
-        "difficulty": 8
-    },
-    {
-        "question": "What are the primary reasons behind the formation of the European Union?",
-        "answer": "The European Union was formed to promote economic cooperation, ensure lasting peace, and facilitate political integration among European countries. Its origins lie in the aftermath of World War II.",
-        "number_of_words_in_answer": 30,
-        "triples": [
-            "European Union -> Founded -> November 1, 1993",
-            "European Union -> Founding Members -> Belgium, France, Germany, Italy, Luxembourg, Netherlands",
-            "European Union -> Primary Goal -> Economic Cooperation",
-            "European Union -> Origins -> European Coal and Steel Community (1951)",
-            "European Union -> Treaties -> Maastricht Treaty (1993), Lisbon Treaty (2009)",
-            "European Union -> Political Integration -> European Parliament, European Commission",
-            "European Union -> Currency -> Euro (introduced in 1999)",
-            "European Union -> Policies -> Common Agricultural Policy, Common Fisheries Policy",
-            "European Union -> Expansion -> Multiple enlargements, currently 27 member states",
-            "European Union -> Trade -> Single Market",
-            "European Union -> Peace and Stability -> Prevention of conflicts in Europe"
-        ],
-        "number_of_triples": 11,
-        "difficulty": 9
-    },
-    {
-        "question": "Explain the contributions of Isaac Newton to science and how they impacted the scientific community.",
-        "answer": "Isaac Newton's contributions include the laws of motion, the law of universal gravitation, and the development of calculus. His work laid the foundation for classical mechanics and significantly influenced the Enlightenment and the scientific revolution.",
-        "number_of_words_in_answer": 35,
-        "triples": [
-            "Isaac Newton -> Born -> January 4, 1643, Woolsthorpe, England",
-            "Isaac Newton -> Died -> March 31, 1727 (age 84 years), Kensington, England",
-            "Isaac Newton -> Known for -> Laws of Motion, Law of Universal Gravitation, Calculus",
-            "Isaac Newton -> Major Work -> Principia Mathematica (1687)",
-            "Isaac Newton -> Education -> Trinity College, Cambridge",
-            "Isaac Newton -> Influence -> Enlightenment, Scientific Revolution",
-            "Isaac Newton -> Titles -> Lucasian Professor of Mathematics, President of the Royal Society",
-            "Isaac Newton -> Fields -> Physics, Mathematics, Astronomy, Alchemy",
-            "Isaac Newton -> Experiments -> Optics, Reflecting Telescope",
-            "Isaac Newton -> Recognitions -> Knighted by Queen Anne in 1705",
-            "Isaac Newton -> Legacy -> Fundamental principles in physics and mathematics"
-        ],
-        "number_of_triples": 11,
-        "difficulty": 8
-    },
-    {
-        "question": "What factors led to the American Civil War, and what were its major consequences?",
-        "answer": "Factors leading to the American Civil War include slavery, states' rights, economic differences, and political conflicts. Major consequences include the abolition of slavery, the reconstruction of the South, and the strengthening of federal government.",
-        "number_of_words_in_answer": 35,
-        "triples": [
-            "American Civil War -> Began -> April 12, 1861",
-            "American Civil War -> Ended -> April 9, 1865",
-            "American Civil War -> Key Cause -> Slavery",
-            "American Civil War -> Other Causes -> States' Rights, Economic Differences, Political Conflicts",
-            "American Civil War -> Major Battles -> Gettysburg, Antietam, Bull Run",
-            "American Civil War -> President (Union) -> Abraham Lincoln",
-            "American Civil War -> President (Confederacy) -> Jefferson Davis",
-            "American Civil War -> Abolition of Slavery -> 13th Amendment",
-            "American Civil War -> Reconstruction -> Southern States",
-            "American Civil War -> Casualties -> Approximately 620,000",
-            "American Civil War -> Federal Government -> Strengthened Power"
-        ],
-        "number_of_triples": 11,
-        "difficulty": 8
-    },
-    {
-        "question": "Assess the impact of the Renaissance on European intellectual and cultural life.",
-        "answer": "The Renaissance revived interest in classical knowledge, fostering advancements in art, science, and philosophy. It led to the development of humanism, the scientific revolution, and significant artistic achievements, transforming European intellectual and cultural life.",
-        "number_of_words_in_answer": 37,
-        "triples": [
-            "Renaissance -> Period -> 14th to 17th Century",
-            "Renaissance -> Origin -> Italy",
-            "Renaissance -> Key Figures -> Leonardo da Vinci, Michelangelo, Galileo Galilei",
-            "Renaissance -> Art -> Perspective, Realism",
-            "Renaissance -> Science -> Scientific Revolution, Heliocentrism",
-            "Renaissance -> Philosophy -> Humanism",
-            "Humanism -> Focus -> Individual Potential, Classical Texts",
-            "Scientific Revolution -> Key Figures -> Copernicus, Kepler, Newton",
-            "Renaissance Art -> Techniques -> Perspective, Chiaroscuro",
-            "Renaissance -> Influence -> Education, Exploration",
-            "Renaissance -> Legacy -> Modern Western Culture, Intellectual Movements"
-        ],
-        "number_of_triples": 11,
-        "difficulty": 9
-    },
-    {
-        "question": "Discuss the philosophical contributions of Socrates and their impact on Western thought.",
-        "answer": "Socrates contributed to Western thought through his method of inquiry, known as the Socratic method, and his focus on ethics and epistemology. His ideas influenced his student Plato and, subsequently, the entire Western philosophical tradition.",
-        "number_of_words_in_answer": 33,
-        "triples": [
-            "Socrates -> Born -> 470/469 BC, Athens, Greece",
-            "Socrates -> Died -> 399 BC (age 71), Athens, Greece",
-            "Socrates -> Known for -> Socratic Method",
-            "Socrates -> Philosophical Focus -> Ethics, Epistemology",
-            "Socrates -> Famous Student -> Plato",
-            "Socrates -> Legacy -> Western Philosophical Tradition",
-            "Socrates -> Trial -> Charged with impiety and corrupting the youth",
-            "Socrates -> Works -> No writings; known through Plato's dialogues",
-            "Socrates -> Influence -> Classical Philosophy",
-            "Socrates -> Method -> Questioning, Dialogue",
-            "Socrates -> Famous Quote -> 'I know that I know nothing'"
-        ],
-        "number_of_triples": 11,
-        "difficulty": 8
-    },
-    {
-        "question": "Analyze the geopolitical significance of the Suez Canal throughout history.",
-        "answer": "The Suez Canal has been a crucial maritime route connecting the Mediterranean Sea to the Red Sea, significantly impacting global trade and military strategy. Its control has been a point of geopolitical contention, influencing colonial and modern international relations.",
-        "number_of_words_in_answer": 38,
-        "triples": [
-            "Suez Canal -> Location -> Egypt",
-            "Suez Canal -> Opened -> November 17, 1869",
-            "Suez Canal -> Key Figure -> Ferdinand de Lesseps",
-            "Suez Canal -> Connects -> Mediterranean Sea, Red Sea",
-            "Suez Canal -> Strategic Importance -> Global Trade Route",
-            "Suez Canal -> Colonial Era -> British Control",
-            "Suez Canal -> Nationalization -> 1956, Gamal Abdel Nasser",
-            "Suez Crisis -> Year -> 1956",
-            "Suez Crisis -> Involved Parties -> Egypt, UK, France, Israel",
-            "Suez Canal -> Expansion -> 2015, New Suez Canal",
-            "Suez Canal -> Modern Significance -> Global Shipping, Trade Efficiency"
-        ],
-        "number_of_triples": 11,
-        "difficulty": 9
-    },
-    {
-        "question": "Analyze the economic, social, and political factors that led to the fall of the Western Roman Empire.",
-        "answer": "The fall of the Western Roman Empire was caused by economic decline, military defeats, political instability, and social decay. Key factors included heavy taxation, reliance on mercenary armies, internal corruption, and invasions by barbarian tribes.",
-        "number_of_words_in_answer": 36,
-        "triples": [
-            "Western Roman Empire -> Fall -> 476 AD",
-            "Economic Decline -> Causes -> Heavy Taxation, Inflation",
-            "Military Defeats -> Key Battles -> Battle of Adrianople, Sack of Rome",
-            "Political Instability -> Causes -> Weak Leadership, Civil Wars",
-            "Social Decay -> Factors -> Decline in Civic Virtue, Population Decline",
-            "Mercenary Armies -> Reliance -> Germanic Tribes",
-            "Barbarian Invasions -> Key Tribes -> Visigoths, Vandals, Huns",
-            "Visigoths -> Sack of Rome -> 410 AD",
-            "Vandals -> Sack of Rome -> 455 AD",
-            "Huns -> Key Leader -> Attila",
-            "Corruption -> Examples -> Bribery, Nepotism"
-        ],
-        "number_of_triples": 11,
-        "difficulty": 9
-    },
-    {
-        "question": "Evaluate the long-term effects of the Treaty of Versailles on Europe and the global political landscape.",
-        "answer": "The Treaty of Versailles had profound long-term effects, including economic hardship for Germany, territorial changes, and the establishment of the League of Nations. It is also considered a factor leading to World War II due to the harsh reparations imposed on Germany.",
-        "number_of_words_in_answer": 39,
-        "triples": [
-            "Treaty of Versailles -> Signed -> June 28, 1919",
-            "Treaty of Versailles -> Signatories -> Allied Powers, Germany",
-            "Reparations -> Amount -> 132 billion gold marks",
-            "Territorial Changes -> Examples -> Alsace-Lorraine to France, Polish Corridor",
-            "Military Restrictions -> German Army -> Limited to 100,000 troops",
-            "League of Nations -> Established -> 1920",
-            "Economic Hardship -> Germany -> Hyperinflation, Great Depression",
-            "Political Consequences -> Rise of Extremism -> Nazi Party",
-            "Long-term Effects -> World War II -> Contributing Factor",
-            "Allied Powers -> Key Figures -> Woodrow Wilson, David Lloyd George, Georges Clemenceau",
-            "Wilson's Fourteen Points -> Concept -> Self-determination, Peace without Victory"
-        ],
-        "number_of_triples": 11,
-        "difficulty": 10
-    },
-    {
-        "question": "Analyze the philosophical implications of Gödel's incompleteness theorems on the foundations of mathematics.",
-        "answer": "Gödel's incompleteness theorems imply that in any consistent mathematical system, there are statements that cannot be proven or disproven within the system. This challenges the notion of mathematical completeness and has deep philosophical implications for the nature of mathematical truth and the limits of formal systems.",
-        "number_of_words_in_answer": 41,
-        "triples": [
-            "Gödel's Incompleteness Theorems -> Proposer -> Kurt Gödel",
-            "First Incompleteness Theorem -> Statement -> Undecidable Propositions",
-            "Second Incompleteness Theorem -> Statement -> Inconsistency Proof Limitations",
-            "Mathematical System -> Example -> Peano Arithmetic",
-            "Consistency -> Concept -> No Contradictions",
-            "Completeness -> Concept -> All Truths Provable",
-            "Formal System -> Definition -> Set of Axioms and Rules",
-            "Philosophical Implications -> Nature of Truth -> Absolute vs. Relative",
-            "Mathematical Truth -> Concept -> Beyond Formal Proof",
-            "Limits of Formal Systems -> Concept -> Gödel's Proof",
-            "Impact -> Philosophy of Mathematics -> Hilbert's Program"
-        ],
-        "number_of_triples": 11,
-        "difficulty": 10
-    },
-    {
-        "question": "Discuss the role of the Enlightenment in shaping modern political thought.",
-        "answer": "The Enlightenment emphasized reason, individualism, and skepticism of authority. It shaped modern political thought through ideas on democracy, human rights, and separation of powers, influencing revolutions and the development of modern democratic states.",
-        "number_of_words_in_answer": 33,
-        "triples": [
-            "Enlightenment -> Period -> 17th to 19th Century",
-            "Enlightenment -> Key Philosophers -> John Locke, Voltaire, Rousseau, Montesquieu",
-            "Enlightenment -> Key Ideas -> Reason, Individualism, Skepticism of Authority",
-            "John Locke -> Contribution -> Natural Rights, Social Contract",
-            "Voltaire -> Contribution -> Freedom of Speech, Religious Tolerance",
-            "Rousseau -> Contribution -> Popular Sovereignty, General Will",
-            "Montesquieu -> Contribution -> Separation of Powers",
-            "Enlightenment -> Impact -> American Revolution, French Revolution",
-            "American Revolution -> Influence -> Declaration of Independence, Constitution",
-            "French Revolution -> Influence -> Declaration of the Rights of Man",
-            "Enlightenment -> Legacy -> Modern Democratic States, Human Rights"
-        ],
-        "number_of_triples": 11,
-        "difficulty": 9
-    },
-    {
-        "question": "Evaluate the significance of the Magna Carta in the development of constitutional law.",
-        "answer": "The Magna Carta is significant for establishing the principle that the monarch is subject to the law, influencing the development of constitutional law by promoting ideas of due process, limited government, and individual rights.",
-        "number_of_words_in_answer": 34,
-        "triples": [
-            "Magna Carta -> Issued -> 1215",
-            "King John -> Forced to Sign -> Magna Carta",
-            "Magna Carta -> Key Principles -> Rule of Law, Due Process",
-            "Magna Carta -> Clause 39 -> Right to Fair Trial",
-            "Magna Carta -> Clause 40 -> Justice Delayed",
-            "Magna Carta -> Limited Government -> Restrictions on Royal Power",
-            "Magna Carta -> Influence -> English Common Law, US Constitution",
-            "Magna Carta -> Reissues -> 13th Century",
-            "Magna Carta -> Symbol -> Liberty, Rights",
-            "Magna Carta -> Legacy -> Constitutional Law",
-            "Magna Carta -> Modern Relevance -> Human Rights, Legal Precedents"
-        ],
-        "number_of_triples": 11,
-        "difficulty": 8
-    },
-    {
-        "question": "Analyze the impact of the Columbian Exchange on the global economy, agriculture, and cultural practices.",
-        "answer": "The Columbian Exchange drastically altered the global economy, agriculture, and cultural practices. It introduced new crops, animals, and diseases between the Old and New Worlds, leading to population growth in Europe and significant demographic changes in the Americas.",
-        "number_of_words_in_answer": 36,
-        "triples": [
-            "Columbian Exchange -> Period -> Post-1492",
-            "New Crops -> To Old World -> Potatoes, Maize, Tomatoes",
-            "New Animals -> To New World -> Horses, Cattle, Pigs",
-            "Diseases -> To New World -> Smallpox, Measles",
-            "Population Growth -> Europe -> Improved Nutrition",
-            "Demographic Changes -> Americas -> Native Population Decline",
-            "Agricultural Impact -> New Farming Practices -> Crop Rotation",
-            "Economic Impact -> Global Trade -> Silver, Sugar",
-            "Cultural Practices -> Syncretism -> Blending of Traditions",
-            "Environmental Impact -> Ecosystem Changes -> Invasive Species",
-            "Long-term Effects -> Globalization -> Economic and Cultural Integration"
-        ],
-        "number_of_triples": 11,
-        "difficulty": 10
-    },
-    {
-        "question": "Evaluate the contributions of the Byzantine Empire to art, architecture, and law, and their influence on subsequent civilizations.",
-        "answer": "The Byzantine Empire contributed significantly to art, architecture, and law. It preserved Greco-Roman traditions, developed the Justinian Code, and influenced Orthodox Christian art and architecture, impacting Eastern Europe and the Islamic world.",
-        "number_of_words_in_answer": 36,
-        "triples": [
-            "Byzantine Empire -> Period -> 330-1453 AD",
-            "Art -> Contributions -> Iconography, Mosaics",
-            "Architecture -> Contributions -> Hagia Sophia, Dome Construction",
-            "Law -> Contributions -> Justinian Code",
-            "Justinian Code -> Components -> Codex Justinianus, Digest, Institutes",
-            "Greco-Roman Traditions -> Preservation -> Literature, Philosophy",
-            "Orthodox Christianity -> Influence -> Religious Art, Church Design",
-            "Hagia Sophia -> Constructed -> 537 AD",
-            "Iconoclasm -> Period -> 726-843 AD",
-            "Influence -> Eastern Europe -> Slavic Cultures",
-            "Influence -> Islamic World -> Artistic and Architectural Elements"
-        ],
-        "number_of_triples": 11,
-        "difficulty": 10
-    },
-    {
-        "question": "Explain the historical development and impact of quantum mechanics in the 20th century.",
-        "answer": "Quantum mechanics revolutionized physics by introducing principles of wave-particle duality, uncertainty, and quantization. It led to the development of technologies like semiconductors, lasers, and quantum computing, profoundly impacting science and technology.",
-        "number_of_words_in_answer": 33,
-        "triples": [
-            "Quantum Mechanics -> Development -> Early 20th Century",
-            "Quantum Mechanics -> Founders -> Max Planck, Albert Einstein, Niels Bohr, Werner Heisenberg",
-            "Quantum Mechanics -> Key Principles -> Wave-Particle Duality, Uncertainty Principle, Quantization",
-            "Max Planck -> Quantum Hypothesis -> 1900",
-            "Albert Einstein -> Photoelectric Effect -> 1905",
-            "Niels Bohr -> Bohr Model -> 1913",
-            "Werner Heisenberg -> Uncertainty Principle -> 1927",
-            "Quantum Mechanics -> Technologies -> Semiconductors, Lasers, Quantum Computing",
-            "Quantum Mechanics -> Applications -> Electronics, Medicine, Cryptography",
-            "Quantum Mechanics -> Impact -> Modern Physics, Technological Advancements",
-            "Quantum Mechanics -> Philosophical Implications -> Nature of Reality, Measurement Problem"
-        ],
-        "number_of_triples": 11,
-        "difficulty": 9
-    },
-    {
-        "question": "Discuss the technological advancements during the Tang and Song dynasties and their impact on Chinese society and the world.",
-        "answer": "The Tang and Song dynasties witnessed significant technological advancements, including the development of gunpowder, the compass, and printing. These innovations revolutionized Chinese society and had a lasting impact on global technology and culture.",
-        "number_of_words_in_answer": 33,
-        "triples": [
-            "Tang Dynasty -> Period -> 618-907 AD",
-            "Song Dynasty -> Period -> 960-1279 AD",
-            "Gunpowder -> Invention -> Military Use",
-            "Compass -> Development -> Navigation",
-            "Printing -> Technology -> Woodblock, Movable Type",
-            "Agriculture -> Innovations -> Rice Cultivation, Terracing",
-            "Trade -> Expansion -> Silk Road, Maritime Routes",
-            "Urbanization -> Impact -> Growth of Cities",
-            "Cultural Flourishing -> Art, Literature -> Tang Poetry, Song Painting",
-            "Civil Service -> Examination System -> Meritocracy",
-            "Global Impact -> Technology Transfer -> Middle East, Europe"
-        ],
-        "number_of_triples": 11,
-        "difficulty": 8
-    },
-    {
-        "question": "Evaluate the role of the Ottoman Empire in the spread of Islam and its cultural and scientific contributions to the world.",
-        "answer": "The Ottoman Empire played a crucial role in the spread of Islam through its conquests and administration. It made significant cultural and scientific contributions, including advances in medicine, architecture, and the arts, influencing both Eastern and Western civilizations.",
-        "number_of_words_in_answer": 36,
-        "triples": [
-            "Ottoman Empire -> Period -> 1299-1922",
-            "Spread of Islam -> Conquests -> Balkans, Middle East, North Africa",
-            "Administration -> Millet System -> Religious Tolerance",
-            "Medicine -> Contributions -> Hospitals, Medical Texts",
-            "Architecture -> Contributions -> Mosques, Public Buildings",
-            "Suleiman the Magnificent -> Patronage -> Arts and Sciences",
-            "Cultural Contributions -> Calligraphy, Miniature Painting",
-            "Scientific Contributions -> Astronomy, Mathematics",
-            "Trade -> Influence -> Silk Road, Spice Trade",
-            "Eastern and Western Influence -> Cultural Exchange -> Art, Science, Technology",
-            "Decline -> Factors -> Military Defeats, Economic Strain"
-        ],
-        "number_of_triples": 11,
-        "difficulty": 9
-    },
-    {
-        "question": "Analyze the economic, social, and political effects of the Black Death on 14th century Europe.",
-        "answer": "The Black Death had profound economic, social, and political effects on 14th century Europe. It led to labor shortages, shifts in social structures, and changes in political power. The drastic population decline resulted in economic upheaval and significant cultural changes.",
-        "number_of_words_in_answer": 38,
-        "triples": [
-            "Black Death -> Period -> 1347-1351",
-            "Cause -> Bacterium -> Yersinia pestis",
-            "Spread -> Vectors -> Fleas, Rats",
-            "Mortality Rate -> Europe -> Estimated 30-60%",
-            "Economic Effects -> Labor Shortages -> Higher Wages",
-            "Social Effects -> Peasant Revolts -> Increased Mobility",
-            "Political Effects -> Power Shifts -> Decline of Feudalism",
-            "Population Decline -> Impact -> Urban and Rural Areas",
-            "Cultural Changes -> Art and Literature -> Memento Mori, Danse Macabre",
-            "Church -> Impact -> Loss of Influence, Clergy Deaths",
-            "Long-term Effects -> Renaissance -> Societal Reorganization"
-        ],
-        "number_of_triples": 11,
-        "difficulty": 10
-    },
-    {
-        "question": "Analyze the economic, political, and social factors that led to the decline of the Mughal Empire.",
-        "answer": "The decline of the Mughal Empire was caused by political instability, economic difficulties, and social fragmentation. Key factors included weak leadership, military defeats, fiscal mismanagement, and increasing internal and external pressures.",
-        "number_of_words_in_answer": 36,
-        "triples": [
-            "Mughal Empire -> Period -> 1526-1857",
-            "Political Instability -> Weak Leadership -> Successor Struggles",
-            "Military Defeats -> Key Battles -> Battle of Karnal, Maratha Wars",
-            "Economic Difficulties -> Fiscal Mismanagement -> Heavy Taxation",
-            "Social Fragmentation -> Religious Conflicts -> Hindu-Muslim Tensions",
-            "Aurangzeb -> Reign -> Expansion, Strain on Resources",
-            "British East India Company -> Influence -> Economic Exploitation",
-            "Internal Revolts -> Peasant Uprisings -> Increased Discontent",
-            "External Pressures -> Persian Invasions -> Nadir Shah",
-            "Administrative Corruption -> Impact -> Declining Efficiency",
-            "Decline -> Long-term Effects -> British Colonial Rule"
-        ],
-        "number_of_triples": 11,
-        "difficulty": 10
-    },
-    {
-        "question": "Evaluate the role of the Marshall Plan in the reconstruction of Europe after World War II and its long-term effects on international relations.",
-        "answer": "The Marshall Plan provided economic aid for European reconstruction, fostering economic recovery and political stability. It strengthened US-European ties, countered Soviet influence, and laid the groundwork for European integration and the Cold War dynamics.",
-        "number_of_words_in_answer": 35,
-        "triples": [
-            "Marshall Plan -> Official Name -> European Recovery Program",
-            "Period -> Implementation -> 1948-1952",
-            "Economic Aid -> Amount -> $13 billion",
-            "Key Architect -> George C. Marshall -> US Secretary of State",
-            "Objectives -> Economic Recovery -> Industrial Rebuilding",
-            "Political Stability -> Goals -> Prevent Communism",
-            "Beneficiaries -> Key Countries -> UK, France, West Germany",
-            "Economic Recovery -> Impact -> Increased Production, Trade",
-            "US-European Ties -> Strengthening -> Political Alliances",
-            "Soviet Response -> COMECON -> Alternative Aid",
-            "Long-term Effects -> European Integration -> Foundation for EU"
-        ],
-        "number_of_triples": 11,
-        "difficulty": 9
-    },
-    {
-        "question": "Evaluate the influence of Enlightenment thinkers on the development of modern democratic systems.",
-        "answer": "Enlightenment thinkers such as John Locke, Montesquieu, and Rousseau influenced modern democratic systems by advocating for the separation of powers, individual rights, and the social contract. Their ideas shaped the constitutions of democratic nations and promoted principles of liberty and equality.",
-        "number_of_words_in_answer": 39,
-        "triples": [
-            "Enlightenment -> Period -> 17th to 19th Century",
-            "John Locke -> Ideas -> Natural Rights, Social Contract",
-            "Montesquieu -> Ideas -> Separation of Powers",
-            "Rousseau -> Ideas -> Popular Sovereignty, General Will",
-            "American Revolution -> Influence -> Declaration of Independence",
-            "French Revolution -> Influence -> Declaration of the Rights of Man",
-            "Democratic Systems -> Development -> Constitutions",
-            "Individual Rights -> Emphasis -> Freedom, Equality",
-            "Separation of Powers -> Implementation -> Executive, Legislative, Judicial",
-            "Social Contract -> Concept -> Government Legitimacy",
-            "Modern Democracies -> Influence -> Global Spread of Democratic Ideals"
-        ],
-        "number_of_triples": 11,
-        "difficulty": 9
-    },
-    {
-        "question": "Discuss the causes and impact of the Green Revolution on global agriculture and food security.",
-        "answer": "The Green Revolution introduced high-yield crop varieties, chemical fertilizers, and advanced irrigation techniques, significantly increasing food production. It improved food security in many developing countries but also led to environmental challenges and socio-economic disparities.",
-        "number_of_words_in_answer": 36,
-        "triples": [
-            "Green Revolution -> Period -> 1940s-1960s",
-            "Key Figure -> Norman Borlaug -> Agronomist",
-            "High-yield Varieties -> Crops -> Wheat, Rice",
-            "Chemical Fertilizers -> Impact -> Increased Productivity",
-            "Irrigation Techniques -> Advancements -> Drip Irrigation, Sprinklers",
-            "Food Production -> Increase -> Developing Countries",
-            "Food Security -> Improvement -> Reduced Hunger",
-            "Environmental Challenges -> Issues -> Soil Degradation, Water Pollution",
-            "Socio-economic Disparities -> Impact -> Small vs. Large Farmers",
-            "Criticisms -> Dependency -> Chemical Inputs, Monocultures",
-            "Long-term Effects -> Sustainable Agriculture -> Emerging Practices"
-        ],
-        "number_of_triples": 11,
-        "difficulty": 10
-    },
-    {
-        "question": "Evaluate the significance of the Kyoto Protocol in addressing global climate change and its effectiveness.",
-        "answer": "The Kyoto Protocol was a significant international treaty aimed at reducing greenhouse gas emissions. While it established important mechanisms for climate action, its effectiveness was limited by lack of participation from major emitters and challenges in enforcement.",
-        "number_of_words_in_answer": 38,
-        "triples": [
-            "Kyoto Protocol -> Adoption -> 1997",
-            "Entered into Force -> 2005",
-            "Greenhouse Gas Emissions -> Reduction Targets -> Binding Commitments",
-            "Mechanisms -> Emissions Trading -> Carbon Credits",
-            "Clean Development Mechanism -> Concept -> Sustainable Projects",
-            "Major Emitters -> Non-participation -> United States, China",
-            "Challenges -> Enforcement -> Compliance Issues",
-            "Effectiveness -> Limited -> Mixed Results",
-            "Successor -> Paris Agreement -> 2015",
-            "Global Impact -> Climate Policy -> Awareness, Framework",
-            "Long-term Significance -> International Cooperation -> Climate Change"
-        ],
-        "number_of_triples": 11,
-        "difficulty": 9
-    },
-    {
-        "question": "Discuss the scientific and ethical considerations surrounding CRISPR-Cas9 technology in gene editing.",
-        "answer": "CRISPR-Cas9 technology allows precise gene editing, holding promise for treating genetic disorders. However, it raises ethical concerns about potential misuse, off-target effects, and the implications of germline modifications on future generations.",
-        "number_of_words_in_answer": 33,
-        "triples": [
-            "CRISPR-Cas9 -> Discovery -> Jennifer Doudna, Emmanuelle Charpentier",
-            "Gene Editing -> Mechanism -> DNA Targeting, Cutting",
-            "Applications -> Medical -> Genetic Disorders, Cancer Therapy",
-            "Ethical Considerations -> Potential Misuse -> Designer Babies",
-            "Off-target Effects -> Risks -> Unintended Mutations",
-            "Germline Modifications -> Concerns -> Heritable Changes",
-            "Regulation -> Need -> Ethical Guidelines",
-            "Scientific Potential -> Benefits -> Precision Medicine",
-            "Public Debate -> Issues -> Consent, Accessibility",
-            "International Response -> Governance -> Moratorium Proposals",
-            "Future Implications -> Human Genetics -> Ethical Boundaries"
-        ],
-        "number_of_triples": 11,
-        "difficulty": 10
-    },
-    {
-        "question": "Discuss the historical significance of the Council of Trent and its impact on the Catholic Church and the Counter-Reformation.",
-        "answer": "The Council of Trent was a crucial part of the Counter-Reformation, addressing doctrinal and disciplinary issues within the Catholic Church. Its decrees reaffirmed core doctrines, reformed clerical practices, and strengthened church authority, significantly shaping Catholicism and its response to Protestantism.",
-        "number_of_words_in_answer": 37,
-        "triples": [
-            "Council of Trent -> Period -> 1545-1563",
-            "Initiated By -> Pope Paul III -> Response to Reformation",
-            "Key Decrees -> Doctrines -> Justification, Sacraments",
-            "Doctrinal Reaffirmation -> Transubstantiation -> Eucharist",
-            "Clerical Reforms -> Practices -> Discipline, Education",
-            "Seminaries -> Establishment -> Clergy Training",
-            "Index of Forbidden Books -> Purpose -> Censorship",
-            "Counter-Reformation -> Role -> Catholic Revival",
-            "Jesuits -> Influence -> Education, Missions",
-            "Church Authority -> Strengthening -> Centralization",
-            "Long-term Impact -> Catholic Identity -> Global Influence"
-        ],
-        "number_of_triples": 11,
-        "difficulty": 9
-    },
-    {
-        "question": "Evaluate the scientific and technological advancements made during the Islamic Golden Age.",
-        "answer": "The Islamic Golden Age saw advancements in medicine, mathematics, astronomy, and engineering. Scholars like Al-Khwarizmi, Avicenna, and Alhazen made significant contributions that influenced both Islamic and European scientific traditions.",
-        "number_of_words_in_answer": 31,
-        "triples": [
-            "Islamic Golden Age -> Period -> 8th to 14th Century",
-            "Al-Khwarizmi -> Contribution -> Algebra",
-            "Avicenna -> Contribution -> Canon of Medicine",
-            "Alhazen -> Contribution -> Optics",
-            "Islamic Golden Age -> Key Institutions -> House of Wisdom, Baghdad",
-            "Medicine -> Advancements -> Surgery, Pharmacology",
-            "Mathematics -> Advancements -> Arabic Numerals, Algorithm",
-            "Astronomy -> Advancements -> Astrolabe, Star Catalogues",
-            "Engineering -> Advancements -> Water Clocks, Mechanical Devices",
-            "Translation Movement -> Greek Texts -> Arabic",
-            "Islamic Golden Age -> Influence -> Renaissance, European Science"
-        ],
-        "number_of_triples": 11,
-        "difficulty": 9
-    },
-    {
-        "question": "Evaluate the significance of the discovery of DNA's double helix structure and its implications for genetics and biotechnology.",
-        "answer": "The discovery of DNA's double helix structure by Watson and Crick revealed the mechanism of genetic inheritance. This breakthrough paved the way for modern genetics, including gene cloning, genetic engineering, and the Human Genome Project.",
-        "number_of_words_in_answer": 32,
-        "triples": [
-            "DNA Double Helix -> Discoverers -> James Watson, Francis Crick",
-            "Discovery -> Year -> 1953",
-            "Structure -> Components -> Nucleotides, Base Pairs",
-            "Base Pairs -> Adenine-Thymine, Guanine-Cytosine",
-            "Genetic Inheritance -> Mechanism -> DNA Replication",
-            "Gene Cloning -> Technique -> Recombinant DNA",
-            "Genetic Engineering -> Applications -> GMOs, Gene Therapy",
-            "Human Genome Project -> Completion -> 2003",
-            "Biotechnology -> Impact -> Medical Research, Agriculture",
-            "Rosalind Franklin -> Contribution -> X-ray Crystallography",
-            "Nobel Prize -> Awarded -> 1962, Physiology or Medicine"
-        ],
-        "number_of_triples": 11,
-        "difficulty": 10
-    },
-    {
-        "question": "Discuss the scientific and ethical implications of human cloning technology.",
-        "answer": "Human cloning technology raises ethical concerns about identity and individuality, legal issues regarding rights and consent, and social implications related to potential misuse, inequality, and the impact on family structures and societal norms.",
-        "number_of_words_in_answer": 31,
-        "triples": [
-            "Human Cloning -> Definition -> Creating Genetically Identical Individuals",
-            "Ethical Concerns -> Identity -> Individuality, Personhood",
-            "Legal Issues -> Rights -> Consent, Ownership",
-            "Social Implications -> Misuse -> Designer Babies, Cloning for Profit",
-            "Inequality -> Access -> Socioeconomic Disparities",
-            "Family Structures -> Impact -> Parent-Child Relationships",
-            "Societal Norms -> Changes -> Perceptions of Humanity",
-            "Reproductive Cloning -> Example -> Dolly the Sheep",
-            "Therapeutic Cloning -> Purpose -> Medical Treatments",
-            "Regulation -> Need -> International Guidelines",
-            "Future Considerations -> Technology Advancement -> Ethical Boundaries"
-        ],
-        "number_of_triples": 11,
-        "difficulty": 10
-    },
-    {
-        "question": "Evaluate the significance of the discovery of the Higgs boson and its implications for particle physics.",
-        "answer": "The discovery of the Higgs boson confirmed the existence of the Higgs field, which gives mass to elementary particles. This discovery is significant for the Standard Model of particle physics and has implications for understanding the fundamental structure of the universe.",
-        "number_of_words_in_answer": 34,
-        "triples": [
-            "Higgs Boson -> Discovery -> 2012",
-            "CERN -> Experiment -> Large Hadron Collider",
-            "Standard Model -> Confirmation -> Particle Physics",
-            "Higgs Field -> Concept -> Mass Generation",
-            "Peter Higgs -> Theorist -> Prediction of Higgs Boson",
-            "Elementary Particles -> Mass -> Interaction with Higgs Field",
-            "Implications -> Fundamental Physics -> Particle Interactions",
-            "Nobel Prize -> Physics -> 2013, Peter Higgs, François Englert",
-            "Future Research -> Beyond Standard Model -> New Physics",
-            "Dark Matter -> Connection -> Possible Explanations",
-            "Universe Structure -> Understanding -> Mass Distribution"
-        ],
-        "number_of_triples": 11,
-        "difficulty": 10
-    }
+  {
+    "question": "What were the key discoveries and achievements of Marie Curie in her lifetime?",
+    "answer": "Marie Curie's key discoveries include Radium and Polonium. She was the first woman to win a Nobel Prize, and the only person to win Nobel Prizes in two different scientific fields, Physics and Chemistry.",
+    "triples": [
+      "Marie Curie -> Born -> November 7, 1867, Warsaw, Poland",
+      "Marie Curie -> Died -> July 4, 1934 (age 66 years), Passy, France",
+      "Marie Curie -> Discovered -> Radium, Polonium",
+      "Marie Curie -> Spouse -> Pierre Curie (m. 1895–1906)",
+      "Marie Curie -> Buried -> April 20, 1995, Panthéon, Paris, France",
+      "Marie Curie -> Education -> University of Paris (1903), University of Paris (1894), MORE",
+      "Marie Curie -> Children -> Ève Curie, Irène Joliot-Curie",
+      "Marie Curie -> Nobel Prize in Physics -> 1903",
+      "Marie Curie -> Nobel Prize in Chemistry -> 1911",
+      "Marie Curie -> Field -> Physics, Chemistry",
+      "Marie Curie -> Work Institutions -> University of Paris, Radium Institute"
+    ],
+    "difficulty": 7
+  },
+  {
+    "question": "Describe the significant contributions of the United Nations since its founding.",
+    "answer": "The United Nations has significantly contributed to international peace and security, humanitarian aid, sustainable development, and the establishment of international laws. It has also launched various initiatives through its subsidiaries like UNESCO and the UN Security Council.",
+    "triples": [
+      "United Nations -> Founders -> United States, India, United Kingdom, France, Brazil, Iran, MORE",
+      "United Nations -> Founded -> October 24, 1945, San Francisco, California, United States",
+      "United Nations -> Subsidiaries -> United Nations Security Council, UNESCO, MORE",
+      "United Nations -> Awards -> Nobel Peace Prize, MORE",
+      "United Nations -> Nominations -> Academy Award for Best Documentary Short Film, MORE",
+      "United Nations -> Area served -> World, International",
+      "United Nations -> Headquarters -> New York, New York, United States",
+      "United Nations -> Mission -> Peacekeeping, Human Rights, Development",
+      "United Nations -> Sustainable Development Goals -> 17 goals adopted in 2015",
+      "United Nations -> Humanitarian Aid -> Provided to countries in crisis",
+      "United Nations -> International Laws -> Established various treaties and conventions"
+    ],
+    "difficulty": 8
+  },
+  {
+    "question": "What are the various themes explored in Shakespeare's play Hamlet?",
+    "answer": "Themes in 'Hamlet' include revenge, mortality, madness, politics, betrayal, and the complexity of action. The play also delves into the consequences of indecision and the quest for truth.",
+    "triples": [
+      "Hamlet -> Originally published -> 1623",
+      "Hamlet -> Characters -> Ophelia, Claudius, Polonius, Yorick, Laertes, Horatio, MORE",
+      "Hamlet -> Playwright -> William Shakespeare",
+      "Hamlet -> Genres -> Tragedy, Drama",
+      "Hamlet -> Original language -> Early Modern English",
+      "Hamlet -> Setting -> Denmark",
+      "Hamlet -> Themes -> Revenge, Mortality, Madness, Politics, Betrayal, Complexity of Action",
+      "Hamlet -> Major Scenes -> The Ghost Scene, The Play within a Play, The Graveyard Scene",
+      "Hamlet -> Symbolism -> Yorick's Skull, The Ghost, The Play within a Play",
+      "Hamlet -> Famous Lines -> \"To be, or not to be\", \"The lady doth protest too much\"",
+      "Hamlet -> Influence -> Inspired numerous adaptations and works"
+    ],
+    "difficulty": 8
+  },
+  {
+    "question": "What are the primary reasons behind the formation of the European Union?",
+    "answer": "The European Union was formed to promote economic cooperation, ensure lasting peace, and facilitate political integration among European countries. Its origins lie in the aftermath of World War II.",
+    "triples": [
+      "European Union -> Founded -> November 1, 1993",
+      "European Union -> Founding Members -> Belgium, France, Germany, Italy, Luxembourg, Netherlands",
+      "European Union -> Primary Goal -> Economic Cooperation",
+      "European Union -> Origins -> European Coal and Steel Community (1951)",
+      "European Union -> Treaties -> Maastricht Treaty (1993), Lisbon Treaty (2009)",
+      "European Union -> Political Integration -> European Parliament, European Commission",
+      "European Union -> Currency -> Euro (introduced in 1999)",
+      "European Union -> Policies -> Common Agricultural Policy, Common Fisheries Policy",
+      "European Union -> Expansion -> Multiple enlargements, currently 27 member states",
+      "European Union -> Trade -> Single Market",
+      "European Union -> Peace and Stability -> Prevention of conflicts in Europe"
+    ],
+    "difficulty": 9
+  },
+  {
+    "question": "Explain the contributions of Isaac Newton to science and how they impacted the scientific community.",
+    "answer": "Isaac Newton's contributions include the laws of motion, the law of universal gravitation, and the development of calculus. His work laid the foundation for classical mechanics and significantly influenced the Enlightenment and the scientific revolution.",
+    "triples": [
+      "Isaac Newton -> Born -> January 4, 1643, Woolsthorpe, England",
+      "Isaac Newton -> Died -> March 31, 1727 (age 84 years), Kensington, England",
+      "Isaac Newton -> Known for -> Laws of Motion, Law of Universal Gravitation, Calculus",
+      "Isaac Newton -> Major Work -> Principia Mathematica (1687)",
+      "Isaac Newton -> Education -> Trinity College, Cambridge",
+      "Isaac Newton -> Influence -> Enlightenment, Scientific Revolution",
+      "Isaac Newton -> Titles -> Lucasian Professor of Mathematics, President of the Royal Society",
+      "Isaac Newton -> Fields -> Physics, Mathematics, Astronomy, Alchemy",
+      "Isaac Newton -> Experiments -> Optics, Reflecting Telescope",
+      "Isaac Newton -> Recognitions -> Knighted by Queen Anne in 1705",
+      "Isaac Newton -> Legacy -> Fundamental principles in physics and mathematics"
+    ],
+    "difficulty": 8
+  },
+  {
+    "question": "What factors led to the American Civil War, and what were its major consequences?",
+    "answer": "Factors leading to the American Civil War include slavery, states' rights, economic differences, and political conflicts. Major consequences include the abolition of slavery, the reconstruction of the South, and the strengthening of federal government.",
+    "triples": [
+      "American Civil War -> Began -> April 12, 1861",
+      "American Civil War -> Ended -> April 9, 1865",
+      "American Civil War -> Key Cause -> Slavery",
+      "American Civil War -> Other Causes -> States' Rights, Economic Differences, Political Conflicts",
+      "American Civil War -> Major Battles -> Gettysburg, Antietam, Bull Run",
+      "American Civil War -> President (Union) -> Abraham Lincoln",
+      "American Civil War -> President (Confederacy) -> Jefferson Davis",
+      "American Civil War -> Abolition of Slavery -> 13th Amendment",
+      "American Civil War -> Reconstruction -> Southern States",
+      "American Civil War -> Casualties -> Approximately 620,000",
+      "American Civil War -> Federal Government -> Strengthened Power"
+    ],
+    "difficulty": 8
+  },
+  {
+    "question": "Assess the impact of the Renaissance on European intellectual and cultural life.",
+    "answer": "The Renaissance revived interest in classical knowledge, fostering advancements in art, science, and philosophy. It led to the development of humanism, the scientific revolution, and significant artistic achievements, transforming European intellectual and cultural life.",
+    "triples": [
+      "Renaissance -> Period -> 14th to 17th Century",
+      "Renaissance -> Origin -> Italy",
+      "Renaissance -> Key Figures -> Leonardo da Vinci, Michelangelo, Galileo Galilei",
+      "Renaissance -> Art -> Perspective, Realism",
+      "Renaissance -> Science -> Scientific Revolution, Heliocentrism",
+      "Renaissance -> Philosophy -> Humanism",
+      "Humanism -> Focus -> Individual Potential, Classical Texts",
+      "Scientific Revolution -> Key Figures -> Copernicus, Kepler, Newton",
+      "Renaissance Art -> Techniques -> Perspective, Chiaroscuro",
+      "Renaissance -> Influence -> Education, Exploration",
+      "Renaissance -> Legacy -> Modern Western Culture, Intellectual Movements"
+    ],
+    "difficulty": 9
+  },
+  {
+    "question": "Discuss the philosophical contributions of Socrates and their impact on Western thought.",
+    "answer": "Socrates contributed to Western thought through his method of inquiry, known as the Socratic method, and his focus on ethics and epistemology. His ideas influenced his student Plato and, subsequently, the entire Western philosophical tradition.",
+    "triples": [
+      "Socrates -> Born -> 470/469 BC, Athens, Greece",
+      "Socrates -> Died -> 399 BC (age 71), Athens, Greece",
+      "Socrates -> Known for -> Socratic Method",
+      "Socrates -> Philosophical Focus -> Ethics, Epistemology",
+      "Socrates -> Famous Student -> Plato",
+      "Socrates -> Legacy -> Western Philosophical Tradition",
+      "Socrates -> Trial -> Charged with impiety and corrupting the youth",
+      "Socrates -> Works -> No writings; known through Plato's dialogues",
+      "Socrates -> Influence -> Classical Philosophy",
+      "Socrates -> Method -> Questioning, Dialogue",
+      "Socrates -> Famous Quote -> 'I know that I know nothing'"
+    ],
+    "difficulty": 8
+  },
+  {
+    "question": "Analyze the geopolitical significance of the Suez Canal throughout history.",
+    "answer": "The Suez Canal has been a crucial maritime route connecting the Mediterranean Sea to the Red Sea, significantly impacting global trade and military strategy. Its control has been a point of geopolitical contention, influencing colonial and modern international relations.",
+    "triples": [
+      "Suez Canal -> Location -> Egypt",
+      "Suez Canal -> Opened -> November 17, 1869",
+      "Suez Canal -> Key Figure -> Ferdinand de Lesseps",
+      "Suez Canal -> Connects -> Mediterranean Sea, Red Sea",
+      "Suez Canal -> Strategic Importance -> Global Trade Route",
+      "Suez Canal -> Colonial Era -> British Control",
+      "Suez Canal -> Nationalization -> 1956, Gamal Abdel Nasser",
+      "Suez Crisis -> Year -> 1956",
+      "Suez Crisis -> Involved Parties -> Egypt, UK, France, Israel",
+      "Suez Canal -> Expansion -> 2015, New Suez Canal",
+      "Suez Canal -> Modern Significance -> Global Shipping, Trade Efficiency"
+    ],
+    "difficulty": 9
+  },
+  {
+    "question": "Analyze the economic, social, and political factors that led to the fall of the Western Roman Empire.",
+    "answer": "The fall of the Western Roman Empire was caused by economic decline, military defeats, political instability, and social decay. Key factors included heavy taxation, reliance on mercenary armies, internal corruption, and invasions by barbarian tribes.",
+    "triples": [
+      "Western Roman Empire -> Fall -> 476 AD",
+      "Economic Decline -> Causes -> Heavy Taxation, Inflation",
+      "Military Defeats -> Key Battles -> Battle of Adrianople, Sack of Rome",
+      "Political Instability -> Causes -> Weak Leadership, Civil Wars",
+      "Social Decay -> Factors -> Decline in Civic Virtue, Population Decline",
+      "Mercenary Armies -> Reliance -> Germanic Tribes",
+      "Barbarian Invasions -> Key Tribes -> Visigoths, Vandals, Huns",
+      "Visigoths -> Sack of Rome -> 410 AD",
+      "Vandals -> Sack of Rome -> 455 AD",
+      "Huns -> Key Leader -> Attila",
+      "Corruption -> Examples -> Bribery, Nepotism"
+    ],
+    "difficulty": 9
+  },
+  {
+    "question": "Evaluate the long-term effects of the Treaty of Versailles on Europe and the global political landscape.",
+    "answer": "The Treaty of Versailles had profound long-term effects, including economic hardship for Germany, territorial changes, and the establishment of the League of Nations. It is also considered a factor leading to World War II due to the harsh reparations imposed on Germany.",
+    "triples": [
+      "Treaty of Versailles -> Signed -> June 28, 1919",
+      "Treaty of Versailles -> Signatories -> Allied Powers, Germany",
+      "Reparations -> Amount -> 132 billion gold marks",
+      "Territorial Changes -> Examples -> Alsace-Lorraine to France, Polish Corridor",
+      "Military Restrictions -> German Army -> Limited to 100,000 troops",
+      "League of Nations -> Established -> 1920",
+      "Economic Hardship -> Germany -> Hyperinflation, Great Depression",
+      "Political Consequences -> Rise of Extremism -> Nazi Party",
+      "Long-term Effects -> World War II -> Contributing Factor",
+      "Allied Powers -> Key Figures -> Woodrow Wilson, David Lloyd George, Georges Clemenceau",
+      "Wilson's Fourteen Points -> Concept -> Self-determination, Peace without Victory"
+    ],
+    "difficulty": 10
+  },
+  {
+    "question": "Analyze the philosophical implications of Gödel's incompleteness theorems on the foundations of mathematics.",
+    "answer": "Gödel's incompleteness theorems imply that in any consistent mathematical system, there are statements that cannot be proven or disproven within the system. This challenges the notion of mathematical completeness and has deep philosophical implications for the nature of mathematical truth and the limits of formal systems.",
+    "triples": [
+      "Gödel's Incompleteness Theorems -> Proposer -> Kurt Gödel",
+      "First Incompleteness Theorem -> Statement -> Undecidable Propositions",
+      "Second Incompleteness Theorem -> Statement -> Inconsistency Proof Limitations",
+      "Mathematical System -> Example -> Peano Arithmetic",
+      "Consistency -> Concept -> No Contradictions",
+      "Completeness -> Concept -> All Truths Provable",
+      "Formal System -> Definition -> Set of Axioms and Rules",
+      "Philosophical Implications -> Nature of Truth -> Absolute vs. Relative",
+      "Mathematical Truth -> Concept -> Beyond Formal Proof",
+      "Limits of Formal Systems -> Concept -> Gödel's Proof",
+      "Impact -> Philosophy of Mathematics -> Hilbert's Program"
+    ],
+    "difficulty": 10
+  },
+  {
+    "question": "Discuss the role of the Enlightenment in shaping modern political thought.",
+    "answer": "The Enlightenment emphasized reason, individualism, and skepticism of authority. It shaped modern political thought through ideas on democracy, human rights, and separation of powers, influencing revolutions and the development of modern democratic states.",
+    "triples": [
+      "Enlightenment -> Period -> 17th to 19th Century",
+      "Enlightenment -> Key Philosophers -> John Locke, Voltaire, Rousseau, Montesquieu",
+      "Enlightenment -> Key Ideas -> Reason, Individualism, Skepticism of Authority",
+      "John Locke -> Contribution -> Natural Rights, Social Contract",
+      "Voltaire -> Contribution -> Freedom of Speech, Religious Tolerance",
+      "Rousseau -> Contribution -> Popular Sovereignty, General Will",
+      "Montesquieu -> Contribution -> Separation of Powers",
+      "Enlightenment -> Impact -> American Revolution, French Revolution",
+      "American Revolution -> Influence -> Declaration of Independence, Constitution",
+      "French Revolution -> Influence -> Declaration of the Rights of Man",
+      "Enlightenment -> Legacy -> Modern Democratic States, Human Rights"
+    ],
+    "difficulty": 9
+  },
+  {
+    "question": "Evaluate the significance of the Magna Carta in the development of constitutional law.",
+    "answer": "The Magna Carta is significant for establishing the principle that the monarch is subject to the law, influencing the development of constitutional law by promoting ideas of due process, limited government, and individual rights.",
+    "triples": [
+      "Magna Carta -> Issued -> 1215",
+      "King John -> Forced to Sign -> Magna Carta",
+      "Magna Carta -> Key Principles -> Rule of Law, Due Process",
+      "Magna Carta -> Clause 39 -> Right to Fair Trial",
+      "Magna Carta -> Clause 40 -> Justice Delayed",
+      "Magna Carta -> Limited Government -> Restrictions on Royal Power",
+      "Magna Carta -> Influence -> English Common Law, US Constitution",
+      "Magna Carta -> Reissues -> 13th Century",
+      "Magna Carta -> Symbol -> Liberty, Rights",
+      "Magna Carta -> Legacy -> Constitutional Law",
+      "Magna Carta -> Modern Relevance -> Human Rights, Legal Precedents"
+    ],
+    "difficulty": 8
+  },
+  {
+    "question": "Analyze the impact of the Columbian Exchange on the global economy, agriculture, and cultural practices.",
+    "answer": "The Columbian Exchange drastically altered the global economy, agriculture, and cultural practices. It introduced new crops, animals, and diseases between the Old and New Worlds, leading to population growth in Europe and significant demographic changes in the Americas.",
+    "triples": [
+      "Columbian Exchange -> Period -> Post-1492",
+      "New Crops -> To Old World -> Potatoes, Maize, Tomatoes",
+      "New Animals -> To New World -> Horses, Cattle, Pigs",
+      "Diseases -> To New World -> Smallpox, Measles",
+      "Population Growth -> Europe -> Improved Nutrition",
+      "Demographic Changes -> Americas -> Native Population Decline",
+      "Agricultural Impact -> New Farming Practices -> Crop Rotation",
+      "Economic Impact -> Global Trade -> Silver, Sugar",
+      "Cultural Practices -> Syncretism -> Blending of Traditions",
+      "Environmental Impact -> Ecosystem Changes -> Invasive Species",
+      "Long-term Effects -> Globalization -> Economic and Cultural Integration"
+    ],
+    "difficulty": 10
+  },
+  {
+    "question": "Evaluate the contributions of the Byzantine Empire to art, architecture, and law, and their influence on subsequent civilizations.",
+    "answer": "The Byzantine Empire contributed significantly to art, architecture, and law. It preserved Greco-Roman traditions, developed the Justinian Code, and influenced Orthodox Christian art and architecture, impacting Eastern Europe and the Islamic world.",
+    "triples": [
+      "Byzantine Empire -> Period -> 330-1453 AD",
+      "Art -> Contributions -> Iconography, Mosaics",
+      "Architecture -> Contributions -> Hagia Sophia, Dome Construction",
+      "Law -> Contributions -> Justinian Code",
+      "Justinian Code -> Components -> Codex Justinianus, Digest, Institutes",
+      "Greco-Roman Traditions -> Preservation -> Literature, Philosophy",
+      "Orthodox Christianity -> Influence -> Religious Art, Church Design",
+      "Hagia Sophia -> Constructed -> 537 AD",
+      "Iconoclasm -> Period -> 726-843 AD",
+      "Influence -> Eastern Europe -> Slavic Cultures",
+      "Influence -> Islamic World -> Artistic and Architectural Elements"
+    ],
+    "difficulty": 10
+  },
+  {
+    "question": "Explain the historical development and impact of quantum mechanics in the 20th century.",
+    "answer": "Quantum mechanics revolutionized physics by introducing principles of wave-particle duality, uncertainty, and quantization. It led to the development of technologies like semiconductors, lasers, and quantum computing, profoundly impacting science and technology.",
+    "triples": [
+      "Quantum Mechanics -> Development -> Early 20th Century",
+      "Quantum Mechanics -> Founders -> Max Planck, Albert Einstein, Niels Bohr, Werner Heisenberg",
+      "Quantum Mechanics -> Key Principles -> Wave-Particle Duality, Uncertainty Principle, Quantization",
+      "Max Planck -> Quantum Hypothesis -> 1900",
+      "Albert Einstein -> Photoelectric Effect -> 1905",
+      "Niels Bohr -> Bohr Model -> 1913",
+      "Werner Heisenberg -> Uncertainty Principle -> 1927",
+      "Quantum Mechanics -> Technologies -> Semiconductors, Lasers, Quantum Computing",
+      "Quantum Mechanics -> Applications -> Electronics, Medicine, Cryptography",
+      "Quantum Mechanics -> Impact -> Modern Physics, Technological Advancements",
+      "Quantum Mechanics -> Philosophical Implications -> Nature of Reality, Measurement Problem"
+    ],
+    "difficulty": 9
+  },
+  {
+    "question": "Discuss the technological advancements during the Tang and Song dynasties and their impact on Chinese society and the world.",
+    "answer": "The Tang and Song dynasties witnessed significant technological advancements, including the development of gunpowder, the compass, and printing. These innovations revolutionized Chinese society and had a lasting impact on global technology and culture.",
+    "triples": [
+      "Tang Dynasty -> Period -> 618-907 AD",
+      "Song Dynasty -> Period -> 960-1279 AD",
+      "Gunpowder -> Invention -> Military Use",
+      "Compass -> Development -> Navigation",
+      "Printing -> Technology -> Woodblock, Movable Type",
+      "Agriculture -> Innovations -> Rice Cultivation, Terracing",
+      "Trade -> Expansion -> Silk Road, Maritime Routes",
+      "Urbanization -> Impact -> Growth of Cities",
+      "Cultural Flourishing -> Art, Literature -> Tang Poetry, Song Painting",
+      "Civil Service -> Examination System -> Meritocracy",
+      "Global Impact -> Technology Transfer -> Middle East, Europe"
+    ],
+    "difficulty": 8
+  },
+  {
+    "question": "Evaluate the role of the Ottoman Empire in the spread of Islam and its cultural and scientific contributions to the world.",
+    "answer": "The Ottoman Empire played a crucial role in the spread of Islam through its conquests and administration. It made significant cultural and scientific contributions, including advances in medicine, architecture, and the arts, influencing both Eastern and Western civilizations.",
+    "triples": [
+      "Ottoman Empire -> Period -> 1299-1922",
+      "Spread of Islam -> Conquests -> Balkans, Middle East, North Africa",
+      "Administration -> Millet System -> Religious Tolerance",
+      "Medicine -> Contributions -> Hospitals, Medical Texts",
+      "Architecture -> Contributions -> Mosques, Public Buildings",
+      "Suleiman the Magnificent -> Patronage -> Arts and Sciences",
+      "Cultural Contributions -> Calligraphy, Miniature Painting",
+      "Scientific Contributions -> Astronomy, Mathematics",
+      "Trade -> Influence -> Silk Road, Spice Trade",
+      "Eastern and Western Influence -> Cultural Exchange -> Art, Science, Technology",
+      "Decline -> Factors -> Military Defeats, Economic Strain"
+    ],
+    "difficulty": 9
+  },
+  {
+    "question": "Analyze the economic, social, and political effects of the Black Death on 14th century Europe.",
+    "answer": "The Black Death had profound economic, social, and political effects on 14th century Europe. It led to labor shortages, shifts in social structures, and changes in political power. The drastic population decline resulted in economic upheaval and significant cultural changes.",
+    "triples": [
+      "Black Death -> Period -> 1347-1351",
+      "Cause -> Bacterium -> Yersinia pestis",
+      "Spread -> Vectors -> Fleas, Rats",
+      "Mortality Rate -> Europe -> Estimated 30-60%",
+      "Economic Effects -> Labor Shortages -> Higher Wages",
+      "Social Effects -> Peasant Revolts -> Increased Mobility",
+      "Political Effects -> Power Shifts -> Decline of Feudalism",
+      "Population Decline -> Impact -> Urban and Rural Areas",
+      "Cultural Changes -> Art and Literature -> Memento Mori, Danse Macabre",
+      "Church -> Impact -> Loss of Influence, Clergy Deaths",
+      "Long-term Effects -> Renaissance -> Societal Reorganization"
+    ],
+    "difficulty": 10
+  },
+  {
+    "question": "Analyze the economic, political, and social factors that led to the decline of the Mughal Empire.",
+    "answer": "The decline of the Mughal Empire was caused by political instability, economic difficulties, and social fragmentation. Key factors included weak leadership, military defeats, fiscal mismanagement, and increasing internal and external pressures.",
+    "triples": [
+      "Mughal Empire -> Period -> 1526-1857",
+      "Political Instability -> Weak Leadership -> Successor Struggles",
+      "Military Defeats -> Key Battles -> Battle of Karnal, Maratha Wars",
+      "Economic Difficulties -> Fiscal Mismanagement -> Heavy Taxation",
+      "Social Fragmentation -> Religious Conflicts -> Hindu-Muslim Tensions",
+      "Aurangzeb -> Reign -> Expansion, Strain on Resources",
+      "British East India Company -> Influence -> Economic Exploitation",
+      "Internal Revolts -> Peasant Uprisings -> Increased Discontent",
+      "External Pressures -> Persian Invasions -> Nadir Shah",
+      "Administrative Corruption -> Impact -> Declining Efficiency",
+      "Decline -> Long-term Effects -> British Colonial Rule"
+    ],
+    "difficulty": 10
+  },
+  {
+    "question": "Evaluate the role of the Marshall Plan in the reconstruction of Europe after World War II and its long-term effects on international relations.",
+    "answer": "The Marshall Plan provided economic aid for European reconstruction, fostering economic recovery and political stability. It strengthened US-European ties, countered Soviet influence, and laid the groundwork for European integration and the Cold War dynamics.",
+    "triples": [
+      "Marshall Plan -> Official Name -> European Recovery Program",
+      "Period -> Implementation -> 1948-1952",
+      "Economic Aid -> Amount -> $13 billion",
+      "Key Architect -> George C. Marshall -> US Secretary of State",
+      "Objectives -> Economic Recovery -> Industrial Rebuilding",
+      "Political Stability -> Goals -> Prevent Communism",
+      "Beneficiaries -> Key Countries -> UK, France, West Germany",
+      "Economic Recovery -> Impact -> Increased Production, Trade",
+      "US-European Ties -> Strengthening -> Political Alliances",
+      "Soviet Response -> COMECON -> Alternative Aid",
+      "Long-term Effects -> European Integration -> Foundation for EU"
+    ],
+    "difficulty": 9
+  },
+  {
+    "question": "Evaluate the influence of Enlightenment thinkers on the development of modern democratic systems.",
+    "answer": "Enlightenment thinkers such as John Locke, Montesquieu, and Rousseau influenced modern democratic systems by advocating for the separation of powers, individual rights, and the social contract. Their ideas shaped the constitutions of democratic nations and promoted principles of liberty and equality.",
+    "triples": [
+      "Enlightenment -> Period -> 17th to 19th Century",
+      "John Locke -> Ideas -> Natural Rights, Social Contract",
+      "Montesquieu -> Ideas -> Separation of Powers",
+      "Rousseau -> Ideas -> Popular Sovereignty, General Will",
+      "American Revolution -> Influence -> Declaration of Independence",
+      "French Revolution -> Influence -> Declaration of the Rights of Man",
+      "Democratic Systems -> Development -> Constitutions",
+      "Individual Rights -> Emphasis -> Freedom, Equality",
+      "Separation of Powers -> Implementation -> Executive, Legislative, Judicial",
+      "Social Contract -> Concept -> Government Legitimacy",
+      "Modern Democracies -> Influence -> Global Spread of Democratic Ideals"
+    ],
+    "difficulty": 9
+  },
+  {
+    "question": "Discuss the causes and impact of the Green Revolution on global agriculture and food security.",
+    "answer": "The Green Revolution introduced high-yield crop varieties, chemical fertilizers, and advanced irrigation techniques, significantly increasing food production. It improved food security in many developing countries but also led to environmental challenges and socio-economic disparities.",
+    "triples": [
+      "Green Revolution -> Period -> 1940s-1960s",
+      "Key Figure -> Norman Borlaug -> Agronomist",
+      "High-yield Varieties -> Crops -> Wheat, Rice",
+      "Chemical Fertilizers -> Impact -> Increased Productivity",
+      "Irrigation Techniques -> Advancements -> Drip Irrigation, Sprinklers",
+      "Food Production -> Increase -> Developing Countries",
+      "Food Security -> Improvement -> Reduced Hunger",
+      "Environmental Challenges -> Issues -> Soil Degradation, Water Pollution",
+      "Socio-economic Disparities -> Impact -> Small vs. Large Farmers",
+      "Criticisms -> Dependency -> Chemical Inputs, Monocultures",
+      "Long-term Effects -> Sustainable Agriculture -> Emerging Practices"
+    ],
+    "difficulty": 10
+  },
+  {
+    "question": "Evaluate the significance of the Kyoto Protocol in addressing global climate change and its effectiveness.",
+    "answer": "The Kyoto Protocol was a significant international treaty aimed at reducing greenhouse gas emissions. While it established important mechanisms for climate action, its effectiveness was limited by lack of participation from major emitters and challenges in enforcement.",
+    "triples": [
+      "Kyoto Protocol -> Adoption -> 1997",
+      "Entered into Force -> 2005",
+      "Greenhouse Gas Emissions -> Reduction Targets -> Binding Commitments",
+      "Mechanisms -> Emissions Trading -> Carbon Credits",
+      "Clean Development Mechanism -> Concept -> Sustainable Projects",
+      "Major Emitters -> Non-participation -> United States, China",
+      "Challenges -> Enforcement -> Compliance Issues",
+      "Effectiveness -> Limited -> Mixed Results",
+      "Successor -> Paris Agreement -> 2015",
+      "Global Impact -> Climate Policy -> Awareness, Framework",
+      "Long-term Significance -> International Cooperation -> Climate Change"
+    ],
+    "difficulty": 9
+  },
+  {
+    "question": "Discuss the scientific and ethical considerations surrounding CRISPR-Cas9 technology in gene editing.",
+    "answer": "CRISPR-Cas9 technology allows precise gene editing, holding promise for treating genetic disorders. However, it raises ethical concerns about potential misuse, off-target effects, and the implications of germline modifications on future generations.",
+    "triples": [
+      "CRISPR-Cas9 -> Discovery -> Jennifer Doudna, Emmanuelle Charpentier",
+      "Gene Editing -> Mechanism -> DNA Targeting, Cutting",
+      "Applications -> Medical -> Genetic Disorders, Cancer Therapy",
+      "Ethical Considerations -> Potential Misuse -> Designer Babies",
+      "Off-target Effects -> Risks -> Unintended Mutations",
+      "Germline Modifications -> Concerns -> Heritable Changes",
+      "Regulation -> Need -> Ethical Guidelines",
+      "Scientific Potential -> Benefits -> Precision Medicine",
+      "Public Debate -> Issues -> Consent, Accessibility",
+      "International Response -> Governance -> Moratorium Proposals",
+      "Future Implications -> Human Genetics -> Ethical Boundaries"
+    ],
+    "difficulty": 10
+  },
+  {
+    "question": "Discuss the historical significance of the Council of Trent and its impact on the Catholic Church and the Counter-Reformation.",
+    "answer": "The Council of Trent was a crucial part of the Counter-Reformation, addressing doctrinal and disciplinary issues within the Catholic Church. Its decrees reaffirmed core doctrines, reformed clerical practices, and strengthened church authority, significantly shaping Catholicism and its response to Protestantism.",
+    "triples": [
+      "Council of Trent -> Period -> 1545-1563",
+      "Initiated By -> Pope Paul III -> Response to Reformation",
+      "Key Decrees -> Doctrines -> Justification, Sacraments",
+      "Doctrinal Reaffirmation -> Transubstantiation -> Eucharist",
+      "Clerical Reforms -> Practices -> Discipline, Education",
+      "Seminaries -> Establishment -> Clergy Training",
+      "Index of Forbidden Books -> Purpose -> Censorship",
+      "Counter-Reformation -> Role -> Catholic Revival",
+      "Jesuits -> Influence -> Education, Missions",
+      "Church Authority -> Strengthening -> Centralization",
+      "Long-term Impact -> Catholic Identity -> Global Influence"
+    ],
+    "difficulty": 9
+  },
+  {
+    "question": "Evaluate the scientific and technological advancements made during the Islamic Golden Age.",
+    "answer": "The Islamic Golden Age saw advancements in medicine, mathematics, astronomy, and engineering. Scholars like Al-Khwarizmi, Avicenna, and Alhazen made significant contributions that influenced both Islamic and European scientific traditions.",
+    "triples": [
+      "Islamic Golden Age -> Period -> 8th to 14th Century",
+      "Al-Khwarizmi -> Contribution -> Algebra",
+      "Avicenna -> Contribution -> Canon of Medicine",
+      "Alhazen -> Contribution -> Optics",
+      "Islamic Golden Age -> Key Institutions -> House of Wisdom, Baghdad",
+      "Medicine -> Advancements -> Surgery, Pharmacology",
+      "Mathematics -> Advancements -> Arabic Numerals, Algorithm",
+      "Astronomy -> Advancements -> Astrolabe, Star Catalogues",
+      "Engineering -> Advancements -> Water Clocks, Mechanical Devices",
+      "Translation Movement -> Greek Texts -> Arabic",
+      "Islamic Golden Age -> Influence -> Renaissance, European Science"
+    ],
+    "difficulty": 9
+  },
+  {
+    "question": "Evaluate the significance of the discovery of DNA's double helix structure and its implications for genetics and biotechnology.",
+    "answer": "The discovery of DNA's double helix structure by Watson and Crick revealed the mechanism of genetic inheritance. This breakthrough paved the way for modern genetics, including gene cloning, genetic engineering, and the Human Genome Project.",
+    "triples": [
+      "DNA Double Helix -> Discoverers -> James Watson, Francis Crick",
+      "Discovery -> Year -> 1953",
+      "Structure -> Components -> Nucleotides, Base Pairs",
+      "Base Pairs -> Adenine-Thymine, Guanine-Cytosine",
+      "Genetic Inheritance -> Mechanism -> DNA Replication",
+      "Gene Cloning -> Technique -> Recombinant DNA",
+      "Genetic Engineering -> Applications -> GMOs, Gene Therapy",
+      "Human Genome Project -> Completion -> 2003",
+      "Biotechnology -> Impact -> Medical Research, Agriculture",
+      "Rosalind Franklin -> Contribution -> X-ray Crystallography",
+      "Nobel Prize -> Awarded -> 1962, Physiology or Medicine"
+    ],
+    "difficulty": 10
+  },
+  {
+    "question": "Discuss the scientific and ethical implications of human cloning technology.",
+    "answer": "Human cloning technology raises ethical concerns about identity and individuality, legal issues regarding rights and consent, and social implications related to potential misuse, inequality, and the impact on family structures and societal norms.",
+    "triples": [
+      "Human Cloning -> Definition -> Creating Genetically Identical Individuals",
+      "Ethical Concerns -> Identity -> Individuality, Personhood",
+      "Legal Issues -> Rights -> Consent, Ownership",
+      "Social Implications -> Misuse -> Designer Babies, Cloning for Profit",
+      "Inequality -> Access -> Socioeconomic Disparities",
+      "Family Structures -> Impact -> Parent-Child Relationships",
+      "Societal Norms -> Changes -> Perceptions of Humanity",
+      "Reproductive Cloning -> Example -> Dolly the Sheep",
+      "Therapeutic Cloning -> Purpose -> Medical Treatments",
+      "Regulation -> Need -> International Guidelines",
+      "Future Considerations -> Technology Advancement -> Ethical Boundaries"
+    ],
+    "difficulty": 10
+  },
+  {
+    "question": "Evaluate the significance of the discovery of the Higgs boson and its implications for particle physics.",
+    "answer": "The discovery of the Higgs boson confirmed the existence of the Higgs field, which gives mass to elementary particles. This discovery is significant for the Standard Model of particle physics and has implications for understanding the fundamental structure of the universe.",
+    "triples": [
+      "Higgs Boson -> Discovery -> 2012",
+      "CERN -> Experiment -> Large Hadron Collider",
+      "Standard Model -> Confirmation -> Particle Physics",
+      "Higgs Field -> Concept -> Mass Generation",
+      "Peter Higgs -> Theorist -> Prediction of Higgs Boson",
+      "Elementary Particles -> Mass -> Interaction with Higgs Field",
+      "Implications -> Fundamental Physics -> Particle Interactions",
+      "Nobel Prize -> Physics -> 2013, Peter Higgs, François Englert",
+      "Future Research -> Beyond Standard Model -> New Physics",
+      "Dark Matter -> Connection -> Possible Explanations",
+      "Universe Structure -> Understanding -> Mass Distribution"
+    ],
+    "difficulty": 10
+  }
 ]
