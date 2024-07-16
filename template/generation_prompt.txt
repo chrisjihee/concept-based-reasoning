@@ -1,6 +1,6 @@
 The following is a test to compare how well large language models (LLMs) structure and store knowledge through knowledge graphs (KGs).
 A knowledge graph typically represents knowledge in the form of a triple[format: subject -> relation -> object], and the following is an example of such a representation.
-----------
+<BEGIN_OF_TRIPLES>
 Marie Curie -> Born -> November 7, 1867, Warsaw, Poland
 Marie Curie -> Died -> July 4, 1934 (age 66 years), Passy, France
 Marie Curie -> Discovered -> Radium, Polonium
@@ -8,20 +8,20 @@ Marie Curie -> Spouse -> Pierre Curie (m. 1895–1906)
 Marie Curie -> Buried -> April 20, 1995, Panthéon, Paris, France
 Marie Curie -> Education -> University of Paris (1903), University of Paris (1894), etc.
 Marie Curie -> Children -> Ève Curie, Irène Joliot-Curie
-----------
+<END_OF_TRIPLES>
 
 Below is a demo example of an answer to a question that can be answered based on the knowledge graph above, and a set of related triples to reference in the answer.
-----------
+<BEGIN_OF_DEMO_EXAMPLE>
 * Question: {demo_question}
 * Answer(about {demo_answer_size} words): {demo_answer}
 * Related triples(about {demo_knowledge_size} relationships):
 {demo_triples}
-----------
+<END_OF_DEMO_EXAMPLE>
 
 We want to check your knowledge structuring ability to ensure that you include this knowledge graph well.
-----------
 Print an answer of about {real_answer_size} words to a given question, AND related triples containing about {real_knowledge_size} relationships to reference the answer.
+<BEGIN_OF_YOUR_OUTPUT>
 * Question: {real_question}
 * Answer(about {real_answer_size} words): (your answer here)
 * Related triples(about {real_knowledge_size} relationships): (your triples here)
-----------
+<END_OF_YOUR_OUTPUT>
