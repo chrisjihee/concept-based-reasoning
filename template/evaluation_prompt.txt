@@ -47,5 +47,5 @@ The evaluation should focus on the following aspects:
 Give a score of 0 to 10 points (decimal points possible) for each aspect of the answer and triples suggested by the model given above, and calculate and print the total score for each answer and triples.
 Please respond with a list of {num_model} records with the following fields in JSON format:
   1) model_id
-  2) answer_scores with subfields for each aspect (a, b, c, d, e, f, g, h)
-  3) triple_scores with subfields for each aspect (a, b, c, d, e, f, g, h)
+  2) answer_scores with subfields for each aspect (Accuracy, Completeness, Relevance, Consistency, Depth of Detail, Sophistication, Hierarchy of Information, Context Understanding) in a single line WITHOUT any line break
+  3) triple_scores with subfields for each aspect (Accuracy, Completeness, Relevance, Consistency, Depth of Detail, Sophistication, Hierarchy of Information, Context Understanding) in a single line WITHOUT any line break
