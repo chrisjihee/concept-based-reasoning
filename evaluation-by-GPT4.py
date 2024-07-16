@@ -55,12 +55,12 @@ with JobTimer("Prompt Generation", rt=1, rb=1, rw=114, rc='=', verbose=1):
         )
         write_or("data/LLM-test-with-KG-extraction-prompt-{i}.txt".format(i=i), extraction_prompt)
 
-        evaluation_template = read_or("template/evaluation_prompt-2.txt") or getpass("Evaluation Prompt: ")
-        evaluation_prompt = evaluation_template.format(
-            question=question,
-            base_answer=base_answer,
-            base_triples=base_triples,
-            model_responses="\n".join(model_responses),
-            num_model=len(model_responses),
-        )
-        write_or("data/LLM-test-with-KG-evaluation-prompt-{i}.txt".format(i=i), evaluation_prompt)
+        # evaluation_template = read_or("template/evaluation_prompt-2.txt") or getpass("Evaluation Prompt: ")
+        # evaluation_prompt = evaluation_template.format(
+        #     question=question,
+        #     base_answer=base_answer,
+        #     base_triples=base_triples,
+        #     model_responses="\n".join(model_responses),
+        #     num_model=len(model_responses),
+        # )
+        # write_or("data/LLM-test-with-KG-evaluation-prompt-{i}.txt".format(i=i), evaluation_prompt)
