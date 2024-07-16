@@ -128,4 +128,5 @@ chrisbase*
 # custom
 *.key
 *-token*
-*-evaluation-prompt-*.txt
+*-extraction-prompt-*
+*-evaluation-prompt-*
