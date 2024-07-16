@@ -36,7 +36,8 @@ demo_triples = "\n".join([f"  - {triple}" for triple in demo["triples"]])
 
 # chat with LLMs
 total_responses = []
-for i, qa in enumerate(test_set[:test_size], start=1):
+test_set = test_set[:test_size]
+for i, qa in enumerate(test_set, start=1):
     difficulty = qa["difficulty"]
     real_question = qa["question"]
     real_answer_size = len(qa["answer"].split())
