@@ -8,11 +8,12 @@ from chrisbase.io import *
 
 # setup program
 test_size = 3
+inference_timeout = 60
 input_file = "data/LLM-test-with-KG-31.json"
 output_file = f"data/LLM-test-with-KG-responses-{test_size}.json"
 target_models = [x["full_id"] for x in load_json("conf/full_chat_models.json")]
 prompt_template = read_or("template/inference_prompt.txt") or getpass("Enter the prompt template: ")
-api_client = Together(timeout=30,
+api_client = Together(timeout=inference_timeout,
                       api_key=read_or(first_path_or("together-tokens*")) or getpass("Enter your Together API key: "))
 
 
@@ -63,13 +64,15 @@ for i, item in enumerate(test_set, start=1):
         based = datetime.now()
         model_response = chat_with_llm(model_id=target_model,
                                        messages=[{"role": "user", "content": inference_prompt}])
-        elasped = datetime.now() - based
+        elasped = (datetime.now() - based).total_seconds()
         if model_response:
             item["responses"].append({
                 "model": target_model,
                 "output": model_response,
-                "elasped": str(elasped),
+                "num_words": len(model_response.split()),
+                "elasped": elasped,
             })
+            item["responses"].sort(key=lambda x: x["num_words"])
         else:
             item["no_responses"].append(target_model)
         save_json(total_data, output_file, indent=2, ensure_ascii=False)
