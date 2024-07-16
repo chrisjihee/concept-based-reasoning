@@ -1,0 +1,37 @@
+You are tasked with evaluating a set of answers and associated triples provided above.
+The evaluation should focus on the following aspects:
+
+1. Accuracy:
+  - Answer Accuracy: Assess if the provided answer is factually correct.
+  - Triple Accuracy: Check if the triples are factually accurate and reflect real-world knowledge.
+
+2. Completeness:
+  - Answer Completeness: Determine if the answer comprehensively addresses the question without omitting crucial information.
+  - Triple Completeness: Ensure that all necessary triples required to support the answer are included.
+
+3. Relevance:
+  - Answer Relevance: Verify that the answer is directly related to the question.
+  - Triple Relevance: Confirm that the triples are pertinent to the provided answer.
+
+4. Consistency:
+  - Answer Consistency: Ensure that the answer is internally consistent and free of logical contradictions.
+  - Triple Consistency: Check for internal consistency among the triples, ensuring no contradictions.
+
+5. Depth of Detail:
+  - Answer Detail: Evaluate if the answer provides an appropriate level of detail.
+  - Triple Detail: Assess if the triples include detailed information necessary to understand the context.
+
+6. Sophistication:
+  - Answer Sophistication: Judge the answer’s complexity and its ability to handle nuanced or difficult questions.
+  - Triple Sophistication: Determine if the triples reflect complex knowledge structures.
+
+7. Hierarchy of Information:
+  - Answer Hierarchy: Verify that the answer organizes information by importance and relevance.
+  - Triple Hierarchy: Ensure that the triples represent a logical and hierarchical structure of information.
+
+8. Context Understanding:
+  - Answer Context: Assess if the answer demonstrates an understanding of the context of the question.
+  - Triple Context: Ensure that the triples reflect a contextual understanding relevant to the answer.
+
+Give a score of 0 to 10 points (decimal points possible) for each aspect of the answer and triples suggested by the model given above, and calculate and print the total score for each answer and triples.
+Please, response in a JSON format.
