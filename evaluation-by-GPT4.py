@@ -16,7 +16,7 @@ args = CommonArguments(
 # setup arguments
 test_size = 30
 input_file = "data/LLM-test-with-KG-responses-30.json"
-prompt_template = read_or("template/evaluation_prompt-2.txt") or getpass("Evaluation Prompt: ")
+extraction_template = read_or("template/extraction_prompt.txt") or getpass("Extraction Prompt: ")
 
 
 def limit_words(text, max_words):
@@ -45,7 +45,6 @@ with JobTimer("Prompt Generation", rt=1, rb=1, rw=114, rc='=', verbose=1):
             output = limit_words(response["output"], max_words=max_output_words)
             model_responses.append(f"\n<BEGIN_OF_MODEL_RESPONSE ({j}. {model})>\n{output}\n<END_OF_MODEL_RESPONSE>\n\n")
 
-        extraction_template = read_or("template/extraction_prompt.txt") or getpass("Extraction Prompt: ")
         extraction_prompt = extraction_template.format(
             question=question,
             base_answer=base_answer,
