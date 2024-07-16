@@ -18,12 +18,15 @@ api_client = Together(timeout=10,
 
 # define function to chat with LLM
 def chat_with_llm(messages, model_id):
-    stream = api_client.chat.completions.create(
-        model=model_id,
-        messages=messages,
-        stream=True,
-    )
-    return ''.join(chunk.choices[0].delta.content or "" for chunk in stream)
+    try:
+        stream = api_client.chat.completions.create(
+            model=model_id,
+            messages=messages,
+            stream=True,
+        )
+        return ''.join(chunk.choices[0].delta.content or "" for chunk in stream)
+    except:
+        return None
 
 
 # read input file
@@ -55,12 +58,13 @@ for i, qa in enumerate(test_set, start=1):
     )
     model_responses = []
     for target_model in tqdm(target_models, desc=f"* Answering question ({i}/{len(test_set)})", unit="model"):
-        r = {
-            "model": target_model,
-            "output": chat_with_llm(model_id=target_model,
-                                    messages=[{"role": "user", "content": inference_prompt}]),
-        }
-        model_responses.append(r)
+        model_response = chat_with_llm(model_id=target_model,
+                                       messages=[{"role": "user", "content": inference_prompt}])
+        if model_response:
+            model_responses.append({
+                "model": target_model,
+                "output": model_response,
+            })
     qa["responses"] = model_responses
     total_responses.append(qa)
     # save to output file (incremental save)
