@@ -19,34 +19,10 @@ def chat_with_llm(messages, model="meta-llama/Llama-3-8b-chat-hf"):
 
 
 # setup arguments
+test_size = 3
 input_file = "data/LLM-test-with-KG-31.json"
 output_file = "data/LLM-test-with-KG-responses.json"
-target_models = [
-    "google/gemma-2b-it",
-    "google/gemma-7b-it",
-    "togethercomputer/alpaca-7b",
-    "lmsys/vicuna-7b-v1.5",
-    "lmsys/vicuna-13b-v1.5",
-    "meta-llama/Llama-2-7b-chat-hf",
-    "meta-llama/Llama-2-13b-chat-hf",
-    "meta-llama/Llama-2-70b-chat-hf",
-    "meta-llama/Llama-3-8b-chat-hf",
-    "meta-llama/Llama-3-70b-chat-hf",
-    "mistralai/Mistral-7B-Instruct-v0.1",
-    "mistralai/Mistral-7B-Instruct-v0.3",
-    "mistralai/Mixtral-8x7B-Instruct-v0.1",
-    "mistralai/Mixtral-8x22B-Instruct-v0.1",
-    "upstage/SOLAR-10.7B-Instruct-v1.0",
-    "Qwen/Qwen1.5-0.5B-Chat",
-    "Qwen/Qwen1.5-1.8B-Chat",
-    "Qwen/Qwen1.5-4B-Chat",
-    "Qwen/Qwen1.5-7B-Chat",
-    "Qwen/Qwen1.5-14B-Chat",
-    "Qwen/Qwen1.5-32B-Chat",
-    "Qwen/Qwen1.5-72B-Chat",
-    "Qwen/Qwen1.5-110B-Chat",
-    "Qwen/Qwen2-72B-Instruct",
-]
+target_models = [x["full_id"] for x in load_json("conf/full_chat_models.json")]
 prompt_template = read_or("template/inference_prompt.txt") or getpass("Enter the prompt template: ")
 
 # read input file
@@ -60,7 +36,7 @@ demo_triples = "\n".join([f"  - {triple}" for triple in demo["triples"]])
 
 # chat with LLMs
 total_responses = []
-for i, qa in enumerate(test_set[:2], start=1):
+for i, qa in enumerate(test_set[:test_size], start=1):
     difficulty = qa["difficulty"]
     real_question = qa["question"]
     real_answer_size = len(qa["answer"].split())
