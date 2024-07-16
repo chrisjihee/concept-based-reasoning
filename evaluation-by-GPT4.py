@@ -14,8 +14,8 @@ args = CommonArguments(
 )
 
 # setup arguments
-test_size = 3
-input_file = "data/LLM-test-with-KG-responses-3.json"
+test_size = 30
+input_file = "data/LLM-test-with-KG-responses-30.json"
 prompt_template = read_or("template/evaluation_prompt-2.txt") or getpass("Evaluation Prompt: ")
 
 

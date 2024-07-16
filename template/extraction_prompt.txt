@@ -1,5 +1,5 @@
 Please extract the following items suggested by the model from the response output for each of the {num_model} models for the given question and answer set.
-1) Model:
+1) Model ID:
 2) Answer:
 3) Triples:
 ==========
@@ -13,3 +13,11 @@ Please extract the following items suggested by the model from the response outp
 * Response Outputs for Total {num_model} Models:
 {model_responses}
 ==========
+Print the extracted items in the following format:
+1. Model: (model_id)
+ * Answer: (answer)
+ * Triples: (triples)
+2. Model: (model_id)
+ * Answer: (answer)
+ * Triples: (triples)
+...
