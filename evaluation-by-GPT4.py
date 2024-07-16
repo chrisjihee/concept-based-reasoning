@@ -40,10 +40,10 @@ with JobTimer("Prompt Generation", rt=1, rb=1, rw=114, rc='=', verbose=1):
         base_triples = "\n".join([f"  - {triple}" for triple in item["triples"]])
         max_output_words = int(item["avg_words"] * 1.5)
         model_responses = []
-        for response in item["responses"]:
+        for j, response in enumerate(item["responses"], start=1):
             model = response["model"].split("/")[-1]
             output = limit_words(response["output"], max_words=max_output_words)
-            model_responses.append(f"\n<BEGIN_OF_MODEL_RESPONSE (model={model})>\n{output}\n<END_OF_MODEL_RESPONSE>\n\n")
+            model_responses.append(f"\n<BEGIN_OF_MODEL_RESPONSE ({j}. {model})>\n{output}\n<END_OF_MODEL_RESPONSE>\n\n")
 
         extraction_template = read_or("template/extraction_prompt.txt") or getpass("Extraction Prompt: ")
         extraction_prompt = extraction_template.format(

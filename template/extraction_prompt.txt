@@ -1,7 +1,7 @@
 Please extract the following items suggested by the model from the response output for each of the {num_model} models for the given question and answer set.
 1) Model ID:
 2) Answer:
-3) Triples:
+3) Triple: Only the first triple (if they don't exist in the response, mark them as none)
 ==========
 * Question: {question}
 ==========
@@ -14,10 +14,13 @@ Please extract the following items suggested by the model from the response outp
 {model_responses}
 ==========
 Print the extracted items in the following format:
-1. Model: (model_id)
+1. (model_id)
  * Answer: (answer)
- * Triples: (triples)
-2. Model: (model_id)
+ * Triple: (first triple only if they exist, otherwise none)
+2. (model_id)
  * Answer: (answer)
- * Triples: (triples)
+ * Triple: (first triple only if they exist, otherwise none)
 ...
+{num_model}. (model_id)
+ * Answer: (answer)
+ * Triple: (first triple only if they exist, otherwise none)
