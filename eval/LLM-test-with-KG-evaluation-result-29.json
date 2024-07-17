@@ -1,0 +1,152 @@
+[
+  {
+    "number": 1,
+    "model_id": "Llama-2-7b-chat-hf",
+    "answer_score": { "sum": 58.0, "accuracy": 9.0, "completeness": 7.0, "relevance": 8.0, "consistency": 8.0, "detail": 7.0, "sophistication": 7.0, "hierarchy": 6.0, "context": 6.0 },
+    "triples_score": { "sum": 62.0, "accuracy": 9.0, "completeness": 8.0, "relevance": 8.0, "consistency": 8.0, "detail": 8.0, "sophistication": 7.0, "hierarchy": 7.0, "context": 7.0 }
+  },
+  {
+    "number": 2,
+    "model_id": "Llama-2-13b-chat-hf",
+    "answer_score": { "sum": 44.0, "accuracy": 8.0, "completeness": 6.0, "relevance": 6.0, "consistency": 7.0, "detail": 5.0, "sophistication": 5.0, "hierarchy": 4.0, "context": 3.0 },
+    "triples_score": { "sum": 12.0, "accuracy": 2.0, "completeness": 2.0, "relevance": 2.0, "consistency": 2.0, "detail": 1.0, "sophistication": 1.0, "hierarchy": 1.0, "context": 1.0 }
+  },
+  {
+    "number": 3,
+    "model_id": "Llama-2-70b-chat-hf",
+    "answer_score": { "sum": 59.0, "accuracy": 9.0, "completeness": 8.0, "relevance": 8.0, "consistency": 8.0, "detail": 7.0, "sophistication": 7.0, "hierarchy": 6.0, "context": 6.0 },
+    "triples_score": { "sum": 61.0, "accuracy": 9.0, "completeness": 8.0, "relevance": 8.0, "consistency": 8.0, "detail": 7.0, "sophistication": 7.0, "hierarchy": 7.0, "context": 7.0 }
+  },
+  {
+    "number": 4,
+    "model_id": "Llama-3-8b-chat-hf",
+    "answer_score": { "sum": 55.0, "accuracy": 8.0, "completeness": 7.0, "relevance": 8.0, "consistency": 8.0, "detail": 7.0, "sophistication": 6.0, "hierarchy": 6.0, "context": 5.0 },
+    "triples_score": { "sum": 58.0, "accuracy": 8.0, "completeness": 8.0, "relevance": 8.0, "consistency": 7.0, "detail": 7.0, "sophistication": 7.0, "hierarchy": 7.0, "context": 6.0 }
+  },
+  {
+    "number": 5,
+    "model_id": "Llama-3-70b-chat-hf",
+    "answer_score": { "sum": 57.0, "accuracy": 8.0, "completeness": 7.0, "relevance": 8.0, "consistency": 8.0, "detail": 7.0, "sophistication": 7.0, "hierarchy": 6.0, "context": 6.0 },
+    "triples_score": { "sum": 60.0, "accuracy": 8.0, "completeness": 8.0, "relevance": 8.0, "consistency": 8.0, "detail": 8.0, "sophistication": 7.0, "hierarchy": 7.0, "context": 6.0 }
+  },
+  {
+    "number": 6,
+    "model_id": "Qwen1.5-0.5B-Chat",
+    "answer_score": { "sum": 36.0, "accuracy": 6.0, "completeness": 5.0, "relevance": 5.0, "consistency": 6.0, "detail": 4.0, "sophistication": 4.0, "hierarchy": 3.0, "context": 3.0 },
+    "triples_score": { "sum": 36.0, "accuracy": 6.0, "completeness": 5.0, "relevance": 5.0, "consistency": 6.0, "detail": 4.0, "sophistication": 4.0, "hierarchy": 3.0, "context": 3.0 }
+  },
+  {
+    "number": 7,
+    "model_id": "Qwen1.5-1.8B-Chat",
+    "answer_score": { "sum": 45.0, "accuracy": 7.0, "completeness": 6.0, "relevance": 6.0, "consistency": 7.0, "detail": 5.0, "sophistication": 5.0, "hierarchy": 4.0, "context": 5.0 },
+    "triples_score": { "sum": 45.0, "accuracy": 7.0, "completeness": 6.0, "relevance": 6.0, "consistency": 7.0, "detail": 5.0, "sophistication": 5.0, "hierarchy": 4.0, "context": 5.0 }
+  },
+  {
+    "number": 8,
+    "model_id": "Qwen1.5-4B-Chat",
+    "answer_score": { "sum": 30.0, "accuracy": 5.0, "completeness": 3.0, "relevance": 4.0, "consistency": 5.0, "detail": 3.0, "sophistication": 3.0, "hierarchy": 3.0, "context": 4.0 },
+    "triples_score": { "sum": 30.0, "accuracy": 5.0, "completeness": 3.0, "relevance": 4.0, "consistency": 5.0, "detail": 3.0, "sophistication": 3.0, "hierarchy": 3.0, "context": 4.0 }
+  },
+  {
+    "number": 9,
+    "model_id": "Qwen1.5-7B-Chat",
+    "answer_score": { "sum": 47.0, "accuracy": 7.0, "completeness": 6.0, "relevance": 6.0, "consistency": 6.0, "detail": 6.0, "sophistication": 6.0, "hierarchy": 5.0, "context": 5.0 },
+    "triples_score": { "sum": 57.0, "accuracy": 8.0, "completeness": 8.0, "relevance": 8.0, "consistency": 7.0, "detail": 7.0, "sophistication": 7.0, "hierarchy": 6.0, "context": 6.0 }
+  },
+  {
+    "number": 10,
+    "model_id": "Qwen1.5-14B-Chat",
+    "answer_score": { "sum": 53.0, "accuracy": 8.0, "completeness": 7.0, "relevance": 7.0, "consistency": 7.0, "detail": 7.0, "sophistication": 6.0, "hierarchy": 6.0, "context": 5.0 },
+    "triples_score": { "sum": 59.0, "accuracy": 8.0, "completeness": 8.0, "relevance": 8.0, "consistency": 7.0, "detail": 7.0, "sophistication": 7.0, "hierarchy": 7.0, "context": 7.0 }
+  },
+  {
+    "number": 11,
+    "model_id": "Qwen1.5-32B-Chat",
+    "answer_score": { "sum": 54.0, "accuracy": 8.0, "completeness": 7.0, "relevance": 7.0, "consistency": 7.0, "detail": 7.0, "sophistication": 6.0, "hierarchy": 6.0, "context": 6.0 },
+    "triples_score": { "sum": 61.0, "accuracy": 8.0, "completeness": 8.0, "relevance": 8.0, "consistency": 8.0, "detail": 8.0, "sophistication": 7.0, "hierarchy": 7.0, "context": 7.0 }
+  },
+  {
+    "number": 12,
+    "model_id": "Qwen1.5-72B-Chat",
+    "answer_score": { "sum": 53.0, "accuracy": 8.0, "completeness": 7.0, "relevance": 7.0, "consistency": 7.0, "detail": 7.0, "sophistication": 6.0, "hierarchy": 6.0, "context": 5.0 },
+    "triples_score": { "sum": 61.0, "accuracy": 8.0, "completeness": 8.0, "relevance": 8.0, "consistency": 8.0, "detail": 8.0, "sophistication": 7.0, "hierarchy": 7.0, "context": 7.0 }
+  },
+  {
+    "number": 13,
+    "model_id": "Qwen1.5-110B-Chat",
+    "answer_score": { "sum": 55.0, "accuracy": 8.0, "completeness": 7.0, "relevance": 7.0, "consistency": 7.0, "detail": 7.0, "sophistication": 7.0, "hierarchy": 6.0, "context": 6.0 },
+    "triples_score": { "sum": 61.0, "accuracy": 8.0, "completeness": 8.0, "relevance": 8.0, "consistency": 8.0, "detail": 8.0, "sophistication": 7.0, "hierarchy": 7.0, "context": 7.0 }
+  },
+  {
+    "number": 14,
+    "model_id": "Qwen2-72B-Instruct",
+    "answer_score": { "sum": 55.0, "accuracy": 8.0, "completeness": 7.0, "relevance": 7.0, "consistency": 7.0, "detail": 7.0, "sophistication": 7.0, "hierarchy": 6.0, "context": 6.0 },
+    "triples_score": { "sum": 61.0, "accuracy": 8.0, "completeness": 8.0, "relevance": 8.0, "consistency": 8.0, "detail": 8.0, "sophistication": 7.0, "hierarchy": 7.0, "context": 7.0 }
+  },
+  {
+    "number": 15,
+    "model_id": "vicuna-7b-v1.5",
+    "answer_score": { "sum": 51.0, "accuracy": 8.0, "completeness": 7.0, "relevance": 7.0, "consistency": 7.0, "detail": 7.0, "sophistication": 6.0, "hierarchy": 5.0, "context": 4.0 },
+    "triples_score": { "sum": 52.0, "accuracy": 8.0, "completeness": 7.0, "relevance": 7.0, "consistency": 7.0, "detail": 7.0, "sophistication": 6.0, "hierarchy": 5.0, "context": 5.0 }
+  },
+  {
+    "number": 16,
+    "model_id": "vicuna-13b-v1.5",
+    "answer_score": { "sum": 51.0, "accuracy": 8.0, "completeness": 7.0, "relevance": 7.0, "consistency": 7.0, "detail": 7.0, "sophistication": 6.0, "hierarchy": 5.0, "context": 4.0 },
+    "triples_score": { "sum": 59.0, "accuracy": 8.0, "completeness": 8.0, "relevance": 8.0, "consistency": 8.0, "detail": 8.0, "sophistication": 7.0, "hierarchy": 7.0, "context": 5.0 }
+  },
+  {
+    "number": 17,
+    "model_id": "Mistral-7B-Instruct-v0.1",
+    "answer_score": { "sum": 48.0, "accuracy": 7.0, "completeness": 6.0, "relevance": 7.0, "consistency": 7.0, "detail": 6.0, "sophistication": 5.0, "hierarchy": 5.0, "context": 5.0 },
+    "triples_score": { "sum": 58.0, "accuracy": 8.0, "completeness": 8.0, "relevance": 8.0, "consistency": 7.0, "detail": 7.0, "sophistication": 7.0, "hierarchy": 7.0, "context": 6.0 }
+  },
+  {
+    "number": 18,
+    "model_id": "Mistral-7B-Instruct-v0.2",
+    "answer_score": { "sum": 47.0, "accuracy": 7.0, "completeness": 6.0, "relevance": 6.0, "consistency": 7.0, "detail": 6.0, "sophistication": 5.0, "hierarchy": 5.0, "context": 5.0 },
+    "triples_score": { "sum": 38.0, "accuracy": 6.0, "completeness": 6.0, "relevance": 6.0, "consistency": 6.0, "detail": 5.0, "sophistication": 3.0, "hierarchy": 3.0, "context": 3.0 }
+  },
+  {
+    "number": 19,
+    "model_id": "Mistral-7B-Instruct-v0.3",
+    "answer_score": { "sum": 51.0, "accuracy": 8.0, "completeness": 7.0, "relevance": 7.0, "consistency": 7.0, "detail": 6.0, "sophistication": 6.0, "hierarchy": 6.0, "context": 4.0 },
+    "triples_score": { "sum": 48.0, "accuracy": 7.0, "completeness": 7.0, "relevance": 7.0, "consistency": 7.0, "detail": 6.0, "sophistication": 5.0, "hierarchy": 5.0, "context": 4.0 }
+  },
+  {
+    "number": 20,
+    "model_id": "Mixtral-8x7B-Instruct-v0.1",
+    "answer_score": { "sum": 48.0, "accuracy": 8.0, "completeness": 6.0, "relevance": 7.0, "consistency": 7.0, "detail": 6.0, "sophistication": 5.0, "hierarchy": 4.0, "context": 5.0 },
+    "triples_score": { "sum": 58.0, "accuracy": 8.0, "completeness": 8.0, "relevance": 8.0, "consistency": 7.0, "detail": 7.0, "sophistication": 7.0, "hierarchy": 7.0, "context": 6.0 }
+  },
+  {
+    "number": 21,
+    "model_id": "Mixtral-8x22B-Instruct-v0.1",
+    "answer_score": { "sum": 49.0, "accuracy": 8.0, "completeness": 6.0, "relevance": 7.0, "consistency": 7.0, "detail": 6.0, "sophistication": 5.0, "hierarchy": 5.0, "context": 5.0 },
+    "triples_score": { "sum": 59.0, "accuracy": 8.0, "completeness": 8.0, "relevance": 8.0, "consistency": 8.0, "detail": 8.0, "sophistication": 7.0, "hierarchy": 7.0, "context": 7.0 }
+  },
+  {
+    "number": 22,
+    "model_id": "SOLAR-10.7B-Instruct-v1.0",
+    "answer_score": { "sum": 54.0, "accuracy": 8.0, "completeness": 7.0, "relevance": 7.0, "consistency": 7.0, "detail": 7.0, "sophistication": 6.0, "hierarchy": 6.0, "context": 6.0 },
+    "triples_score": { "sum": 61.0, "accuracy": 8.0, "completeness": 8.0, "relevance": 8.0, "consistency": 8.0, "detail": 8.0, "sophistication": 7.0, "hierarchy": 7.0, "context": 7.0 }
+  },
+  {
+    "number": 23,
+    "model_id": "openchat-3.5-1210",
+    "answer_score": { "sum": 53.0, "accuracy": 8.0, "completeness": 7.0, "relevance": 7.0, "consistency": 7.0, "detail": 7.0, "sophistication": 6.0, "hierarchy": 6.0, "context": 5.0 },
+    "triples_score": { "sum": 58.0, "accuracy": 8.0, "completeness": 8.0, "relevance": 8.0, "consistency": 7.0, "detail": 7.0, "sophistication": 6.0, "hierarchy": 7.0, "context": 7.0 }
+  },
+  {
+    "number": 24,
+    "model_id": "Mistral-7B-OpenOrca",
+    "answer_score": { "sum": 47.0, "accuracy": 7.0, "completeness": 6.0, "relevance": 6.0, "consistency": 7.0, "detail": 6.0, "sophistication": 5.0, "hierarchy": 5.0, "context": 5.0 },
+    "triples_score": { "sum": 37.0, "accuracy": 7.0, "completeness": 4.0, "relevance": 4.0, "consistency": 4.0, "detail": 4.0, "sophistication": 4.0, "hierarchy": 5.0, "context": 5.0 }
+  },
+  {
+    "number": 25,
+    "model_id": "WizardLM-13B-V1.2",
+    "answer_score": { "sum": 50.0, "accuracy": 8.0, "completeness": 7.0, "relevance": 7.0, "consistency": 7.0, "detail": 6.0, "sophistication": 5.0, "hierarchy": 5.0, "context": 5.0 },
+    "triples_score": { "sum": 46.0, "accuracy": 7.0, "completeness": 6.0, "relevance": 6.0, "consistency": 7.0, "detail": 6.0, "sophistication": 5.0, "hierarchy": 5.0, "context": 5.0 }
+  }
+]
