@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import numpy as np
 
 from chrisbase.io import *
 
@@ -82,7 +83,9 @@ for aspect in aspects:
     colors = {model_id: colormap(i) for i, model_id in enumerate(results_df['Model ID'].unique())}
     for model_id in results_df['Model ID'].unique():
         subset = results_df[results_df['Model ID'] == model_id]
-        plt.scatter(subset[f"Avg Answer({aspect})"], subset[f"Avg Triples({aspect})"], color=colors[model_id], label=model_id)
+        jitter_x = np.random.normal(0, 0.3, size=subset.shape[0])
+        jitter_y = np.random.normal(0, 0.3, size=subset.shape[0])
+        plt.scatter(subset[f"Avg Answer({aspect})"] + jitter_x, subset[f"Avg Triples({aspect})"] + jitter_y, color=colors[model_id], label=model_id)
     plt.title(f'Correlation between Avg Answer({aspect}) and Avg Triples({aspect})')
     plt.xlabel(f"Avg Answer({aspect})")
     plt.ylabel(f"Avg Triples({aspect})")
@@ -112,7 +115,9 @@ for aspect in aspects:
     colors = {model_id: colormap(i) for i, model_id in enumerate(results_df['Model ID'].unique())}
     for model_id in results_df['Model ID'].unique():
         subset = results_df[results_df['Model ID'] == model_id]
-        plt.scatter(subset[f"All Answer({aspect})"], subset[f"All Triples({aspect})"], color=colors[model_id], label=model_id)
+        jitter_x = np.random.normal(0, 0.1, size=subset.shape[0])
+        jitter_y = np.random.normal(0, 0.1, size=subset.shape[0])
+        plt.scatter(subset[f"All Answer({aspect})"] + jitter_x, subset[f"All Triples({aspect})"] + jitter_y, color=colors[model_id], label=model_id)
     plt.title(f'Correlation between All Answer({aspect}) and All Triples({aspect})')
     plt.xlabel(f"All Answer({aspect})")
     plt.ylabel(f"All Triples({aspect})")
