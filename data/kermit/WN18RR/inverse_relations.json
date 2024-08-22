@@ -1,0 +1,13 @@
+{
+    "hypernym": "is a type of",
+    "derivationally related form": "derivationally related form",
+    "instance hypernym": "has instance",
+    "also see": "also see",
+    "member meronym": "has member holonym",
+    "synset domain topic of": "has synset domain topic",
+    "has part": "is part of",
+    "member of domain usage": "has characteristic or instance of",
+    "member of domain region": "located in",
+    "verb group": "verb group",
+    "similar to": "similar to"
+}
