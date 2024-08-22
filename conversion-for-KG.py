@@ -1,3 +1,5 @@
+from sklearn.model_selection import train_test_split
+
 from chrisbase.data import *
 from chrisbase.io import *
 from chrisbase.util import grouped
@@ -13,20 +15,22 @@ args = CommonArguments(
 )
 
 # setup program
-input_all_file = "data/YAGO3-10/edges_as_text_all.tsv"
-input_test_file = "data/YAGO3-10/edges_as_text_test.tsv"
-input_valid_file = "data/YAGO3-10/edges_as_text_valid.tsv"
-input_train_file = "data/YAGO3-10/edges_as_text_train.tsv"
+dataset = "WN18RR"
+input_all_file = f"data/{dataset}/edges_as_text_all.tsv"
+test_size = 100
+demo_size_per_size = 1
+
 all_samples = list(tsv_lines(input_all_file))
-test_samples = list(tsv_lines(input_test_file))
-valid_samples = list(tsv_lines(input_valid_file))
-train_samples = list(tsv_lines(input_train_file))
-print(len(all_samples))
-print(len(test_samples))
-print(len(valid_samples))
-print(len(train_samples))
+grouped_heads = [list(v) for k, v in grouped(all_samples, key=lambda x: x[0])]
+train_data, test_data = train_test_split(grouped_heads, test_size=test_size, random_state=7)
+print(len(train_data))
+print(len(test_data))
 
-grouped_data = list(grouped(all_samples, key=lambda x: x[0]))
+train_data_per_size = {k: list(v) for k, v in grouped(train_data, key=lambda x: len(x))}
+test_data_per_size = {k: list(v) for k, v in grouped(test_data, key=lambda x: len(x))}
 
-for i, (k, v) in enumerate(grouped(all_samples, key=lambda x: x[0]), start=1):
-    print(i, k, list(v))
+demo_data = []
+for size in test_data_per_size.keys():
+    if size in train_data_per_size:
+        demo_data += train_data_per_size[size][:demo_size_per_size]
+print(len(demo_data))
