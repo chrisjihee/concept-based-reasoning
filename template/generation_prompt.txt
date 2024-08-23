@@ -1,18 +1,21 @@
-We want to compare how well large-scale language models (LLMs) internally structure and store knowledge via knowledge graphs (KGs).
-A knowledge graph typically represents knowledge in the form of triples [format: subject -> relation -> object].
-Below is a demo example of such a knowledge graph.
+We want to compare how well a large-scale language model (LLM) internally structures and stores knowledge through a knowledge graph (KG).
+A knowledge graph typically represents knowledge in the form of a triple [format: subject -> relation -> object].
+Where a relation is one of the following lists:
+{relations}
+
+Here is a demo example of such a knowledge graph.
 
 <BEGIN_OF_DEMO_EXAMPLE>
-* Target Entity: {demo_entity}
+* Target entity: {demo_entity}
 * A set of triples where the subject is the target entity (quantity: {demo_triples_size}):
 {demo_triples}
 <END_OF_DEMO_EXAMPLE>
 
-Now, we want to test your knowledge structuring ability with this knowledge graph construction ability.
-Let's output a triple set where the subject is the target entity, referring to the demo examples above.
+Now we want to test your knowledge structuring ability with this knowledge graph construction ability.
+Let's output a set of triples where the subject is the target entity, referring to the demo examples above.
 
 <BEGIN_OF_YOUR_OUTPUT>
-* Target Entity: {test_entity}
-* Triple set where the subject is the target entity (quantity: {test_triples_size}):
-(Please output the triple set here)
+* Target entity: {test_entity}
+* A set of triples whose subject is the target entity (quantity: {test_triples_size}):
+(Output the triples here)
 <END_OF_YOUR_OUTPUT>
