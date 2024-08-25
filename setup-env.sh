@@ -12,4 +12,4 @@ rm -rf chrisbase*; git clone git@github.com:chrisjihee/chrisbase.git
 pip install --editable chrisbase*
 
 # list
-pip list | grep -E "langchain|transformers|torch|faiss|groq|replicate|chris"
+pip list | grep -E "langchain|transformers|torch|faiss|groq|replicate|together|chris"
