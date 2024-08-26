@@ -31,23 +31,6 @@ default_repetition_penalty = 1.1
 api_client = Together(timeout=request_timeout, max_retries=1,
                       api_key=read_or("conf/key-togetherai.txt") or getpass("TogetherAI API key: "))
 
-dataset = "WN18RR"
-input_file = f"data/{dataset}/edges_as_text_all.tsv"
-output_file = f"data/{dataset}/edges_as_text_all-responses-{test_size}.json"
-target_models = [x["full_id"] for x in load_json("conf/core_chat_models.json")]
-prompt_template = read_or("template/generation_prompt.txt") or getpass("Generation Prompt: ")
-demo_prompt_match = re.search(r'<BEGIN_OF_DEMO_EXAMPLE>(?s:.)+<END_OF_DEMO_EXAMPLE>', prompt_template)
-demo_prompt_start = demo_prompt_match.start()
-demo_prompt_end = demo_prompt_match.end()
-demo_template = prompt_template[demo_prompt_start: demo_prompt_end]
-
-all_samples = list(tsv_lines(input_file))
-total_data = [{"entity": k, "triples": list(v)} for k, v in grouped(all_samples, key=lambda x: x[0])]
-relations = '\n'.join(f'- {a}' for a in sorted({t[1] for x in total_data for t in x["triples"]}))
-train_data, test_data = train_test_split(total_data, test_size=test_size, random_state=7)
-print(f"Train: {len(train_data)}")
-print(f"Test: {len(test_data)}")
-
 
 # define function to chat with LLM
 def chat_with_llm(messages, model_id,
@@ -71,16 +54,51 @@ def chat_with_llm(messages, model_id,
         return None
 
 
+dataset = "WN18RR"
+input_file = f"data/{dataset}/edges_as_text_all.tsv"
+output_file = f"data/{dataset}/edges_as_text_all-responses-{test_size}.json"
+target_models = [x["full_id"] for x in load_json("conf/core_chat_models.json")]
+prompt_template = read_or("template/generation_prompt.txt") or getpass("Generation Prompt: ")
+demo_template_match = re.search(r'<BEGIN_OF_DEMO_EXAMPLE>(?s:.)+<END_OF_DEMO_EXAMPLE>', prompt_template)
+demo_template = prompt_template[demo_template_match.start(): demo_template_match.end()]
 
-train_data_per_size = {k: list(v) for k, v in grouped(train_data, key=lambda x: len(x["triples"]))}
+all_samples = list(tsv_lines(input_file))
+relations = sorted({x[1] for x in all_samples})
+# relations = '\n'.join(f'- {a}' for a in sorted({x[1] for x in all_samples}))
+
+total_data = [{"entity": k, "triples": list(v)} for k, v in grouped(all_samples, key=lambda x: x[0])]
+train_data, test_data = train_test_split(total_data, test_size=test_size, random_state=7)
+print(f"- #relations: {len(relations)}")
+print(f"- #test entities: {len(test_data)}")
+print(f"- #train entities: {len(train_data)}")
+
 test_data_per_size = {k: list(v) for k, v in grouped(test_data, key=lambda x: len(x["triples"]))}
+train_data_per_size = {k: list(v) for k, v in grouped(train_data, key=lambda x: len(x["triples"]))}
 demo_data = []
-for size in test_data_per_size.keys():
-    if size in train_data_per_size:
-        demo_data += train_data_per_size[size][:demo_size_per_size]
+for s in test_data_per_size.keys():
+    if s in train_data_per_size:
+        demo_data += train_data_per_size[s][:demo_size_per_size]
+demo_prompts = [
+    demo_template.format(
+        demo_entity=demo["entity"],
+        demo_triples_size=len(demo["triples"]),
+        demo_triples='\n'.join([f'  - {h} -> {r} -> {t}' for (h, r, t) in demo["triples"]]),
+    ) for demo in demo_data
+]
+generation_prompt = prompt_template[:demo_template_match.start()].format(
+    relations='\n'.join(f'- {a}' for a in sorted({x[1] for x in all_samples}))
+) + "\n\n".join(demo_prompts) + prompt_template[demo_template_match.end():]
+generation_levels = {
+    1: "relation_only",
+    2: "tail_only",
+    3: "tail_with_relation",
+    4: "free_form",
+}
+generation_level = 4
+print(f"- generation_level: {generation_level}")
 
 # chat with LLMs
-with JobTimer("KG Generation", rt=1, rb=1, rw=114, rc='=', verbose=1):
+with JobTimer("KG Generation", rt=1, rb=1, rw=114, rc='=', mt=1, verbose=1):
     total_data = []
     if debug_test_size > 0:
         test_data = test_data[:debug_test_size]
@@ -90,20 +108,23 @@ with JobTimer("KG Generation", rt=1, rb=1, rw=114, rc='=', verbose=1):
         test_entity = item["entity"]
         test_triples = item["triples"]
         test_triples_size = len(test_triples)
-
-        demo_prompts = [
-            demo_template.format(
-                demo_entity=demo["entity"],
-                demo_triples_size=len(demo["triples"]),
-                demo_triples='\n'.join([f'  - {s} -> {r} -> {o}' for (s, r, o) in demo["triples"]]),
-            ) for demo in demo_data
-        ]
-        generation_prompt = prompt_template[:demo_prompt_start] + "\n\n".join(demo_prompts) + prompt_template[demo_prompt_end:]
+        if generation_level == 1:
+            output_triples = '\n'.join([f'  - {h} -> (predict relation here) -> {t}' for (h, r, t) in test_triples])
+        elif generation_level == 2:
+            output_triples = '\n'.join([f'  - {h} -> {r} -> (predict entity here)' for (h, r, t) in test_triples])
+        elif generation_level == 3:
+            output_triples = '\n'.join([f'  - {h} -> (predict relation here) -> (predict entity here)' for (h, r, t) in test_triples])
+        elif generation_level == 4:
+            output_triples = "(predict triples here)"
+        else:
+            assert False, f"Invalid generation_level: {generation_level}"
         generation_prompt = generation_prompt.format(
-            relations=relations,
             test_entity=test_entity,
             test_triples_size=test_triples_size,
+            output_triples=output_triples,
         )
+        # print(f"generation_prompt2={generation_prompt}")
+        # exit(1)
         chat_history.append({"role": "user", "content": generation_prompt})
 
         tot_words = []
@@ -146,7 +167,7 @@ with JobTimer("KG Generation", rt=1, rb=1, rw=114, rc='=', verbose=1):
             print("\n" * 3)
             print(f"model_output = \n{model_output}")
             print("\n" * 3)
-            aaa = '\n'.join([f'  - {s} -> {r} -> {o}' for (s, r, o) in test_triples])
+            aaa = '\n'.join([f'  - {h} -> {r} -> {t}' for (h, r, t) in test_triples])
             print(f"test_triples = \n{aaa}")
             print("\n" * 3)
             print("=" * 120)

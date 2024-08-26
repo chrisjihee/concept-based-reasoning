@@ -19,14 +19,11 @@ args = CommonArguments(
 
 # setup program
 test_size = 30
+
 request_timeout = 60
-default_max_tokens = 512
+default_max_tokens = 1024
 default_temperature = 0.5
 default_repetition_penalty = 1.1
-input_file = "data/LLM-test-with-KG-31.json"
-output_file = f"data/LLM-test-with-KG-responses-{test_size}.json"
-target_models = [x["full_id"] for x in load_json("conf/core_chat_models.json")]
-prompt_template = read_or("template/generation_prompt.txt") or getpass("Generation Prompt: ")
 api_client = Together(timeout=request_timeout, max_retries=1,
                       api_key=read_or("conf/key-togetherai.txt") or getpass("TogetherAI API key: "))
 
@@ -52,6 +49,11 @@ def chat_with_llm(messages, model_id,
     except:
         return None
 
+
+input_file = "data/LLM-test-with-KG-31.json"
+output_file = f"data/LLM-test-with-KG-responses-{test_size}.json"
+target_models = [x["full_id"] for x in load_json("conf/core_chat_models.json")]
+prompt_template = read_or("template/generation_prompt.txt") or getpass("Generation Prompt: ")
 
 # read input file
 input_data = load_json(input_file)

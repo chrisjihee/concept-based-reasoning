@@ -3,7 +3,7 @@ A knowledge graph typically represents knowledge in the form of a triple [format
 Where a relation is one of the following lists:
 {relations}
 
-Here is a demo example of such a knowledge graph.
+Here are some demo examples of such a knowledge graph.
 
 <BEGIN_OF_DEMO_EXAMPLE>
 * Target entity: {demo_entity}
@@ -17,5 +17,5 @@ Let's output a set of triples where the subject is the target entity, referring 
 <BEGIN_OF_YOUR_OUTPUT>
 * Target entity: {test_entity}
 * A set of triples whose subject is the target entity (quantity: {test_triples_size}):
-(Output the triples here)
+{output_triples}
 <END_OF_YOUR_OUTPUT>
