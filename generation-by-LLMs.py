@@ -94,7 +94,7 @@ generation_levels = {
     4: "free_with_quantity",
     5: "free_without_quantity",
 }
-generation_level = 1
+generation_level = 5
 print(f"- generation_level: {generation_level}")
 
 output_file = f"generation/{dataset}/edges_as_text_all-responses-{test_size}@{generation_level}.json"
