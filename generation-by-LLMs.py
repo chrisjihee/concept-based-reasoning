@@ -57,7 +57,7 @@ def chat_with_llm(messages, model_id,
 dataset = "WN18RR"
 input_file = f"data/{dataset}/edges_as_text_all.tsv"
 output_file = f"data/{dataset}/edges_as_text_all-responses-{test_size}.json"
-target_models = [x["full_id"] for x in load_json("conf/core_chat_models.json")]
+target_models = [x["full_id"] for x in load_json("conf/llama_chat_models.json")]
 prompt_template = read_or("template/generation_prompt.txt") or getpass("Generation Prompt: ")
 demo_template_match = re.search(r'<BEGIN_OF_DEMO_EXAMPLE>(?s:.)+<END_OF_DEMO_EXAMPLE>', prompt_template)
 demo_template = prompt_template[demo_template_match.start(): demo_template_match.end()]
@@ -94,7 +94,7 @@ generation_levels = {
     3: "tail_with_relation",
     4: "free_form",
 }
-generation_level = 4
+generation_level = 3
 print(f"- generation_level: {generation_level}")
 
 # chat with LLMs

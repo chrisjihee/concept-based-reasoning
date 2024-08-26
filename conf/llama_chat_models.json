@@ -1,0 +1,14 @@
+[
+    {"org": "Meta", "name": "LLaMA-2 Chat (7B)", "full_id": "meta-llama/Llama-2-7b-chat-hf", "context": 4096},
+    {"org": "Meta", "name": "LLaMA-2 Chat (13B)", "full_id": "meta-llama/Llama-2-13b-chat-hf", "context": 4096},
+    {"org": "Meta", "name": "LLaMA-2 Chat (70B)", "full_id": "meta-llama/Llama-2-70b-chat-hf", "context": 4096},
+    {"org": "Meta", "name": "LLaMA-3 Chat (8B)", "full_id": "meta-llama/Llama-3-8b-chat-hf", "context": 8192},
+    {"org": "Meta", "name": "LLaMA-3 Chat (70B)", "full_id": "meta-llama/Llama-3-70b-chat-hf", "context": 8192},
+    {"org": "Meta", "name": "Llama 3.0 Instruct Lite (8B)", "full_id": "meta-llama/Meta-Llama-3-8B-Instruct-Lite", "context": 8192},
+    {"org": "Meta", "name": "Llama 3.0 Instruct Lite (70B)", "full_id": "meta-llama/Meta-Llama-3-70B-Instruct-Lite", "context": 8192},
+    {"org": "Meta", "name": "Llama 3.0 Instruct Turbo (8B)", "full_id": "meta-llama/Meta-Llama-3-8B-Instruct-Turbo", "context": 8192},
+    {"org": "Meta", "name": "Llama 3.0 Instruct Turbo (70B)", "full_id": "meta-llama/Meta-Llama-3-70B-Instruct-Turbo", "context": 8192},
+    {"org": "Meta", "name": "Llama 3.1 Instruct Turbo (8B)", "full_id": "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo", "context": 128000},
+    {"org": "Meta", "name": "Llama 3.1 Instruct Turbo (70B)", "full_id": "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo", "context": 128000},
+    {"org": "Meta", "name": "Llama 3.1 Instruct Turbo (405B)", "full_id": "meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo", "context": 128000},
+]
