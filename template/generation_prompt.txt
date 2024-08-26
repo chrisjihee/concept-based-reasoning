@@ -16,6 +16,6 @@ Let's output a set of triples where the subject is the target entity, referring 
 
 <BEGIN_OF_YOUR_OUTPUT>
 * Target entity: {test_entity}
-* A set of triples whose subject is the target entity (quantity: {test_triples_size}):
+* A set of triples whose subject is the target entity{output_triples_hint}:
 {output_triples}
 <END_OF_YOUR_OUTPUT>
