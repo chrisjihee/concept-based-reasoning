@@ -21,7 +21,7 @@ args = CommonArguments(
 
 # setup program
 test_size = 100
-debug_test_size = 1
+debug_test_size = -1
 demo_size_per_size = 1
 
 request_timeout = 60
