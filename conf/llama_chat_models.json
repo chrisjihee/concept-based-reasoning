@@ -10,5 +10,5 @@
     {"org": "Meta", "name": "Llama 3.0 Instruct Turbo (70B)", "full_id": "meta-llama/Meta-Llama-3-70B-Instruct-Turbo", "context": 8192},
     {"org": "Meta", "name": "Llama 3.1 Instruct Turbo (8B)", "full_id": "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo", "context": 128000},
     {"org": "Meta", "name": "Llama 3.1 Instruct Turbo (70B)", "full_id": "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo", "context": 128000},
-    {"org": "Meta", "name": "Llama 3.1 Instruct Turbo (405B)", "full_id": "meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo", "context": 128000},
+    {"org": "Meta", "name": "Llama 3.1 Instruct Turbo (405B)", "full_id": "meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo", "context": 128000}
 ]
