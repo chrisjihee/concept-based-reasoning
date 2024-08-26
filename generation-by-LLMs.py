@@ -90,82 +90,83 @@ generation_levels = {
     4: "free_with_quantity",
     5: "free_without_quantity",
 }
-generation_level = 3
-output_file = f"generation/{dataset}/edges_as_text_all-responses-{test_size}@{generation_level}.json"
 
-# chat with LLMs
-with JobTimer(f"KG Generation(level={generation_level}, num_rel={len(relations)}, num_test={len(test_data)}, num_train={len(train_data)}, num_model={len(target_models)})",
-              rt=1, rb=1, rw=114, rc='=', mt=1, verbose=1):
-    total_data = []
-    if debug_test_size > 0:
-        test_data = test_data[:debug_test_size]
-    for i, item in enumerate(test_data, start=1):
-        total_data.append(item)
-        chat_history = []
-        test_entity = item["entity"]
-        test_triples = item["triples"]
-        test_triples_size = len(test_triples)
+for generation_level in [1, 2, 3, 4, 5]:
+    output_file = f"generation/{dataset}/edges_as_text_all-responses-{test_size}@{generation_level}.json"
 
-        if generation_level == 1:
-            output_triples = '\n'.join([f'  - {h} -> (predict relation here) -> {t}' for (h, r, t) in test_triples])
-            output_triples_hint = f" (quantity: {test_triples_size})"
-        elif generation_level == 2:
-            output_triples = '\n'.join([f'  - {h} -> {r} -> (predict entity here)' for (h, r, t) in test_triples])
-            output_triples_hint = f" (quantity: {test_triples_size})"
-        elif generation_level == 3:
-            output_triples = '\n'.join([f'  - {h} -> (predict relation here) -> (predict entity here)' for (h, r, t) in test_triples])
-            output_triples_hint = f" (quantity: {test_triples_size})"
-        elif generation_level == 4:
-            output_triples = "(predict triples here)"
-            output_triples_hint = f" (quantity: {test_triples_size})"
-        elif generation_level == 5:
-            output_triples = "(predict triples here)"
-            output_triples_hint = ""
-        else:
-            assert False, f"Invalid generation_level: {generation_level}"
-        generation_prompt_custom = generation_prompt_common.format(
-            test_entity=test_entity,
-            output_triples=output_triples,
-            output_triples_hint=output_triples_hint,
-        )
+    # chat with LLMs
+    with JobTimer(f"KG Generation(level={generation_level}, num_rel={len(relations)}, num_test={len(test_data)}, num_train={len(train_data)}, num_model={len(target_models)})",
+                  rt=1, rb=1, rw=114, rc='=', mt=1, verbose=1):
+        output_data = []
+        if debug_test_size > 0:
+            test_data = test_data[:debug_test_size]
+        for i, item in enumerate(test_data, start=1):
+            output_data.append(item)
+            chat_history = []
+            test_entity = item["entity"]
+            test_triples = item["triples"]
+            test_triples_size = len(test_triples)
 
-        chat_history.append({"role": "user", "content": generation_prompt_custom})
-        tot_words = []
-        tot_chars = []
-        tot_seconds = []
-        item["messages"] = chat_history
-        item["tot_words"] = tot_words
-        item["tot_chars"] = tot_chars
-        item["tot_seconds"] = tot_seconds
-        item["avg_words"] = 0.0
-        item["avg_chars"] = 0.0
-        item["avg_seconds"] = 0.0
-        item["responses"] = []
-        item["no_responses"] = []
-        for target_model in tqdm(target_models, desc=f"* Constructing KG ({i}/{len(test_data)})", unit="model", file=sys.stdout):
-            based = datetime.now()
-            model_output = chat_with_llm(messages=chat_history, model_id=target_model)
-            seconds = (datetime.now() - based).total_seconds()
-            if model_output:
-                num_chars = len(model_output)
-                num_words = len(model_output.split())
-                item["responses"].append({
-                    "model": target_model,
-                    "level": generation_level,
-                    "output": model_output,
-                    "words": num_words,
-                    "chars": num_chars,
-                    "seconds": seconds,
-                })
-                tot_words.append(num_words)
-                tot_chars.append(num_chars)
-                tot_seconds.append(seconds)
-                item["avg_words"] = sum(tot_words) / len(tot_words)
-                item["avg_chars"] = sum(tot_chars) / len(tot_chars)
-                item["avg_seconds"] = sum(tot_seconds) / len(tot_seconds)
+            if generation_level == 1:
+                output_triples = '\n'.join([f'  - {h} -> (predict relation here) -> {t}' for (h, r, t) in test_triples])
+                output_triples_hint = f" (quantity: {test_triples_size})"
+            elif generation_level == 2:
+                output_triples = '\n'.join([f'  - {h} -> {r} -> (predict entity here)' for (h, r, t) in test_triples])
+                output_triples_hint = f" (quantity: {test_triples_size})"
+            elif generation_level == 3:
+                output_triples = '\n'.join([f'  - {h} -> (predict relation here) -> (predict entity here)' for (h, r, t) in test_triples])
+                output_triples_hint = f" (quantity: {test_triples_size})"
+            elif generation_level == 4:
+                output_triples = "(predict triples here)"
+                output_triples_hint = f" (quantity: {test_triples_size})"
+            elif generation_level == 5:
+                output_triples = "(predict triples here)"
+                output_triples_hint = ""
             else:
-                item["no_responses"].append(target_model)
-            save_json(total_data, output_file, indent=2, ensure_ascii=False)
+                assert False, f"Invalid generation_level: {generation_level}"
+            generation_prompt_custom = generation_prompt_common.format(
+                test_entity=test_entity,
+                output_triples=output_triples,
+                output_triples_hint=output_triples_hint,
+            )
 
-# write to output file (final save)
-save_json(total_data, output_file, indent=2, ensure_ascii=False)
+            chat_history.append({"role": "user", "content": generation_prompt_custom})
+            tot_words = []
+            tot_chars = []
+            tot_seconds = []
+            item["messages"] = chat_history
+            item["tot_words"] = tot_words
+            item["tot_chars"] = tot_chars
+            item["tot_seconds"] = tot_seconds
+            item["avg_words"] = 0.0
+            item["avg_chars"] = 0.0
+            item["avg_seconds"] = 0.0
+            item["responses"] = []
+            item["no_responses"] = []
+            for target_model in tqdm(target_models, desc=f"* Constructing KG ({i}/{len(test_data)})", unit="model", file=sys.stdout):
+                based = datetime.now()
+                model_output = chat_with_llm(messages=chat_history, model_id=target_model)
+                seconds = (datetime.now() - based).total_seconds()
+                if model_output:
+                    num_chars = len(model_output)
+                    num_words = len(model_output.split())
+                    item["responses"].append({
+                        "model": target_model,
+                        "level": generation_level,
+                        "output": model_output,
+                        "words": num_words,
+                        "chars": num_chars,
+                        "seconds": seconds,
+                    })
+                    tot_words.append(num_words)
+                    tot_chars.append(num_chars)
+                    tot_seconds.append(seconds)
+                    item["avg_words"] = sum(tot_words) / len(tot_words)
+                    item["avg_chars"] = sum(tot_chars) / len(tot_chars)
+                    item["avg_seconds"] = sum(tot_seconds) / len(tot_seconds)
+                else:
+                    item["no_responses"].append(target_model)
+                save_json(output_data, output_file, indent=2, ensure_ascii=False)
+
+    # write to output file (final save)
+    save_json(output_data, output_file, indent=2, ensure_ascii=False)
