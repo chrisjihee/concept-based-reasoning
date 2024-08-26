@@ -97,7 +97,7 @@ generation_levels = {
 generation_level = 3
 print(f"- generation_level: {generation_level}")
 
-output_file = f"data/{dataset}/edges_as_text_all-responses-{test_size}@{generation_level}.json"
+output_file = f"generation/{dataset}/edges_as_text_all-responses-{test_size}@{generation_level}.json"
 
 # chat with LLMs
 with JobTimer("KG Generation", rt=1, rb=1, rw=114, rc='=', mt=1, verbose=1):
