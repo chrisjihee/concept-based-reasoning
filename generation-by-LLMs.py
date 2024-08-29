@@ -71,7 +71,7 @@ train_data, test_data = train_test_split(total_data, test_size=test_size, random
 test_data_per_size = {k: list(v) for k, v in grouped(test_data, key=lambda x: len(x["triples"]))}
 train_data_per_size = {k: list(v) for k, v in grouped(train_data, key=lambda x: len(x["triples"]))}
 demo_data = []
-for s in sorted(test_data_per_size.keys())[:num_demo_group]:
+for s in sorted(test_data_per_size.keys())[:num_demo_group]:  # TODO: sorted -> shuffled
     if s in train_data_per_size:
         demo_data += shuffled(train_data_per_size[s], seed=random_seed)[:each_demo_group_size]
 demo_prompts = [
