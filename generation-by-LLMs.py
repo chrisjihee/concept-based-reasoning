@@ -91,12 +91,13 @@ generation_levels = {
     4: "free_with_quantity",
     5: "free_without_quantity",
 }
+target_generation_levels = (1, 2, 3, 4, 5)
 
-for generation_level in [1, 2, 3, 4, 5]:
+for generation_level in target_generation_levels:
     output_file = f"generation/{dataset}/edges_as_text_all-responses-{test_size}@{generation_level}.json"
 
     # chat with LLMs
-    with JobTimer(f"KG Generation(level={generation_level}, num_rel={len(relations)}, num_test={len(test_data)}, num_train={len(train_data)}, num_model={len(target_models)})",
+    with JobTimer(f"KG Generation(generation_level={generation_level}, num_rel={len(relations)}, num_test={len(test_data)}, num_train={len(train_data)}, num_model={len(target_models)})",
                   rt=1, rb=1, rw=114, rc='=', mt=1, verbose=1):
         output_data = []
         if debug_test_size > 0:
