@@ -1,4 +1,3 @@
-import re
 from getpass import getpass
 
 from sklearn.model_selection import train_test_split
@@ -7,7 +6,7 @@ from tqdm import tqdm
 
 from chrisbase.data import *
 from chrisbase.io import *
-from chrisbase.util import grouped
+from chrisbase.util import *
 
 logger = logging.getLogger(__name__)
 args = CommonArguments(
@@ -22,7 +21,8 @@ args = CommonArguments(
 # setup program
 test_size = 100
 debug_test_size = -1
-demo_size_per_size = 1
+num_demo_group = 10
+each_demo_group_size = 1
 
 request_timeout = 60
 default_max_tokens = 512
@@ -54,7 +54,8 @@ def chat_with_llm(messages, model_id,
         return None
 
 
-dataset = "WN18RR"
+random_seed = 70
+dataset = "YAGO3-10" or "WN18RR"
 input_file = f"data/{dataset}/edges_as_text_all.tsv"
 target_models = [x["full_id"] for x in load_json("conf/llama_chat_models.json")]
 prompt_template = read_or("template/generation_prompt.txt") or getpass("Generation Prompt: ")
@@ -65,14 +66,14 @@ all_samples = list(tsv_lines(input_file))
 relations = sorted({x[1] for x in all_samples})
 
 total_data = [{"entity": k, "triples": list(v)} for k, v in grouped(all_samples, key=lambda x: x[0])]
-train_data, test_data = train_test_split(total_data, test_size=test_size, random_state=7)
+train_data, test_data = train_test_split(total_data, test_size=test_size, random_state=random_seed)
 
 test_data_per_size = {k: list(v) for k, v in grouped(test_data, key=lambda x: len(x["triples"]))}
 train_data_per_size = {k: list(v) for k, v in grouped(train_data, key=lambda x: len(x["triples"]))}
 demo_data = []
-for s in test_data_per_size.keys():
+for s in sorted(test_data_per_size.keys())[:num_demo_group]:
     if s in train_data_per_size:
-        demo_data += train_data_per_size[s][:demo_size_per_size]
+        demo_data += shuffled(train_data_per_size[s], seed=random_seed)[:each_demo_group_size]
 demo_prompts = [
     demo_template.format(
         demo_entity=demo["entity"],
