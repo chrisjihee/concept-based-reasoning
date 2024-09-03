@@ -32,7 +32,7 @@ openai_assistants = [
     # "gpt-4o-mini"
 ]
 togethers_assistants = [
-    "meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo",
+    # "meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo",
     # "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo"
 ]
 openai_client = OpenAI(api_key=os.environ.get('OPENAI_API_KEY'))
@@ -43,8 +43,12 @@ together_client = Together(api_key=os.environ.get('TOGETHER_API_KEY'))
 def chat_with_llm_by_OpenAI(**kwargs):
     try:
         response = openai_client.chat.completions.create(**kwargs)
-        output = response.choices[0].message.content
-        return output
+        choice = response.choices[0]
+        return {
+            "role": choice.message.role,
+            "content": choice.message.content,
+            "finish_reason": choice.finish_reason,
+        }
     except Exception as e:
         logger.error("Exception:", e)
         return None
@@ -54,8 +58,12 @@ def chat_with_llm_by_OpenAI(**kwargs):
 def chat_with_llm_by_Together(**kwargs):
     try:
         response = together_client.chat.completions.create(**kwargs)
-        output = response.choices[0].message.content
-        return output
+        choice = response.choices[0]
+        return {
+            "role": choice.message.role,
+            "content": choice.message.content,
+            "finish_reason": choice.finish_reason,
+        }
     except Exception as e:
         logger.error("Exception:", e)
         return None
@@ -116,13 +124,13 @@ for generation_level in target_generation_levels:
             })
             print(custom_prompt)
             for teacher in openai_assistants:
-                model_output = chat_with_llm_by_OpenAI(messages=chat_history, model=teacher, max_tokens=2048)
+                model_output = chat_with_llm_by_OpenAI(messages=chat_history, model=teacher, max_tokens=4000)
                 print(f"=== GPT [{teacher}] ===")
                 print(model_output)
                 print("=" * 80)
                 print("\n\n")
             for teacher in togethers_assistants:
-                model_output = chat_with_llm_by_Together(messages=chat_history, model=teacher, max_tokens=2048)
+                model_output = chat_with_llm_by_Together(messages=chat_history, model=teacher, max_tokens=4000)
                 print(f"=== LLaMA [{teacher}] ===")
                 print(model_output)
                 print("=" * 80)
