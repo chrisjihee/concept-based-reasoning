@@ -25,13 +25,11 @@ if "TOGETHER_API_KEY" not in os.environ:
 
 # setup program
 test_size = 100
-debug_test_size = 3
+debug_test_size = -1
 
-openai_assistants = [
-    # "gpt-4o-2024-08-06",
-    "gpt-4o-mini"
-]
-togethers_assistants = [
+target_models = [
+    "gpt-4o-2024-08-06",
+    # "gpt-4o-mini"
     # "meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo",
     # "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo"
 ]
@@ -132,21 +130,24 @@ for dataset_name in dataset_names:
                     "no_responses": [],
                 }
                 output_data.append(output_item)
-                for assistant in openai_assistants:
+                for model in target_models:
                     based = datetime.now()
-                    output = chat_with_LLM_by_OpenAI(messages=extraction_messages, model=assistant, max_tokens=max_tokens)
+                    if model.startswith("gpt-"):
+                        output = chat_with_LLM_by_OpenAI(messages=extraction_messages, model=model, max_tokens=max_tokens)
+                    else:
+                        output = chat_with_LLM_by_Together(messages=extraction_messages, model=model, max_tokens=max_tokens)
                     seconds = (datetime.now() - based).total_seconds()
                     if output:
                         num_chars = len(output["content"])
                         num_words = len(output["content"].split())
                         output_item["responses"].append({
-                            "assistant": assistant,
+                            "model": model,
                             "output": output,
                             "words": num_words,
                             "chars": num_chars,
                             "seconds": seconds,
                         })
                     else:
-                        output_item["no_responses"].append(assistant)
+                        output_item["no_responses"].append(model)
                 save_json(output_data, extraction_file, indent=2, ensure_ascii=False)
             save_json(output_data, extraction_file, indent=2, ensure_ascii=False)
