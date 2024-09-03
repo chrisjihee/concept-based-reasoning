@@ -23,7 +23,7 @@ Please respond in JSON object format as below.
   }},
   ...,
   {{
-    "number": (number of models),
+    "number": {num_model},
     "model_id": (Model ID without number prefix),
     "triples_by_model": (Triples by Model as a list of string or empty list) [
       ["(subject)", "(relation)", "(object)"],
