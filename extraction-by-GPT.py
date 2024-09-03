@@ -8,6 +8,7 @@ from chrisbase.data import *
 from chrisbase.io import *
 from chrisbase.util import *
 
+# setup environment
 logger = logging.getLogger(__name__)
 logging.getLogger("httpx").setLevel(logging.ERROR)
 args = CommonArguments(
@@ -23,21 +24,10 @@ if "OPENAI_API_KEY" not in os.environ:
 if "TOGETHER_API_KEY" not in os.environ:
     os.environ["TOGETHER_API_KEY"] = read_or("conf/key-togetherai.txt") or getpass("TogetherAI API key: ")
 
-# setup program
-test_size = 100
-debug_test_size = -1
-
-target_models = [
-    "gpt-4o-2024-08-06",
-    # "gpt-4o-mini"
-    # "meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo",
-    # "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo"
-]
-openai_client = OpenAI(api_key=os.environ.get('OPENAI_API_KEY'))
-together_client = Together(api_key=os.environ.get('TOGETHER_API_KEY'))
-
 
 # define function to chat with LLM through OpenAI
+openai_client = OpenAI(api_key=os.environ.get('OPENAI_API_KEY'))
+
 def chat_with_LLM_by_OpenAI(**kwargs):
     try:
         response = openai_client.chat.completions.create(**kwargs)
@@ -53,6 +43,8 @@ def chat_with_LLM_by_OpenAI(**kwargs):
 
 
 # define function to chat with LLM through TogetherAI
+together_client = Together(api_key=os.environ.get('TOGETHER_API_KEY'))
+
 def chat_with_LLM_by_Together(**kwargs):
     try:
         response = together_client.chat.completions.create(**kwargs)
@@ -67,12 +59,13 @@ def chat_with_LLM_by_Together(**kwargs):
         return None
 
 
+# setup program
+test_size = 100
+debug_test_size = -1
 dataset_names = [
     "WN18RR",
     "YAGO3-10",
 ]
-prompt_template = read_or("template/extraction_prompt.txt") or getpass("Extraction Prompt: ")
-common_prompt = prompt_template
 generation_levels = {
     1: "relation_only",  # Relation Classification
     # 2: "tail_only",  # Link Prediction
@@ -81,7 +74,16 @@ generation_levels = {
     # 5: "free_without_quantity",
 }
 target_generation_levels = sorted(generation_levels.keys())
+target_models = [
+    "gpt-4o-2024-08-06",
+    # "gpt-4o-mini"
+    # "meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo",
+    # "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo"
+]
+prompt_template = read_or("template/extraction_prompt.txt") or getpass("Extraction Prompt: ")
+common_prompt = prompt_template
 
+# run program
 for dataset_name in dataset_names:
     for generation_level in target_generation_levels:
         generation_file = f"generation/{dataset_name}/edges_as_text_all-responses-{test_size}@{generation_level}.json"
