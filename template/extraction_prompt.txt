@@ -1,0 +1,34 @@
+==========
+* Entity: {entity}
+==========
+* Triples by Human:
+{triples_by_human}
+==========
+* Total {num_model} Model Responses:
+{model_responses}
+==========
+For each {num_model} model for a given entity, extract the following items suggested by the model from the model response output above:
+1) Model ID
+2) Triples by Model
+Please respond in JSON object format as below.
+[
+  {{
+    "number": 1,
+    "model_id": (Model ID without number prefix),
+    "triples_by_model": (Triples by Model as a list of string or empty list) [
+      ["(subject)", "(relation)", "(object)"],
+      ...,
+      ["(subject)", "(relation)", "(object)"]
+    ] or [],
+  }},
+  ...,
+  {{
+    "number": (number of models),
+    "model_id": (Model ID without number prefix),
+    "triples_by_model": (Triples by Model as a list of string or empty list) [
+      ["(subject)", "(relation)", "(object)"],
+      ...,
+      ["(subject)", "(relation)", "(object)"]
+    ] or []
+  }}
+]
