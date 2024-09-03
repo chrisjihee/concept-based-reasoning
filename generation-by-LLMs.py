@@ -81,7 +81,7 @@ demo_prompts = [
         demo_triples='\n'.join([f'  - {h} -> {r} -> {t}' for (h, r, t) in demo["triples"]]),
     ) for demo in demo_data
 ]
-generation_prompt_common = prompt_template[:demo_template_match.start()].format(
+common_prompt = prompt_template[:demo_template_match.start()].format(
     relations='\n'.join(f'- {a}' for a in relations)
 ) + "\n\n".join(demo_prompts) + prompt_template[demo_template_match.end():]
 generation_levels = {
@@ -91,7 +91,9 @@ generation_levels = {
     4: "free_with_quantity",
     5: "free_without_quantity",
 }
-target_generation_levels = (1, 2, 3, 4, 5)
+target_generation_levels = sorted(generation_levels.keys())
+if debug_test_size > 0:
+    test_data = test_data[:debug_test_size]
 
 for generation_level in target_generation_levels:
     output_file = f"generation/{dataset}/edges_as_text_all-responses-{test_size}@{generation_level}.json"
@@ -100,8 +102,6 @@ for generation_level in target_generation_levels:
     with JobTimer(f"KG Generation(generation_level={generation_level}, num_rel={len(relations)}, num_test={len(test_data)}, num_train={len(train_data)}, num_model={len(target_models)})",
                   rt=1, rb=1, rw=114, rc='=', mt=1, verbose=1):
         output_data = []
-        if debug_test_size > 0:
-            test_data = test_data[:debug_test_size]
         for i, item in enumerate(test_data, start=1):
             output_data.append(item)
             chat_history = []
@@ -126,13 +126,13 @@ for generation_level in target_generation_levels:
                 output_triples_hint = ""
             else:
                 assert False, f"Invalid generation_level: {generation_level}"
-            generation_prompt_custom = generation_prompt_common.format(
+            custom_prompt = common_prompt.format(
                 test_entity=test_entity,
                 output_triples=output_triples,
                 output_triples_hint=output_triples_hint,
             )
 
-            chat_history.append({"role": "user", "content": generation_prompt_custom})
+            chat_history.append({"role": "user", "content": custom_prompt})
             tot_words = []
             tot_chars = []
             tot_seconds = []
