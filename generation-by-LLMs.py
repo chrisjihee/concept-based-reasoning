@@ -98,7 +98,6 @@ if debug_test_size > 0:
 for generation_level in target_generation_levels:
     output_file = f"generation/{dataset}/edges_as_text_all-responses-{test_size}@{generation_level}.json"
 
-    # chat with LLMs
     with JobTimer(f"KG Generation(generation_level={generation_level}, num_rel={len(relations)}, num_test={len(test_data)}, num_train={len(train_data)}, num_model={len(target_models)})",
                   rt=1, rb=1, rw=114, rc='=', mt=1, verbose=1):
         output_data = []

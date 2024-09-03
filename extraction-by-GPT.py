@@ -1,7 +1,6 @@
 from getpass import getpass
-from openai import OpenAI
 
-from sklearn.model_selection import train_test_split
+from openai import OpenAI
 from together import Together
 from tqdm import tqdm
 
@@ -10,12 +9,13 @@ from chrisbase.io import *
 from chrisbase.util import *
 
 logger = logging.getLogger(__name__)
+logging.getLogger("httpx").setLevel(logging.ERROR)
 args = CommonArguments(
     env=ProjectEnv(
         project="LLM-based",
         job_name="LLM-based-extraction",
         msg_level=logging.INFO,
-        msg_format=LoggingFormat.PRINT_00,
+        msg_format=LoggingFormat.BRIEF_00,
     )
 )
 if "OPENAI_API_KEY" not in os.environ:
@@ -25,11 +25,11 @@ if "TOGETHER_API_KEY" not in os.environ:
 
 # setup program
 test_size = 100
-debug_test_size = 1
+debug_test_size = 3
 
 openai_assistants = [
-    "gpt-4o-2024-08-06",
-    # "gpt-4o-mini"
+    # "gpt-4o-2024-08-06",
+    "gpt-4o-mini"
 ]
 togethers_assistants = [
     # "meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo",
@@ -40,7 +40,7 @@ together_client = Together(api_key=os.environ.get('TOGETHER_API_KEY'))
 
 
 # define function to chat with LLM through OpenAI
-def chat_with_llm_by_OpenAI(**kwargs):
+def chat_with_LLM_by_OpenAI(**kwargs):
     try:
         response = openai_client.chat.completions.create(**kwargs)
         choice = response.choices[0]
@@ -55,21 +55,24 @@ def chat_with_llm_by_OpenAI(**kwargs):
 
 
 # define function to chat with LLM through TogetherAI
-def chat_with_llm_by_Together(**kwargs):
+def chat_with_LLM_by_Together(**kwargs):
     try:
         response = together_client.chat.completions.create(**kwargs)
         choice = response.choices[0]
         return {
-            "role": choice.message.role,
+            "role": choice.message.role.value,
             "content": choice.message.content,
-            "finish_reason": choice.finish_reason,
+            "finish_reason": choice.finish_reason.value,
         }
     except Exception as e:
         logger.error("Exception:", e)
         return None
 
 
-dataset = "WN18RR" or "YAGO3-10"
+dataset_names = [
+    "WN18RR",
+    "YAGO3-10",
+]
 prompt_template = read_or("template/extraction_prompt.txt") or getpass("Extraction Prompt: ")
 common_prompt = prompt_template
 generation_levels = {
@@ -81,57 +84,69 @@ generation_levels = {
 }
 target_generation_levels = sorted(generation_levels.keys())
 
-for generation_level in target_generation_levels:
-    input_file = f"generation/{dataset}/edges_as_text_all-responses-{test_size}@{generation_level}.json"
-    outut_file = f"extraction/{dataset}/edges_as_text_all-responses-{test_size}@{generation_level}.json"
-    test_data = load_json(input_file)
-    if debug_test_size > 0:
-        test_data = test_data[:debug_test_size]
+for dataset_name in dataset_names:
+    for generation_level in target_generation_levels:
+        generation_file = f"generation/{dataset_name}/edges_as_text_all-responses-{test_size}@{generation_level}.json"
+        extraction_file = f"extraction/{dataset_name}/edges_as_text_all-responses-{test_size}@{generation_level}.json"
 
-    # chat with GPT
-    with JobTimer(f"KG Extraction(generation_level={generation_level}, num_test={len(test_data)})",
-                  rt=1, rb=1, rw=114, rc='=', mt=1, verbose=1):
-        output_data = []
-        for i, item in enumerate(test_data, start=1):
-            entity = item["entity"]
-            triples = item["triples"]
-            messages = item["messages"]
-            model_responses = []
-            for j, response in enumerate(item["responses"], start=1):
-                assert response["level"] == generation_level, f"level={response['level']} != generation_level={generation_level}"
-                model = response["model"].split("/")[-1]
-                output = response["output"]
-                model_responses.append(f"\n<BEGIN_OF_MODEL_RESPONSE ({j}. {model})>\n{output}\n<END_OF_MODEL_RESPONSE ({j}. {model})>\n\n")
-            custom_prompt = common_prompt.format(
-                entity=entity,
-                triples_by_human='\n'.join([f'  - {h} -> {r} -> {t}' for (h, r, t) in triples]),
-                model_responses="\n".join(model_responses),
-                num_model=len(model_responses),
-            )
-            chat_history = [
-                {
-                    "role": "system",
-                    "content": "You will be provided with unstructured data, and your task is to parse it into JSON format."
-                },
-                {
-                    "role": "user",
-                    "content": custom_prompt
+        generation_data = load_json(generation_file)
+        if debug_test_size > 0:
+            generation_data = generation_data[:debug_test_size]
+        max_tokens = 4000
+
+        with JobTimer(f"KG Extraction(dataset_name={dataset_name}, generation_level={generation_level}, num_generation={len(generation_data)}, max_tokens={max_tokens})",
+                      rt=1, rb=1, rw=114, rc='=', mt=1, verbose=1):
+            output_data = []
+            for i, item in enumerate(tqdm(generation_data, desc=f"* Extracting KG", unit="item", file=sys.stdout), start=1):
+                entity = item["entity"]
+                triples = item["triples"]
+                generation_messages = item["messages"]
+                model_responses = []
+                for j, response in enumerate(item["responses"], start=1):
+                    assert response["level"] == generation_level, f"level={response['level']} != generation_level={generation_level}"
+                    model = response["model"].split("/")[-1]
+                    output = response["output"]
+                    model_responses.append(f"\n<BEGIN_OF_MODEL_RESPONSE ({j}. {model})>\n{output}\n<END_OF_MODEL_RESPONSE ({j}. {model})>\n\n")
+                extraction_prompt = common_prompt.format(
+                    entity=entity,
+                    triples_by_human='\n'.join([f'  - {h} -> {r} -> {t}' for (h, r, t) in triples]),
+                    model_responses="\n".join(model_responses),
+                    num_model=len(model_responses),
+                )
+                extraction_messages = [
+                    {
+                        "role": "system",
+                        "content": "You will be provided with unstructured data, and your task is to parse it into JSON format."
+                    },
+                    {
+                        "role": "user",
+                        "content": extraction_prompt
+                    }
+                ]
+                output_item = {
+                    "entity": entity,
+                    "triples": triples,
+                    "generation_messages": generation_messages,
+                    "extraction_messages": extraction_messages,
+                    "responses": [],
+                    "no_responses": [],
                 }
-            ]
-            output_data.append({
-                "entity": entity,
-                "triples": triples,
-            })
-            print(custom_prompt)
-            for teacher in openai_assistants:
-                model_output = chat_with_llm_by_OpenAI(messages=chat_history, model=teacher, max_tokens=4000)
-                print(f"=== GPT [{teacher}] ===")
-                print(model_output)
-                print("=" * 80)
-                print("\n\n")
-            for teacher in togethers_assistants:
-                model_output = chat_with_llm_by_Together(messages=chat_history, model=teacher, max_tokens=4000)
-                print(f"=== LLaMA [{teacher}] ===")
-                print(model_output)
-                print("=" * 80)
-                print("\n\n")
+                output_data.append(output_item)
+                for assistant in openai_assistants:
+                    based = datetime.now()
+                    output = chat_with_LLM_by_OpenAI(messages=extraction_messages, model=assistant, max_tokens=max_tokens)
+                    seconds = (datetime.now() - based).total_seconds()
+                    if output:
+                        num_chars = len(output["content"])
+                        num_words = len(output["content"].split())
+                        output_item["responses"].append({
+                            "assistant": assistant,
+                            "output": output,
+                            "words": num_words,
+                            "chars": num_chars,
+                            "seconds": seconds,
+                        })
+                    else:
+                        output_item["no_responses"].append(assistant)
+                save_json(output_data, extraction_file, indent=2, ensure_ascii=False)
+            save_json(output_data, extraction_file, indent=2, ensure_ascii=False)
