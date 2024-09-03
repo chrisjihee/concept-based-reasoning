@@ -2,6 +2,7 @@ jupyter
 matplotlib
 ipywidgets
 
+openai
 groq
 together
 replicate
