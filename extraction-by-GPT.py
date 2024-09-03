@@ -95,7 +95,7 @@ for dataset_name in dataset_names:
             generation_data = generation_data[:debug_test_size]
         extraction_data = []
 
-        with JobTimer(f"KG Extraction(dataset_name={dataset_name}, generation_level={generation_level}, num_generation={len(generation_data)}, max_tokens={max_tokens})",
+        with JobTimer(f"KG Extraction(dataset_name={dataset_name}, generation_level={generation_level}, num_generation={len(generation_data)}, target_models={target_models}, max_tokens={max_tokens})",
                       rt=1, rb=1, rw=114, rc='=', mt=1, verbose=1):
             for i, item in enumerate(tqdm(generation_data, desc=f"* Extracting KG", unit="item", file=sys.stdout), start=1):
                 entity = item["entity"]
