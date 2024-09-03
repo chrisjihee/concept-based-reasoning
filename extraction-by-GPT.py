@@ -80,6 +80,7 @@ target_models = [
     # "meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo",
     # "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo"
 ]
+max_tokens = 4000
 prompt_template = read_or("template/extraction_prompt.txt") or getpass("Extraction Prompt: ")
 common_prompt = prompt_template
 
@@ -92,11 +93,10 @@ for dataset_name in dataset_names:
         generation_data = load_json(generation_file)
         if debug_test_size > 0:
             generation_data = generation_data[:debug_test_size]
-        max_tokens = 4000
+        extraction_data = []
 
         with JobTimer(f"KG Extraction(dataset_name={dataset_name}, generation_level={generation_level}, num_generation={len(generation_data)}, max_tokens={max_tokens})",
                       rt=1, rb=1, rw=114, rc='=', mt=1, verbose=1):
-            output_data = []
             for i, item in enumerate(tqdm(generation_data, desc=f"* Extracting KG", unit="item", file=sys.stdout), start=1):
                 entity = item["entity"]
                 triples = item["triples"]
@@ -131,7 +131,7 @@ for dataset_name in dataset_names:
                     "responses": [],
                     "no_responses": [],
                 }
-                output_data.append(output_item)
+                extraction_data.append(output_item)
                 for model in target_models:
                     based = datetime.now()
                     if model.startswith("gpt-"):
@@ -151,5 +151,6 @@ for dataset_name in dataset_names:
                         })
                     else:
                         output_item["no_responses"].append(model)
-                save_json(output_data, extraction_file, indent=2, ensure_ascii=False)
-            save_json(output_data, extraction_file, indent=2, ensure_ascii=False)
+                save_json(extraction_data, extraction_file, indent=2, ensure_ascii=False)
+
+        save_json(extraction_data, extraction_file, indent=2, ensure_ascii=False)
