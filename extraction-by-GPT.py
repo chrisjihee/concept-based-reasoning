@@ -137,9 +137,9 @@ for dataset_name in dataset_names:
                     else:
                         output = chat_with_LLM_by_Together(messages=extraction_messages, model=model, max_tokens=max_tokens)
                     seconds = (datetime.now() - based).total_seconds()
-                    if output:
-                        num_chars = len(output["content"])
-                        num_words = len(output["content"].split())
+                    if output and output["content"]:
+                        num_chars = len(str(output["content"]))
+                        num_words = len(str(output["content"]).split())
                         output_item["responses"].append({
                             "model": model,
                             "output": output,
