@@ -16,9 +16,12 @@ args = CommonArguments(
 )
 
 
-def normalize_triples(triples):
-    return [[e.replace(' ', '_') for e in triple] for triple in triples if len(triple) == 3]
+# define functions
+def normalize_element(e):
+    return str(e).replace(' ', '_').lower()
 
+def normalize_triples(triples):
+    return [[normalize_element(e) for e in triple] for triple in triples if len(triple) == 3]
 
 def measure_performance(triples_by_human, triples_by_model):
     # Define the true labels and predicted labels
@@ -38,7 +41,7 @@ def measure_performance(triples_by_human, triples_by_model):
 
 # setup program
 test_size = 100
-debug_test_size = 1
+debug_test_size = 10
 dataset_names = [
     "WN18RR",
     "YAGO3-10",
