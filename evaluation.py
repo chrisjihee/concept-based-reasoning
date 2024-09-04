@@ -86,8 +86,8 @@ for dataset_name in dataset_names:
                 print("-" * 100)
                 # print(f"generation_messages: \n{generation_messages[-1]['content']}")
                 # print("-" * 100)
-                # print(f"extraction_messages: \n{extraction_messages[-1]['content']}")
-                # print("-" * 100)
+                print(f"extraction_messages: \n{extraction_messages[-1]['content']}")
+                print("-" * 100)
 
                 for j, response in enumerate(extraction_responses, start=1):
                     extraction_model = response["model"].split("/")[-1]
