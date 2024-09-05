@@ -28,13 +28,68 @@
     "generation_outputs": [
       {
         "type": "text",
+        "model": "meta-llama/Llama-2-7b-chat-hf",
+        "output": {
+          "role": "report",
+          "content": "Error code: 400 - {\"message\": \"Unable to access non-serverless model meta-llama/Llama-2-7b-chat-hf. Please visit https://api.together.ai/models/meta-llama/Llama-2-7b-chat-hf to create and start a new dedicated endpoint for the model.\", \"type_\": \"invalid_request_error\", \"code\": \"model_not_available\"}",
+          "finish_reason": "InvalidRequestError"
+        },
+        "seconds": 0.828008,
+        "content_len": 300
+      },
+      {
+        "type": "text",
+        "model": "meta-llama/Llama-2-13b-chat-hf",
+        "output": {
+          "role": "report",
+          "content": "Error code: 400 - {\"message\": \"Input validation error: `inputs` tokens + `max_new_tokens` must be <= 4097. Given: 2418 `inputs` tokens and 4000 `max_new_tokens`\", \"type_\": \"invalid_request_error\", \"param\": \"max_tokens\"}",
+          "finish_reason": "InvalidRequestError"
+        },
+        "seconds": 0.318529,
+        "content_len": 219
+      },
+      {
+        "type": "text",
+        "model": "meta-llama/Llama-2-70b-chat-hf",
+        "output": {
+          "role": "report",
+          "content": "Error code: 400 - {\"message\": \"Unable to access non-serverless model meta-llama/Llama-2-70b-chat-hf. Please visit https://api.together.ai/models/meta-llama/Llama-2-70b-chat-hf to create and start a new dedicated endpoint for the model.\", \"type_\": \"invalid_request_error\", \"code\": \"model_not_available\"}",
+          "finish_reason": "InvalidRequestError"
+        },
+        "seconds": 0.19175,
+        "content_len": 302
+      },
+      {
+        "type": "text",
+        "model": "meta-llama/Meta-Llama-3-8B-Instruct-Turbo",
+        "output": {
+          "role": "assistant",
+          "content": "{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"hypernym\", \"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"has_part\", \"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}",
+          "finish_reason": "stop"
+        },
+        "seconds": 0.879849,
+        "content_len": 258
+      },
+      {
+        "type": "text",
+        "model": "meta-llama/Meta-Llama-3-70B-Instruct-Turbo",
+        "output": {
+          "role": "assistant",
+          "content": "{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"hypernym\", \"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"member_of_domain_region\", \"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}",
+          "finish_reason": "eos"
+        },
+        "seconds": 1.145716,
+        "content_len": 273
+      },
+      {
+        "type": "text",
         "model": "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",
         "output": {
           "role": "assistant",
           "content": "{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"hypernym\", \"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"member_of_domain_region\", \"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}",
           "finish_reason": "eos"
         },
-        "seconds": 0.864445,
+        "seconds": 0.668333,
         "content_len": 273
       },
       {
@@ -42,11 +97,11 @@
         "model": "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",
         "output": {
           "role": "assistant",
-          "content": "{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"hypernym\", \"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"hypernym\", \"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}",
+          "content": "{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"hypernym\", \"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"member_of_domain_region\", \"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}",
           "finish_reason": "stop"
         },
-        "seconds": 0.827173,
-        "content_len": 258
+        "seconds": 1.143953,
+        "content_len": 273
       },
       {
         "type": "text",
@@ -56,7 +111,7 @@
           "content": "```\n{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"hypernym\", \"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"member_of_domain_region\", \"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}\n```",
           "finish_reason": "eos"
         },
-        "seconds": 2.251643,
+        "seconds": 1.404619,
         "content_len": 281
       },
       {
@@ -67,8 +122,19 @@
           "content": "{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"hypernym\", \"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"member_of_domain_region\", \"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}",
           "finish_reason": "stop"
         },
-        "seconds": 2.658612,
+        "seconds": 2.758525,
         "content_len": 273
+      },
+      {
+        "type": "text",
+        "model": "meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo",
+        "output": {
+          "role": "assistant",
+          "content": "{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"hypernym\", \"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"member_of_domain_topic_of\", \"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}",
+          "finish_reason": "eos"
+        },
+        "seconds": 2.044271,
+        "content_len": 275
       },
       {
         "type": "text",
@@ -78,7 +144,7 @@
           "content": "{\n\"target_entity\": \"judgment_on_the_merits.n.01\",\n\"triples_by_model\": [\n{\n\"relation\": \"derivationally_related_form\",\n\"tail_entity\": \"judgment.n.03\"\n},\n{\n\"relation\": \"hypernym\",\n\"tail_entity\": \"law.n.01\"\n}\n],\n\"number_of_triples\": 2,\n\"generation_level\": 1\n}",
           "finish_reason": "eos"
         },
-        "seconds": 1.330462,
+        "seconds": 1.281761,
         "content_len": 255
       },
       {
@@ -89,8 +155,30 @@
           "content": "{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"(predicted_relation)\",\"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"(predicted_relation)\",\"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}",
           "finish_reason": "eos"
         },
-        "seconds": 2.969032,
+        "seconds": 2.629321,
         "content_len": 280
+      },
+      {
+        "type": "text",
+        "model": "mistralai/Mistral-7B-Instruct-v0.2",
+        "output": {
+          "role": "assistant",
+          "content": "<generation>\n{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"hypernym\", \"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"instance_hypernym\", \"legal_judgment.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}\n</generation>\n\nExplanation:\nThe target entity \"judgment_on_the_merits.n.01\" is a type of judgment. Therefore, we can create triples with \"judgment.n.03\" as the head entity and \"judgment_on_the_merits.n.01\" as the tail entity using the \"hypernym\" relation. Additionally, we can create a triple with \"judgment_on_the_merits.n.01\" as the head entity, \"instance_hypernym\" relation, and \"legal_judgment.n.01\" as the tail entity to indicate that \"judgment_on_the_merits.n.01\" is a specific type of judgment.",
+          "finish_reason": "eos"
+        },
+        "seconds": 1.874619,
+        "content_len": 793
+      },
+      {
+        "type": "text",
+        "model": "mistralai/Mistral-7B-Instruct-v0.3",
+        "output": {
+          "role": "assistant",
+          "content": "<generation>\n{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"hypernym\", \"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"member_of_domain_usage\", \"legal_judgment.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}\n</generation>",
+          "finish_reason": "eos"
+        },
+        "seconds": 1.439469,
+        "content_len": 310
       },
       {
         "type": "text",
@@ -100,7 +188,7 @@
           "content": "{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"hypernym\", \"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"also_see\", \"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}",
           "finish_reason": "eos"
         },
-        "seconds": 1.124764,
+        "seconds": 16.013317,
         "content_len": 258
       },
       {
@@ -111,8 +199,63 @@
           "content": "{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"hypernym\", \"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"also_see\", \"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}",
           "finish_reason": "eos"
         },
-        "seconds": 2.250278,
+        "seconds": 2.706989,
         "content_len": 258
+      },
+      {
+        "type": "text",
+        "model": "mistralai/Mixtral-8x22B-Instruct-v0.1",
+        "output": {
+          "role": "assistant",
+          "content": "{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"hypernym\", \"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"member_of_domain_region\", \"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}",
+          "finish_reason": "eos"
+        },
+        "seconds": 1.140158,
+        "content_len": 273
+      },
+      {
+        "type": "text",
+        "model": "gpt-4o-mini-2024-07-18",
+        "output": {
+          "role": "assistant",
+          "content": "<generation>\n{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"hypernym\", \"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"has_part\", \"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}\n</generation>",
+          "finish_reason": "stop"
+        },
+        "seconds": 1.569389,
+        "content_len": 285
+      },
+      {
+        "type": "json_object",
+        "model": "gpt-4o-mini-2024-07-18",
+        "output": {
+          "role": "assistant",
+          "content": "{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"hypernym\", \"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"has_part\", \"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}",
+          "finish_reason": "stop"
+        },
+        "seconds": 1.657483,
+        "content_len": 258
+      },
+      {
+        "type": "text",
+        "model": "gpt-4o-2024-08-06",
+        "output": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"target_entity\": \"aristotle.n.01\",\n  \"triples_by_model\": [\n    [\"aristotle.n.01\", \"instance_hypernym\", \"philosopher.n.01\"],\n    [\"aristotle.n.01\", \"member_of_domain_region\", \"greece.n.01\"],\n    [\"aristotle.n.01\", \"synset_domain_topic_of\", \"metaphysics.n.01\"]\n  ],\n  \"number_of_triples\": 3,\n  \"generation_level\": 1\n}\n```",
+          "finish_reason": "stop"
+        },
+        "seconds": 2.038117,
+        "content_len": 331
+      },
+      {
+        "type": "json_object",
+        "model": "gpt-4o-2024-08-06",
+        "output": {
+          "role": "assistant",
+          "content": "{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"hypernym\", \"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"synset_domain_topic_of\", \"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}",
+          "finish_reason": "stop"
+        },
+        "seconds": 1.783662,
+        "content_len": 272
       }
     ],
     "generation_errors": []
@@ -146,13 +289,68 @@
     "generation_outputs": [
       {
         "type": "text",
+        "model": "meta-llama/Llama-2-7b-chat-hf",
+        "output": {
+          "role": "report",
+          "content": "Error code: 400 - {\"message\": \"Unable to access non-serverless model meta-llama/Llama-2-7b-chat-hf. Please visit https://api.together.ai/models/meta-llama/Llama-2-7b-chat-hf to create and start a new dedicated endpoint for the model.\", \"type_\": \"invalid_request_error\", \"code\": \"model_not_available\"}",
+          "finish_reason": "InvalidRequestError"
+        },
+        "seconds": 0.190706,
+        "content_len": 300
+      },
+      {
+        "type": "text",
+        "model": "meta-llama/Llama-2-13b-chat-hf",
+        "output": {
+          "role": "report",
+          "content": "Error code: 400 - {\"message\": \"Input validation error: `inputs` tokens + `max_new_tokens` must be <= 4097. Given: 2400 `inputs` tokens and 4000 `max_new_tokens`\", \"type_\": \"invalid_request_error\", \"param\": \"max_tokens\"}",
+          "finish_reason": "InvalidRequestError"
+        },
+        "seconds": 0.309061,
+        "content_len": 219
+      },
+      {
+        "type": "text",
+        "model": "meta-llama/Llama-2-70b-chat-hf",
+        "output": {
+          "role": "report",
+          "content": "Error code: 400 - {\"message\": \"Unable to access non-serverless model meta-llama/Llama-2-70b-chat-hf. Please visit https://api.together.ai/models/meta-llama/Llama-2-70b-chat-hf to create and start a new dedicated endpoint for the model.\", \"type_\": \"invalid_request_error\", \"code\": \"model_not_available\"}",
+          "finish_reason": "InvalidRequestError"
+        },
+        "seconds": 0.189575,
+        "content_len": 302
+      },
+      {
+        "type": "text",
+        "model": "meta-llama/Meta-Llama-3-8B-Instruct-Turbo",
+        "output": {
+          "role": "assistant",
+          "content": "{\n  \"target_entity\": \"shotgun.n.01\",\n  \"triples_by_model\": [\n    [\"shotgun.n.01\", \"hypernym\", \"firearm.n.01\"],\n    [\"shotgun.n.01\", \"has_part\", \"barrel.n.01\"],\n    [\"shotgun.n.01\", \"has_part\", \"stock.n.01\"],\n    [\"shotgun.n.01\", \"similar_to\", \"rifle.n.01\"]\n  ],\n  \"number_of_triples\": 4,\n  \"generation_level\": 1\n}",
+          "finish_reason": "stop"
+        },
+        "seconds": 0.741167,
+        "content_len": 313
+      },
+      {
+        "type": "text",
+        "model": "meta-llama/Meta-Llama-3-70B-Instruct-Turbo",
+        "output": {
+          "role": "assistant",
+          "content": "{\n  \"target_entity\": \"shotgun.n.01\",\n  \"triples_by_model\": [\n    [\"shotgun.n.01\", \"hypernym\", \"firearm.n.01\"],\n    [\"shotgun.n.01\", \"has_part\", \"pump_action.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}",
+          "finish_reason": "eos"
+        },
+        "seconds": 1.031365,
+        "content_len": 220
+      },
+      {
+        "type": "text",
         "model": "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",
         "output": {
           "role": "assistant",
           "content": "{\n  \"target_entity\": \"shotgun.n.01\",\n  \"triples_by_model\": [\n    [\"shotgun.n.01\", \"hypernym\", \"firearm.n.01\"],\n    [\"shotgun.n.01\", \"has_part\", \"pump_action.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}",
           "finish_reason": "eos"
         },
-        "seconds": 0.919006,
+        "seconds": 1.235436,
         "content_len": 220
       },
       {
@@ -160,10 +358,10 @@
         "model": "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",
         "output": {
           "role": "assistant",
-          "content": "{\n  \"target_entity\": \"shotgun.n.01\",\n  \"triples_by_model\": [\n    [\"shotgun.n.01\", \"hypernym\", \"firearm.n.01\"],\n    [\"shotgun.n.01\", \"also_see\", \"pump_action.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}",
+          "content": "{\n  \"target_entity\": \"shotgun.n.01\",\n  \"triples_by_model\": [\n    [\"shotgun.n.01\", \"hypernym\", \"firearm.n.01\"],\n    [\"shotgun.n.01\", \"has_part\", \"pump_action.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}",
           "finish_reason": "stop"
         },
-        "seconds": 0.817067,
+        "seconds": 1.103176,
         "content_len": 220
       },
       {
@@ -174,7 +372,7 @@
           "content": "```\n{\n  \"target_entity\": \"shotgun.n.01\",\n  \"triples_by_model\": [\n    [\"shotgun.n.01\", \"hypernym\", \"firearm.n.01\"],\n    [\"shotgun.n.01\", \"has_part\", \"pump_action.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}\n```",
           "finish_reason": "eos"
         },
-        "seconds": 1.430378,
+        "seconds": 1.517811,
         "content_len": 228
       },
       {
@@ -182,11 +380,22 @@
         "model": "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
         "output": {
           "role": "assistant",
-          "content": "{\"entity\": \"shotgun.n.01\", \"triples\": [[\"shotgun.n.01\", \"hypernym\", \"firearm.n.01\"], [\"shotgun.n.01\", \"has_part\", \"pump_action.n.01\"]]}",
+          "content": "```\n{\n  \"target_entity\": \"shotgun.n.01\",\n  \"triples_by_model\": [\n    [\"shotgun.n.01\", \"hypernym\", \"firearm.n.01\"],\n    [\"shotgun.n.01\", \"has_part\", \"pump_action.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}\n```",
           "finish_reason": "stop"
         },
-        "seconds": 1.841154,
-        "content_len": 135
+        "seconds": 3.969994,
+        "content_len": 228
+      },
+      {
+        "type": "text",
+        "model": "meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo",
+        "output": {
+          "role": "assistant",
+          "content": "{\n  \"target_entity\": \"shotgun.n.01\",\n  \"triples_by_model\": [\n    [\"shotgun.n.01\", \"hypernym\", \"firearm.n.01\"],\n    [\"shotgun.n.01\", \"has_part\", \"pump_action.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}",
+          "finish_reason": "eos"
+        },
+        "seconds": 2.406095,
+        "content_len": 220
       },
       {
         "type": "text",
@@ -196,7 +405,7 @@
           "content": "{\n\"target_entity\": \"shotgun.n.01\",\n\"triples_by_model\": [\n{\n\"relation\": \"derivationally_related_form\",\n\"tail_entity\": \"pump_action.n.01\"\n},\n{\n\"relation\": \"instance_hypernym\",\n\"tail_entity\": \"firearm.n.01\"\n}\n],\n\"number_of_triples\": 2,\n\"generation_level\": 1\n}",
           "finish_reason": "eos"
         },
-        "seconds": 1.154086,
+        "seconds": 1.277797,
         "content_len": 256
       },
       {
@@ -207,19 +416,41 @@
           "content": "{\n  \"target_entity\": \"shotgun.n.01\",\n  \"triples_by_model\": [\n    [\"shotgun.n.01\", \"(predicted_relation)\",\"pump_action.n.01\"],\n    [\"shotgun.n.01\", \"(predicted_relation)\",\"firearm.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}",
           "finish_reason": "eos"
         },
-        "seconds": 2.117831,
+        "seconds": 2.08692,
         "content_len": 242
+      },
+      {
+        "type": "text",
+        "model": "mistralai/Mistral-7B-Instruct-v0.2",
+        "output": {
+          "role": "assistant",
+          "content": "<generation>\n{\n  \"target_entity\": \"shotgun.n.01\",\n  \"triples_by_model\": [\n    [\"shotgun.n.01\", \"instance_hypernym\", \"firearm.n.01\"],\n    [\"shotgun.n.01\", \"member_meronym\", \"pump_action.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}\n</generation>",
+          "finish_reason": "eos"
+        },
+        "seconds": 1.050103,
+        "content_len": 262
+      },
+      {
+        "type": "text",
+        "model": "mistralai/Mistral-7B-Instruct-v0.3",
+        "output": {
+          "role": "assistant",
+          "content": "<generation>\n{\n  \"target_entity\": \"shotgun.n.01\",\n  \"triples_by_model\": [\n    [\"shotgun.n.01\", \"instance_hypernym\", \"firearm.n.01\"],\n    [\"shotgun.n.01\", \"has_part\", \"pump_action.n.01\"],\n    [\"shotgun.n.01\", \"member_of_domain_usage\", \"hunting.n.01\"]\n  ],\n  \"number_of_triples\": 3,\n  \"generation_level\": 1\n}\n</generation>",
+          "finish_reason": "eos"
+        },
+        "seconds": 1.272681,
+        "content_len": 320
       },
       {
         "type": "text",
         "model": "mistralai/Mixtral-8x7B-Instruct-v0.1",
         "output": {
           "role": "assistant",
-          "content": "{\n  \"target_entity\": \"shotgun.n.01\",\n  \"triples_by_model\": [\n    [\"shotgun.n.01\", \"hypernym\", \"firearm.n.01\"],\n    [\"shotgun.n.01\", \"has_part\", \"pump_action.n.01\"],\n    [\"shotgun.n.01\", \"instance_hypernym\", \"gun.n.01\"]\n  ],\n  \"number_of_triples\": 3,\n  \"generation_level\": 1\n}",
+          "content": "{\n  \"target_entity\": \"shotgun.n.01\",\n  \"triples_by_model\": [\n    [\"shotgun.n.01\", \"hypernym\", \"firearm.n.01\"],\n    [\"shotgun.n.01\", \"has_part\", \"pump_action.n.01\"],\n    [\"shotgun.n.01\", \"instance_hypernym\", \"weapon.n.01\"]\n  ],\n  \"number_of_triples\": 3,\n  \"generation_level\": 1\n}",
           "finish_reason": "eos"
         },
-        "seconds": 1.22759,
-        "content_len": 275
+        "seconds": 7.445768,
+        "content_len": 278
       },
       {
         "type": "json_object",
@@ -229,7 +460,62 @@
           "content": "{\n  \"target_entity\": \"shotgun.n.01\",\n  \"triples_by_model\": [\n    [\"shotgun.n.01\", \"hypernym\", \"firearm.n.01\"],\n    [\"shotgun.n.01\", \"has_part\", \"pump_action.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}",
           "finish_reason": "eos"
         },
-        "seconds": 2.149813,
+        "seconds": 2.573341,
+        "content_len": 220
+      },
+      {
+        "type": "text",
+        "model": "mistralai/Mixtral-8x22B-Instruct-v0.1",
+        "output": {
+          "role": "assistant",
+          "content": "{\n  \"target_entity\": \"shotgun.n.01\",\n  \"triples_by_model\": [\n    [\"shotgun.n.01\", \"hypernym\", \"firearm.n.01\"],\n    [\"shotgun.n.01\", \"member_meronym\", \"pump_action.n.01\"],\n    [\"shotgun.n.01\", \"derivationally_related_form\", \"shotgun.v.01\"]\n  ],\n  \"number_of_triples\": 3,\n  \"generation_level\": 1\n}",
+          "finish_reason": "eos"
+        },
+        "seconds": 1.389346,
+        "content_len": 295
+      },
+      {
+        "type": "text",
+        "model": "gpt-4o-mini-2024-07-18",
+        "output": {
+          "role": "assistant",
+          "content": "<generation>\n{\n  \"target_entity\": \"shotgun.n.01\",\n  \"triples_by_model\": [\n    [\"shotgun.n.01\", \"hypernym\", \"firearm.n.01\"],\n    [\"shotgun.n.01\", \"has_part\", \"pump_action.n.01\"],\n    [\"shotgun.n.01\", \"also_see\", \"double_barrel.n.01\"]\n  ],\n  \"number_of_triples\": 3,\n  \"generation_level\": 1\n}\n</generation>",
+          "finish_reason": "stop"
+        },
+        "seconds": 1.95674,
+        "content_len": 303
+      },
+      {
+        "type": "json_object",
+        "model": "gpt-4o-mini-2024-07-18",
+        "output": {
+          "role": "assistant",
+          "content": "{\n  \"target_entity\": \"shotgun.n.01\",\n  \"triples_by_model\": [\n    [\"shotgun.n.01\", \"hypernym\", \"firearm.n.01\"],\n    [\"shotgun.n.01\", \"has_part\", \"pump_action.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}",
+          "finish_reason": "stop"
+        },
+        "seconds": 1.51121,
+        "content_len": 220
+      },
+      {
+        "type": "text",
+        "model": "gpt-4o-2024-08-06",
+        "output": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"target_entity\": \"shotgun.n.01\",\n  \"triples_by_model\": [\n    [\"shotgun.n.01\", \"hypernym\", \"firearm.n.01\"],\n    [\"shotgun.n.01\", \"has_part\", \"pump_action.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}\n```",
+          "finish_reason": "stop"
+        },
+        "seconds": 1.522788,
+        "content_len": 232
+      },
+      {
+        "type": "json_object",
+        "model": "gpt-4o-2024-08-06",
+        "output": {
+          "role": "assistant",
+          "content": "{\n  \"target_entity\": \"shotgun.n.01\",\n  \"triples_by_model\": [\n    [\"shotgun.n.01\", \"hypernym\", \"firearm.n.01\"],\n    [\"shotgun.n.01\", \"has_part\", \"pump_action.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}",
+          "finish_reason": "stop"
+        },
+        "seconds": 1.771948,
         "content_len": 220
       }
     ],

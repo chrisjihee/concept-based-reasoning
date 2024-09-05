@@ -98,9 +98,6 @@ generation_levels = {
     # 5: "free_without_quantity",
 }
 generation_models = [
-    ("meta-llama/Llama-2-7b-chat-hf", "text"),
-    ("meta-llama/Llama-2-13b-chat-hf", "text"),
-    ("meta-llama/Llama-2-70b-chat-hf", "text"),
     ("meta-llama/Meta-Llama-3-8B-Instruct-Turbo", "text"),
     ("meta-llama/Meta-Llama-3-70B-Instruct-Turbo", "text"),
     ("meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo", "text"),
