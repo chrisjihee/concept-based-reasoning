@@ -1,5 +1,6 @@
 from getpass import getpass
 
+from openai import OpenAI
 from sklearn.model_selection import train_test_split
 from together import Together
 from tqdm import tqdm
@@ -8,6 +9,7 @@ from chrisbase.data import *
 from chrisbase.io import *
 from chrisbase.util import *
 
+# setup environment
 logger = logging.getLogger(__name__)
 args = CommonArguments(
     env=ProjectEnv(
@@ -17,157 +19,199 @@ args = CommonArguments(
         msg_format=LoggingFormat.PRINT_00,
     )
 )
-
-# setup program
-test_size = 100
-debug_test_size = -1
-num_demo_group = 10
-each_demo_group_size = 1
-
-request_timeout = 60
-default_max_tokens = 512
-default_temperature = 0.5
-default_repetition_penalty = 1.1
-api_client = Together(timeout=request_timeout, max_retries=1,
-                      api_key=read_or("conf/key-togetherai.txt") or getpass("TogetherAI API key: "))
+if "OPENAI_API_KEY" not in os.environ:
+    os.environ["OPENAI_API_KEY"] = read_or("conf/key-openai.txt") or getpass("OpenAI API key: ")
+openai_client = OpenAI(api_key=os.environ.get('OPENAI_API_KEY'))
+if "TOGETHER_API_KEY" not in os.environ:
+    os.environ["TOGETHER_API_KEY"] = read_or("conf/key-togetherai.txt") or getpass("TogetherAI API key: ")
+together_client = Together(api_key=os.environ.get('TOGETHER_API_KEY'))
 
 
-# define function to chat with LLM
-def chat_with_llm(messages, model_id,
-                  max_tokens=default_max_tokens,
-                  temperature=default_temperature,
-                  repetition_penalty=default_repetition_penalty):
+# define function to chat with LLM through OpenAI
+def chat_with_LLM_by_OpenAI(**kwargs):
     try:
-        stream = api_client.chat.completions.create(
-            model=model_id,
-            messages=messages,
-            stream=True,
-            max_tokens=max_tokens,
-            temperature=temperature,
-            repetition_penalty=repetition_penalty,
-        )
-        output = ''.join(chunk.choices[0].delta.content or '' for chunk in stream)
-        output = '\n'.join(x.rstrip() for x in output.split('\n'))
-        output = re.sub(r"\n\n+", "\n\n", output)
-        return output.strip()
-    except:
+        response = openai_client.chat.completions.create(**kwargs)
+        choice = response.choices[0]
+        return {
+            "role": choice.message.role,
+            "content": choice.message.content,
+            "finish_reason": choice.finish_reason,
+        }
+    except Exception as e:
+        logger.error("Exception:", e)
         return None
 
 
-random_seed = 70
-dataset = "YAGO3-10" or "WN18RR"
-input_file = f"data/{dataset}/edges_as_text_all.tsv"
-target_models = [x["full_id"] for x in load_json("conf/llama_chat_models.json")]
-prompt_template = read_or("template/generation_prompt.txt") or getpass("Generation Prompt: ")
-demo_template_match = re.search(r'<BEGIN_OF_DEMO_EXAMPLE>(?s:.)+<END_OF_DEMO_EXAMPLE>', prompt_template)
-demo_template = prompt_template[demo_template_match.start(): demo_template_match.end()]
+# define function to chat with LLM through TogetherAI
+def chat_with_LLM_by_Together(**kwargs):
+    try:
+        response = together_client.chat.completions.create(**kwargs)
+        choice = response.choices[0]
+        return {
+            "role": choice.message.role.value,
+            "content": choice.message.content,
+            "finish_reason": choice.finish_reason.value,
+        }
+    except Exception as e:
+        logger.error("Exception:", e)
+        return None
 
-all_samples = list(tsv_lines(input_file))
-relations = sorted({x[1] for x in all_samples})
 
-total_data = [{"entity": k, "triples": list(v)} for k, v in grouped(all_samples, key=lambda x: x[0])]
-train_data, test_data = train_test_split(total_data, test_size=test_size, random_state=random_seed)
+# define function to normalize simple list in json
+def normalize_simple_list_in_json(json_input):
+    json_output = []
+    pre_end = 0
+    for m in re.finditer(r"\[[^\[\]]+?\]", json_input):
+        json_output.append(m.string[pre_end: m.start()])
+        json_output.append("[" + " ".join(m.group().split()).removeprefix("[ ").removesuffix(" ]") + "]")
+        pre_end = m.end()
+    json_output.append(m.string[pre_end:])
+    return ''.join(json_output)
 
-test_data_per_size = {k: list(v) for k, v in grouped(test_data, key=lambda x: len(x["triples"]))}
-train_data_per_size = {k: list(v) for k, v in grouped(train_data, key=lambda x: len(x["triples"]))}
-demo_data = []
-for s in sorted(test_data_per_size.keys())[:num_demo_group]:  # TODO: sorted -> shuffled
-    if s in train_data_per_size:
-        demo_data += shuffled(train_data_per_size[s], seed=random_seed)[:each_demo_group_size]
-demo_prompts = [
-    demo_template.format(
-        demo_entity=demo["entity"],
-        demo_triples_size=len(demo["triples"]),
-        demo_triples='\n'.join([f'  - {h} -> {r} -> {t}' for (h, r, t) in demo["triples"]]),
-    ) for demo in demo_data
+
+# setup program
+test_size = 100
+debug_test_size = 1
+max_entity_triples = 10
+num_demo_group = 10
+each_demo_group_size = 1
+dataset_names = [
+    "WN18RR",
+    "YAGO3-10",
 ]
-common_prompt = prompt_template[:demo_template_match.start()].format(
-    relations='\n'.join(f'- {a}' for a in relations)
-) + "\n\n".join(demo_prompts) + prompt_template[demo_template_match.end():]
 generation_levels = {
     1: "relation_only",  # Relation Classification
-    2: "tail_only",  # Link Prediction
-    3: "tail_with_relation",
-    4: "free_with_quantity",
-    5: "free_without_quantity",
+    # 2: "tail_only",  # Link Prediction
+    # 3: "tail_with_relation",
+    # 4: "free_with_quantity",
+    # 5: "free_without_quantity",
 }
-target_generation_levels = sorted(generation_levels.keys())
-if debug_test_size > 0:
-    test_data = test_data[:debug_test_size]
+generation_models = [
+    "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",
+    # "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
+    # "meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo",
+    # "mistralai/Mistral-7B-Instruct-v0.1",
+    # "mistralai/Mistral-7B-Instruct-v0.2",
+    # "mistralai/Mistral-7B-Instruct-v0.3",
+    # "mistralai/Mixtral-8x7B-Instruct-v0.1",
+    # "mistralai/Mixtral-8x22B-Instruct-v0.1",
+    # "upstage/SOLAR-10.7B-Instruct-v1.0",
+    # "gpt-4o-mini-2024-07-18",
+    # "gpt-4o-2024-08-06",
+]
+max_tokens = 4000
+system_prompt = "You will be provided with an target entity and demo examples, and your task is to generate knowledge triples."
+generation_prompt = read_or("template/generation_prompt.txt") or getpass("Generation Prompt: ")
+random_seed = 70
 
-for generation_level in target_generation_levels:
-    output_file = f"generation/{dataset}/edges_as_text_all-responses-{test_size}@{generation_level}.json"
+# run program
+for dataset_name in dataset_names:
+    dataset_file = f"data/{dataset_name}/edges_as_text_all.tsv"
+    total_triples = list(tsv_lines(dataset_file))
+    total_entities = [{"entity": k, "triples": sorted(v)} for k, v in grouped(total_triples, key=lambda x: x[0])]
+    total_entities = [x for x in total_entities if len(x["triples"]) <= max_entity_triples]
+    defined_relations = sorted({x[1] for x in total_triples})  # TODO: relation의 분포 비율까지 힌트로 줄까?
+    train_data, test_data = train_test_split(total_entities, test_size=test_size, random_state=random_seed)
+    if debug_test_size > 0:
+        test_data = test_data[:debug_test_size]
 
-    with JobTimer(f"KG Generation(generation_level={generation_level}, num_rel={len(relations)}, num_test={len(test_data)}, num_train={len(train_data)}, num_model={len(target_models)})",
-                  rt=1, rb=1, rw=114, rc='=', mt=1, verbose=1):
-        output_data = []
-        for i, item in enumerate(test_data, start=1):
-            output_data.append(item)
-            chat_history = []
-            test_entity = item["entity"]
-            test_triples = item["triples"]
-            test_triples_size = len(test_triples)
+    test_data_per_size = {k: list(v) for k, v in grouped(test_data, key=lambda x: len(x["triples"]))}
+    train_data_per_size = {k: list(v) for k, v in grouped(train_data, key=lambda x: len(x["triples"]))}
+    print(f"dataset_file: {dataset_file}")
+    print(f"total_triples: {len(total_triples)}")
+    print(f"total_entities: {len(total_entities)}")
+    print(f"defined_relations: {defined_relations}")
+    print(f"train_data: {len(train_data)}")
+    print(f"test_data: {len(test_data)}")
+    print("test_data_per_size:", {k: len(v) for k, v in test_data_per_size.items()})
+    print("train_data_per_size:", {k: len(v) for k, v in train_data_per_size.items()})
+    demo_examples = []
+    for size in sorted(train_data_per_size.keys())[:num_demo_group]:  # TODO: sorted -> shuffled
+        for sample in shuffled(train_data_per_size[size], seed=random_seed)[:each_demo_group_size]:
+            demo_examples.append(normalize_simple_list_in_json(json.dumps(
+                {
+                    "entity": sample["entity"],
+                    "triples": sample["triples"],
+                }, indent=2, ensure_ascii=False,
+            )))
 
-            if generation_level == 1:
-                output_triples = '\n'.join([f'  - {h} -> (predict relation here) -> {t}' for (h, r, t) in test_triples])
-                output_triples_hint = f" (quantity: {test_triples_size})"
-            elif generation_level == 2:
-                output_triples = '\n'.join([f'  - {h} -> {r} -> (predict entity here)' for (h, r, t) in test_triples])
-                output_triples_hint = f" (quantity: {test_triples_size})"
-            elif generation_level == 3:
-                output_triples = '\n'.join([f'  - {h} -> (predict relation here) -> (predict entity here)' for (h, r, t) in test_triples])
-                output_triples_hint = f" (quantity: {test_triples_size})"
-            elif generation_level == 4:
-                output_triples = "(predict triples here)"
-                output_triples_hint = f" (quantity: {test_triples_size})"
-            elif generation_level == 5:
-                output_triples = "(predict triples here)"
-                output_triples_hint = ""
-            else:
-                assert False, f"Invalid generation_level: {generation_level}"
-            custom_prompt = common_prompt.format(
-                test_entity=test_entity,
-                output_triples=output_triples,
-                output_triples_hint=output_triples_hint,
-            )
+    for generation_level in sorted(generation_levels.keys()):
+        generation_file = f"generation/{dataset_name}/edges_as_text_all-responses-{test_size}@{generation_level}.json"
+        generation_data = []
 
-            chat_history.append({"role": "user", "content": custom_prompt})
-            tot_words = []
-            tot_chars = []
-            tot_seconds = []
-            item["messages"] = chat_history
-            item["tot_words"] = tot_words
-            item["tot_chars"] = tot_chars
-            item["tot_seconds"] = tot_seconds
-            item["avg_words"] = 0.0
-            item["avg_chars"] = 0.0
-            item["avg_seconds"] = 0.0
-            item["responses"] = []
-            item["no_responses"] = []
-            for target_model in tqdm(target_models, desc=f"* Constructing KG ({i}/{len(test_data)})", unit="model", file=sys.stdout):
-                based = datetime.now()
-                model_output = chat_with_llm(messages=chat_history, model_id=target_model)
-                seconds = (datetime.now() - based).total_seconds()
-                if model_output:
-                    num_chars = len(model_output)
-                    num_words = len(model_output.split())
-                    item["responses"].append({
-                        "model": target_model,
-                        "level": generation_level,
-                        "output": model_output,
-                        "words": num_words,
-                        "chars": num_chars,
-                        "seconds": seconds,
-                    })
-                    tot_words.append(num_words)
-                    tot_chars.append(num_chars)
-                    tot_seconds.append(seconds)
-                    item["avg_words"] = sum(tot_words) / len(tot_words)
-                    item["avg_chars"] = sum(tot_chars) / len(tot_chars)
-                    item["avg_seconds"] = sum(tot_seconds) / len(tot_seconds)
+        with JobTimer(f"KG Generation(dataset_name={dataset_name}, defined_relations={len(defined_relations)}, generation_level={generation_level}, num_test={len(test_data)}, generation_models={len(generation_models)}, max_tokens={max_tokens})",
+                      rt=1, rb=1, rw=114, rc='=', mt=1, verbose=1):
+            for i, sample in enumerate(test_data, start=1):
+                target_entity = sample["entity"]
+                triples_by_human = sample["triples"]
+                number_of_triples = len(triples_by_human)
+                triples_by_model = []
+                if generation_level == 1:
+                    for (h, r, t) in triples_by_human:
+                        triples_by_model.append((h, "(predicted_relation)", t))
+                elif generation_level == 2:
+                    for (h, r, t) in triples_by_human:
+                        triples_by_model.append((h, r, "(predicted_entity)"))
+                elif generation_level == 3:
+                    for (h, r, t) in triples_by_human:
+                        triples_by_model.append((h, "(predicted_relation)", "(predicted_entity)"))
+                elif generation_level == 4:
+                    triples_by_model.append((h, "(predicted_relation)", "(predicted_entity)"))
+                    triples_by_model.append("...")
+                elif generation_level == 5:
+                    triples_by_model.append((h, "(predicted_relation)", "(predicted_entity)"))
+                    triples_by_model.append("...")
+                    number_of_triples = "unknown"
                 else:
-                    item["no_responses"].append(target_model)
-                save_json(output_data, output_file, indent=2, ensure_ascii=False)
+                    assert False, f"Invalid generation_level: {generation_level}"
+                actual_generation_prompt = generation_prompt.format(
+                    defined_relations=json.dumps(defined_relations, indent=2),
+                    generation_demo_examples="\n\n".join(f"<demo>\n{x}\n</demo>" for x in demo_examples),
+                    generation_form=normalize_simple_list_in_json(json.dumps(
+                        {
+                            "target_entity": target_entity,
+                            "triples_by_model": triples_by_model,
+                            "number_of_triples": number_of_triples,
+                            "generation_model": "{generation_model}",
+                            "generation_level": generation_level
+                        }, indent=2, ensure_ascii=False,
+                    )),
+                )
+                generation_messages = [
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": actual_generation_prompt}
+                ]
+                generation_result = {
+                    "dataset_name": dataset_name,
+                    "entity": target_entity,
+                    "triples_by_human": triples_by_human,
+                    "generation_level": generation_level,
+                    "generation_messages": generation_messages,
+                    "generation_outputs": [],
+                    "generation_errors": [],
+                }
+                generation_data.append(generation_result)
+                for generation_model in tqdm(generation_models, desc=f"* Constructing KG ({i}/{len(test_data)})", unit="model", file=sys.stdout):
+                    based = datetime.now()
+                    if generation_model.startswith("gpt-"):
+                        generation_output = chat_with_LLM_by_OpenAI(messages=generation_messages, model=generation_model, max_tokens=max_tokens)
+                    else:
+                        generation_output = chat_with_LLM_by_Together(messages=generation_messages, model=generation_model, max_tokens=max_tokens)
+                    seconds = (datetime.now() - based).total_seconds()
+                    if generation_output and generation_output["content"]:
+                        content_len = len(str(generation_output["content"]))
+                        generation_result["generation_outputs"].append({
+                            "model": generation_model,
+                            "output": generation_output,
+                            "seconds": seconds,
+                            "content_len": content_len,
+                        })
+                    else:
+                        generation_result["generation_errors"].append({
+                            "model": generation_model,
+                            "output": generation_output,
+                            "seconds": seconds,
+                        })
+                    save_json(generation_data, generation_file, indent=2, ensure_ascii=False)
 
-    # write to output file (final save)
-    save_json(output_data, output_file, indent=2, ensure_ascii=False)
+        save_json(generation_data, generation_file, indent=2, ensure_ascii=False)

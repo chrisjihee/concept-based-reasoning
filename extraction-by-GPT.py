@@ -21,13 +21,13 @@ args = CommonArguments(
 )
 if "OPENAI_API_KEY" not in os.environ:
     os.environ["OPENAI_API_KEY"] = read_or("conf/key-openai.txt") or getpass("OpenAI API key: ")
+openai_client = OpenAI(api_key=os.environ.get('OPENAI_API_KEY'))
 if "TOGETHER_API_KEY" not in os.environ:
     os.environ["TOGETHER_API_KEY"] = read_or("conf/key-togetherai.txt") or getpass("TogetherAI API key: ")
+together_client = Together(api_key=os.environ.get('TOGETHER_API_KEY'))
 
 
 # define function to chat with LLM through OpenAI
-openai_client = OpenAI(api_key=os.environ.get('OPENAI_API_KEY'))
-
 def chat_with_LLM_by_OpenAI(**kwargs):
     try:
         response = openai_client.chat.completions.create(**kwargs)
@@ -43,8 +43,6 @@ def chat_with_LLM_by_OpenAI(**kwargs):
 
 
 # define function to chat with LLM through TogetherAI
-together_client = Together(api_key=os.environ.get('TOGETHER_API_KEY'))
-
 def chat_with_LLM_by_Together(**kwargs):
     try:
         response = together_client.chat.completions.create(**kwargs)
@@ -73,20 +71,19 @@ generation_levels = {
     4: "free_with_quantity",
     5: "free_without_quantity",
 }
-target_generation_levels = sorted(generation_levels.keys())
-target_models = [
+extraction_models = [
     "gpt-4o-2024-08-06",
     # "gpt-4o-mini"
     # "meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo",
     # "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo"
 ]
 max_tokens = 4000
-prompt_template = read_or("template/extraction_prompt.txt") or getpass("Extraction Prompt: ")
-common_prompt = prompt_template
+system_prompt = "You will be provided with unstructured data, and your task is to parse it into JSON format."
+extraction_prompt = read_or("template/extraction_prompt.txt") or getpass("Extraction Prompt: ")
 
 # run program
 for dataset_name in dataset_names:
-    for generation_level in target_generation_levels:
+    for generation_level in sorted(generation_levels.keys()):
         generation_file = f"generation/{dataset_name}/edges_as_text_all-responses-{test_size}@{generation_level}.json"
         extraction_file = f"extraction/{dataset_name}/edges_as_text_all-responses-{test_size}@{generation_level}.json"
 
@@ -95,62 +92,58 @@ for dataset_name in dataset_names:
             generation_data = generation_data[:debug_test_size]
         extraction_data = []
 
-        with JobTimer(f"KG Extraction(dataset_name={dataset_name}, generation_level={generation_level}, num_generation={len(generation_data)}, target_models={target_models}, max_tokens={max_tokens})",
+        with JobTimer(f"KG Extraction(dataset_name={dataset_name}, generation_level={generation_level}, num_generation={len(generation_data)}, extraction_models={extraction_models}, max_tokens={max_tokens})",
                       rt=1, rb=1, rw=114, rc='=', mt=1, verbose=1):
-            for i, item in enumerate(tqdm(generation_data, desc=f"* Extracting KG", unit="item", file=sys.stdout), start=1):
-                entity = item["entity"]
-                triples = item["triples"]
-                generation_messages = item["messages"]
+            for i, sample in enumerate(tqdm(generation_data, desc=f"* Extracting KG", unit="sample", file=sys.stdout), start=1):
+                entity = sample["entity"]
+                triples_by_human = sample["triples"]
+                generation_messages = sample["messages"]
                 model_responses = []
-                for j, response in enumerate(item["responses"], start=1):
+                for j, response in enumerate(sample["responses"], start=1):
                     assert response["level"] == generation_level, f"level={response['level']} != generation_level={generation_level}"
                     model = response["model"].split("/")[-1]
                     output = response["output"]
                     model_responses.append(f"\n<BEGIN_OF_MODEL_RESPONSE ({j}. {model})>\n{output}\n<END_OF_MODEL_RESPONSE ({j}. {model})>\n\n")
-                extraction_prompt = common_prompt.format(
+                actual_extraction_prompt = extraction_prompt.format(
                     entity=entity,
-                    triples_by_human='\n'.join([f'  - {h} -> {r} -> {t}' for (h, r, t) in triples]),
+                    triples_by_human='\n'.join([f'  - {h} -> {r} -> {t}' for (h, r, t) in triples_by_human]),
                     model_responses="\n".join(model_responses),
                     num_model=len(model_responses),
                 )
                 extraction_messages = [
-                    {
-                        "role": "system",
-                        "content": "You will be provided with unstructured data, and your task is to parse it into JSON format."
-                    },
-                    {
-                        "role": "user",
-                        "content": extraction_prompt
-                    }
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": actual_extraction_prompt}
                 ]
-                output_item = {
+                extraction_result = {
                     "entity": entity,
-                    "triples": triples,
+                    "triples": triples_by_human,
                     "generation_messages": generation_messages,
                     "extraction_messages": extraction_messages,
-                    "responses": [],
-                    "no_responses": [],
+                    "extraction_outputs": [],
+                    "extraction_errors": [],
                 }
-                extraction_data.append(output_item)
-                for model in target_models:
+                extraction_data.append(extraction_result)
+                for extraction_model in extraction_models:
                     based = datetime.now()
-                    if model.startswith("gpt-"):
-                        output = chat_with_LLM_by_OpenAI(messages=extraction_messages, model=model, max_tokens=max_tokens)
+                    if extraction_model.startswith("gpt-"):
+                        extraction_output = chat_with_LLM_by_OpenAI(messages=extraction_messages, model=extraction_model, max_tokens=max_tokens)
                     else:
-                        output = chat_with_LLM_by_Together(messages=extraction_messages, model=model, max_tokens=max_tokens)
+                        extraction_output = chat_with_LLM_by_Together(messages=extraction_messages, model=extraction_model, max_tokens=max_tokens)
                     seconds = (datetime.now() - based).total_seconds()
-                    if output and output["content"]:
-                        num_chars = len(str(output["content"]))
-                        num_words = len(str(output["content"]).split())
-                        output_item["responses"].append({
-                            "model": model,
-                            "output": output,
-                            "words": num_words,
-                            "chars": num_chars,
+                    if extraction_output and extraction_output["content"]:
+                        content_len = len(str(extraction_output["content"]))
+                        extraction_result["extraction_outputs"].append({
+                            "model": extraction_model,
+                            "output": extraction_output,
                             "seconds": seconds,
+                            "content_len": content_len,
                         })
                     else:
-                        output_item["no_responses"].append(model)
+                        extraction_result["extraction_errors"].append({
+                            "model": extraction_model,
+                            "output": extraction_output,
+                            "seconds": seconds,
+                        })
                 save_json(extraction_data, extraction_file, indent=2, ensure_ascii=False)
 
         save_json(extraction_data, extraction_file, indent=2, ensure_ascii=False)
