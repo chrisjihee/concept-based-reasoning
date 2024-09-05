@@ -29,7 +29,7 @@
           "content": "{\n  \"target_entity\": \"Loei_Province\",\n  \"triples_by_model\": [\n    [\"Loei_Province\", \"isLocatedIn\", \"Thailand\"]\n  ],\n  \"number_of_triples\": 1,\n  \"generation_level\": 1\n}",
           "finish_reason": "eos"
         },
-        "seconds": 0.750937,
+        "seconds": 0.544911,
         "content_len": 167
       },
       {
@@ -40,7 +40,7 @@
           "content": "{\n  \"target_entity\": \"Loei_Province\",\n  \"triples_by_model\": [\n    [\"Loei_Province\", \"isLocatedIn\", \"Thailand\"]\n  ],\n  \"number_of_triples\": 1,\n  \"generation_level\": 1\n}",
           "finish_reason": "stop"
         },
-        "seconds": 0.869646,
+        "seconds": 0.80959,
         "content_len": 167
       },
       {
@@ -51,7 +51,7 @@
           "content": "```\n{\n  \"target_entity\": \"Loei_Province\",\n  \"triples_by_model\": [\n    [\"Loei_Province\", \"isLocatedIn\", \"Thailand\"]\n  ],\n  \"number_of_triples\": 1,\n  \"generation_level\": 1\n}\n```",
           "finish_reason": "eos"
         },
-        "seconds": 1.225828,
+        "seconds": 1.32154,
         "content_len": 175
       },
       {
@@ -59,11 +59,11 @@
         "model": "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
         "output": {
           "role": "assistant",
-          "content": "<generation>\n{\n  \"target_entity\": \"Loei_Province\",\n  \"triples_by_model\": [\n    [\"Loei_Province\", \"isLocatedIn\", \"Thailand\"],\n    [\"Loei_Province\", \"isLocatedIn\", \"Isan\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}\n</generation>",
+          "content": "<generation>\n{\n  \"target_entity\": \"Loei_Province\",\n  \"triples_by_model\": [\n    [\"Loei_Province\", \"isLocatedIn\", \"Thailand\"]\n  ],\n  \"number_of_triples\": 1,\n  \"generation_level\": 1\n}\n</generation>",
           "finish_reason": "stop"
         },
-        "seconds": 2.149081,
-        "content_len": 240
+        "seconds": 3.429339,
+        "content_len": 194
       },
       {
         "type": "text",
@@ -73,7 +73,7 @@
           "content": "{\n\"target\\_entity\": \"Loei\\_Province\",\n\"triples\\_by\\_model\": [\n{\n\"head\\_entity\": \"Loei\\_Province\",\n\"relation\": \"isLocatedIn\",\n\"tail\\_entity\": \"Thailand\"\n}\n]\n}",
           "finish_reason": "eos"
         },
-        "seconds": 1.023119,
+        "seconds": 0.792797,
         "content_len": 157
       },
       {
@@ -84,7 +84,7 @@
           "content": "{\n  \"target_entity\": \"Loei_Province\",\n  \"triples_by_model\": [\n    [\"Loei_Province\", \"isLocatedIn\", \"Thailand\"]\n  ],\n  \"number_of_triples\": 1,\n  \"generation_level\": 1\n}",
           "finish_reason": "eos"
         },
-        "seconds": 2.658727,
+        "seconds": 1.709649,
         "content_len": 167
       },
       {
@@ -95,7 +95,7 @@
           "content": "{\n  \"target_entity\": \"Loei_Province\",\n  \"triples_by_model\": [\n    [\"Loei_Province\", \"isLocatedIn\", \"Thailand\"]\n  ],\n  \"number_of_triples\": 1,\n  \"generation_level\": 1\n}",
           "finish_reason": "eos"
         },
-        "seconds": 1.016528,
+        "seconds": 20.274385,
         "content_len": 167
       },
       {
@@ -106,7 +106,7 @@
           "content": "{\n  \"target_entity\": \"Loei_Province\",\n  \"triples_by_model\": [\n    [\"Loei_Province\", \"isLocatedIn\", \"Thailand\"]\n  ],\n  \"number_of_triples\": 1,\n  \"generation_level\": 1\n}",
           "finish_reason": "eos"
         },
-        "seconds": 1.435114,
+        "seconds": 1.527294,
         "content_len": 167
       }
     ],
@@ -152,7 +152,7 @@
           "content": "{\n  \"target_entity\": \"Landsberg_(district)\",\n  \"triples_by_model\": [\n    [\"Landsberg_(district)\", \"isLocatedIn\", \"Bavaria\"],\n    [\"Landsberg_(district)\", \"isLocatedIn\", \"Landsberg_am_Lech\"],\n    [\"Landsberg_(district)\", \"isLocatedIn\", \"Upper_Bavaria\"]\n  ],\n  \"number_of_triples\": 3,\n  \"generation_level\": 1\n}",
           "finish_reason": "eos"
         },
-        "seconds": 0.64591,
+        "seconds": 1.022608,
         "content_len": 308
       },
       {
@@ -160,11 +160,11 @@
         "model": "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",
         "output": {
           "role": "assistant",
-          "content": "{\n  \"target_entity\": \"Landsberg_(district)\",\n  \"triples_by_model\": [\n    [\"Landsberg_(district)\", \"isLocatedIn\", \"Bavaria\"],\n    [\"Landsberg_(district)\", \"isLocatedIn\", \"Landsberg_am_Lech\"],\n    [\"Landsberg_(district)\", \"isLocatedIn\", \"Upper_Bavaria\"]\n  ],\n  \"number_of_triples\": 3,\n  \"generation_level\": 1\n}",
+          "content": "{\n  \"target_entity\": \"Landsberg_(district)\",\n  \"triples_by_model\": [\n    [\"Landsberg_(district)\", \"isLocatedIn\", \"Bavaria\"],\n    [\"Landsberg_(district)\", \"isLocatedIn\", \"Landsberg_am_Lech\"],\n    [\"Landsberg_(district)\", \"isPartOf\", \"Upper_Bavaria\"]\n  ],\n  \"number_of_triples\": 3,\n  \"generation_level\": 1\n}",
           "finish_reason": "stop"
         },
-        "seconds": 1.045451,
-        "content_len": 308
+        "seconds": 0.914676,
+        "content_len": 305
       },
       {
         "type": "text",
@@ -174,7 +174,7 @@
           "content": "```\n{\n  \"target_entity\": \"Landsberg_(district)\",\n  \"triples_by_model\": [\n    [\"Landsberg_(district)\", \"isLocatedIn\", \"Bavaria\"],\n    [\"Landsberg_(district)\", \"isLocatedIn\", \"Landsberg_am_Lech\"],\n    [\"Landsberg_(district)\", \"isLocatedIn\", \"Upper_Bavaria\"]\n  ],\n  \"number_of_triples\": 3,\n  \"generation_level\": 1\n}\n```",
           "finish_reason": "eos"
         },
-        "seconds": 2.29276,
+        "seconds": 2.762898,
         "content_len": 316
       },
       {
@@ -182,11 +182,11 @@
         "model": "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
         "output": {
           "role": "assistant",
-          "content": "{\"target_entity\": \"Landsberg_(district)\", \"triples_by_model\": [[\"Landsberg_(district)\", \"isLocatedIn\", \"Bavaria\"], [\"Landsberg_(district)\", \"isLocatedIn\", \"Landsberg_am_Lech\"], [\"Landsberg_(district)\", \"isLocatedIn\", \"Upper_Bavaria\"]], \"number_of_triples\": 3, \"generation_level\": 1}",
+          "content": "<generation>\n{\n  \"target_entity\": \"Landsberg_(district)\",\n  \"triples_by_model\": [\n    [\"Landsberg_(district)\", \"isLocatedIn\", \"Bavaria\"],\n    [\"Landsberg_(district)\", \"isLocatedIn\", \"Landsberg_am_Lech\"],\n    [\"Landsberg_(district)\", \"isLocatedIn\", \"Upper_Bavaria\"]\n  ],\n  \"number_of_triples\": 3,\n  \"generation_level\": 1\n}\n</generation>",
           "finish_reason": "stop"
         },
-        "seconds": 2.33435,
-        "content_len": 282
+        "seconds": 3.171505,
+        "content_len": 335
       },
       {
         "type": "text",
@@ -196,7 +196,7 @@
           "content": "{\n\"target_entity\": \"Landsberg_(district)\",\n\"triples_by_model\": [\n{\n\"head_entity\": \"Landsberg_(district)\",\n\"relation\": \"isLocatedIn\",\n\"tail_entity\": \"Bavaria\"\n},\n{\n\"head_entity\": \"Landsberg_(district)\",\n\"relation\": \"isLocatedIn\",\n\"tail_entity\": \"Landsberg_am_Lech\"\n},\n{\n\"head_entity\": \"Landsberg_(district)\",\n\"relation\": \"isLocatedIn\",\n\"tail_entity\": \"Upper_Bavaria\"\n}\n],\n\"number_of_triples\": 3,\n\"generation_level\": 1\n}",
           "finish_reason": "eos"
         },
-        "seconds": 1.654356,
+        "seconds": 1.842872,
         "content_len": 418
       },
       {
@@ -207,7 +207,7 @@
           "content": "{\n  \"target_entity\": \"Pushing_Tin\",\n  \"triples_by_model\": [\n    [\"Pushing_Tin\", \"isLocatedIn\", \"United_States\"],\n    [\"Pushing_Tin\", \"isLocatedIn\", \"United_States\"],\n    [\"Pushing_Tin\", \"isLocatedIn\", \"United_States\"]\n  ],\n  \"number_of_triples\": 3,\n  \"generation_level\": 1\n}",
           "finish_reason": "eos"
         },
-        "seconds": 3.864078,
+        "seconds": 2.762601,
         "content_len": 274
       },
       {
@@ -218,7 +218,7 @@
           "content": "{\n  \"target_entity\": \"Landsberg_(district)\",\n  \"triples_by_model\": [\n    [\"Landsberg_(district)\", \"isLocatedIn\", \"Bavaria\"],\n    [\"Landsberg_(district)\", \"hasChild\", \"Landsberg_am_Lech\"],\n    [\"Landsberg_(district)\", \"isLocatedIn\", \"Upper_Bavaria\"]\n  ],\n  \"number_of_triples\": 3,\n  \"generation_level\": 1\n}",
           "finish_reason": "eos"
         },
-        "seconds": 1.00728,
+        "seconds": 9.72605,
         "content_len": 305
       },
       {
@@ -229,7 +229,7 @@
           "content": "{\n  \"target_entity\": \"Landsberg_(district)\",\"triples_by_model\": [\n    [\"Landsberg_(district)\",\"isLocatedIn\",\"Bavaria\"],\n    [\"Landsberg_(district)\",\"isLocatedIn\",\"Landsberg_am_Lech\"],\n    [\"Landsberg_(district)\",\"isLocatedIn\",\"Upper_Bavaria\"]\n  ],\"number_of_triples\": 3,\n  \"generation_level\": 1\n}",
           "finish_reason": "eos"
         },
-        "seconds": 2.084859,
+        "seconds": 2.046045,
         "content_len": 296
       }
     ],

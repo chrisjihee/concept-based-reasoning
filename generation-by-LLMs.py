@@ -11,6 +11,7 @@ from chrisbase.util import *
 
 # setup environment
 logger = logging.getLogger(__name__)
+logging.getLogger("httpx").setLevel(logging.ERROR)
 args = CommonArguments(
     env=ProjectEnv(
         project="LLM-based",
@@ -134,14 +135,14 @@ for dataset_name in dataset_names:
 
     test_data_per_size = {k: list(v) for k, v in grouped(test_data, key=lambda x: len(x["triples"]))}
     train_data_per_size = {k: list(v) for k, v in grouped(train_data, key=lambda x: len(x["triples"]))}
-    print(f"dataset_file: {dataset_file}")
-    print(f"total_triples: {len(total_triples)}")
-    print(f"total_entities: {len(total_entities)}")
-    print(f"defined_relations: {defined_relations}")
-    print(f"train_data: {len(train_data)}")
-    print(f"test_data: {len(test_data)}")
-    print("test_data_per_size:", {k: len(v) for k, v in test_data_per_size.items()})
-    print("train_data_per_size:", {k: len(v) for k, v in train_data_per_size.items()})
+    # print(f"dataset_file: {dataset_file}")
+    # print(f"total_triples: {len(total_triples)}")
+    # print(f"total_entities: {len(total_entities)}")
+    # print(f"defined_relations: {defined_relations}")
+    # print(f"train_data: {len(train_data)}")
+    # print(f"test_data: {len(test_data)}")
+    # print("test_data_per_size:", {k: len(v) for k, v in test_data_per_size.items()})
+    # print("train_data_per_size:", {k: len(v) for k, v in train_data_per_size.items()})
     demo_examples = []
     for size in sorted(train_data_per_size.keys())[:num_demo_group]:  # TODO: sorted -> shuffled
         for sample in shuffled(train_data_per_size[size], seed=random_seed)[:each_demo_group_size]:
@@ -207,8 +208,8 @@ for dataset_name in dataset_names:
                     "generation_errors": [],
                 }
                 generation_data.append(generation_result)
-                print("\n" * 3)
-                print(f'<triples_by_human>\n{normalize_simple_list_in_json(json.dumps(triples_by_human, indent=2, ensure_ascii=False))}\n</triples_by_human>')
+                # print("\n" * 3)
+                # print(f'<triples_by_human>\n{normalize_simple_list_in_json(json.dumps(triples_by_human, indent=2, ensure_ascii=False))}\n</triples_by_human>')
                 for (generation_model, generation_type) in tqdm(generation_models, desc=f"* Constructing KG ({i}/{len(test_data)})", unit="model", file=sys.stdout):
                     based = datetime.now()
                     if generation_model.startswith("gpt-"):
@@ -256,13 +257,13 @@ for dataset_name in dataset_names:
                             "output": generation_output,
                             "seconds": generation_seconds,
                         })
-                    print("\n" * 3)
-                    print("=" * 200)
-                    print(f'<generation_type>{generation_type}</generation_type>')
-                    print(f'<generation_model>{generation_model}</generation_model>')
-                    if generation_output and "content" in generation_output:
-                        print(f'<generation_output_content>\n{generation_output["content"]}\n</generation_output_content>')
-                    print("=" * 200)
+                    # print("\n" * 3)
+                    # print("=" * 200)
+                    # print(f'<generation_type>{generation_type}</generation_type>')
+                    # print(f'<generation_model>{generation_model}</generation_model>')
+                    # if generation_output and "content" in generation_output:
+                    #     print(f'<generation_output_content>\n{generation_output["content"]}\n</generation_output_content>')
+                    # print("=" * 200)
                     save_json(generation_data, generation_file, indent=2, ensure_ascii=False)
 
         save_json(generation_data, generation_file, indent=2, ensure_ascii=False)
