@@ -82,7 +82,7 @@ def normalize_simple_list_in_json(json_input):
 
 # setup program
 test_size = 100
-debug_test_size = 2
+debug_test_size = -1
 max_entity_triples = 10
 num_demo_group = 10
 each_demo_group_size = 1
