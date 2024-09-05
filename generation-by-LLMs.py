@@ -1,6 +1,7 @@
 from getpass import getpass
 
 from openai import OpenAI
+from pydantic import BaseModel
 from sklearn.model_selection import train_test_split
 from together import Together
 from tqdm import tqdm
@@ -26,11 +27,40 @@ if "TOGETHER_API_KEY" not in os.environ:
     os.environ["TOGETHER_API_KEY"] = read_or("conf/key-togetherai.txt") or getpass("TogetherAI API key: ")
 together_client = Together(api_key=os.environ.get('TOGETHER_API_KEY'))
 
+# Define the schema for the output
+"""
+<generation>
+{
+  "target_entity": "judgment_on_the_merits.n.01",
+  "triples_by_model": [
+    ["judgment_on_the_merits.n.01", "(predicted_relation)", "judgment.n.03"],
+    ["judgment_on_the_merits.n.01", "(predicted_relation)", "law.n.01"]
+  ],
+  "number_of_triples": 2,
+  "generation_model": "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",
+  "generation_level": 1
+}
+</generation>
+"""
+
+
+# class Triple(BaseModel):
+#     head: str = Field(description="Head")
+#     relation: str = Field(description="Relation")
+#     tail: str = Field(description="Tail")
+
+class TripleGeneration(BaseModel):
+    target_entity: str
+    triples_by_model: List[List[str]]
+    number_of_triples: int
+    generation_model: str
+    generation_level: int
 
 # define function to chat with LLM through OpenAI
 def chat_with_LLM_by_OpenAI(**kwargs):
     try:
         response = openai_client.chat.completions.create(**kwargs)
+        # response = openai_client.beta.chat.completions.parse(**kwargs)
         choice = response.choices[0]
         return {
             "role": choice.message.role,
@@ -53,8 +83,12 @@ def chat_with_LLM_by_Together(**kwargs):
             "finish_reason": choice.finish_reason.value,
         }
     except Exception as e:
-        logger.error("Exception:", e)
-        return None
+        return {
+            "content": str(e),
+            "finish_reason": f"{type(e)}",
+        }
+        # logger.error("Exception:", e)
+        # return None
 
 
 # define function to normalize simple list in json
@@ -88,16 +122,16 @@ generation_levels = {
 }
 generation_models = [
     "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",
-    # "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
+    "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
     # "meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo",
-    # "mistralai/Mistral-7B-Instruct-v0.1",
-    # "mistralai/Mistral-7B-Instruct-v0.2",
-    # "mistralai/Mistral-7B-Instruct-v0.3",
-    # "mistralai/Mixtral-8x7B-Instruct-v0.1",
-    # "mistralai/Mixtral-8x22B-Instruct-v0.1",
-    # "upstage/SOLAR-10.7B-Instruct-v1.0",
+    "mistralai/Mistral-7B-Instruct-v0.1",
+    "mistralai/Mistral-7B-Instruct-v0.2",
+    "mistralai/Mistral-7B-Instruct-v0.3",
+    "mistralai/Mixtral-8x7B-Instruct-v0.1",
+    "mistralai/Mixtral-8x22B-Instruct-v0.1",
+    "upstage/SOLAR-10.7B-Instruct-v1.0",
     "gpt-4o-mini-2024-07-18",
-    # "gpt-4o-2024-08-06",
+    "gpt-4o-2024-08-06",
 ]
 max_tokens = 4000
 system_prompt = "You will be provided with an target entity and demo examples, and your task is to generate knowledge triples."
@@ -164,6 +198,22 @@ for dataset_name in dataset_names:
                     number_of_triples = "unknown"
                 else:
                     assert False, f"Invalid generation_level: {generation_level}"
+                print("=" * 200)
+                actual_generation_prompt = generation_prompt.format(
+                    defined_relations=json.dumps(defined_relations, indent=2),
+                    generation_demo_examples="\n\n".join(f"<demo>\n{x}\n</demo>" for x in demo_examples),
+                    generation_form=normalize_simple_list_in_json(json.dumps(
+                        {
+                            "target_entity": target_entity,
+                            "triples_by_model": triples_by_model,
+                            "number_of_triples": number_of_triples,
+                            "generation_model": "(generation_model)",
+                            "generation_level": generation_level
+                        }, indent=2, ensure_ascii=False,
+                    )),
+                )
+                print(f'<actual_generation_prompt>\n{actual_generation_prompt}\n</actual_generation_prompt>')
+                print("=" * 200)
                 for generation_model in tqdm(generation_models, desc=f"* Constructing KG ({i}/{len(test_data)})", unit="model", file=sys.stdout):
                     actual_generation_prompt = generation_prompt.format(
                         defined_relations=json.dumps(defined_relations, indent=2),
@@ -192,36 +242,51 @@ for dataset_name in dataset_names:
                         "generation_errors": [],
                     }
                     based = datetime.now()
-                    response_format = {
-                        "type": "json_object",
-                    }
                     if generation_model.startswith("gpt-"):
-                        generation_output = chat_with_LLM_by_OpenAI(messages=generation_messages, model=generation_model, max_tokens=max_tokens, response_format=response_format)
+                        generation_output = chat_with_LLM_by_OpenAI(
+                            model=generation_model,
+                            messages=generation_messages,
+                            max_tokens=max_tokens,
+                            response_format={"type": "json_object"},
+                            # response_format=TripleGeneration,
+                        )
                     else:
-                        generation_output = chat_with_LLM_by_Together(messages=generation_messages, model=generation_model, max_tokens=max_tokens, response_format=response_format)
-                    seconds = (datetime.now() - based).total_seconds()
+                        generation_output = chat_with_LLM_by_Together(
+                            model=generation_model,
+                            messages=generation_messages,
+                            max_tokens=max_tokens,
+                            response_format={"type": "json_object"},
+                            # response_format={
+                            #     "type": "json_object",
+                            #     "schema": TripleGeneration.model_json_schema(),
+                            # },
+                        )
+                    generation_seconds = (datetime.now() - based).total_seconds()
                     if generation_output and generation_output["content"]:
                         content_len = len(str(generation_output["content"]))
                         generation_result["generation_outputs"].append({
                             "model": generation_model,
                             "output": generation_output,
-                            "seconds": seconds,
+                            "seconds": generation_seconds,
                             "content_len": content_len,
                         })
                     else:
                         generation_result["generation_errors"].append({
                             "model": generation_model,
                             "output": generation_output,
-                            "seconds": seconds,
+                            "seconds": generation_seconds,
                         })
-                    print("\n" * 10)
-                    print("=" * 300)
-                    print(f'<actual_generation_prompt>\n{actual_generation_prompt}\n</actual_generation_prompt>')
-                    print("=" * 300)
-                    print("\n" * 10)
-                    print(f'<generation_output>\n{generation_output["content"]}\n</generation_output>')
-                    print("=" * 300)
-                    print("\n" * 10)
+                    print("\n" * 3)
+                    print("=" * 200)
+                    print(f'<generation_model>\n{generation_model}\n</generation_model>')
+                    print(f'<generation_seconds>\n{generation_seconds}\n</generation_seconds>')
+                    if not generation_output:
+                        print(f'<generation_output>\n{generation_output}\n</generation_output>')
+                    elif generation_output and "content" not in generation_output:
+                        print(f'<generation_output>\n{json.dumps(generation_output, indent=2, ensure_ascii=False)}\n</generation_output>')
+                    else:
+                        print(f'<generation_output>\n{generation_output["content"]}\n</generation_output>')
+                    print("=" * 200)
                     generation_data.append(generation_result)
                     save_json(generation_data, generation_file, indent=2, ensure_ascii=False)
 
