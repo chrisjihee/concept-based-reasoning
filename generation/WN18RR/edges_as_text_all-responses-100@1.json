@@ -18,379 +18,219 @@
     "generation_messages": [
       {
         "role": "system",
-        "content": "You will be provided with an target entity and demo examples, and your task is to generate knowledge triples."
+        "content": "You will be provided with an target entity and demo examples, and your task is to generate knowledge triples. Respond in JSON format without any other explanation."
       },
       {
         "role": "user",
-        "content": "We want to compare how well a large-scale language model (LLM) internally structures and stores knowledge through a knowledge graph (KG).\nA knowledge graph typically represents knowledge in the form of a triple [\"head_entity\", \"relation\", \"tail_entity\"].\nWhere a relation is one of the following lists:\n[\n  \"also_see\",\n  \"derivationally_related_form\",\n  \"has_part\",\n  \"hypernym\",\n  \"instance_hypernym\",\n  \"member_meronym\",\n  \"member_of_domain_region\",\n  \"member_of_domain_usage\",\n  \"similar_to\",\n  \"synset_domain_topic_of\",\n  \"verb_group\"\n]\n\nHere are some demo examples of such a knowledge graph.\n<demo>\n{\n  \"entity\": \"hosanna.n.01\",\n  \"triples\": [\n    [\"hosanna.n.01\", \"hypernym\", \"cry.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"kobe.n.01\",\n  \"triples\": [\n    [\"kobe.n.01\", \"instance_hypernym\", \"city.n.01\"],\n    [\"kobe.n.01\", \"instance_hypernym\", \"port.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"alert.n.01\",\n  \"triples\": [\n    [\"alert.n.01\", \"derivationally_related_form\", \"alarm.v.02\"],\n    [\"alert.n.01\", \"derivationally_related_form\", \"alert.a.01\"],\n    [\"alert.n.01\", \"hypernym\", \"readiness.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"penstemon.n.01\",\n  \"triples\": [\n    [\"penstemon.n.01\", \"hypernym\", \"asterid_dicot_genus.n.01\"],\n    [\"penstemon.n.01\", \"member_meronym\", \"balloon_flower.n.01\"],\n    [\"penstemon.n.01\", \"member_meronym\", \"rock_penstemon.n.01\"],\n    [\"penstemon.n.01\", \"member_meronym\", \"shrubby_penstemon.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"childhood.n.01\",\n  \"triples\": [\n    [\"childhood.n.01\", \"derivationally_related_form\", \"child.n.01\"],\n    [\"childhood.n.01\", \"has_part\", \"anal_stage.n.01\"],\n    [\"childhood.n.01\", \"has_part\", \"latency_stage.n.01\"],\n    [\"childhood.n.01\", \"has_part\", \"phallic_stage.n.01\"],\n    [\"childhood.n.01\", \"hypernym\", \"time_of_life.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"drive.v.13\",\n  \"triples\": [\n    [\"drive.v.13\", \"derivationally_related_form\", \"drive.n.08\"],\n    [\"drive.v.13\", \"derivationally_related_form\", \"drive.n.11\"],\n    [\"drive.v.13\", \"derivationally_related_form\", \"driver.n.01\"],\n    [\"drive.v.13\", \"derivationally_related_form\", \"driveway.n.01\"],\n    [\"drive.v.13\", \"hypernym\", \"work.v.02\"],\n    [\"drive.v.13\", \"verb_group\", \"drive.v.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"flacourtiaceae.n.01\",\n  \"triples\": [\n    [\"flacourtiaceae.n.01\", \"hypernym\", \"dilleniid_dicot_family.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"dovyalis.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"flacourtia.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"genus_idesia.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"genus_xylosma.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"hydnocarpus.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"kiggelaria.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"araneae.n.01\",\n  \"triples\": [\n    [\"araneae.n.01\", \"derivationally_related_form\", \"araneidal.a.01\"],\n    [\"araneae.n.01\", \"hypernym\", \"animal_order.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"argiopidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"ctenizidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"lycosidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"spider.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"theraphosidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"theridiidae.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"snip.v.02\",\n  \"triples\": [\n    [\"snip.v.02\", \"derivationally_related_form\", \"clip.n.05\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"clipper.n.03\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"crop.n.01\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"pruner.n.01\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"pruner.n.02\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"pruning.n.02\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"snip.n.01\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"trim.n.04\"],\n    [\"snip.v.02\", \"hypernym\", \"thin_out.v.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"euphorbia.n.01\",\n  \"triples\": [\n    [\"euphorbia.n.01\", \"hypernym\", \"rosid_dicot_genus.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"caper_spurge.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"crown_of_thorns.n.02\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"fire-on-the-mountain.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"japanese_poinsettia.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"poinsettia.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"snow-on-the-mountain.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"spurge.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"sun_spurge.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"wild_spurge.n.01\"]\n  ]\n}\n</demo>\n\nNow we want to test your knowledge structuring ability with this knowledge graph construction ability.\nLet's output a set of triples where the head entity is the target entity, referring to the demo examples above.\nPlease respond in JSON object format as below.\n<generation>\n{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"(predicted_relation)\", \"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"(predicted_relation)\", \"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_model\": \"meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo\",\n  \"generation_level\": 1\n}\n</generation>"
+        "content": "We want to compare how well a large-scale language model (LLM) internally structures and stores knowledge through a knowledge graph (KG).\nA knowledge graph typically represents knowledge in the form of a triple [\"head_entity\", \"relation\", \"tail_entity\"].\nWhere a relation is one of the following lists:\n[\n  \"also_see\",\n  \"derivationally_related_form\",\n  \"has_part\",\n  \"hypernym\",\n  \"instance_hypernym\",\n  \"member_meronym\",\n  \"member_of_domain_region\",\n  \"member_of_domain_usage\",\n  \"similar_to\",\n  \"synset_domain_topic_of\",\n  \"verb_group\"\n]\n\nHere are some demo examples of such a knowledge graph.\n<demo>\n{\n  \"entity\": \"hosanna.n.01\",\n  \"triples\": [\n    [\"hosanna.n.01\", \"hypernym\", \"cry.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"kobe.n.01\",\n  \"triples\": [\n    [\"kobe.n.01\", \"instance_hypernym\", \"city.n.01\"],\n    [\"kobe.n.01\", \"instance_hypernym\", \"port.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"alert.n.01\",\n  \"triples\": [\n    [\"alert.n.01\", \"derivationally_related_form\", \"alarm.v.02\"],\n    [\"alert.n.01\", \"derivationally_related_form\", \"alert.a.01\"],\n    [\"alert.n.01\", \"hypernym\", \"readiness.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"penstemon.n.01\",\n  \"triples\": [\n    [\"penstemon.n.01\", \"hypernym\", \"asterid_dicot_genus.n.01\"],\n    [\"penstemon.n.01\", \"member_meronym\", \"balloon_flower.n.01\"],\n    [\"penstemon.n.01\", \"member_meronym\", \"rock_penstemon.n.01\"],\n    [\"penstemon.n.01\", \"member_meronym\", \"shrubby_penstemon.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"childhood.n.01\",\n  \"triples\": [\n    [\"childhood.n.01\", \"derivationally_related_form\", \"child.n.01\"],\n    [\"childhood.n.01\", \"has_part\", \"anal_stage.n.01\"],\n    [\"childhood.n.01\", \"has_part\", \"latency_stage.n.01\"],\n    [\"childhood.n.01\", \"has_part\", \"phallic_stage.n.01\"],\n    [\"childhood.n.01\", \"hypernym\", \"time_of_life.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"drive.v.13\",\n  \"triples\": [\n    [\"drive.v.13\", \"derivationally_related_form\", \"drive.n.08\"],\n    [\"drive.v.13\", \"derivationally_related_form\", \"drive.n.11\"],\n    [\"drive.v.13\", \"derivationally_related_form\", \"driver.n.01\"],\n    [\"drive.v.13\", \"derivationally_related_form\", \"driveway.n.01\"],\n    [\"drive.v.13\", \"hypernym\", \"work.v.02\"],\n    [\"drive.v.13\", \"verb_group\", \"drive.v.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"flacourtiaceae.n.01\",\n  \"triples\": [\n    [\"flacourtiaceae.n.01\", \"hypernym\", \"dilleniid_dicot_family.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"dovyalis.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"flacourtia.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"genus_idesia.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"genus_xylosma.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"hydnocarpus.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"kiggelaria.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"araneae.n.01\",\n  \"triples\": [\n    [\"araneae.n.01\", \"derivationally_related_form\", \"araneidal.a.01\"],\n    [\"araneae.n.01\", \"hypernym\", \"animal_order.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"argiopidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"ctenizidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"lycosidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"spider.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"theraphosidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"theridiidae.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"snip.v.02\",\n  \"triples\": [\n    [\"snip.v.02\", \"derivationally_related_form\", \"clip.n.05\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"clipper.n.03\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"crop.n.01\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"pruner.n.01\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"pruner.n.02\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"pruning.n.02\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"snip.n.01\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"trim.n.04\"],\n    [\"snip.v.02\", \"hypernym\", \"thin_out.v.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"euphorbia.n.01\",\n  \"triples\": [\n    [\"euphorbia.n.01\", \"hypernym\", \"rosid_dicot_genus.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"caper_spurge.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"crown_of_thorns.n.02\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"fire-on-the-mountain.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"japanese_poinsettia.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"poinsettia.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"snow-on-the-mountain.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"spurge.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"sun_spurge.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"wild_spurge.n.01\"]\n  ]\n}\n</demo>\n\nNow we want to test your knowledge structuring ability with this knowledge graph construction ability.\nLet's output a set of triples where the head entity is the target entity, referring to the demo examples above.\nPlease respond in JSON object format as below.\n<generation>\n{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"(predicted_relation)\", \"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"(predicted_relation)\", \"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}\n</generation>"
       }
     ],
     "generation_outputs": [
       {
+        "type": "text",
         "model": "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",
         "output": {
           "role": "assistant",
-          "content": "Based on the provided knowledge graph construction ability, I will generate knowledge triples for the target entity \"judgment_on_the_merits.n.01\". However, please note that I don't have access to any external knowledge or data, so I will try to make educated guesses based on the provided demo examples.\n\nHere are my generated triples:\n\n<generation>\n{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"hypernym\", \"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"member_of_domain_region\", \"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_model\": \"meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo\",\n  \"generation_level\": 1\n}\n</generation>\n\nMy reasoning behind these triples is as follows:\n\n1. The first triple suggests that \"judgment_on_the_merits.n.01\" is a hypernym of \"judgment.n.03\", which is a plausible relationship given the meaning of \"judgment_on_the_merits.n.01\" as a judicial decision.\n2. The second triple suggests that \"judgment_on_the_merits.n.01\" is related to the domain of law, which is consistent with the meaning of \"judgment_on_the_merits.n.01\" as a legal concept.\n\nPlease note that these triples are merely predictions based on my understanding of the provided demo examples, and they may not accurately reflect real-world relationships between entities.",
-          "finish_reason": "stop"
+          "content": "{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"hypernym\", \"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"member_of_domain_region\", \"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}",
+          "finish_reason": "eos"
         },
-        "seconds": 3.059282,
-        "content_len": 1343
-      }
-    ],
-    "generation_errors": []
-  },
-  {
-    "dataset_name": "WN18RR",
-    "entity": "judgment_on_the_merits.n.01",
-    "triples_by_human": [
-      [
-        "judgment_on_the_merits.n.01",
-        "hypernym",
-        "judgment.n.03"
-      ],
-      [
-        "judgment_on_the_merits.n.01",
-        "synset_domain_topic_of",
-        "law.n.01"
-      ]
-    ],
-    "generation_level": 1,
-    "generation_messages": [
-      {
-        "role": "system",
-        "content": "You will be provided with an target entity and demo examples, and your task is to generate knowledge triples."
+        "seconds": 1.144034,
+        "content_len": 273
       },
       {
-        "role": "user",
-        "content": "We want to compare how well a large-scale language model (LLM) internally structures and stores knowledge through a knowledge graph (KG).\nA knowledge graph typically represents knowledge in the form of a triple [\"head_entity\", \"relation\", \"tail_entity\"].\nWhere a relation is one of the following lists:\n[\n  \"also_see\",\n  \"derivationally_related_form\",\n  \"has_part\",\n  \"hypernym\",\n  \"instance_hypernym\",\n  \"member_meronym\",\n  \"member_of_domain_region\",\n  \"member_of_domain_usage\",\n  \"similar_to\",\n  \"synset_domain_topic_of\",\n  \"verb_group\"\n]\n\nHere are some demo examples of such a knowledge graph.\n<demo>\n{\n  \"entity\": \"hosanna.n.01\",\n  \"triples\": [\n    [\"hosanna.n.01\", \"hypernym\", \"cry.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"kobe.n.01\",\n  \"triples\": [\n    [\"kobe.n.01\", \"instance_hypernym\", \"city.n.01\"],\n    [\"kobe.n.01\", \"instance_hypernym\", \"port.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"alert.n.01\",\n  \"triples\": [\n    [\"alert.n.01\", \"derivationally_related_form\", \"alarm.v.02\"],\n    [\"alert.n.01\", \"derivationally_related_form\", \"alert.a.01\"],\n    [\"alert.n.01\", \"hypernym\", \"readiness.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"penstemon.n.01\",\n  \"triples\": [\n    [\"penstemon.n.01\", \"hypernym\", \"asterid_dicot_genus.n.01\"],\n    [\"penstemon.n.01\", \"member_meronym\", \"balloon_flower.n.01\"],\n    [\"penstemon.n.01\", \"member_meronym\", \"rock_penstemon.n.01\"],\n    [\"penstemon.n.01\", \"member_meronym\", \"shrubby_penstemon.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"childhood.n.01\",\n  \"triples\": [\n    [\"childhood.n.01\", \"derivationally_related_form\", \"child.n.01\"],\n    [\"childhood.n.01\", \"has_part\", \"anal_stage.n.01\"],\n    [\"childhood.n.01\", \"has_part\", \"latency_stage.n.01\"],\n    [\"childhood.n.01\", \"has_part\", \"phallic_stage.n.01\"],\n    [\"childhood.n.01\", \"hypernym\", \"time_of_life.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"drive.v.13\",\n  \"triples\": [\n    [\"drive.v.13\", \"derivationally_related_form\", \"drive.n.08\"],\n    [\"drive.v.13\", \"derivationally_related_form\", \"drive.n.11\"],\n    [\"drive.v.13\", \"derivationally_related_form\", \"driver.n.01\"],\n    [\"drive.v.13\", \"derivationally_related_form\", \"driveway.n.01\"],\n    [\"drive.v.13\", \"hypernym\", \"work.v.02\"],\n    [\"drive.v.13\", \"verb_group\", \"drive.v.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"flacourtiaceae.n.01\",\n  \"triples\": [\n    [\"flacourtiaceae.n.01\", \"hypernym\", \"dilleniid_dicot_family.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"dovyalis.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"flacourtia.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"genus_idesia.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"genus_xylosma.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"hydnocarpus.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"kiggelaria.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"araneae.n.01\",\n  \"triples\": [\n    [\"araneae.n.01\", \"derivationally_related_form\", \"araneidal.a.01\"],\n    [\"araneae.n.01\", \"hypernym\", \"animal_order.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"argiopidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"ctenizidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"lycosidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"spider.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"theraphosidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"theridiidae.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"snip.v.02\",\n  \"triples\": [\n    [\"snip.v.02\", \"derivationally_related_form\", \"clip.n.05\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"clipper.n.03\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"crop.n.01\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"pruner.n.01\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"pruner.n.02\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"pruning.n.02\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"snip.n.01\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"trim.n.04\"],\n    [\"snip.v.02\", \"hypernym\", \"thin_out.v.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"euphorbia.n.01\",\n  \"triples\": [\n    [\"euphorbia.n.01\", \"hypernym\", \"rosid_dicot_genus.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"caper_spurge.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"crown_of_thorns.n.02\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"fire-on-the-mountain.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"japanese_poinsettia.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"poinsettia.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"snow-on-the-mountain.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"spurge.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"sun_spurge.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"wild_spurge.n.01\"]\n  ]\n}\n</demo>\n\nNow we want to test your knowledge structuring ability with this knowledge graph construction ability.\nLet's output a set of triples where the head entity is the target entity, referring to the demo examples above.\nPlease respond in JSON object format as below.\n<generation>\n{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"(predicted_relation)\", \"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"(predicted_relation)\", \"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_model\": \"meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo\",\n  \"generation_level\": 1\n}\n</generation>"
-      }
-    ],
-    "generation_outputs": [
+        "type": "json_object",
+        "model": "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",
+        "output": {
+          "role": "assistant",
+          "content": "{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"hypernym\", \"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"hypernym\", \"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}",
+          "finish_reason": "stop"
+        },
+        "seconds": 1.019539,
+        "content_len": 258
+      },
       {
+        "type": "text",
         "model": "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
         "output": {
           "role": "assistant",
-          "content": "<generation>\n{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"hypernym\", \"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"member_of_domain_region\", \"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_model\": \"meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo\",\n  \"generation_level\": 1\n}\n</generation>",
-          "finish_reason": "stop"
+          "content": "```\n{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"hypernym\", \"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"member_of_domain_region\", \"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}\n```",
+          "finish_reason": "eos"
         },
-        "seconds": 8.597464,
-        "content_len": 370
-      }
-    ],
-    "generation_errors": []
-  },
-  {
-    "dataset_name": "WN18RR",
-    "entity": "judgment_on_the_merits.n.01",
-    "triples_by_human": [
-      [
-        "judgment_on_the_merits.n.01",
-        "hypernym",
-        "judgment.n.03"
-      ],
-      [
-        "judgment_on_the_merits.n.01",
-        "synset_domain_topic_of",
-        "law.n.01"
-      ]
-    ],
-    "generation_level": 1,
-    "generation_messages": [
-      {
-        "role": "system",
-        "content": "You will be provided with an target entity and demo examples, and your task is to generate knowledge triples."
+        "seconds": 2.045588,
+        "content_len": 281
       },
       {
-        "role": "user",
-        "content": "We want to compare how well a large-scale language model (LLM) internally structures and stores knowledge through a knowledge graph (KG).\nA knowledge graph typically represents knowledge in the form of a triple [\"head_entity\", \"relation\", \"tail_entity\"].\nWhere a relation is one of the following lists:\n[\n  \"also_see\",\n  \"derivationally_related_form\",\n  \"has_part\",\n  \"hypernym\",\n  \"instance_hypernym\",\n  \"member_meronym\",\n  \"member_of_domain_region\",\n  \"member_of_domain_usage\",\n  \"similar_to\",\n  \"synset_domain_topic_of\",\n  \"verb_group\"\n]\n\nHere are some demo examples of such a knowledge graph.\n<demo>\n{\n  \"entity\": \"hosanna.n.01\",\n  \"triples\": [\n    [\"hosanna.n.01\", \"hypernym\", \"cry.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"kobe.n.01\",\n  \"triples\": [\n    [\"kobe.n.01\", \"instance_hypernym\", \"city.n.01\"],\n    [\"kobe.n.01\", \"instance_hypernym\", \"port.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"alert.n.01\",\n  \"triples\": [\n    [\"alert.n.01\", \"derivationally_related_form\", \"alarm.v.02\"],\n    [\"alert.n.01\", \"derivationally_related_form\", \"alert.a.01\"],\n    [\"alert.n.01\", \"hypernym\", \"readiness.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"penstemon.n.01\",\n  \"triples\": [\n    [\"penstemon.n.01\", \"hypernym\", \"asterid_dicot_genus.n.01\"],\n    [\"penstemon.n.01\", \"member_meronym\", \"balloon_flower.n.01\"],\n    [\"penstemon.n.01\", \"member_meronym\", \"rock_penstemon.n.01\"],\n    [\"penstemon.n.01\", \"member_meronym\", \"shrubby_penstemon.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"childhood.n.01\",\n  \"triples\": [\n    [\"childhood.n.01\", \"derivationally_related_form\", \"child.n.01\"],\n    [\"childhood.n.01\", \"has_part\", \"anal_stage.n.01\"],\n    [\"childhood.n.01\", \"has_part\", \"latency_stage.n.01\"],\n    [\"childhood.n.01\", \"has_part\", \"phallic_stage.n.01\"],\n    [\"childhood.n.01\", \"hypernym\", \"time_of_life.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"drive.v.13\",\n  \"triples\": [\n    [\"drive.v.13\", \"derivationally_related_form\", \"drive.n.08\"],\n    [\"drive.v.13\", \"derivationally_related_form\", \"drive.n.11\"],\n    [\"drive.v.13\", \"derivationally_related_form\", \"driver.n.01\"],\n    [\"drive.v.13\", \"derivationally_related_form\", \"driveway.n.01\"],\n    [\"drive.v.13\", \"hypernym\", \"work.v.02\"],\n    [\"drive.v.13\", \"verb_group\", \"drive.v.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"flacourtiaceae.n.01\",\n  \"triples\": [\n    [\"flacourtiaceae.n.01\", \"hypernym\", \"dilleniid_dicot_family.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"dovyalis.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"flacourtia.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"genus_idesia.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"genus_xylosma.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"hydnocarpus.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"kiggelaria.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"araneae.n.01\",\n  \"triples\": [\n    [\"araneae.n.01\", \"derivationally_related_form\", \"araneidal.a.01\"],\n    [\"araneae.n.01\", \"hypernym\", \"animal_order.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"argiopidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"ctenizidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"lycosidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"spider.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"theraphosidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"theridiidae.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"snip.v.02\",\n  \"triples\": [\n    [\"snip.v.02\", \"derivationally_related_form\", \"clip.n.05\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"clipper.n.03\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"crop.n.01\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"pruner.n.01\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"pruner.n.02\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"pruning.n.02\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"snip.n.01\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"trim.n.04\"],\n    [\"snip.v.02\", \"hypernym\", \"thin_out.v.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"euphorbia.n.01\",\n  \"triples\": [\n    [\"euphorbia.n.01\", \"hypernym\", \"rosid_dicot_genus.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"caper_spurge.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"crown_of_thorns.n.02\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"fire-on-the-mountain.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"japanese_poinsettia.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"poinsettia.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"snow-on-the-mountain.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"spurge.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"sun_spurge.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"wild_spurge.n.01\"]\n  ]\n}\n</demo>\n\nNow we want to test your knowledge structuring ability with this knowledge graph construction ability.\nLet's output a set of triples where the head entity is the target entity, referring to the demo examples above.\nPlease respond in JSON object format as below.\n<generation>\n{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"(predicted_relation)\", \"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"(predicted_relation)\", \"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_model\": \"mistralai/Mistral-7B-Instruct-v0.1\",\n  \"generation_level\": 1\n}\n</generation>"
-      }
-    ],
-    "generation_outputs": [
+        "type": "json_object",
+        "model": "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
+        "output": {
+          "role": "assistant",
+          "content": "{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"hypernym\", \"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"member_of_domain_region\", \"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}",
+          "finish_reason": "stop"
+        },
+        "seconds": 2.660178,
+        "content_len": 273
+      },
       {
+        "type": "text",
         "model": "mistralai/Mistral-7B-Instruct-v0.1",
         "output": {
           "role": "assistant",
-          "content": "\n\n\n\n\n\n\n\n\n\n\n\n{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"(predicted_relation)\",\"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"(predicted_relation)\",\"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_model\": \"mistralai/Mistral-7B-Instruct-v0.1\",\n  \"generation_level\": 1\n}",
+          "content": "{\n\"target_entity\": \"judgment_on_the_merits.n.01\",\n\"triples_by_model\": [\n{\n\"relation\": \"derivationally_related_form\",\n\"tail_entity\": \"judgment.n.03\"\n},\n{\n\"relation\": \"hypernym\",\n\"tail_entity\": \"law.n.01\"\n}\n],\n\"number_of_triples\": 2,\n\"generation_level\": 1\n}",
           "finish_reason": "eos"
         },
-        "seconds": 3.48091,
-        "content_len": 352
-      }
-    ],
-    "generation_errors": []
-  },
-  {
-    "dataset_name": "WN18RR",
-    "entity": "judgment_on_the_merits.n.01",
-    "triples_by_human": [
-      [
-        "judgment_on_the_merits.n.01",
-        "hypernym",
-        "judgment.n.03"
-      ],
-      [
-        "judgment_on_the_merits.n.01",
-        "synset_domain_topic_of",
-        "law.n.01"
-      ]
-    ],
-    "generation_level": 1,
-    "generation_messages": [
-      {
-        "role": "system",
-        "content": "You will be provided with an target entity and demo examples, and your task is to generate knowledge triples."
+        "seconds": 1.434088,
+        "content_len": 255
       },
       {
-        "role": "user",
-        "content": "We want to compare how well a large-scale language model (LLM) internally structures and stores knowledge through a knowledge graph (KG).\nA knowledge graph typically represents knowledge in the form of a triple [\"head_entity\", \"relation\", \"tail_entity\"].\nWhere a relation is one of the following lists:\n[\n  \"also_see\",\n  \"derivationally_related_form\",\n  \"has_part\",\n  \"hypernym\",\n  \"instance_hypernym\",\n  \"member_meronym\",\n  \"member_of_domain_region\",\n  \"member_of_domain_usage\",\n  \"similar_to\",\n  \"synset_domain_topic_of\",\n  \"verb_group\"\n]\n\nHere are some demo examples of such a knowledge graph.\n<demo>\n{\n  \"entity\": \"hosanna.n.01\",\n  \"triples\": [\n    [\"hosanna.n.01\", \"hypernym\", \"cry.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"kobe.n.01\",\n  \"triples\": [\n    [\"kobe.n.01\", \"instance_hypernym\", \"city.n.01\"],\n    [\"kobe.n.01\", \"instance_hypernym\", \"port.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"alert.n.01\",\n  \"triples\": [\n    [\"alert.n.01\", \"derivationally_related_form\", \"alarm.v.02\"],\n    [\"alert.n.01\", \"derivationally_related_form\", \"alert.a.01\"],\n    [\"alert.n.01\", \"hypernym\", \"readiness.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"penstemon.n.01\",\n  \"triples\": [\n    [\"penstemon.n.01\", \"hypernym\", \"asterid_dicot_genus.n.01\"],\n    [\"penstemon.n.01\", \"member_meronym\", \"balloon_flower.n.01\"],\n    [\"penstemon.n.01\", \"member_meronym\", \"rock_penstemon.n.01\"],\n    [\"penstemon.n.01\", \"member_meronym\", \"shrubby_penstemon.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"childhood.n.01\",\n  \"triples\": [\n    [\"childhood.n.01\", \"derivationally_related_form\", \"child.n.01\"],\n    [\"childhood.n.01\", \"has_part\", \"anal_stage.n.01\"],\n    [\"childhood.n.01\", \"has_part\", \"latency_stage.n.01\"],\n    [\"childhood.n.01\", \"has_part\", \"phallic_stage.n.01\"],\n    [\"childhood.n.01\", \"hypernym\", \"time_of_life.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"drive.v.13\",\n  \"triples\": [\n    [\"drive.v.13\", \"derivationally_related_form\", \"drive.n.08\"],\n    [\"drive.v.13\", \"derivationally_related_form\", \"drive.n.11\"],\n    [\"drive.v.13\", \"derivationally_related_form\", \"driver.n.01\"],\n    [\"drive.v.13\", \"derivationally_related_form\", \"driveway.n.01\"],\n    [\"drive.v.13\", \"hypernym\", \"work.v.02\"],\n    [\"drive.v.13\", \"verb_group\", \"drive.v.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"flacourtiaceae.n.01\",\n  \"triples\": [\n    [\"flacourtiaceae.n.01\", \"hypernym\", \"dilleniid_dicot_family.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"dovyalis.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"flacourtia.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"genus_idesia.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"genus_xylosma.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"hydnocarpus.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"kiggelaria.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"araneae.n.01\",\n  \"triples\": [\n    [\"araneae.n.01\", \"derivationally_related_form\", \"araneidal.a.01\"],\n    [\"araneae.n.01\", \"hypernym\", \"animal_order.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"argiopidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"ctenizidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"lycosidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"spider.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"theraphosidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"theridiidae.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"snip.v.02\",\n  \"triples\": [\n    [\"snip.v.02\", \"derivationally_related_form\", \"clip.n.05\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"clipper.n.03\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"crop.n.01\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"pruner.n.01\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"pruner.n.02\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"pruning.n.02\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"snip.n.01\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"trim.n.04\"],\n    [\"snip.v.02\", \"hypernym\", \"thin_out.v.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"euphorbia.n.01\",\n  \"triples\": [\n    [\"euphorbia.n.01\", \"hypernym\", \"rosid_dicot_genus.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"caper_spurge.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"crown_of_thorns.n.02\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"fire-on-the-mountain.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"japanese_poinsettia.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"poinsettia.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"snow-on-the-mountain.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"spurge.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"sun_spurge.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"wild_spurge.n.01\"]\n  ]\n}\n</demo>\n\nNow we want to test your knowledge structuring ability with this knowledge graph construction ability.\nLet's output a set of triples where the head entity is the target entity, referring to the demo examples above.\nPlease respond in JSON object format as below.\n<generation>\n{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"(predicted_relation)\", \"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"(predicted_relation)\", \"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_model\": \"mistralai/Mistral-7B-Instruct-v0.2\",\n  \"generation_level\": 1\n}\n</generation>"
-      }
-    ],
-    "generation_outputs": [
-      {
-        "model": "mistralai/Mistral-7B-Instruct-v0.2",
+        "type": "json_object",
+        "model": "mistralai/Mistral-7B-Instruct-v0.1",
         "output": {
-          "content": "Error code: 400 - {\"message\": \"mistralai/Mistral-7B-Instruct-v0.2 is not supported for JSON mode/function calling\", \"type_\": \"invalid_request_error\", \"code\": \"constraints_model\"}",
-          "finish_reason": "<class 'together.error.InvalidRequestError'>"
+          "role": "assistant",
+          "content": "{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"(predicted_relation)\",\"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"(predicted_relation)\",\"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}",
+          "finish_reason": "eos"
         },
-        "seconds": 0.228532,
-        "content_len": 178
-      }
-    ],
-    "generation_errors": []
-  },
-  {
-    "dataset_name": "WN18RR",
-    "entity": "judgment_on_the_merits.n.01",
-    "triples_by_human": [
-      [
-        "judgment_on_the_merits.n.01",
-        "hypernym",
-        "judgment.n.03"
-      ],
-      [
-        "judgment_on_the_merits.n.01",
-        "synset_domain_topic_of",
-        "law.n.01"
-      ]
-    ],
-    "generation_level": 1,
-    "generation_messages": [
-      {
-        "role": "system",
-        "content": "You will be provided with an target entity and demo examples, and your task is to generate knowledge triples."
+        "seconds": 4.091545,
+        "content_len": 280
       },
       {
-        "role": "user",
-        "content": "We want to compare how well a large-scale language model (LLM) internally structures and stores knowledge through a knowledge graph (KG).\nA knowledge graph typically represents knowledge in the form of a triple [\"head_entity\", \"relation\", \"tail_entity\"].\nWhere a relation is one of the following lists:\n[\n  \"also_see\",\n  \"derivationally_related_form\",\n  \"has_part\",\n  \"hypernym\",\n  \"instance_hypernym\",\n  \"member_meronym\",\n  \"member_of_domain_region\",\n  \"member_of_domain_usage\",\n  \"similar_to\",\n  \"synset_domain_topic_of\",\n  \"verb_group\"\n]\n\nHere are some demo examples of such a knowledge graph.\n<demo>\n{\n  \"entity\": \"hosanna.n.01\",\n  \"triples\": [\n    [\"hosanna.n.01\", \"hypernym\", \"cry.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"kobe.n.01\",\n  \"triples\": [\n    [\"kobe.n.01\", \"instance_hypernym\", \"city.n.01\"],\n    [\"kobe.n.01\", \"instance_hypernym\", \"port.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"alert.n.01\",\n  \"triples\": [\n    [\"alert.n.01\", \"derivationally_related_form\", \"alarm.v.02\"],\n    [\"alert.n.01\", \"derivationally_related_form\", \"alert.a.01\"],\n    [\"alert.n.01\", \"hypernym\", \"readiness.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"penstemon.n.01\",\n  \"triples\": [\n    [\"penstemon.n.01\", \"hypernym\", \"asterid_dicot_genus.n.01\"],\n    [\"penstemon.n.01\", \"member_meronym\", \"balloon_flower.n.01\"],\n    [\"penstemon.n.01\", \"member_meronym\", \"rock_penstemon.n.01\"],\n    [\"penstemon.n.01\", \"member_meronym\", \"shrubby_penstemon.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"childhood.n.01\",\n  \"triples\": [\n    [\"childhood.n.01\", \"derivationally_related_form\", \"child.n.01\"],\n    [\"childhood.n.01\", \"has_part\", \"anal_stage.n.01\"],\n    [\"childhood.n.01\", \"has_part\", \"latency_stage.n.01\"],\n    [\"childhood.n.01\", \"has_part\", \"phallic_stage.n.01\"],\n    [\"childhood.n.01\", \"hypernym\", \"time_of_life.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"drive.v.13\",\n  \"triples\": [\n    [\"drive.v.13\", \"derivationally_related_form\", \"drive.n.08\"],\n    [\"drive.v.13\", \"derivationally_related_form\", \"drive.n.11\"],\n    [\"drive.v.13\", \"derivationally_related_form\", \"driver.n.01\"],\n    [\"drive.v.13\", \"derivationally_related_form\", \"driveway.n.01\"],\n    [\"drive.v.13\", \"hypernym\", \"work.v.02\"],\n    [\"drive.v.13\", \"verb_group\", \"drive.v.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"flacourtiaceae.n.01\",\n  \"triples\": [\n    [\"flacourtiaceae.n.01\", \"hypernym\", \"dilleniid_dicot_family.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"dovyalis.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"flacourtia.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"genus_idesia.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"genus_xylosma.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"hydnocarpus.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"kiggelaria.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"araneae.n.01\",\n  \"triples\": [\n    [\"araneae.n.01\", \"derivationally_related_form\", \"araneidal.a.01\"],\n    [\"araneae.n.01\", \"hypernym\", \"animal_order.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"argiopidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"ctenizidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"lycosidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"spider.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"theraphosidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"theridiidae.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"snip.v.02\",\n  \"triples\": [\n    [\"snip.v.02\", \"derivationally_related_form\", \"clip.n.05\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"clipper.n.03\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"crop.n.01\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"pruner.n.01\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"pruner.n.02\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"pruning.n.02\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"snip.n.01\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"trim.n.04\"],\n    [\"snip.v.02\", \"hypernym\", \"thin_out.v.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"euphorbia.n.01\",\n  \"triples\": [\n    [\"euphorbia.n.01\", \"hypernym\", \"rosid_dicot_genus.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"caper_spurge.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"crown_of_thorns.n.02\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"fire-on-the-mountain.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"japanese_poinsettia.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"poinsettia.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"snow-on-the-mountain.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"spurge.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"sun_spurge.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"wild_spurge.n.01\"]\n  ]\n}\n</demo>\n\nNow we want to test your knowledge structuring ability with this knowledge graph construction ability.\nLet's output a set of triples where the head entity is the target entity, referring to the demo examples above.\nPlease respond in JSON object format as below.\n<generation>\n{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"(predicted_relation)\", \"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"(predicted_relation)\", \"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_model\": \"mistralai/Mistral-7B-Instruct-v0.3\",\n  \"generation_level\": 1\n}\n</generation>"
-      }
-    ],
-    "generation_outputs": [
-      {
-        "model": "mistralai/Mistral-7B-Instruct-v0.3",
-        "output": {
-          "content": "Error code: 400 - {\"message\": \"mistralai/Mistral-7B-Instruct-v0.3 is not supported for JSON mode/function calling\", \"type_\": \"invalid_request_error\", \"code\": \"constraints_model\"}",
-          "finish_reason": "<class 'together.error.InvalidRequestError'>"
-        },
-        "seconds": 0.281411,
-        "content_len": 178
-      }
-    ],
-    "generation_errors": []
-  },
-  {
-    "dataset_name": "WN18RR",
-    "entity": "judgment_on_the_merits.n.01",
-    "triples_by_human": [
-      [
-        "judgment_on_the_merits.n.01",
-        "hypernym",
-        "judgment.n.03"
-      ],
-      [
-        "judgment_on_the_merits.n.01",
-        "synset_domain_topic_of",
-        "law.n.01"
-      ]
-    ],
-    "generation_level": 1,
-    "generation_messages": [
-      {
-        "role": "system",
-        "content": "You will be provided with an target entity and demo examples, and your task is to generate knowledge triples."
-      },
-      {
-        "role": "user",
-        "content": "We want to compare how well a large-scale language model (LLM) internally structures and stores knowledge through a knowledge graph (KG).\nA knowledge graph typically represents knowledge in the form of a triple [\"head_entity\", \"relation\", \"tail_entity\"].\nWhere a relation is one of the following lists:\n[\n  \"also_see\",\n  \"derivationally_related_form\",\n  \"has_part\",\n  \"hypernym\",\n  \"instance_hypernym\",\n  \"member_meronym\",\n  \"member_of_domain_region\",\n  \"member_of_domain_usage\",\n  \"similar_to\",\n  \"synset_domain_topic_of\",\n  \"verb_group\"\n]\n\nHere are some demo examples of such a knowledge graph.\n<demo>\n{\n  \"entity\": \"hosanna.n.01\",\n  \"triples\": [\n    [\"hosanna.n.01\", \"hypernym\", \"cry.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"kobe.n.01\",\n  \"triples\": [\n    [\"kobe.n.01\", \"instance_hypernym\", \"city.n.01\"],\n    [\"kobe.n.01\", \"instance_hypernym\", \"port.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"alert.n.01\",\n  \"triples\": [\n    [\"alert.n.01\", \"derivationally_related_form\", \"alarm.v.02\"],\n    [\"alert.n.01\", \"derivationally_related_form\", \"alert.a.01\"],\n    [\"alert.n.01\", \"hypernym\", \"readiness.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"penstemon.n.01\",\n  \"triples\": [\n    [\"penstemon.n.01\", \"hypernym\", \"asterid_dicot_genus.n.01\"],\n    [\"penstemon.n.01\", \"member_meronym\", \"balloon_flower.n.01\"],\n    [\"penstemon.n.01\", \"member_meronym\", \"rock_penstemon.n.01\"],\n    [\"penstemon.n.01\", \"member_meronym\", \"shrubby_penstemon.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"childhood.n.01\",\n  \"triples\": [\n    [\"childhood.n.01\", \"derivationally_related_form\", \"child.n.01\"],\n    [\"childhood.n.01\", \"has_part\", \"anal_stage.n.01\"],\n    [\"childhood.n.01\", \"has_part\", \"latency_stage.n.01\"],\n    [\"childhood.n.01\", \"has_part\", \"phallic_stage.n.01\"],\n    [\"childhood.n.01\", \"hypernym\", \"time_of_life.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"drive.v.13\",\n  \"triples\": [\n    [\"drive.v.13\", \"derivationally_related_form\", \"drive.n.08\"],\n    [\"drive.v.13\", \"derivationally_related_form\", \"drive.n.11\"],\n    [\"drive.v.13\", \"derivationally_related_form\", \"driver.n.01\"],\n    [\"drive.v.13\", \"derivationally_related_form\", \"driveway.n.01\"],\n    [\"drive.v.13\", \"hypernym\", \"work.v.02\"],\n    [\"drive.v.13\", \"verb_group\", \"drive.v.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"flacourtiaceae.n.01\",\n  \"triples\": [\n    [\"flacourtiaceae.n.01\", \"hypernym\", \"dilleniid_dicot_family.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"dovyalis.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"flacourtia.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"genus_idesia.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"genus_xylosma.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"hydnocarpus.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"kiggelaria.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"araneae.n.01\",\n  \"triples\": [\n    [\"araneae.n.01\", \"derivationally_related_form\", \"araneidal.a.01\"],\n    [\"araneae.n.01\", \"hypernym\", \"animal_order.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"argiopidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"ctenizidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"lycosidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"spider.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"theraphosidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"theridiidae.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"snip.v.02\",\n  \"triples\": [\n    [\"snip.v.02\", \"derivationally_related_form\", \"clip.n.05\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"clipper.n.03\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"crop.n.01\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"pruner.n.01\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"pruner.n.02\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"pruning.n.02\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"snip.n.01\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"trim.n.04\"],\n    [\"snip.v.02\", \"hypernym\", \"thin_out.v.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"euphorbia.n.01\",\n  \"triples\": [\n    [\"euphorbia.n.01\", \"hypernym\", \"rosid_dicot_genus.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"caper_spurge.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"crown_of_thorns.n.02\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"fire-on-the-mountain.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"japanese_poinsettia.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"poinsettia.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"snow-on-the-mountain.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"spurge.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"sun_spurge.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"wild_spurge.n.01\"]\n  ]\n}\n</demo>\n\nNow we want to test your knowledge structuring ability with this knowledge graph construction ability.\nLet's output a set of triples where the head entity is the target entity, referring to the demo examples above.\nPlease respond in JSON object format as below.\n<generation>\n{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"(predicted_relation)\", \"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"(predicted_relation)\", \"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_model\": \"mistralai/Mixtral-8x7B-Instruct-v0.1\",\n  \"generation_level\": 1\n}\n</generation>"
-      }
-    ],
-    "generation_outputs": [
-      {
+        "type": "text",
         "model": "mistralai/Mixtral-8x7B-Instruct-v0.1",
         "output": {
           "role": "assistant",
-          "content": "\n{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"hypernym\", \"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"also_see\", \"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_model\": \"mistralai/Mixtral-8x7B-Instruct-v0.1\",\n  \"generation_level\": 1\n}",
+          "content": "{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"hypernym\", \"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"also_see\", \"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}",
           "finish_reason": "eos"
         },
-        "seconds": 2.46881,
-        "content_len": 321
-      }
-    ],
-    "generation_errors": []
-  },
-  {
-    "dataset_name": "WN18RR",
-    "entity": "judgment_on_the_merits.n.01",
-    "triples_by_human": [
-      [
-        "judgment_on_the_merits.n.01",
-        "hypernym",
-        "judgment.n.03"
-      ],
-      [
-        "judgment_on_the_merits.n.01",
-        "synset_domain_topic_of",
-        "law.n.01"
-      ]
-    ],
-    "generation_level": 1,
-    "generation_messages": [
-      {
-        "role": "system",
-        "content": "You will be provided with an target entity and demo examples, and your task is to generate knowledge triples."
+        "seconds": 0.921864,
+        "content_len": 258
       },
       {
-        "role": "user",
-        "content": "We want to compare how well a large-scale language model (LLM) internally structures and stores knowledge through a knowledge graph (KG).\nA knowledge graph typically represents knowledge in the form of a triple [\"head_entity\", \"relation\", \"tail_entity\"].\nWhere a relation is one of the following lists:\n[\n  \"also_see\",\n  \"derivationally_related_form\",\n  \"has_part\",\n  \"hypernym\",\n  \"instance_hypernym\",\n  \"member_meronym\",\n  \"member_of_domain_region\",\n  \"member_of_domain_usage\",\n  \"similar_to\",\n  \"synset_domain_topic_of\",\n  \"verb_group\"\n]\n\nHere are some demo examples of such a knowledge graph.\n<demo>\n{\n  \"entity\": \"hosanna.n.01\",\n  \"triples\": [\n    [\"hosanna.n.01\", \"hypernym\", \"cry.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"kobe.n.01\",\n  \"triples\": [\n    [\"kobe.n.01\", \"instance_hypernym\", \"city.n.01\"],\n    [\"kobe.n.01\", \"instance_hypernym\", \"port.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"alert.n.01\",\n  \"triples\": [\n    [\"alert.n.01\", \"derivationally_related_form\", \"alarm.v.02\"],\n    [\"alert.n.01\", \"derivationally_related_form\", \"alert.a.01\"],\n    [\"alert.n.01\", \"hypernym\", \"readiness.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"penstemon.n.01\",\n  \"triples\": [\n    [\"penstemon.n.01\", \"hypernym\", \"asterid_dicot_genus.n.01\"],\n    [\"penstemon.n.01\", \"member_meronym\", \"balloon_flower.n.01\"],\n    [\"penstemon.n.01\", \"member_meronym\", \"rock_penstemon.n.01\"],\n    [\"penstemon.n.01\", \"member_meronym\", \"shrubby_penstemon.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"childhood.n.01\",\n  \"triples\": [\n    [\"childhood.n.01\", \"derivationally_related_form\", \"child.n.01\"],\n    [\"childhood.n.01\", \"has_part\", \"anal_stage.n.01\"],\n    [\"childhood.n.01\", \"has_part\", \"latency_stage.n.01\"],\n    [\"childhood.n.01\", \"has_part\", \"phallic_stage.n.01\"],\n    [\"childhood.n.01\", \"hypernym\", \"time_of_life.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"drive.v.13\",\n  \"triples\": [\n    [\"drive.v.13\", \"derivationally_related_form\", \"drive.n.08\"],\n    [\"drive.v.13\", \"derivationally_related_form\", \"drive.n.11\"],\n    [\"drive.v.13\", \"derivationally_related_form\", \"driver.n.01\"],\n    [\"drive.v.13\", \"derivationally_related_form\", \"driveway.n.01\"],\n    [\"drive.v.13\", \"hypernym\", \"work.v.02\"],\n    [\"drive.v.13\", \"verb_group\", \"drive.v.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"flacourtiaceae.n.01\",\n  \"triples\": [\n    [\"flacourtiaceae.n.01\", \"hypernym\", \"dilleniid_dicot_family.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"dovyalis.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"flacourtia.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"genus_idesia.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"genus_xylosma.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"hydnocarpus.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"kiggelaria.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"araneae.n.01\",\n  \"triples\": [\n    [\"araneae.n.01\", \"derivationally_related_form\", \"araneidal.a.01\"],\n    [\"araneae.n.01\", \"hypernym\", \"animal_order.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"argiopidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"ctenizidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"lycosidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"spider.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"theraphosidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"theridiidae.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"snip.v.02\",\n  \"triples\": [\n    [\"snip.v.02\", \"derivationally_related_form\", \"clip.n.05\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"clipper.n.03\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"crop.n.01\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"pruner.n.01\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"pruner.n.02\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"pruning.n.02\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"snip.n.01\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"trim.n.04\"],\n    [\"snip.v.02\", \"hypernym\", \"thin_out.v.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"euphorbia.n.01\",\n  \"triples\": [\n    [\"euphorbia.n.01\", \"hypernym\", \"rosid_dicot_genus.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"caper_spurge.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"crown_of_thorns.n.02\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"fire-on-the-mountain.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"japanese_poinsettia.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"poinsettia.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"snow-on-the-mountain.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"spurge.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"sun_spurge.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"wild_spurge.n.01\"]\n  ]\n}\n</demo>\n\nNow we want to test your knowledge structuring ability with this knowledge graph construction ability.\nLet's output a set of triples where the head entity is the target entity, referring to the demo examples above.\nPlease respond in JSON object format as below.\n<generation>\n{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"(predicted_relation)\", \"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"(predicted_relation)\", \"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_model\": \"mistralai/Mixtral-8x22B-Instruct-v0.1\",\n  \"generation_level\": 1\n}\n</generation>"
-      }
-    ],
-    "generation_outputs": [
-      {
-        "model": "mistralai/Mixtral-8x22B-Instruct-v0.1",
-        "output": {
-          "content": "Error code: 400 - {\"message\": \"mistralai/Mixtral-8x22B-Instruct-v0.1 is not supported for JSON mode/function calling\", \"type_\": \"invalid_request_error\", \"code\": \"constraints_model\"}",
-          "finish_reason": "<class 'together.error.InvalidRequestError'>"
-        },
-        "seconds": 0.229438,
-        "content_len": 181
-      }
-    ],
-    "generation_errors": []
-  },
-  {
-    "dataset_name": "WN18RR",
-    "entity": "judgment_on_the_merits.n.01",
-    "triples_by_human": [
-      [
-        "judgment_on_the_merits.n.01",
-        "hypernym",
-        "judgment.n.03"
-      ],
-      [
-        "judgment_on_the_merits.n.01",
-        "synset_domain_topic_of",
-        "law.n.01"
-      ]
-    ],
-    "generation_level": 1,
-    "generation_messages": [
-      {
-        "role": "system",
-        "content": "You will be provided with an target entity and demo examples, and your task is to generate knowledge triples."
-      },
-      {
-        "role": "user",
-        "content": "We want to compare how well a large-scale language model (LLM) internally structures and stores knowledge through a knowledge graph (KG).\nA knowledge graph typically represents knowledge in the form of a triple [\"head_entity\", \"relation\", \"tail_entity\"].\nWhere a relation is one of the following lists:\n[\n  \"also_see\",\n  \"derivationally_related_form\",\n  \"has_part\",\n  \"hypernym\",\n  \"instance_hypernym\",\n  \"member_meronym\",\n  \"member_of_domain_region\",\n  \"member_of_domain_usage\",\n  \"similar_to\",\n  \"synset_domain_topic_of\",\n  \"verb_group\"\n]\n\nHere are some demo examples of such a knowledge graph.\n<demo>\n{\n  \"entity\": \"hosanna.n.01\",\n  \"triples\": [\n    [\"hosanna.n.01\", \"hypernym\", \"cry.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"kobe.n.01\",\n  \"triples\": [\n    [\"kobe.n.01\", \"instance_hypernym\", \"city.n.01\"],\n    [\"kobe.n.01\", \"instance_hypernym\", \"port.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"alert.n.01\",\n  \"triples\": [\n    [\"alert.n.01\", \"derivationally_related_form\", \"alarm.v.02\"],\n    [\"alert.n.01\", \"derivationally_related_form\", \"alert.a.01\"],\n    [\"alert.n.01\", \"hypernym\", \"readiness.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"penstemon.n.01\",\n  \"triples\": [\n    [\"penstemon.n.01\", \"hypernym\", \"asterid_dicot_genus.n.01\"],\n    [\"penstemon.n.01\", \"member_meronym\", \"balloon_flower.n.01\"],\n    [\"penstemon.n.01\", \"member_meronym\", \"rock_penstemon.n.01\"],\n    [\"penstemon.n.01\", \"member_meronym\", \"shrubby_penstemon.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"childhood.n.01\",\n  \"triples\": [\n    [\"childhood.n.01\", \"derivationally_related_form\", \"child.n.01\"],\n    [\"childhood.n.01\", \"has_part\", \"anal_stage.n.01\"],\n    [\"childhood.n.01\", \"has_part\", \"latency_stage.n.01\"],\n    [\"childhood.n.01\", \"has_part\", \"phallic_stage.n.01\"],\n    [\"childhood.n.01\", \"hypernym\", \"time_of_life.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"drive.v.13\",\n  \"triples\": [\n    [\"drive.v.13\", \"derivationally_related_form\", \"drive.n.08\"],\n    [\"drive.v.13\", \"derivationally_related_form\", \"drive.n.11\"],\n    [\"drive.v.13\", \"derivationally_related_form\", \"driver.n.01\"],\n    [\"drive.v.13\", \"derivationally_related_form\", \"driveway.n.01\"],\n    [\"drive.v.13\", \"hypernym\", \"work.v.02\"],\n    [\"drive.v.13\", \"verb_group\", \"drive.v.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"flacourtiaceae.n.01\",\n  \"triples\": [\n    [\"flacourtiaceae.n.01\", \"hypernym\", \"dilleniid_dicot_family.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"dovyalis.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"flacourtia.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"genus_idesia.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"genus_xylosma.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"hydnocarpus.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"kiggelaria.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"araneae.n.01\",\n  \"triples\": [\n    [\"araneae.n.01\", \"derivationally_related_form\", \"araneidal.a.01\"],\n    [\"araneae.n.01\", \"hypernym\", \"animal_order.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"argiopidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"ctenizidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"lycosidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"spider.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"theraphosidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"theridiidae.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"snip.v.02\",\n  \"triples\": [\n    [\"snip.v.02\", \"derivationally_related_form\", \"clip.n.05\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"clipper.n.03\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"crop.n.01\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"pruner.n.01\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"pruner.n.02\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"pruning.n.02\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"snip.n.01\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"trim.n.04\"],\n    [\"snip.v.02\", \"hypernym\", \"thin_out.v.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"euphorbia.n.01\",\n  \"triples\": [\n    [\"euphorbia.n.01\", \"hypernym\", \"rosid_dicot_genus.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"caper_spurge.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"crown_of_thorns.n.02\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"fire-on-the-mountain.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"japanese_poinsettia.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"poinsettia.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"snow-on-the-mountain.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"spurge.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"sun_spurge.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"wild_spurge.n.01\"]\n  ]\n}\n</demo>\n\nNow we want to test your knowledge structuring ability with this knowledge graph construction ability.\nLet's output a set of triples where the head entity is the target entity, referring to the demo examples above.\nPlease respond in JSON object format as below.\n<generation>\n{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"(predicted_relation)\", \"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"(predicted_relation)\", \"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_model\": \"upstage/SOLAR-10.7B-Instruct-v1.0\",\n  \"generation_level\": 1\n}\n</generation>"
-      }
-    ],
-    "generation_outputs": [
-      {
-        "model": "upstage/SOLAR-10.7B-Instruct-v1.0",
-        "output": {
-          "content": "Error code: 400 - {\"message\": \"upstage/SOLAR-10.7B-Instruct-v1.0 is not supported for JSON mode/function calling\", \"type_\": \"invalid_request_error\", \"code\": \"constraints_model\"}",
-          "finish_reason": "<class 'together.error.InvalidRequestError'>"
-        },
-        "seconds": 0.264032,
-        "content_len": 177
-      }
-    ],
-    "generation_errors": []
-  },
-  {
-    "dataset_name": "WN18RR",
-    "entity": "judgment_on_the_merits.n.01",
-    "triples_by_human": [
-      [
-        "judgment_on_the_merits.n.01",
-        "hypernym",
-        "judgment.n.03"
-      ],
-      [
-        "judgment_on_the_merits.n.01",
-        "synset_domain_topic_of",
-        "law.n.01"
-      ]
-    ],
-    "generation_level": 1,
-    "generation_messages": [
-      {
-        "role": "system",
-        "content": "You will be provided with an target entity and demo examples, and your task is to generate knowledge triples."
-      },
-      {
-        "role": "user",
-        "content": "We want to compare how well a large-scale language model (LLM) internally structures and stores knowledge through a knowledge graph (KG).\nA knowledge graph typically represents knowledge in the form of a triple [\"head_entity\", \"relation\", \"tail_entity\"].\nWhere a relation is one of the following lists:\n[\n  \"also_see\",\n  \"derivationally_related_form\",\n  \"has_part\",\n  \"hypernym\",\n  \"instance_hypernym\",\n  \"member_meronym\",\n  \"member_of_domain_region\",\n  \"member_of_domain_usage\",\n  \"similar_to\",\n  \"synset_domain_topic_of\",\n  \"verb_group\"\n]\n\nHere are some demo examples of such a knowledge graph.\n<demo>\n{\n  \"entity\": \"hosanna.n.01\",\n  \"triples\": [\n    [\"hosanna.n.01\", \"hypernym\", \"cry.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"kobe.n.01\",\n  \"triples\": [\n    [\"kobe.n.01\", \"instance_hypernym\", \"city.n.01\"],\n    [\"kobe.n.01\", \"instance_hypernym\", \"port.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"alert.n.01\",\n  \"triples\": [\n    [\"alert.n.01\", \"derivationally_related_form\", \"alarm.v.02\"],\n    [\"alert.n.01\", \"derivationally_related_form\", \"alert.a.01\"],\n    [\"alert.n.01\", \"hypernym\", \"readiness.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"penstemon.n.01\",\n  \"triples\": [\n    [\"penstemon.n.01\", \"hypernym\", \"asterid_dicot_genus.n.01\"],\n    [\"penstemon.n.01\", \"member_meronym\", \"balloon_flower.n.01\"],\n    [\"penstemon.n.01\", \"member_meronym\", \"rock_penstemon.n.01\"],\n    [\"penstemon.n.01\", \"member_meronym\", \"shrubby_penstemon.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"childhood.n.01\",\n  \"triples\": [\n    [\"childhood.n.01\", \"derivationally_related_form\", \"child.n.01\"],\n    [\"childhood.n.01\", \"has_part\", \"anal_stage.n.01\"],\n    [\"childhood.n.01\", \"has_part\", \"latency_stage.n.01\"],\n    [\"childhood.n.01\", \"has_part\", \"phallic_stage.n.01\"],\n    [\"childhood.n.01\", \"hypernym\", \"time_of_life.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"drive.v.13\",\n  \"triples\": [\n    [\"drive.v.13\", \"derivationally_related_form\", \"drive.n.08\"],\n    [\"drive.v.13\", \"derivationally_related_form\", \"drive.n.11\"],\n    [\"drive.v.13\", \"derivationally_related_form\", \"driver.n.01\"],\n    [\"drive.v.13\", \"derivationally_related_form\", \"driveway.n.01\"],\n    [\"drive.v.13\", \"hypernym\", \"work.v.02\"],\n    [\"drive.v.13\", \"verb_group\", \"drive.v.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"flacourtiaceae.n.01\",\n  \"triples\": [\n    [\"flacourtiaceae.n.01\", \"hypernym\", \"dilleniid_dicot_family.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"dovyalis.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"flacourtia.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"genus_idesia.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"genus_xylosma.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"hydnocarpus.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"kiggelaria.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"araneae.n.01\",\n  \"triples\": [\n    [\"araneae.n.01\", \"derivationally_related_form\", \"araneidal.a.01\"],\n    [\"araneae.n.01\", \"hypernym\", \"animal_order.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"argiopidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"ctenizidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"lycosidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"spider.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"theraphosidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"theridiidae.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"snip.v.02\",\n  \"triples\": [\n    [\"snip.v.02\", \"derivationally_related_form\", \"clip.n.05\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"clipper.n.03\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"crop.n.01\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"pruner.n.01\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"pruner.n.02\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"pruning.n.02\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"snip.n.01\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"trim.n.04\"],\n    [\"snip.v.02\", \"hypernym\", \"thin_out.v.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"euphorbia.n.01\",\n  \"triples\": [\n    [\"euphorbia.n.01\", \"hypernym\", \"rosid_dicot_genus.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"caper_spurge.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"crown_of_thorns.n.02\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"fire-on-the-mountain.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"japanese_poinsettia.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"poinsettia.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"snow-on-the-mountain.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"spurge.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"sun_spurge.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"wild_spurge.n.01\"]\n  ]\n}\n</demo>\n\nNow we want to test your knowledge structuring ability with this knowledge graph construction ability.\nLet's output a set of triples where the head entity is the target entity, referring to the demo examples above.\nPlease respond in JSON object format as below.\n<generation>\n{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"(predicted_relation)\", \"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"(predicted_relation)\", \"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_model\": \"gpt-4o-mini-2024-07-18\",\n  \"generation_level\": 1\n}\n</generation>"
-      }
-    ],
-    "generation_outputs": [
-      {
-        "model": "gpt-4o-mini-2024-07-18",
+        "type": "json_object",
+        "model": "mistralai/Mixtral-8x7B-Instruct-v0.1",
         "output": {
           "role": "assistant",
-          "content": "{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"hypernym\", \"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"has_part\", \"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_model\": \"gpt-4o-mini-2024-07-18\",\n  \"generation_level\": 1\n}",
-          "finish_reason": "stop"
+          "content": "{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"hypernym\", \"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"also_see\", \"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}",
+          "finish_reason": "eos"
         },
-        "seconds": 1.336874,
-        "content_len": 306
+        "seconds": 2.556589,
+        "content_len": 258
       }
     ],
     "generation_errors": []
   },
   {
     "dataset_name": "WN18RR",
-    "entity": "judgment_on_the_merits.n.01",
+    "entity": "shotgun.n.01",
     "triples_by_human": [
       [
-        "judgment_on_the_merits.n.01",
-        "hypernym",
-        "judgment.n.03"
+        "shotgun.n.01",
+        "has_part",
+        "pump_action.n.01"
       ],
       [
-        "judgment_on_the_merits.n.01",
-        "synset_domain_topic_of",
-        "law.n.01"
+        "shotgun.n.01",
+        "hypernym",
+        "firearm.n.01"
       ]
     ],
     "generation_level": 1,
     "generation_messages": [
       {
         "role": "system",
-        "content": "You will be provided with an target entity and demo examples, and your task is to generate knowledge triples."
+        "content": "You will be provided with an target entity and demo examples, and your task is to generate knowledge triples. Respond in JSON format without any other explanation."
       },
       {
         "role": "user",
-        "content": "We want to compare how well a large-scale language model (LLM) internally structures and stores knowledge through a knowledge graph (KG).\nA knowledge graph typically represents knowledge in the form of a triple [\"head_entity\", \"relation\", \"tail_entity\"].\nWhere a relation is one of the following lists:\n[\n  \"also_see\",\n  \"derivationally_related_form\",\n  \"has_part\",\n  \"hypernym\",\n  \"instance_hypernym\",\n  \"member_meronym\",\n  \"member_of_domain_region\",\n  \"member_of_domain_usage\",\n  \"similar_to\",\n  \"synset_domain_topic_of\",\n  \"verb_group\"\n]\n\nHere are some demo examples of such a knowledge graph.\n<demo>\n{\n  \"entity\": \"hosanna.n.01\",\n  \"triples\": [\n    [\"hosanna.n.01\", \"hypernym\", \"cry.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"kobe.n.01\",\n  \"triples\": [\n    [\"kobe.n.01\", \"instance_hypernym\", \"city.n.01\"],\n    [\"kobe.n.01\", \"instance_hypernym\", \"port.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"alert.n.01\",\n  \"triples\": [\n    [\"alert.n.01\", \"derivationally_related_form\", \"alarm.v.02\"],\n    [\"alert.n.01\", \"derivationally_related_form\", \"alert.a.01\"],\n    [\"alert.n.01\", \"hypernym\", \"readiness.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"penstemon.n.01\",\n  \"triples\": [\n    [\"penstemon.n.01\", \"hypernym\", \"asterid_dicot_genus.n.01\"],\n    [\"penstemon.n.01\", \"member_meronym\", \"balloon_flower.n.01\"],\n    [\"penstemon.n.01\", \"member_meronym\", \"rock_penstemon.n.01\"],\n    [\"penstemon.n.01\", \"member_meronym\", \"shrubby_penstemon.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"childhood.n.01\",\n  \"triples\": [\n    [\"childhood.n.01\", \"derivationally_related_form\", \"child.n.01\"],\n    [\"childhood.n.01\", \"has_part\", \"anal_stage.n.01\"],\n    [\"childhood.n.01\", \"has_part\", \"latency_stage.n.01\"],\n    [\"childhood.n.01\", \"has_part\", \"phallic_stage.n.01\"],\n    [\"childhood.n.01\", \"hypernym\", \"time_of_life.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"drive.v.13\",\n  \"triples\": [\n    [\"drive.v.13\", \"derivationally_related_form\", \"drive.n.08\"],\n    [\"drive.v.13\", \"derivationally_related_form\", \"drive.n.11\"],\n    [\"drive.v.13\", \"derivationally_related_form\", \"driver.n.01\"],\n    [\"drive.v.13\", \"derivationally_related_form\", \"driveway.n.01\"],\n    [\"drive.v.13\", \"hypernym\", \"work.v.02\"],\n    [\"drive.v.13\", \"verb_group\", \"drive.v.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"flacourtiaceae.n.01\",\n  \"triples\": [\n    [\"flacourtiaceae.n.01\", \"hypernym\", \"dilleniid_dicot_family.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"dovyalis.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"flacourtia.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"genus_idesia.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"genus_xylosma.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"hydnocarpus.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"kiggelaria.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"araneae.n.01\",\n  \"triples\": [\n    [\"araneae.n.01\", \"derivationally_related_form\", \"araneidal.a.01\"],\n    [\"araneae.n.01\", \"hypernym\", \"animal_order.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"argiopidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"ctenizidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"lycosidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"spider.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"theraphosidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"theridiidae.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"snip.v.02\",\n  \"triples\": [\n    [\"snip.v.02\", \"derivationally_related_form\", \"clip.n.05\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"clipper.n.03\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"crop.n.01\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"pruner.n.01\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"pruner.n.02\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"pruning.n.02\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"snip.n.01\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"trim.n.04\"],\n    [\"snip.v.02\", \"hypernym\", \"thin_out.v.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"euphorbia.n.01\",\n  \"triples\": [\n    [\"euphorbia.n.01\", \"hypernym\", \"rosid_dicot_genus.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"caper_spurge.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"crown_of_thorns.n.02\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"fire-on-the-mountain.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"japanese_poinsettia.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"poinsettia.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"snow-on-the-mountain.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"spurge.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"sun_spurge.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"wild_spurge.n.01\"]\n  ]\n}\n</demo>\n\nNow we want to test your knowledge structuring ability with this knowledge graph construction ability.\nLet's output a set of triples where the head entity is the target entity, referring to the demo examples above.\nPlease respond in JSON object format as below.\n<generation>\n{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"(predicted_relation)\", \"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"(predicted_relation)\", \"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_model\": \"gpt-4o-2024-08-06\",\n  \"generation_level\": 1\n}\n</generation>"
+        "content": "We want to compare how well a large-scale language model (LLM) internally structures and stores knowledge through a knowledge graph (KG).\nA knowledge graph typically represents knowledge in the form of a triple [\"head_entity\", \"relation\", \"tail_entity\"].\nWhere a relation is one of the following lists:\n[\n  \"also_see\",\n  \"derivationally_related_form\",\n  \"has_part\",\n  \"hypernym\",\n  \"instance_hypernym\",\n  \"member_meronym\",\n  \"member_of_domain_region\",\n  \"member_of_domain_usage\",\n  \"similar_to\",\n  \"synset_domain_topic_of\",\n  \"verb_group\"\n]\n\nHere are some demo examples of such a knowledge graph.\n<demo>\n{\n  \"entity\": \"hosanna.n.01\",\n  \"triples\": [\n    [\"hosanna.n.01\", \"hypernym\", \"cry.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"kobe.n.01\",\n  \"triples\": [\n    [\"kobe.n.01\", \"instance_hypernym\", \"city.n.01\"],\n    [\"kobe.n.01\", \"instance_hypernym\", \"port.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"alert.n.01\",\n  \"triples\": [\n    [\"alert.n.01\", \"derivationally_related_form\", \"alarm.v.02\"],\n    [\"alert.n.01\", \"derivationally_related_form\", \"alert.a.01\"],\n    [\"alert.n.01\", \"hypernym\", \"readiness.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"penstemon.n.01\",\n  \"triples\": [\n    [\"penstemon.n.01\", \"hypernym\", \"asterid_dicot_genus.n.01\"],\n    [\"penstemon.n.01\", \"member_meronym\", \"balloon_flower.n.01\"],\n    [\"penstemon.n.01\", \"member_meronym\", \"rock_penstemon.n.01\"],\n    [\"penstemon.n.01\", \"member_meronym\", \"shrubby_penstemon.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"childhood.n.01\",\n  \"triples\": [\n    [\"childhood.n.01\", \"derivationally_related_form\", \"child.n.01\"],\n    [\"childhood.n.01\", \"has_part\", \"anal_stage.n.01\"],\n    [\"childhood.n.01\", \"has_part\", \"latency_stage.n.01\"],\n    [\"childhood.n.01\", \"has_part\", \"phallic_stage.n.01\"],\n    [\"childhood.n.01\", \"hypernym\", \"time_of_life.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"drive.v.13\",\n  \"triples\": [\n    [\"drive.v.13\", \"derivationally_related_form\", \"drive.n.08\"],\n    [\"drive.v.13\", \"derivationally_related_form\", \"drive.n.11\"],\n    [\"drive.v.13\", \"derivationally_related_form\", \"driver.n.01\"],\n    [\"drive.v.13\", \"derivationally_related_form\", \"driveway.n.01\"],\n    [\"drive.v.13\", \"hypernym\", \"work.v.02\"],\n    [\"drive.v.13\", \"verb_group\", \"drive.v.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"flacourtiaceae.n.01\",\n  \"triples\": [\n    [\"flacourtiaceae.n.01\", \"hypernym\", \"dilleniid_dicot_family.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"dovyalis.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"flacourtia.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"genus_idesia.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"genus_xylosma.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"hydnocarpus.n.01\"],\n    [\"flacourtiaceae.n.01\", \"member_meronym\", \"kiggelaria.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"araneae.n.01\",\n  \"triples\": [\n    [\"araneae.n.01\", \"derivationally_related_form\", \"araneidal.a.01\"],\n    [\"araneae.n.01\", \"hypernym\", \"animal_order.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"argiopidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"ctenizidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"lycosidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"spider.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"theraphosidae.n.01\"],\n    [\"araneae.n.01\", \"member_meronym\", \"theridiidae.n.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"snip.v.02\",\n  \"triples\": [\n    [\"snip.v.02\", \"derivationally_related_form\", \"clip.n.05\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"clipper.n.03\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"crop.n.01\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"pruner.n.01\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"pruner.n.02\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"pruning.n.02\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"snip.n.01\"],\n    [\"snip.v.02\", \"derivationally_related_form\", \"trim.n.04\"],\n    [\"snip.v.02\", \"hypernym\", \"thin_out.v.01\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"euphorbia.n.01\",\n  \"triples\": [\n    [\"euphorbia.n.01\", \"hypernym\", \"rosid_dicot_genus.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"caper_spurge.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"crown_of_thorns.n.02\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"fire-on-the-mountain.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"japanese_poinsettia.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"poinsettia.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"snow-on-the-mountain.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"spurge.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"sun_spurge.n.01\"],\n    [\"euphorbia.n.01\", \"member_meronym\", \"wild_spurge.n.01\"]\n  ]\n}\n</demo>\n\nNow we want to test your knowledge structuring ability with this knowledge graph construction ability.\nLet's output a set of triples where the head entity is the target entity, referring to the demo examples above.\nPlease respond in JSON object format as below.\n<generation>\n{\n  \"target_entity\": \"shotgun.n.01\",\n  \"triples_by_model\": [\n    [\"shotgun.n.01\", \"(predicted_relation)\", \"pump_action.n.01\"],\n    [\"shotgun.n.01\", \"(predicted_relation)\", \"firearm.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}\n</generation>"
       }
     ],
     "generation_outputs": [
       {
-        "model": "gpt-4o-2024-08-06",
+        "type": "text",
+        "model": "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",
         "output": {
           "role": "assistant",
-          "content": "{\n  \"target_entity\": \"judgment_on_the_merits.n.01\",\n  \"triples_by_model\": [\n    [\"judgment_on_the_merits.n.01\", \"hypernym\", \"judgment.n.03\"],\n    [\"judgment_on_the_merits.n.01\", \"member_of_domain_usage\", \"law.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_model\": \"gpt-4o-2024-08-06\",\n  \"generation_level\": 1\n}",
+          "content": "{\n  \"target_entity\": \"shotgun.n.01\",\n  \"triples_by_model\": [\n    [\"shotgun.n.01\", \"hypernym\", \"firearm.n.01\"],\n    [\"shotgun.n.01\", \"has_part\", \"pump_action.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}",
+          "finish_reason": "eos"
+        },
+        "seconds": 0.611701,
+        "content_len": 220
+      },
+      {
+        "type": "json_object",
+        "model": "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",
+        "output": {
+          "role": "assistant",
+          "content": "{\n  \"target_entity\": \"shotgun.n.01\",\n  \"triples_by_model\": [\n    [\"shotgun.n.01\", \"hypernym\", \"firearm.n.01\"],\n    [\"shotgun.n.01\", \"also_see\", \"pump_action.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}",
           "finish_reason": "stop"
         },
-        "seconds": 3.894285,
-        "content_len": 315
+        "seconds": 0.900085,
+        "content_len": 220
+      },
+      {
+        "type": "text",
+        "model": "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
+        "output": {
+          "role": "assistant",
+          "content": "```\n{\n  \"target_entity\": \"shotgun.n.01\",\n  \"triples_by_model\": [\n    [\"shotgun.n.01\", \"hypernym\", \"firearm.n.01\"],\n    [\"shotgun.n.01\", \"has_part\", \"pump_action.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}\n```",
+          "finish_reason": "eos"
+        },
+        "seconds": 1.554969,
+        "content_len": 228
+      },
+      {
+        "type": "json_object",
+        "model": "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
+        "output": {
+          "role": "assistant",
+          "content": "{\n  \"target_entity\": \"shotgun.n.01\",\n  \"triples_by_model\": [\n    [\"shotgun.n.01\", \"hypernym\", \"firearm.n.01\"],\n    [\"shotgun.n.01\", \"has_part\", \"pump_action.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}",
+          "finish_reason": "stop"
+        },
+        "seconds": 2.455351,
+        "content_len": 220
+      },
+      {
+        "type": "text",
+        "model": "mistralai/Mistral-7B-Instruct-v0.1",
+        "output": {
+          "role": "assistant",
+          "content": "{\n\"target_entity\": \"shotgun.n.01\",\n\"triples_by_model\": [\n{\n\"relation\": \"derivationally_related_form\",\n\"tail_entity\": \"pump_action.n.01\"\n},\n{\n\"relation\": \"instance_hypernym\",\n\"tail_entity\": \"firearm.n.01\"\n}\n],\n\"number_of_triples\": 2,\n\"generation_level\": 1\n}",
+          "finish_reason": "eos"
+        },
+        "seconds": 1.228128,
+        "content_len": 256
+      },
+      {
+        "type": "json_object",
+        "model": "mistralai/Mistral-7B-Instruct-v0.1",
+        "output": {
+          "role": "assistant",
+          "content": "{\n  \"target_entity\": \"shotgun.n.01\",\n  \"triples_by_model\": [\n    [\"shotgun.n.01\", \"(predicted_relation)\",\"pump_action.n.01\"],\n    [\"shotgun.n.01\", \"(predicted_relation)\",\"firearm.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}",
+          "finish_reason": "eos"
+        },
+        "seconds": 3.477737,
+        "content_len": 242
+      },
+      {
+        "type": "text",
+        "model": "mistralai/Mixtral-8x7B-Instruct-v0.1",
+        "output": {
+          "role": "assistant",
+          "content": "{\n  \"target_entity\": \"shotgun.n.01\",\n  \"triples_by_model\": [\n    [\"shotgun.n.01\", \"hypernym\", \"firearm.n.01\"],\n    [\"shotgun.n.01\", \"has_part\", \"pump_action.n.01\"],\n    [\"shotgun.n.01\", \"instance_hypernym\", \"weapon.n.01\"]\n  ],\n  \"number_of_triples\": 3,\n  \"generation_level\": 1\n}",
+          "finish_reason": "eos"
+        },
+        "seconds": 0.937816,
+        "content_len": 278
+      },
+      {
+        "type": "json_object",
+        "model": "mistralai/Mixtral-8x7B-Instruct-v0.1",
+        "output": {
+          "role": "assistant",
+          "content": "{\n  \"target_entity\": \"shotgun.n.01\",\n  \"triples_by_model\": [\n    [\"shotgun.n.01\", \"hypernym\", \"firearm.n.01\"],\n    [\"shotgun.n.01\", \"has_part\", \"pump_action.n.01\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}",
+          "finish_reason": "eos"
+        },
+        "seconds": 2.643366,
+        "content_len": 220
       }
     ],
     "generation_errors": []

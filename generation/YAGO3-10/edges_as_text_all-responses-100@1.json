@@ -13,334 +13,224 @@
     "generation_messages": [
       {
         "role": "system",
-        "content": "You will be provided with an target entity and demo examples, and your task is to generate knowledge triples."
+        "content": "You will be provided with an target entity and demo examples, and your task is to generate knowledge triples. Respond in JSON format without any other explanation."
       },
       {
         "role": "user",
-        "content": "We want to compare how well a large-scale language model (LLM) internally structures and stores knowledge through a knowledge graph (KG).\nA knowledge graph typically represents knowledge in the form of a triple [\"head_entity\", \"relation\", \"tail_entity\"].\nWhere a relation is one of the following lists:\n[\n  \"actedIn\",\n  \"created\",\n  \"dealsWith\",\n  \"diedIn\",\n  \"directed\",\n  \"edited\",\n  \"exports\",\n  \"graduatedFrom\",\n  \"happenedIn\",\n  \"hasAcademicAdvisor\",\n  \"hasCapital\",\n  \"hasChild\",\n  \"hasCurrency\",\n  \"hasGender\",\n  \"hasMusicalRole\",\n  \"hasNeighbor\",\n  \"hasOfficialLanguage\",\n  \"hasWebsite\",\n  \"hasWonPrize\",\n  \"imports\",\n  \"influences\",\n  \"isAffiliatedTo\",\n  \"isCitizenOf\",\n  \"isConnectedTo\",\n  \"isInterestedIn\",\n  \"isKnownFor\",\n  \"isLeaderOf\",\n  \"isLocatedIn\",\n  \"isMarriedTo\",\n  \"isPoliticianOf\",\n  \"livesIn\",\n  \"owns\",\n  \"participatedIn\",\n  \"playsFor\",\n  \"wasBornIn\",\n  \"worksAt\",\n  \"wroteMusicFor\"\n]\n\nHere are some demo examples of such a knowledge graph.\n<demo>\n{\n  \"entity\": \"Pushing_Tin\",\n  \"triples\": [\n    [\"Pushing_Tin\", \"isLocatedIn\", \"United_States\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Gmina_Krościenko_nad_Dunajcem\",\n  \"triples\": [\n    [\"Gmina_Krościenko_nad_Dunajcem\", \"isLocatedIn\", \"Lesser_Poland_Voivodeship\"],\n    [\"Gmina_Krościenko_nad_Dunajcem\", \"isLocatedIn\", \"Nowy_Targ_County\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"North_London\",\n  \"triples\": [\n    [\"North_London\", \"isLocatedIn\", \"England\"],\n    [\"North_London\", \"isLocatedIn\", \"Greater_London\"],\n    [\"North_London\", \"isLocatedIn\", \"United_Kingdom\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Surprise,_Arizona\",\n  \"triples\": [\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"Arizona\"],\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"Maricopa_County,_Arizona\"],\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"Sonoran_Desert\"],\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"United_States\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Branford,_Connecticut\",\n  \"triples\": [\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"Connecticut\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"New_Haven,_Connecticut\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"New_Haven_County,_Connecticut\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"New_York_metropolitan_area\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"United_States\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Brian_Moore_(novelist)\",\n  \"triples\": [\n    [\"Brian_Moore_(novelist)\", \"created\", \"Black_Robe_(film)\"],\n    [\"Brian_Moore_(novelist)\", \"diedIn\", \"Malibu,_California\"],\n    [\"Brian_Moore_(novelist)\", \"hasGender\", \"male\"],\n    [\"Brian_Moore_(novelist)\", \"hasWonPrize\", \"Genie_Awards\"],\n    [\"Brian_Moore_(novelist)\", \"hasWonPrize\", \"James_Tait_Black_Memorial_Prize\"],\n    [\"Brian_Moore_(novelist)\", \"wasBornIn\", \"Belfast\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"William_Hanna\",\n  \"triples\": [\n    [\"William_Hanna\", \"created\", \"Hanna-Barbera\"],\n    [\"William_Hanna\", \"created\", \"Scooby-Doo!_in_Where's_My_Mummy?\"],\n    [\"William_Hanna\", \"directed\", \"The_Banana_Splits_in_Hocus_Pocus_Park\"],\n    [\"William_Hanna\", \"directed\", \"The_Man_Called_Flintstone\"],\n    [\"William_Hanna\", \"directed\", \"Yogi's_Ark_Lark\"],\n    [\"William_Hanna\", \"hasGender\", \"male\"],\n    [\"William_Hanna\", \"hasWonPrize\", \"Emmy_Award\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Shizuoka_Airport\",\n  \"triples\": [\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Christchurch_International_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Fukuoka_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Kagoshima_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Naha_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"New_Chitose_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Wuhan_Tianhe_International_Airport\"],\n    [\"Shizuoka_Airport\", \"isLocatedIn\", \"Makinohara,_Shizuoka\"],\n    [\"Shizuoka_Airport\", \"isLocatedIn\", \"Shimada,_Shizuoka\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Mackay_Airport\",\n  \"triples\": [\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Brisbane_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Cairns_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Gladstone_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Gold_Coast_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Melbourne_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Rockhampton_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Sydney_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Townsville_Airport\"],\n    [\"Mackay_Airport\", \"isLocatedIn\", \"Mackay,_Queensland\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Bert_Kalmar\",\n  \"triples\": [\n    [\"Bert_Kalmar\", \"created\", \"Animal_Crackers_(film)\"],\n    [\"Bert_Kalmar\", \"created\", \"Duck_Soup_(1933_film)\"],\n    [\"Bert_Kalmar\", \"created\", \"Everybody_Sing_(film)\"],\n    [\"Bert_Kalmar\", \"created\", \"Horse_Feathers\"],\n    [\"Bert_Kalmar\", \"created\", \"Top_Speed\"],\n    [\"Bert_Kalmar\", \"diedIn\", \"Los_Angeles\"],\n    [\"Bert_Kalmar\", \"hasGender\", \"male\"],\n    [\"Bert_Kalmar\", \"wasBornIn\", \"New_York_City\"],\n    [\"Bert_Kalmar\", \"wroteMusicFor\", \"Animal_Crackers_(film)\"],\n    [\"Bert_Kalmar\", \"wroteMusicFor\", \"Duck_Soup_(1933_film)\"]\n  ]\n}\n</demo>\n\nNow we want to test your knowledge structuring ability with this knowledge graph construction ability.\nLet's output a set of triples where the head entity is the target entity, referring to the demo examples above.\nPlease respond in JSON object format as below.\n<generation>\n{\n  \"target_entity\": \"Loei_Province\",\n  \"triples_by_model\": [\n    [\"Loei_Province\", \"(predicted_relation)\", \"Thailand\"]\n  ],\n  \"number_of_triples\": 1,\n  \"generation_model\": \"meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo\",\n  \"generation_level\": 1\n}\n</generation>"
+        "content": "We want to compare how well a large-scale language model (LLM) internally structures and stores knowledge through a knowledge graph (KG).\nA knowledge graph typically represents knowledge in the form of a triple [\"head_entity\", \"relation\", \"tail_entity\"].\nWhere a relation is one of the following lists:\n[\n  \"actedIn\",\n  \"created\",\n  \"dealsWith\",\n  \"diedIn\",\n  \"directed\",\n  \"edited\",\n  \"exports\",\n  \"graduatedFrom\",\n  \"happenedIn\",\n  \"hasAcademicAdvisor\",\n  \"hasCapital\",\n  \"hasChild\",\n  \"hasCurrency\",\n  \"hasGender\",\n  \"hasMusicalRole\",\n  \"hasNeighbor\",\n  \"hasOfficialLanguage\",\n  \"hasWebsite\",\n  \"hasWonPrize\",\n  \"imports\",\n  \"influences\",\n  \"isAffiliatedTo\",\n  \"isCitizenOf\",\n  \"isConnectedTo\",\n  \"isInterestedIn\",\n  \"isKnownFor\",\n  \"isLeaderOf\",\n  \"isLocatedIn\",\n  \"isMarriedTo\",\n  \"isPoliticianOf\",\n  \"livesIn\",\n  \"owns\",\n  \"participatedIn\",\n  \"playsFor\",\n  \"wasBornIn\",\n  \"worksAt\",\n  \"wroteMusicFor\"\n]\n\nHere are some demo examples of such a knowledge graph.\n<demo>\n{\n  \"entity\": \"Pushing_Tin\",\n  \"triples\": [\n    [\"Pushing_Tin\", \"isLocatedIn\", \"United_States\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Gmina_Krościenko_nad_Dunajcem\",\n  \"triples\": [\n    [\"Gmina_Krościenko_nad_Dunajcem\", \"isLocatedIn\", \"Lesser_Poland_Voivodeship\"],\n    [\"Gmina_Krościenko_nad_Dunajcem\", \"isLocatedIn\", \"Nowy_Targ_County\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"North_London\",\n  \"triples\": [\n    [\"North_London\", \"isLocatedIn\", \"England\"],\n    [\"North_London\", \"isLocatedIn\", \"Greater_London\"],\n    [\"North_London\", \"isLocatedIn\", \"United_Kingdom\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Surprise,_Arizona\",\n  \"triples\": [\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"Arizona\"],\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"Maricopa_County,_Arizona\"],\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"Sonoran_Desert\"],\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"United_States\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Branford,_Connecticut\",\n  \"triples\": [\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"Connecticut\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"New_Haven,_Connecticut\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"New_Haven_County,_Connecticut\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"New_York_metropolitan_area\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"United_States\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Brian_Moore_(novelist)\",\n  \"triples\": [\n    [\"Brian_Moore_(novelist)\", \"created\", \"Black_Robe_(film)\"],\n    [\"Brian_Moore_(novelist)\", \"diedIn\", \"Malibu,_California\"],\n    [\"Brian_Moore_(novelist)\", \"hasGender\", \"male\"],\n    [\"Brian_Moore_(novelist)\", \"hasWonPrize\", \"Genie_Awards\"],\n    [\"Brian_Moore_(novelist)\", \"hasWonPrize\", \"James_Tait_Black_Memorial_Prize\"],\n    [\"Brian_Moore_(novelist)\", \"wasBornIn\", \"Belfast\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"William_Hanna\",\n  \"triples\": [\n    [\"William_Hanna\", \"created\", \"Hanna-Barbera\"],\n    [\"William_Hanna\", \"created\", \"Scooby-Doo!_in_Where's_My_Mummy?\"],\n    [\"William_Hanna\", \"directed\", \"The_Banana_Splits_in_Hocus_Pocus_Park\"],\n    [\"William_Hanna\", \"directed\", \"The_Man_Called_Flintstone\"],\n    [\"William_Hanna\", \"directed\", \"Yogi's_Ark_Lark\"],\n    [\"William_Hanna\", \"hasGender\", \"male\"],\n    [\"William_Hanna\", \"hasWonPrize\", \"Emmy_Award\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Shizuoka_Airport\",\n  \"triples\": [\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Christchurch_International_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Fukuoka_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Kagoshima_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Naha_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"New_Chitose_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Wuhan_Tianhe_International_Airport\"],\n    [\"Shizuoka_Airport\", \"isLocatedIn\", \"Makinohara,_Shizuoka\"],\n    [\"Shizuoka_Airport\", \"isLocatedIn\", \"Shimada,_Shizuoka\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Mackay_Airport\",\n  \"triples\": [\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Brisbane_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Cairns_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Gladstone_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Gold_Coast_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Melbourne_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Rockhampton_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Sydney_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Townsville_Airport\"],\n    [\"Mackay_Airport\", \"isLocatedIn\", \"Mackay,_Queensland\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Bert_Kalmar\",\n  \"triples\": [\n    [\"Bert_Kalmar\", \"created\", \"Animal_Crackers_(film)\"],\n    [\"Bert_Kalmar\", \"created\", \"Duck_Soup_(1933_film)\"],\n    [\"Bert_Kalmar\", \"created\", \"Everybody_Sing_(film)\"],\n    [\"Bert_Kalmar\", \"created\", \"Horse_Feathers\"],\n    [\"Bert_Kalmar\", \"created\", \"Top_Speed\"],\n    [\"Bert_Kalmar\", \"diedIn\", \"Los_Angeles\"],\n    [\"Bert_Kalmar\", \"hasGender\", \"male\"],\n    [\"Bert_Kalmar\", \"wasBornIn\", \"New_York_City\"],\n    [\"Bert_Kalmar\", \"wroteMusicFor\", \"Animal_Crackers_(film)\"],\n    [\"Bert_Kalmar\", \"wroteMusicFor\", \"Duck_Soup_(1933_film)\"]\n  ]\n}\n</demo>\n\nNow we want to test your knowledge structuring ability with this knowledge graph construction ability.\nLet's output a set of triples where the head entity is the target entity, referring to the demo examples above.\nPlease respond in JSON object format as below.\n<generation>\n{\n  \"target_entity\": \"Loei_Province\",\n  \"triples_by_model\": [\n    [\"Loei_Province\", \"(predicted_relation)\", \"Thailand\"]\n  ],\n  \"number_of_triples\": 1,\n  \"generation_level\": 1\n}\n</generation>"
       }
     ],
     "generation_outputs": [
       {
+        "type": "text",
         "model": "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",
         "output": {
           "role": "assistant",
-          "content": "Based on the target entity \"Loei_Province\" and the provided knowledge graph construction ability, here is a generated JSON object:\n\n<generation>\n{\n  \"target_entity\": \"Loei_Province\",\n  \"triples_by_model\": [\n    [\"Loei_Province\", \"isLocatedIn\", \"Thailand\"]\n  ],\n  \"number_of_triples\": 1,\n  \"generation_model\": \"knowledge graph construction ability\",\n  \"generation_level\": 1\n}\n</generation>\n\nReasoning:\nGiven the knowledge graph structure and the provided demo examples, I inferred that \"Loei_Province\" is likely a geographic location. Therefore, I predicted the relation to be \"isLocatedIn\" and the tail entity to be \"Thailand\", which is a country that \"Loei_Province\" is likely located in.",
-          "finish_reason": "stop"
+          "content": "{\n  \"target_entity\": \"Loei_Province\",\n  \"triples_by_model\": [\n    [\"Loei_Province\", \"isLocatedIn\", \"Thailand\"]\n  ],\n  \"number_of_triples\": 1,\n  \"generation_level\": 1\n}",
+          "finish_reason": "eos"
         },
-        "seconds": 1.664193,
-        "content_len": 689
-      }
-    ],
-    "generation_errors": []
-  },
-  {
-    "dataset_name": "YAGO3-10",
-    "entity": "Loei_Province",
-    "triples_by_human": [
-      [
-        "Loei_Province",
-        "isLocatedIn",
-        "Thailand"
-      ]
-    ],
-    "generation_level": 1,
-    "generation_messages": [
-      {
-        "role": "system",
-        "content": "You will be provided with an target entity and demo examples, and your task is to generate knowledge triples."
+        "seconds": 0.750937,
+        "content_len": 167
       },
       {
-        "role": "user",
-        "content": "We want to compare how well a large-scale language model (LLM) internally structures and stores knowledge through a knowledge graph (KG).\nA knowledge graph typically represents knowledge in the form of a triple [\"head_entity\", \"relation\", \"tail_entity\"].\nWhere a relation is one of the following lists:\n[\n  \"actedIn\",\n  \"created\",\n  \"dealsWith\",\n  \"diedIn\",\n  \"directed\",\n  \"edited\",\n  \"exports\",\n  \"graduatedFrom\",\n  \"happenedIn\",\n  \"hasAcademicAdvisor\",\n  \"hasCapital\",\n  \"hasChild\",\n  \"hasCurrency\",\n  \"hasGender\",\n  \"hasMusicalRole\",\n  \"hasNeighbor\",\n  \"hasOfficialLanguage\",\n  \"hasWebsite\",\n  \"hasWonPrize\",\n  \"imports\",\n  \"influences\",\n  \"isAffiliatedTo\",\n  \"isCitizenOf\",\n  \"isConnectedTo\",\n  \"isInterestedIn\",\n  \"isKnownFor\",\n  \"isLeaderOf\",\n  \"isLocatedIn\",\n  \"isMarriedTo\",\n  \"isPoliticianOf\",\n  \"livesIn\",\n  \"owns\",\n  \"participatedIn\",\n  \"playsFor\",\n  \"wasBornIn\",\n  \"worksAt\",\n  \"wroteMusicFor\"\n]\n\nHere are some demo examples of such a knowledge graph.\n<demo>\n{\n  \"entity\": \"Pushing_Tin\",\n  \"triples\": [\n    [\"Pushing_Tin\", \"isLocatedIn\", \"United_States\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Gmina_Krościenko_nad_Dunajcem\",\n  \"triples\": [\n    [\"Gmina_Krościenko_nad_Dunajcem\", \"isLocatedIn\", \"Lesser_Poland_Voivodeship\"],\n    [\"Gmina_Krościenko_nad_Dunajcem\", \"isLocatedIn\", \"Nowy_Targ_County\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"North_London\",\n  \"triples\": [\n    [\"North_London\", \"isLocatedIn\", \"England\"],\n    [\"North_London\", \"isLocatedIn\", \"Greater_London\"],\n    [\"North_London\", \"isLocatedIn\", \"United_Kingdom\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Surprise,_Arizona\",\n  \"triples\": [\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"Arizona\"],\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"Maricopa_County,_Arizona\"],\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"Sonoran_Desert\"],\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"United_States\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Branford,_Connecticut\",\n  \"triples\": [\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"Connecticut\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"New_Haven,_Connecticut\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"New_Haven_County,_Connecticut\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"New_York_metropolitan_area\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"United_States\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Brian_Moore_(novelist)\",\n  \"triples\": [\n    [\"Brian_Moore_(novelist)\", \"created\", \"Black_Robe_(film)\"],\n    [\"Brian_Moore_(novelist)\", \"diedIn\", \"Malibu,_California\"],\n    [\"Brian_Moore_(novelist)\", \"hasGender\", \"male\"],\n    [\"Brian_Moore_(novelist)\", \"hasWonPrize\", \"Genie_Awards\"],\n    [\"Brian_Moore_(novelist)\", \"hasWonPrize\", \"James_Tait_Black_Memorial_Prize\"],\n    [\"Brian_Moore_(novelist)\", \"wasBornIn\", \"Belfast\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"William_Hanna\",\n  \"triples\": [\n    [\"William_Hanna\", \"created\", \"Hanna-Barbera\"],\n    [\"William_Hanna\", \"created\", \"Scooby-Doo!_in_Where's_My_Mummy?\"],\n    [\"William_Hanna\", \"directed\", \"The_Banana_Splits_in_Hocus_Pocus_Park\"],\n    [\"William_Hanna\", \"directed\", \"The_Man_Called_Flintstone\"],\n    [\"William_Hanna\", \"directed\", \"Yogi's_Ark_Lark\"],\n    [\"William_Hanna\", \"hasGender\", \"male\"],\n    [\"William_Hanna\", \"hasWonPrize\", \"Emmy_Award\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Shizuoka_Airport\",\n  \"triples\": [\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Christchurch_International_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Fukuoka_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Kagoshima_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Naha_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"New_Chitose_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Wuhan_Tianhe_International_Airport\"],\n    [\"Shizuoka_Airport\", \"isLocatedIn\", \"Makinohara,_Shizuoka\"],\n    [\"Shizuoka_Airport\", \"isLocatedIn\", \"Shimada,_Shizuoka\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Mackay_Airport\",\n  \"triples\": [\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Brisbane_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Cairns_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Gladstone_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Gold_Coast_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Melbourne_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Rockhampton_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Sydney_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Townsville_Airport\"],\n    [\"Mackay_Airport\", \"isLocatedIn\", \"Mackay,_Queensland\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Bert_Kalmar\",\n  \"triples\": [\n    [\"Bert_Kalmar\", \"created\", \"Animal_Crackers_(film)\"],\n    [\"Bert_Kalmar\", \"created\", \"Duck_Soup_(1933_film)\"],\n    [\"Bert_Kalmar\", \"created\", \"Everybody_Sing_(film)\"],\n    [\"Bert_Kalmar\", \"created\", \"Horse_Feathers\"],\n    [\"Bert_Kalmar\", \"created\", \"Top_Speed\"],\n    [\"Bert_Kalmar\", \"diedIn\", \"Los_Angeles\"],\n    [\"Bert_Kalmar\", \"hasGender\", \"male\"],\n    [\"Bert_Kalmar\", \"wasBornIn\", \"New_York_City\"],\n    [\"Bert_Kalmar\", \"wroteMusicFor\", \"Animal_Crackers_(film)\"],\n    [\"Bert_Kalmar\", \"wroteMusicFor\", \"Duck_Soup_(1933_film)\"]\n  ]\n}\n</demo>\n\nNow we want to test your knowledge structuring ability with this knowledge graph construction ability.\nLet's output a set of triples where the head entity is the target entity, referring to the demo examples above.\nPlease respond in JSON object format as below.\n<generation>\n{\n  \"target_entity\": \"Loei_Province\",\n  \"triples_by_model\": [\n    [\"Loei_Province\", \"(predicted_relation)\", \"Thailand\"]\n  ],\n  \"number_of_triples\": 1,\n  \"generation_model\": \"meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo\",\n  \"generation_level\": 1\n}\n</generation>"
-      }
-    ],
-    "generation_outputs": [
+        "type": "json_object",
+        "model": "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",
+        "output": {
+          "role": "assistant",
+          "content": "{\n  \"target_entity\": \"Loei_Province\",\n  \"triples_by_model\": [\n    [\"Loei_Province\", \"isLocatedIn\", \"Thailand\"]\n  ],\n  \"number_of_triples\": 1,\n  \"generation_level\": 1\n}",
+          "finish_reason": "stop"
+        },
+        "seconds": 0.869646,
+        "content_len": 167
+      },
       {
+        "type": "text",
         "model": "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
         "output": {
           "role": "assistant",
-          "content": "<generation>\n{\n  \"target_entity\": \"Loei_Province\",\n  \"triples_by_model\": [\n    [\"Loei_Province\", \"isLocatedIn\", \"Thailand\"]\n  ],\n  \"number_of_triples\": 1,\n  \"generation_model\": \"meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo\",\n  \"generation_level\": 1\n}\n</generation>\n\nI have generated a triple based on the given target entity and the knowledge graph construction rules. The relation I predicted is \"isLocatedIn\", which is a common relation used in the demo examples to indicate the location of a geographical entity.",
-          "finish_reason": "stop"
+          "content": "```\n{\n  \"target_entity\": \"Loei_Province\",\n  \"triples_by_model\": [\n    [\"Loei_Province\", \"isLocatedIn\", \"Thailand\"]\n  ],\n  \"number_of_triples\": 1,\n  \"generation_level\": 1\n}\n```",
+          "finish_reason": "eos"
         },
-        "seconds": 6.459266,
-        "content_len": 515
-      }
-    ],
-    "generation_errors": []
-  },
-  {
-    "dataset_name": "YAGO3-10",
-    "entity": "Loei_Province",
-    "triples_by_human": [
-      [
-        "Loei_Province",
-        "isLocatedIn",
-        "Thailand"
-      ]
-    ],
-    "generation_level": 1,
-    "generation_messages": [
-      {
-        "role": "system",
-        "content": "You will be provided with an target entity and demo examples, and your task is to generate knowledge triples."
+        "seconds": 1.225828,
+        "content_len": 175
       },
       {
-        "role": "user",
-        "content": "We want to compare how well a large-scale language model (LLM) internally structures and stores knowledge through a knowledge graph (KG).\nA knowledge graph typically represents knowledge in the form of a triple [\"head_entity\", \"relation\", \"tail_entity\"].\nWhere a relation is one of the following lists:\n[\n  \"actedIn\",\n  \"created\",\n  \"dealsWith\",\n  \"diedIn\",\n  \"directed\",\n  \"edited\",\n  \"exports\",\n  \"graduatedFrom\",\n  \"happenedIn\",\n  \"hasAcademicAdvisor\",\n  \"hasCapital\",\n  \"hasChild\",\n  \"hasCurrency\",\n  \"hasGender\",\n  \"hasMusicalRole\",\n  \"hasNeighbor\",\n  \"hasOfficialLanguage\",\n  \"hasWebsite\",\n  \"hasWonPrize\",\n  \"imports\",\n  \"influences\",\n  \"isAffiliatedTo\",\n  \"isCitizenOf\",\n  \"isConnectedTo\",\n  \"isInterestedIn\",\n  \"isKnownFor\",\n  \"isLeaderOf\",\n  \"isLocatedIn\",\n  \"isMarriedTo\",\n  \"isPoliticianOf\",\n  \"livesIn\",\n  \"owns\",\n  \"participatedIn\",\n  \"playsFor\",\n  \"wasBornIn\",\n  \"worksAt\",\n  \"wroteMusicFor\"\n]\n\nHere are some demo examples of such a knowledge graph.\n<demo>\n{\n  \"entity\": \"Pushing_Tin\",\n  \"triples\": [\n    [\"Pushing_Tin\", \"isLocatedIn\", \"United_States\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Gmina_Krościenko_nad_Dunajcem\",\n  \"triples\": [\n    [\"Gmina_Krościenko_nad_Dunajcem\", \"isLocatedIn\", \"Lesser_Poland_Voivodeship\"],\n    [\"Gmina_Krościenko_nad_Dunajcem\", \"isLocatedIn\", \"Nowy_Targ_County\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"North_London\",\n  \"triples\": [\n    [\"North_London\", \"isLocatedIn\", \"England\"],\n    [\"North_London\", \"isLocatedIn\", \"Greater_London\"],\n    [\"North_London\", \"isLocatedIn\", \"United_Kingdom\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Surprise,_Arizona\",\n  \"triples\": [\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"Arizona\"],\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"Maricopa_County,_Arizona\"],\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"Sonoran_Desert\"],\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"United_States\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Branford,_Connecticut\",\n  \"triples\": [\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"Connecticut\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"New_Haven,_Connecticut\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"New_Haven_County,_Connecticut\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"New_York_metropolitan_area\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"United_States\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Brian_Moore_(novelist)\",\n  \"triples\": [\n    [\"Brian_Moore_(novelist)\", \"created\", \"Black_Robe_(film)\"],\n    [\"Brian_Moore_(novelist)\", \"diedIn\", \"Malibu,_California\"],\n    [\"Brian_Moore_(novelist)\", \"hasGender\", \"male\"],\n    [\"Brian_Moore_(novelist)\", \"hasWonPrize\", \"Genie_Awards\"],\n    [\"Brian_Moore_(novelist)\", \"hasWonPrize\", \"James_Tait_Black_Memorial_Prize\"],\n    [\"Brian_Moore_(novelist)\", \"wasBornIn\", \"Belfast\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"William_Hanna\",\n  \"triples\": [\n    [\"William_Hanna\", \"created\", \"Hanna-Barbera\"],\n    [\"William_Hanna\", \"created\", \"Scooby-Doo!_in_Where's_My_Mummy?\"],\n    [\"William_Hanna\", \"directed\", \"The_Banana_Splits_in_Hocus_Pocus_Park\"],\n    [\"William_Hanna\", \"directed\", \"The_Man_Called_Flintstone\"],\n    [\"William_Hanna\", \"directed\", \"Yogi's_Ark_Lark\"],\n    [\"William_Hanna\", \"hasGender\", \"male\"],\n    [\"William_Hanna\", \"hasWonPrize\", \"Emmy_Award\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Shizuoka_Airport\",\n  \"triples\": [\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Christchurch_International_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Fukuoka_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Kagoshima_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Naha_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"New_Chitose_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Wuhan_Tianhe_International_Airport\"],\n    [\"Shizuoka_Airport\", \"isLocatedIn\", \"Makinohara,_Shizuoka\"],\n    [\"Shizuoka_Airport\", \"isLocatedIn\", \"Shimada,_Shizuoka\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Mackay_Airport\",\n  \"triples\": [\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Brisbane_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Cairns_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Gladstone_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Gold_Coast_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Melbourne_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Rockhampton_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Sydney_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Townsville_Airport\"],\n    [\"Mackay_Airport\", \"isLocatedIn\", \"Mackay,_Queensland\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Bert_Kalmar\",\n  \"triples\": [\n    [\"Bert_Kalmar\", \"created\", \"Animal_Crackers_(film)\"],\n    [\"Bert_Kalmar\", \"created\", \"Duck_Soup_(1933_film)\"],\n    [\"Bert_Kalmar\", \"created\", \"Everybody_Sing_(film)\"],\n    [\"Bert_Kalmar\", \"created\", \"Horse_Feathers\"],\n    [\"Bert_Kalmar\", \"created\", \"Top_Speed\"],\n    [\"Bert_Kalmar\", \"diedIn\", \"Los_Angeles\"],\n    [\"Bert_Kalmar\", \"hasGender\", \"male\"],\n    [\"Bert_Kalmar\", \"wasBornIn\", \"New_York_City\"],\n    [\"Bert_Kalmar\", \"wroteMusicFor\", \"Animal_Crackers_(film)\"],\n    [\"Bert_Kalmar\", \"wroteMusicFor\", \"Duck_Soup_(1933_film)\"]\n  ]\n}\n</demo>\n\nNow we want to test your knowledge structuring ability with this knowledge graph construction ability.\nLet's output a set of triples where the head entity is the target entity, referring to the demo examples above.\nPlease respond in JSON object format as below.\n<generation>\n{\n  \"target_entity\": \"Loei_Province\",\n  \"triples_by_model\": [\n    [\"Loei_Province\", \"(predicted_relation)\", \"Thailand\"]\n  ],\n  \"number_of_triples\": 1,\n  \"generation_model\": \"mistralai/Mistral-7B-Instruct-v0.1\",\n  \"generation_level\": 1\n}\n</generation>"
-      }
-    ],
-    "generation_outputs": [
+        "type": "json_object",
+        "model": "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
+        "output": {
+          "role": "assistant",
+          "content": "<generation>\n{\n  \"target_entity\": \"Loei_Province\",\n  \"triples_by_model\": [\n    [\"Loei_Province\", \"isLocatedIn\", \"Thailand\"],\n    [\"Loei_Province\", \"isLocatedIn\", \"Isan\"]\n  ],\n  \"number_of_triples\": 2,\n  \"generation_level\": 1\n}\n</generation>",
+          "finish_reason": "stop"
+        },
+        "seconds": 2.149081,
+        "content_len": 240
+      },
       {
+        "type": "text",
         "model": "mistralai/Mistral-7B-Instruct-v0.1",
         "output": {
           "role": "assistant",
-          "content": "\n\n\n\n\n\n\n\n\n\n\n\n{\n  \"target_entity\": \"Loei_Province\",\n  \"triples_by_model\": [\n    [\"Loei_Province\", \"isLocatedIn\", \"Thailand\"]\n  ],\n  \"number_of_triples\": 1,\n  \"generation_model\": \"mistralai/Mistral-7B-Instruct-v0.1\",\n  \"generation_level\": 1\n}\n\n\n\n\n\n\n\n\n\n\n\n",
+          "content": "{\n\"target\\_entity\": \"Loei\\_Province\",\n\"triples\\_by\\_model\": [\n{\n\"head\\_entity\": \"Loei\\_Province\",\n\"relation\": \"isLocatedIn\",\n\"tail\\_entity\": \"Thailand\"\n}\n]\n}",
           "finish_reason": "eos"
         },
-        "seconds": 2.813048,
-        "content_len": 251
-      }
-    ],
-    "generation_errors": []
-  },
-  {
-    "dataset_name": "YAGO3-10",
-    "entity": "Loei_Province",
-    "triples_by_human": [
-      [
-        "Loei_Province",
-        "isLocatedIn",
-        "Thailand"
-      ]
-    ],
-    "generation_level": 1,
-    "generation_messages": [
-      {
-        "role": "system",
-        "content": "You will be provided with an target entity and demo examples, and your task is to generate knowledge triples."
+        "seconds": 1.023119,
+        "content_len": 157
       },
       {
-        "role": "user",
-        "content": "We want to compare how well a large-scale language model (LLM) internally structures and stores knowledge through a knowledge graph (KG).\nA knowledge graph typically represents knowledge in the form of a triple [\"head_entity\", \"relation\", \"tail_entity\"].\nWhere a relation is one of the following lists:\n[\n  \"actedIn\",\n  \"created\",\n  \"dealsWith\",\n  \"diedIn\",\n  \"directed\",\n  \"edited\",\n  \"exports\",\n  \"graduatedFrom\",\n  \"happenedIn\",\n  \"hasAcademicAdvisor\",\n  \"hasCapital\",\n  \"hasChild\",\n  \"hasCurrency\",\n  \"hasGender\",\n  \"hasMusicalRole\",\n  \"hasNeighbor\",\n  \"hasOfficialLanguage\",\n  \"hasWebsite\",\n  \"hasWonPrize\",\n  \"imports\",\n  \"influences\",\n  \"isAffiliatedTo\",\n  \"isCitizenOf\",\n  \"isConnectedTo\",\n  \"isInterestedIn\",\n  \"isKnownFor\",\n  \"isLeaderOf\",\n  \"isLocatedIn\",\n  \"isMarriedTo\",\n  \"isPoliticianOf\",\n  \"livesIn\",\n  \"owns\",\n  \"participatedIn\",\n  \"playsFor\",\n  \"wasBornIn\",\n  \"worksAt\",\n  \"wroteMusicFor\"\n]\n\nHere are some demo examples of such a knowledge graph.\n<demo>\n{\n  \"entity\": \"Pushing_Tin\",\n  \"triples\": [\n    [\"Pushing_Tin\", \"isLocatedIn\", \"United_States\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Gmina_Krościenko_nad_Dunajcem\",\n  \"triples\": [\n    [\"Gmina_Krościenko_nad_Dunajcem\", \"isLocatedIn\", \"Lesser_Poland_Voivodeship\"],\n    [\"Gmina_Krościenko_nad_Dunajcem\", \"isLocatedIn\", \"Nowy_Targ_County\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"North_London\",\n  \"triples\": [\n    [\"North_London\", \"isLocatedIn\", \"England\"],\n    [\"North_London\", \"isLocatedIn\", \"Greater_London\"],\n    [\"North_London\", \"isLocatedIn\", \"United_Kingdom\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Surprise,_Arizona\",\n  \"triples\": [\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"Arizona\"],\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"Maricopa_County,_Arizona\"],\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"Sonoran_Desert\"],\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"United_States\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Branford,_Connecticut\",\n  \"triples\": [\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"Connecticut\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"New_Haven,_Connecticut\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"New_Haven_County,_Connecticut\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"New_York_metropolitan_area\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"United_States\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Brian_Moore_(novelist)\",\n  \"triples\": [\n    [\"Brian_Moore_(novelist)\", \"created\", \"Black_Robe_(film)\"],\n    [\"Brian_Moore_(novelist)\", \"diedIn\", \"Malibu,_California\"],\n    [\"Brian_Moore_(novelist)\", \"hasGender\", \"male\"],\n    [\"Brian_Moore_(novelist)\", \"hasWonPrize\", \"Genie_Awards\"],\n    [\"Brian_Moore_(novelist)\", \"hasWonPrize\", \"James_Tait_Black_Memorial_Prize\"],\n    [\"Brian_Moore_(novelist)\", \"wasBornIn\", \"Belfast\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"William_Hanna\",\n  \"triples\": [\n    [\"William_Hanna\", \"created\", \"Hanna-Barbera\"],\n    [\"William_Hanna\", \"created\", \"Scooby-Doo!_in_Where's_My_Mummy?\"],\n    [\"William_Hanna\", \"directed\", \"The_Banana_Splits_in_Hocus_Pocus_Park\"],\n    [\"William_Hanna\", \"directed\", \"The_Man_Called_Flintstone\"],\n    [\"William_Hanna\", \"directed\", \"Yogi's_Ark_Lark\"],\n    [\"William_Hanna\", \"hasGender\", \"male\"],\n    [\"William_Hanna\", \"hasWonPrize\", \"Emmy_Award\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Shizuoka_Airport\",\n  \"triples\": [\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Christchurch_International_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Fukuoka_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Kagoshima_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Naha_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"New_Chitose_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Wuhan_Tianhe_International_Airport\"],\n    [\"Shizuoka_Airport\", \"isLocatedIn\", \"Makinohara,_Shizuoka\"],\n    [\"Shizuoka_Airport\", \"isLocatedIn\", \"Shimada,_Shizuoka\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Mackay_Airport\",\n  \"triples\": [\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Brisbane_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Cairns_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Gladstone_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Gold_Coast_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Melbourne_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Rockhampton_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Sydney_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Townsville_Airport\"],\n    [\"Mackay_Airport\", \"isLocatedIn\", \"Mackay,_Queensland\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Bert_Kalmar\",\n  \"triples\": [\n    [\"Bert_Kalmar\", \"created\", \"Animal_Crackers_(film)\"],\n    [\"Bert_Kalmar\", \"created\", \"Duck_Soup_(1933_film)\"],\n    [\"Bert_Kalmar\", \"created\", \"Everybody_Sing_(film)\"],\n    [\"Bert_Kalmar\", \"created\", \"Horse_Feathers\"],\n    [\"Bert_Kalmar\", \"created\", \"Top_Speed\"],\n    [\"Bert_Kalmar\", \"diedIn\", \"Los_Angeles\"],\n    [\"Bert_Kalmar\", \"hasGender\", \"male\"],\n    [\"Bert_Kalmar\", \"wasBornIn\", \"New_York_City\"],\n    [\"Bert_Kalmar\", \"wroteMusicFor\", \"Animal_Crackers_(film)\"],\n    [\"Bert_Kalmar\", \"wroteMusicFor\", \"Duck_Soup_(1933_film)\"]\n  ]\n}\n</demo>\n\nNow we want to test your knowledge structuring ability with this knowledge graph construction ability.\nLet's output a set of triples where the head entity is the target entity, referring to the demo examples above.\nPlease respond in JSON object format as below.\n<generation>\n{\n  \"target_entity\": \"Loei_Province\",\n  \"triples_by_model\": [\n    [\"Loei_Province\", \"(predicted_relation)\", \"Thailand\"]\n  ],\n  \"number_of_triples\": 1,\n  \"generation_model\": \"mistralai/Mistral-7B-Instruct-v0.2\",\n  \"generation_level\": 1\n}\n</generation>"
-      }
-    ],
-    "generation_outputs": [
-      {
-        "model": "mistralai/Mistral-7B-Instruct-v0.2",
+        "type": "json_object",
+        "model": "mistralai/Mistral-7B-Instruct-v0.1",
         "output": {
-          "content": "Error code: 400 - {\"message\": \"mistralai/Mistral-7B-Instruct-v0.2 is not supported for JSON mode/function calling\", \"type_\": \"invalid_request_error\", \"code\": \"constraints_model\"}",
-          "finish_reason": "<class 'together.error.InvalidRequestError'>"
+          "role": "assistant",
+          "content": "{\n  \"target_entity\": \"Loei_Province\",\n  \"triples_by_model\": [\n    [\"Loei_Province\", \"isLocatedIn\", \"Thailand\"]\n  ],\n  \"number_of_triples\": 1,\n  \"generation_level\": 1\n}",
+          "finish_reason": "eos"
         },
-        "seconds": 0.226963,
-        "content_len": 178
-      }
-    ],
-    "generation_errors": []
-  },
-  {
-    "dataset_name": "YAGO3-10",
-    "entity": "Loei_Province",
-    "triples_by_human": [
-      [
-        "Loei_Province",
-        "isLocatedIn",
-        "Thailand"
-      ]
-    ],
-    "generation_level": 1,
-    "generation_messages": [
-      {
-        "role": "system",
-        "content": "You will be provided with an target entity and demo examples, and your task is to generate knowledge triples."
+        "seconds": 2.658727,
+        "content_len": 167
       },
       {
-        "role": "user",
-        "content": "We want to compare how well a large-scale language model (LLM) internally structures and stores knowledge through a knowledge graph (KG).\nA knowledge graph typically represents knowledge in the form of a triple [\"head_entity\", \"relation\", \"tail_entity\"].\nWhere a relation is one of the following lists:\n[\n  \"actedIn\",\n  \"created\",\n  \"dealsWith\",\n  \"diedIn\",\n  \"directed\",\n  \"edited\",\n  \"exports\",\n  \"graduatedFrom\",\n  \"happenedIn\",\n  \"hasAcademicAdvisor\",\n  \"hasCapital\",\n  \"hasChild\",\n  \"hasCurrency\",\n  \"hasGender\",\n  \"hasMusicalRole\",\n  \"hasNeighbor\",\n  \"hasOfficialLanguage\",\n  \"hasWebsite\",\n  \"hasWonPrize\",\n  \"imports\",\n  \"influences\",\n  \"isAffiliatedTo\",\n  \"isCitizenOf\",\n  \"isConnectedTo\",\n  \"isInterestedIn\",\n  \"isKnownFor\",\n  \"isLeaderOf\",\n  \"isLocatedIn\",\n  \"isMarriedTo\",\n  \"isPoliticianOf\",\n  \"livesIn\",\n  \"owns\",\n  \"participatedIn\",\n  \"playsFor\",\n  \"wasBornIn\",\n  \"worksAt\",\n  \"wroteMusicFor\"\n]\n\nHere are some demo examples of such a knowledge graph.\n<demo>\n{\n  \"entity\": \"Pushing_Tin\",\n  \"triples\": [\n    [\"Pushing_Tin\", \"isLocatedIn\", \"United_States\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Gmina_Krościenko_nad_Dunajcem\",\n  \"triples\": [\n    [\"Gmina_Krościenko_nad_Dunajcem\", \"isLocatedIn\", \"Lesser_Poland_Voivodeship\"],\n    [\"Gmina_Krościenko_nad_Dunajcem\", \"isLocatedIn\", \"Nowy_Targ_County\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"North_London\",\n  \"triples\": [\n    [\"North_London\", \"isLocatedIn\", \"England\"],\n    [\"North_London\", \"isLocatedIn\", \"Greater_London\"],\n    [\"North_London\", \"isLocatedIn\", \"United_Kingdom\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Surprise,_Arizona\",\n  \"triples\": [\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"Arizona\"],\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"Maricopa_County,_Arizona\"],\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"Sonoran_Desert\"],\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"United_States\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Branford,_Connecticut\",\n  \"triples\": [\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"Connecticut\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"New_Haven,_Connecticut\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"New_Haven_County,_Connecticut\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"New_York_metropolitan_area\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"United_States\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Brian_Moore_(novelist)\",\n  \"triples\": [\n    [\"Brian_Moore_(novelist)\", \"created\", \"Black_Robe_(film)\"],\n    [\"Brian_Moore_(novelist)\", \"diedIn\", \"Malibu,_California\"],\n    [\"Brian_Moore_(novelist)\", \"hasGender\", \"male\"],\n    [\"Brian_Moore_(novelist)\", \"hasWonPrize\", \"Genie_Awards\"],\n    [\"Brian_Moore_(novelist)\", \"hasWonPrize\", \"James_Tait_Black_Memorial_Prize\"],\n    [\"Brian_Moore_(novelist)\", \"wasBornIn\", \"Belfast\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"William_Hanna\",\n  \"triples\": [\n    [\"William_Hanna\", \"created\", \"Hanna-Barbera\"],\n    [\"William_Hanna\", \"created\", \"Scooby-Doo!_in_Where's_My_Mummy?\"],\n    [\"William_Hanna\", \"directed\", \"The_Banana_Splits_in_Hocus_Pocus_Park\"],\n    [\"William_Hanna\", \"directed\", \"The_Man_Called_Flintstone\"],\n    [\"William_Hanna\", \"directed\", \"Yogi's_Ark_Lark\"],\n    [\"William_Hanna\", \"hasGender\", \"male\"],\n    [\"William_Hanna\", \"hasWonPrize\", \"Emmy_Award\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Shizuoka_Airport\",\n  \"triples\": [\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Christchurch_International_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Fukuoka_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Kagoshima_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Naha_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"New_Chitose_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Wuhan_Tianhe_International_Airport\"],\n    [\"Shizuoka_Airport\", \"isLocatedIn\", \"Makinohara,_Shizuoka\"],\n    [\"Shizuoka_Airport\", \"isLocatedIn\", \"Shimada,_Shizuoka\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Mackay_Airport\",\n  \"triples\": [\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Brisbane_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Cairns_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Gladstone_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Gold_Coast_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Melbourne_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Rockhampton_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Sydney_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Townsville_Airport\"],\n    [\"Mackay_Airport\", \"isLocatedIn\", \"Mackay,_Queensland\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Bert_Kalmar\",\n  \"triples\": [\n    [\"Bert_Kalmar\", \"created\", \"Animal_Crackers_(film)\"],\n    [\"Bert_Kalmar\", \"created\", \"Duck_Soup_(1933_film)\"],\n    [\"Bert_Kalmar\", \"created\", \"Everybody_Sing_(film)\"],\n    [\"Bert_Kalmar\", \"created\", \"Horse_Feathers\"],\n    [\"Bert_Kalmar\", \"created\", \"Top_Speed\"],\n    [\"Bert_Kalmar\", \"diedIn\", \"Los_Angeles\"],\n    [\"Bert_Kalmar\", \"hasGender\", \"male\"],\n    [\"Bert_Kalmar\", \"wasBornIn\", \"New_York_City\"],\n    [\"Bert_Kalmar\", \"wroteMusicFor\", \"Animal_Crackers_(film)\"],\n    [\"Bert_Kalmar\", \"wroteMusicFor\", \"Duck_Soup_(1933_film)\"]\n  ]\n}\n</demo>\n\nNow we want to test your knowledge structuring ability with this knowledge graph construction ability.\nLet's output a set of triples where the head entity is the target entity, referring to the demo examples above.\nPlease respond in JSON object format as below.\n<generation>\n{\n  \"target_entity\": \"Loei_Province\",\n  \"triples_by_model\": [\n    [\"Loei_Province\", \"(predicted_relation)\", \"Thailand\"]\n  ],\n  \"number_of_triples\": 1,\n  \"generation_model\": \"mistralai/Mistral-7B-Instruct-v0.3\",\n  \"generation_level\": 1\n}\n</generation>"
-      }
-    ],
-    "generation_outputs": [
-      {
-        "model": "mistralai/Mistral-7B-Instruct-v0.3",
-        "output": {
-          "content": "Error code: 400 - {\"message\": \"mistralai/Mistral-7B-Instruct-v0.3 is not supported for JSON mode/function calling\", \"type_\": \"invalid_request_error\", \"code\": \"constraints_model\"}",
-          "finish_reason": "<class 'together.error.InvalidRequestError'>"
-        },
-        "seconds": 0.322314,
-        "content_len": 178
-      }
-    ],
-    "generation_errors": []
-  },
-  {
-    "dataset_name": "YAGO3-10",
-    "entity": "Loei_Province",
-    "triples_by_human": [
-      [
-        "Loei_Province",
-        "isLocatedIn",
-        "Thailand"
-      ]
-    ],
-    "generation_level": 1,
-    "generation_messages": [
-      {
-        "role": "system",
-        "content": "You will be provided with an target entity and demo examples, and your task is to generate knowledge triples."
-      },
-      {
-        "role": "user",
-        "content": "We want to compare how well a large-scale language model (LLM) internally structures and stores knowledge through a knowledge graph (KG).\nA knowledge graph typically represents knowledge in the form of a triple [\"head_entity\", \"relation\", \"tail_entity\"].\nWhere a relation is one of the following lists:\n[\n  \"actedIn\",\n  \"created\",\n  \"dealsWith\",\n  \"diedIn\",\n  \"directed\",\n  \"edited\",\n  \"exports\",\n  \"graduatedFrom\",\n  \"happenedIn\",\n  \"hasAcademicAdvisor\",\n  \"hasCapital\",\n  \"hasChild\",\n  \"hasCurrency\",\n  \"hasGender\",\n  \"hasMusicalRole\",\n  \"hasNeighbor\",\n  \"hasOfficialLanguage\",\n  \"hasWebsite\",\n  \"hasWonPrize\",\n  \"imports\",\n  \"influences\",\n  \"isAffiliatedTo\",\n  \"isCitizenOf\",\n  \"isConnectedTo\",\n  \"isInterestedIn\",\n  \"isKnownFor\",\n  \"isLeaderOf\",\n  \"isLocatedIn\",\n  \"isMarriedTo\",\n  \"isPoliticianOf\",\n  \"livesIn\",\n  \"owns\",\n  \"participatedIn\",\n  \"playsFor\",\n  \"wasBornIn\",\n  \"worksAt\",\n  \"wroteMusicFor\"\n]\n\nHere are some demo examples of such a knowledge graph.\n<demo>\n{\n  \"entity\": \"Pushing_Tin\",\n  \"triples\": [\n    [\"Pushing_Tin\", \"isLocatedIn\", \"United_States\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Gmina_Krościenko_nad_Dunajcem\",\n  \"triples\": [\n    [\"Gmina_Krościenko_nad_Dunajcem\", \"isLocatedIn\", \"Lesser_Poland_Voivodeship\"],\n    [\"Gmina_Krościenko_nad_Dunajcem\", \"isLocatedIn\", \"Nowy_Targ_County\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"North_London\",\n  \"triples\": [\n    [\"North_London\", \"isLocatedIn\", \"England\"],\n    [\"North_London\", \"isLocatedIn\", \"Greater_London\"],\n    [\"North_London\", \"isLocatedIn\", \"United_Kingdom\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Surprise,_Arizona\",\n  \"triples\": [\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"Arizona\"],\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"Maricopa_County,_Arizona\"],\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"Sonoran_Desert\"],\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"United_States\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Branford,_Connecticut\",\n  \"triples\": [\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"Connecticut\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"New_Haven,_Connecticut\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"New_Haven_County,_Connecticut\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"New_York_metropolitan_area\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"United_States\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Brian_Moore_(novelist)\",\n  \"triples\": [\n    [\"Brian_Moore_(novelist)\", \"created\", \"Black_Robe_(film)\"],\n    [\"Brian_Moore_(novelist)\", \"diedIn\", \"Malibu,_California\"],\n    [\"Brian_Moore_(novelist)\", \"hasGender\", \"male\"],\n    [\"Brian_Moore_(novelist)\", \"hasWonPrize\", \"Genie_Awards\"],\n    [\"Brian_Moore_(novelist)\", \"hasWonPrize\", \"James_Tait_Black_Memorial_Prize\"],\n    [\"Brian_Moore_(novelist)\", \"wasBornIn\", \"Belfast\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"William_Hanna\",\n  \"triples\": [\n    [\"William_Hanna\", \"created\", \"Hanna-Barbera\"],\n    [\"William_Hanna\", \"created\", \"Scooby-Doo!_in_Where's_My_Mummy?\"],\n    [\"William_Hanna\", \"directed\", \"The_Banana_Splits_in_Hocus_Pocus_Park\"],\n    [\"William_Hanna\", \"directed\", \"The_Man_Called_Flintstone\"],\n    [\"William_Hanna\", \"directed\", \"Yogi's_Ark_Lark\"],\n    [\"William_Hanna\", \"hasGender\", \"male\"],\n    [\"William_Hanna\", \"hasWonPrize\", \"Emmy_Award\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Shizuoka_Airport\",\n  \"triples\": [\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Christchurch_International_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Fukuoka_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Kagoshima_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Naha_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"New_Chitose_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Wuhan_Tianhe_International_Airport\"],\n    [\"Shizuoka_Airport\", \"isLocatedIn\", \"Makinohara,_Shizuoka\"],\n    [\"Shizuoka_Airport\", \"isLocatedIn\", \"Shimada,_Shizuoka\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Mackay_Airport\",\n  \"triples\": [\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Brisbane_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Cairns_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Gladstone_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Gold_Coast_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Melbourne_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Rockhampton_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Sydney_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Townsville_Airport\"],\n    [\"Mackay_Airport\", \"isLocatedIn\", \"Mackay,_Queensland\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Bert_Kalmar\",\n  \"triples\": [\n    [\"Bert_Kalmar\", \"created\", \"Animal_Crackers_(film)\"],\n    [\"Bert_Kalmar\", \"created\", \"Duck_Soup_(1933_film)\"],\n    [\"Bert_Kalmar\", \"created\", \"Everybody_Sing_(film)\"],\n    [\"Bert_Kalmar\", \"created\", \"Horse_Feathers\"],\n    [\"Bert_Kalmar\", \"created\", \"Top_Speed\"],\n    [\"Bert_Kalmar\", \"diedIn\", \"Los_Angeles\"],\n    [\"Bert_Kalmar\", \"hasGender\", \"male\"],\n    [\"Bert_Kalmar\", \"wasBornIn\", \"New_York_City\"],\n    [\"Bert_Kalmar\", \"wroteMusicFor\", \"Animal_Crackers_(film)\"],\n    [\"Bert_Kalmar\", \"wroteMusicFor\", \"Duck_Soup_(1933_film)\"]\n  ]\n}\n</demo>\n\nNow we want to test your knowledge structuring ability with this knowledge graph construction ability.\nLet's output a set of triples where the head entity is the target entity, referring to the demo examples above.\nPlease respond in JSON object format as below.\n<generation>\n{\n  \"target_entity\": \"Loei_Province\",\n  \"triples_by_model\": [\n    [\"Loei_Province\", \"(predicted_relation)\", \"Thailand\"]\n  ],\n  \"number_of_triples\": 1,\n  \"generation_model\": \"mistralai/Mixtral-8x7B-Instruct-v0.1\",\n  \"generation_level\": 1\n}\n</generation>"
-      }
-    ],
-    "generation_outputs": [
-      {
+        "type": "text",
         "model": "mistralai/Mixtral-8x7B-Instruct-v0.1",
         "output": {
           "role": "assistant",
-          "content": "{\n  \"target_entity\": \"Loei_Province\",\n  \"triples_by_model\": [\n    [\"Loei_Province\", \"isLocatedIn\", \"Thailand\"]\n  ],\n  \"number_of_triples\": 1,\n  \"generation_model\": \"mistralai/Mixtral-8x7B-Instruct-v0.1\",\n  \"generation_level\": 1\n}",
+          "content": "{\n  \"target_entity\": \"Loei_Province\",\n  \"triples_by_model\": [\n    [\"Loei_Province\", \"isLocatedIn\", \"Thailand\"]\n  ],\n  \"number_of_triples\": 1,\n  \"generation_level\": 1\n}",
           "finish_reason": "eos"
         },
-        "seconds": 2.147729,
-        "content_len": 229
-      }
-    ],
-    "generation_errors": []
-  },
-  {
-    "dataset_name": "YAGO3-10",
-    "entity": "Loei_Province",
-    "triples_by_human": [
-      [
-        "Loei_Province",
-        "isLocatedIn",
-        "Thailand"
-      ]
-    ],
-    "generation_level": 1,
-    "generation_messages": [
-      {
-        "role": "system",
-        "content": "You will be provided with an target entity and demo examples, and your task is to generate knowledge triples."
+        "seconds": 1.016528,
+        "content_len": 167
       },
       {
-        "role": "user",
-        "content": "We want to compare how well a large-scale language model (LLM) internally structures and stores knowledge through a knowledge graph (KG).\nA knowledge graph typically represents knowledge in the form of a triple [\"head_entity\", \"relation\", \"tail_entity\"].\nWhere a relation is one of the following lists:\n[\n  \"actedIn\",\n  \"created\",\n  \"dealsWith\",\n  \"diedIn\",\n  \"directed\",\n  \"edited\",\n  \"exports\",\n  \"graduatedFrom\",\n  \"happenedIn\",\n  \"hasAcademicAdvisor\",\n  \"hasCapital\",\n  \"hasChild\",\n  \"hasCurrency\",\n  \"hasGender\",\n  \"hasMusicalRole\",\n  \"hasNeighbor\",\n  \"hasOfficialLanguage\",\n  \"hasWebsite\",\n  \"hasWonPrize\",\n  \"imports\",\n  \"influences\",\n  \"isAffiliatedTo\",\n  \"isCitizenOf\",\n  \"isConnectedTo\",\n  \"isInterestedIn\",\n  \"isKnownFor\",\n  \"isLeaderOf\",\n  \"isLocatedIn\",\n  \"isMarriedTo\",\n  \"isPoliticianOf\",\n  \"livesIn\",\n  \"owns\",\n  \"participatedIn\",\n  \"playsFor\",\n  \"wasBornIn\",\n  \"worksAt\",\n  \"wroteMusicFor\"\n]\n\nHere are some demo examples of such a knowledge graph.\n<demo>\n{\n  \"entity\": \"Pushing_Tin\",\n  \"triples\": [\n    [\"Pushing_Tin\", \"isLocatedIn\", \"United_States\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Gmina_Krościenko_nad_Dunajcem\",\n  \"triples\": [\n    [\"Gmina_Krościenko_nad_Dunajcem\", \"isLocatedIn\", \"Lesser_Poland_Voivodeship\"],\n    [\"Gmina_Krościenko_nad_Dunajcem\", \"isLocatedIn\", \"Nowy_Targ_County\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"North_London\",\n  \"triples\": [\n    [\"North_London\", \"isLocatedIn\", \"England\"],\n    [\"North_London\", \"isLocatedIn\", \"Greater_London\"],\n    [\"North_London\", \"isLocatedIn\", \"United_Kingdom\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Surprise,_Arizona\",\n  \"triples\": [\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"Arizona\"],\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"Maricopa_County,_Arizona\"],\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"Sonoran_Desert\"],\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"United_States\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Branford,_Connecticut\",\n  \"triples\": [\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"Connecticut\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"New_Haven,_Connecticut\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"New_Haven_County,_Connecticut\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"New_York_metropolitan_area\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"United_States\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Brian_Moore_(novelist)\",\n  \"triples\": [\n    [\"Brian_Moore_(novelist)\", \"created\", \"Black_Robe_(film)\"],\n    [\"Brian_Moore_(novelist)\", \"diedIn\", \"Malibu,_California\"],\n    [\"Brian_Moore_(novelist)\", \"hasGender\", \"male\"],\n    [\"Brian_Moore_(novelist)\", \"hasWonPrize\", \"Genie_Awards\"],\n    [\"Brian_Moore_(novelist)\", \"hasWonPrize\", \"James_Tait_Black_Memorial_Prize\"],\n    [\"Brian_Moore_(novelist)\", \"wasBornIn\", \"Belfast\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"William_Hanna\",\n  \"triples\": [\n    [\"William_Hanna\", \"created\", \"Hanna-Barbera\"],\n    [\"William_Hanna\", \"created\", \"Scooby-Doo!_in_Where's_My_Mummy?\"],\n    [\"William_Hanna\", \"directed\", \"The_Banana_Splits_in_Hocus_Pocus_Park\"],\n    [\"William_Hanna\", \"directed\", \"The_Man_Called_Flintstone\"],\n    [\"William_Hanna\", \"directed\", \"Yogi's_Ark_Lark\"],\n    [\"William_Hanna\", \"hasGender\", \"male\"],\n    [\"William_Hanna\", \"hasWonPrize\", \"Emmy_Award\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Shizuoka_Airport\",\n  \"triples\": [\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Christchurch_International_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Fukuoka_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Kagoshima_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Naha_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"New_Chitose_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Wuhan_Tianhe_International_Airport\"],\n    [\"Shizuoka_Airport\", \"isLocatedIn\", \"Makinohara,_Shizuoka\"],\n    [\"Shizuoka_Airport\", \"isLocatedIn\", \"Shimada,_Shizuoka\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Mackay_Airport\",\n  \"triples\": [\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Brisbane_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Cairns_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Gladstone_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Gold_Coast_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Melbourne_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Rockhampton_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Sydney_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Townsville_Airport\"],\n    [\"Mackay_Airport\", \"isLocatedIn\", \"Mackay,_Queensland\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Bert_Kalmar\",\n  \"triples\": [\n    [\"Bert_Kalmar\", \"created\", \"Animal_Crackers_(film)\"],\n    [\"Bert_Kalmar\", \"created\", \"Duck_Soup_(1933_film)\"],\n    [\"Bert_Kalmar\", \"created\", \"Everybody_Sing_(film)\"],\n    [\"Bert_Kalmar\", \"created\", \"Horse_Feathers\"],\n    [\"Bert_Kalmar\", \"created\", \"Top_Speed\"],\n    [\"Bert_Kalmar\", \"diedIn\", \"Los_Angeles\"],\n    [\"Bert_Kalmar\", \"hasGender\", \"male\"],\n    [\"Bert_Kalmar\", \"wasBornIn\", \"New_York_City\"],\n    [\"Bert_Kalmar\", \"wroteMusicFor\", \"Animal_Crackers_(film)\"],\n    [\"Bert_Kalmar\", \"wroteMusicFor\", \"Duck_Soup_(1933_film)\"]\n  ]\n}\n</demo>\n\nNow we want to test your knowledge structuring ability with this knowledge graph construction ability.\nLet's output a set of triples where the head entity is the target entity, referring to the demo examples above.\nPlease respond in JSON object format as below.\n<generation>\n{\n  \"target_entity\": \"Loei_Province\",\n  \"triples_by_model\": [\n    [\"Loei_Province\", \"(predicted_relation)\", \"Thailand\"]\n  ],\n  \"number_of_triples\": 1,\n  \"generation_model\": \"mistralai/Mixtral-8x22B-Instruct-v0.1\",\n  \"generation_level\": 1\n}\n</generation>"
-      }
-    ],
-    "generation_outputs": [
-      {
-        "model": "mistralai/Mixtral-8x22B-Instruct-v0.1",
-        "output": {
-          "content": "Error code: 400 - {\"message\": \"mistralai/Mixtral-8x22B-Instruct-v0.1 is not supported for JSON mode/function calling\", \"type_\": \"invalid_request_error\", \"code\": \"constraints_model\"}",
-          "finish_reason": "<class 'together.error.InvalidRequestError'>"
-        },
-        "seconds": 0.304374,
-        "content_len": 181
-      }
-    ],
-    "generation_errors": []
-  },
-  {
-    "dataset_name": "YAGO3-10",
-    "entity": "Loei_Province",
-    "triples_by_human": [
-      [
-        "Loei_Province",
-        "isLocatedIn",
-        "Thailand"
-      ]
-    ],
-    "generation_level": 1,
-    "generation_messages": [
-      {
-        "role": "system",
-        "content": "You will be provided with an target entity and demo examples, and your task is to generate knowledge triples."
-      },
-      {
-        "role": "user",
-        "content": "We want to compare how well a large-scale language model (LLM) internally structures and stores knowledge through a knowledge graph (KG).\nA knowledge graph typically represents knowledge in the form of a triple [\"head_entity\", \"relation\", \"tail_entity\"].\nWhere a relation is one of the following lists:\n[\n  \"actedIn\",\n  \"created\",\n  \"dealsWith\",\n  \"diedIn\",\n  \"directed\",\n  \"edited\",\n  \"exports\",\n  \"graduatedFrom\",\n  \"happenedIn\",\n  \"hasAcademicAdvisor\",\n  \"hasCapital\",\n  \"hasChild\",\n  \"hasCurrency\",\n  \"hasGender\",\n  \"hasMusicalRole\",\n  \"hasNeighbor\",\n  \"hasOfficialLanguage\",\n  \"hasWebsite\",\n  \"hasWonPrize\",\n  \"imports\",\n  \"influences\",\n  \"isAffiliatedTo\",\n  \"isCitizenOf\",\n  \"isConnectedTo\",\n  \"isInterestedIn\",\n  \"isKnownFor\",\n  \"isLeaderOf\",\n  \"isLocatedIn\",\n  \"isMarriedTo\",\n  \"isPoliticianOf\",\n  \"livesIn\",\n  \"owns\",\n  \"participatedIn\",\n  \"playsFor\",\n  \"wasBornIn\",\n  \"worksAt\",\n  \"wroteMusicFor\"\n]\n\nHere are some demo examples of such a knowledge graph.\n<demo>\n{\n  \"entity\": \"Pushing_Tin\",\n  \"triples\": [\n    [\"Pushing_Tin\", \"isLocatedIn\", \"United_States\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Gmina_Krościenko_nad_Dunajcem\",\n  \"triples\": [\n    [\"Gmina_Krościenko_nad_Dunajcem\", \"isLocatedIn\", \"Lesser_Poland_Voivodeship\"],\n    [\"Gmina_Krościenko_nad_Dunajcem\", \"isLocatedIn\", \"Nowy_Targ_County\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"North_London\",\n  \"triples\": [\n    [\"North_London\", \"isLocatedIn\", \"England\"],\n    [\"North_London\", \"isLocatedIn\", \"Greater_London\"],\n    [\"North_London\", \"isLocatedIn\", \"United_Kingdom\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Surprise,_Arizona\",\n  \"triples\": [\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"Arizona\"],\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"Maricopa_County,_Arizona\"],\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"Sonoran_Desert\"],\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"United_States\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Branford,_Connecticut\",\n  \"triples\": [\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"Connecticut\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"New_Haven,_Connecticut\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"New_Haven_County,_Connecticut\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"New_York_metropolitan_area\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"United_States\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Brian_Moore_(novelist)\",\n  \"triples\": [\n    [\"Brian_Moore_(novelist)\", \"created\", \"Black_Robe_(film)\"],\n    [\"Brian_Moore_(novelist)\", \"diedIn\", \"Malibu,_California\"],\n    [\"Brian_Moore_(novelist)\", \"hasGender\", \"male\"],\n    [\"Brian_Moore_(novelist)\", \"hasWonPrize\", \"Genie_Awards\"],\n    [\"Brian_Moore_(novelist)\", \"hasWonPrize\", \"James_Tait_Black_Memorial_Prize\"],\n    [\"Brian_Moore_(novelist)\", \"wasBornIn\", \"Belfast\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"William_Hanna\",\n  \"triples\": [\n    [\"William_Hanna\", \"created\", \"Hanna-Barbera\"],\n    [\"William_Hanna\", \"created\", \"Scooby-Doo!_in_Where's_My_Mummy?\"],\n    [\"William_Hanna\", \"directed\", \"The_Banana_Splits_in_Hocus_Pocus_Park\"],\n    [\"William_Hanna\", \"directed\", \"The_Man_Called_Flintstone\"],\n    [\"William_Hanna\", \"directed\", \"Yogi's_Ark_Lark\"],\n    [\"William_Hanna\", \"hasGender\", \"male\"],\n    [\"William_Hanna\", \"hasWonPrize\", \"Emmy_Award\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Shizuoka_Airport\",\n  \"triples\": [\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Christchurch_International_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Fukuoka_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Kagoshima_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Naha_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"New_Chitose_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Wuhan_Tianhe_International_Airport\"],\n    [\"Shizuoka_Airport\", \"isLocatedIn\", \"Makinohara,_Shizuoka\"],\n    [\"Shizuoka_Airport\", \"isLocatedIn\", \"Shimada,_Shizuoka\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Mackay_Airport\",\n  \"triples\": [\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Brisbane_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Cairns_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Gladstone_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Gold_Coast_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Melbourne_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Rockhampton_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Sydney_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Townsville_Airport\"],\n    [\"Mackay_Airport\", \"isLocatedIn\", \"Mackay,_Queensland\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Bert_Kalmar\",\n  \"triples\": [\n    [\"Bert_Kalmar\", \"created\", \"Animal_Crackers_(film)\"],\n    [\"Bert_Kalmar\", \"created\", \"Duck_Soup_(1933_film)\"],\n    [\"Bert_Kalmar\", \"created\", \"Everybody_Sing_(film)\"],\n    [\"Bert_Kalmar\", \"created\", \"Horse_Feathers\"],\n    [\"Bert_Kalmar\", \"created\", \"Top_Speed\"],\n    [\"Bert_Kalmar\", \"diedIn\", \"Los_Angeles\"],\n    [\"Bert_Kalmar\", \"hasGender\", \"male\"],\n    [\"Bert_Kalmar\", \"wasBornIn\", \"New_York_City\"],\n    [\"Bert_Kalmar\", \"wroteMusicFor\", \"Animal_Crackers_(film)\"],\n    [\"Bert_Kalmar\", \"wroteMusicFor\", \"Duck_Soup_(1933_film)\"]\n  ]\n}\n</demo>\n\nNow we want to test your knowledge structuring ability with this knowledge graph construction ability.\nLet's output a set of triples where the head entity is the target entity, referring to the demo examples above.\nPlease respond in JSON object format as below.\n<generation>\n{\n  \"target_entity\": \"Loei_Province\",\n  \"triples_by_model\": [\n    [\"Loei_Province\", \"(predicted_relation)\", \"Thailand\"]\n  ],\n  \"number_of_triples\": 1,\n  \"generation_model\": \"upstage/SOLAR-10.7B-Instruct-v1.0\",\n  \"generation_level\": 1\n}\n</generation>"
-      }
-    ],
-    "generation_outputs": [
-      {
-        "model": "upstage/SOLAR-10.7B-Instruct-v1.0",
-        "output": {
-          "content": "Error code: 400 - {\"message\": \"upstage/SOLAR-10.7B-Instruct-v1.0 is not supported for JSON mode/function calling\", \"type_\": \"invalid_request_error\", \"code\": \"constraints_model\"}",
-          "finish_reason": "<class 'together.error.InvalidRequestError'>"
-        },
-        "seconds": 0.303914,
-        "content_len": 177
-      }
-    ],
-    "generation_errors": []
-  },
-  {
-    "dataset_name": "YAGO3-10",
-    "entity": "Loei_Province",
-    "triples_by_human": [
-      [
-        "Loei_Province",
-        "isLocatedIn",
-        "Thailand"
-      ]
-    ],
-    "generation_level": 1,
-    "generation_messages": [
-      {
-        "role": "system",
-        "content": "You will be provided with an target entity and demo examples, and your task is to generate knowledge triples."
-      },
-      {
-        "role": "user",
-        "content": "We want to compare how well a large-scale language model (LLM) internally structures and stores knowledge through a knowledge graph (KG).\nA knowledge graph typically represents knowledge in the form of a triple [\"head_entity\", \"relation\", \"tail_entity\"].\nWhere a relation is one of the following lists:\n[\n  \"actedIn\",\n  \"created\",\n  \"dealsWith\",\n  \"diedIn\",\n  \"directed\",\n  \"edited\",\n  \"exports\",\n  \"graduatedFrom\",\n  \"happenedIn\",\n  \"hasAcademicAdvisor\",\n  \"hasCapital\",\n  \"hasChild\",\n  \"hasCurrency\",\n  \"hasGender\",\n  \"hasMusicalRole\",\n  \"hasNeighbor\",\n  \"hasOfficialLanguage\",\n  \"hasWebsite\",\n  \"hasWonPrize\",\n  \"imports\",\n  \"influences\",\n  \"isAffiliatedTo\",\n  \"isCitizenOf\",\n  \"isConnectedTo\",\n  \"isInterestedIn\",\n  \"isKnownFor\",\n  \"isLeaderOf\",\n  \"isLocatedIn\",\n  \"isMarriedTo\",\n  \"isPoliticianOf\",\n  \"livesIn\",\n  \"owns\",\n  \"participatedIn\",\n  \"playsFor\",\n  \"wasBornIn\",\n  \"worksAt\",\n  \"wroteMusicFor\"\n]\n\nHere are some demo examples of such a knowledge graph.\n<demo>\n{\n  \"entity\": \"Pushing_Tin\",\n  \"triples\": [\n    [\"Pushing_Tin\", \"isLocatedIn\", \"United_States\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Gmina_Krościenko_nad_Dunajcem\",\n  \"triples\": [\n    [\"Gmina_Krościenko_nad_Dunajcem\", \"isLocatedIn\", \"Lesser_Poland_Voivodeship\"],\n    [\"Gmina_Krościenko_nad_Dunajcem\", \"isLocatedIn\", \"Nowy_Targ_County\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"North_London\",\n  \"triples\": [\n    [\"North_London\", \"isLocatedIn\", \"England\"],\n    [\"North_London\", \"isLocatedIn\", \"Greater_London\"],\n    [\"North_London\", \"isLocatedIn\", \"United_Kingdom\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Surprise,_Arizona\",\n  \"triples\": [\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"Arizona\"],\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"Maricopa_County,_Arizona\"],\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"Sonoran_Desert\"],\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"United_States\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Branford,_Connecticut\",\n  \"triples\": [\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"Connecticut\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"New_Haven,_Connecticut\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"New_Haven_County,_Connecticut\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"New_York_metropolitan_area\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"United_States\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Brian_Moore_(novelist)\",\n  \"triples\": [\n    [\"Brian_Moore_(novelist)\", \"created\", \"Black_Robe_(film)\"],\n    [\"Brian_Moore_(novelist)\", \"diedIn\", \"Malibu,_California\"],\n    [\"Brian_Moore_(novelist)\", \"hasGender\", \"male\"],\n    [\"Brian_Moore_(novelist)\", \"hasWonPrize\", \"Genie_Awards\"],\n    [\"Brian_Moore_(novelist)\", \"hasWonPrize\", \"James_Tait_Black_Memorial_Prize\"],\n    [\"Brian_Moore_(novelist)\", \"wasBornIn\", \"Belfast\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"William_Hanna\",\n  \"triples\": [\n    [\"William_Hanna\", \"created\", \"Hanna-Barbera\"],\n    [\"William_Hanna\", \"created\", \"Scooby-Doo!_in_Where's_My_Mummy?\"],\n    [\"William_Hanna\", \"directed\", \"The_Banana_Splits_in_Hocus_Pocus_Park\"],\n    [\"William_Hanna\", \"directed\", \"The_Man_Called_Flintstone\"],\n    [\"William_Hanna\", \"directed\", \"Yogi's_Ark_Lark\"],\n    [\"William_Hanna\", \"hasGender\", \"male\"],\n    [\"William_Hanna\", \"hasWonPrize\", \"Emmy_Award\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Shizuoka_Airport\",\n  \"triples\": [\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Christchurch_International_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Fukuoka_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Kagoshima_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Naha_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"New_Chitose_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Wuhan_Tianhe_International_Airport\"],\n    [\"Shizuoka_Airport\", \"isLocatedIn\", \"Makinohara,_Shizuoka\"],\n    [\"Shizuoka_Airport\", \"isLocatedIn\", \"Shimada,_Shizuoka\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Mackay_Airport\",\n  \"triples\": [\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Brisbane_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Cairns_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Gladstone_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Gold_Coast_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Melbourne_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Rockhampton_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Sydney_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Townsville_Airport\"],\n    [\"Mackay_Airport\", \"isLocatedIn\", \"Mackay,_Queensland\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Bert_Kalmar\",\n  \"triples\": [\n    [\"Bert_Kalmar\", \"created\", \"Animal_Crackers_(film)\"],\n    [\"Bert_Kalmar\", \"created\", \"Duck_Soup_(1933_film)\"],\n    [\"Bert_Kalmar\", \"created\", \"Everybody_Sing_(film)\"],\n    [\"Bert_Kalmar\", \"created\", \"Horse_Feathers\"],\n    [\"Bert_Kalmar\", \"created\", \"Top_Speed\"],\n    [\"Bert_Kalmar\", \"diedIn\", \"Los_Angeles\"],\n    [\"Bert_Kalmar\", \"hasGender\", \"male\"],\n    [\"Bert_Kalmar\", \"wasBornIn\", \"New_York_City\"],\n    [\"Bert_Kalmar\", \"wroteMusicFor\", \"Animal_Crackers_(film)\"],\n    [\"Bert_Kalmar\", \"wroteMusicFor\", \"Duck_Soup_(1933_film)\"]\n  ]\n}\n</demo>\n\nNow we want to test your knowledge structuring ability with this knowledge graph construction ability.\nLet's output a set of triples where the head entity is the target entity, referring to the demo examples above.\nPlease respond in JSON object format as below.\n<generation>\n{\n  \"target_entity\": \"Loei_Province\",\n  \"triples_by_model\": [\n    [\"Loei_Province\", \"(predicted_relation)\", \"Thailand\"]\n  ],\n  \"number_of_triples\": 1,\n  \"generation_model\": \"gpt-4o-mini-2024-07-18\",\n  \"generation_level\": 1\n}\n</generation>"
-      }
-    ],
-    "generation_outputs": [
-      {
-        "model": "gpt-4o-mini-2024-07-18",
+        "type": "json_object",
+        "model": "mistralai/Mixtral-8x7B-Instruct-v0.1",
         "output": {
           "role": "assistant",
-          "content": "{\n  \"target_entity\": \"Loei_Province\",\n  \"triples_by_model\": [\n    [\"Loei_Province\", \"isLocatedIn\", \"Thailand\"],\n    [\"Loei_Province\", \"hasCapital\", \"Loei\"],\n    [\"Loei_Province\", \"hasNeighbor\", \"Nong_Bua_Lamphu_Province\"],\n    [\"Loei_Province\", \"hasOfficialLanguage\", \"Thai\"]\n  ],\n  \"number_of_triples\": 4,\n  \"generation_model\": \"gpt-4o-mini-2024-07-18\",\n  \"generation_level\": 1\n}",
-          "finish_reason": "stop"
+          "content": "{\n  \"target_entity\": \"Loei_Province\",\n  \"triples_by_model\": [\n    [\"Loei_Province\", \"isLocatedIn\", \"Thailand\"]\n  ],\n  \"number_of_triples\": 1,\n  \"generation_level\": 1\n}",
+          "finish_reason": "eos"
         },
-        "seconds": 3.279945,
-        "content_len": 380
+        "seconds": 1.435114,
+        "content_len": 167
       }
     ],
     "generation_errors": []
   },
   {
     "dataset_name": "YAGO3-10",
-    "entity": "Loei_Province",
+    "entity": "Landsberg_(district)",
     "triples_by_human": [
       [
-        "Loei_Province",
+        "Landsberg_(district)",
         "isLocatedIn",
-        "Thailand"
+        "Bavaria"
+      ],
+      [
+        "Landsberg_(district)",
+        "isLocatedIn",
+        "Landsberg_am_Lech"
+      ],
+      [
+        "Landsberg_(district)",
+        "isLocatedIn",
+        "Upper_Bavaria"
       ]
     ],
     "generation_level": 1,
     "generation_messages": [
       {
         "role": "system",
-        "content": "You will be provided with an target entity and demo examples, and your task is to generate knowledge triples."
+        "content": "You will be provided with an target entity and demo examples, and your task is to generate knowledge triples. Respond in JSON format without any other explanation."
       },
       {
         "role": "user",
-        "content": "We want to compare how well a large-scale language model (LLM) internally structures and stores knowledge through a knowledge graph (KG).\nA knowledge graph typically represents knowledge in the form of a triple [\"head_entity\", \"relation\", \"tail_entity\"].\nWhere a relation is one of the following lists:\n[\n  \"actedIn\",\n  \"created\",\n  \"dealsWith\",\n  \"diedIn\",\n  \"directed\",\n  \"edited\",\n  \"exports\",\n  \"graduatedFrom\",\n  \"happenedIn\",\n  \"hasAcademicAdvisor\",\n  \"hasCapital\",\n  \"hasChild\",\n  \"hasCurrency\",\n  \"hasGender\",\n  \"hasMusicalRole\",\n  \"hasNeighbor\",\n  \"hasOfficialLanguage\",\n  \"hasWebsite\",\n  \"hasWonPrize\",\n  \"imports\",\n  \"influences\",\n  \"isAffiliatedTo\",\n  \"isCitizenOf\",\n  \"isConnectedTo\",\n  \"isInterestedIn\",\n  \"isKnownFor\",\n  \"isLeaderOf\",\n  \"isLocatedIn\",\n  \"isMarriedTo\",\n  \"isPoliticianOf\",\n  \"livesIn\",\n  \"owns\",\n  \"participatedIn\",\n  \"playsFor\",\n  \"wasBornIn\",\n  \"worksAt\",\n  \"wroteMusicFor\"\n]\n\nHere are some demo examples of such a knowledge graph.\n<demo>\n{\n  \"entity\": \"Pushing_Tin\",\n  \"triples\": [\n    [\"Pushing_Tin\", \"isLocatedIn\", \"United_States\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Gmina_Krościenko_nad_Dunajcem\",\n  \"triples\": [\n    [\"Gmina_Krościenko_nad_Dunajcem\", \"isLocatedIn\", \"Lesser_Poland_Voivodeship\"],\n    [\"Gmina_Krościenko_nad_Dunajcem\", \"isLocatedIn\", \"Nowy_Targ_County\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"North_London\",\n  \"triples\": [\n    [\"North_London\", \"isLocatedIn\", \"England\"],\n    [\"North_London\", \"isLocatedIn\", \"Greater_London\"],\n    [\"North_London\", \"isLocatedIn\", \"United_Kingdom\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Surprise,_Arizona\",\n  \"triples\": [\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"Arizona\"],\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"Maricopa_County,_Arizona\"],\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"Sonoran_Desert\"],\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"United_States\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Branford,_Connecticut\",\n  \"triples\": [\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"Connecticut\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"New_Haven,_Connecticut\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"New_Haven_County,_Connecticut\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"New_York_metropolitan_area\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"United_States\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Brian_Moore_(novelist)\",\n  \"triples\": [\n    [\"Brian_Moore_(novelist)\", \"created\", \"Black_Robe_(film)\"],\n    [\"Brian_Moore_(novelist)\", \"diedIn\", \"Malibu,_California\"],\n    [\"Brian_Moore_(novelist)\", \"hasGender\", \"male\"],\n    [\"Brian_Moore_(novelist)\", \"hasWonPrize\", \"Genie_Awards\"],\n    [\"Brian_Moore_(novelist)\", \"hasWonPrize\", \"James_Tait_Black_Memorial_Prize\"],\n    [\"Brian_Moore_(novelist)\", \"wasBornIn\", \"Belfast\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"William_Hanna\",\n  \"triples\": [\n    [\"William_Hanna\", \"created\", \"Hanna-Barbera\"],\n    [\"William_Hanna\", \"created\", \"Scooby-Doo!_in_Where's_My_Mummy?\"],\n    [\"William_Hanna\", \"directed\", \"The_Banana_Splits_in_Hocus_Pocus_Park\"],\n    [\"William_Hanna\", \"directed\", \"The_Man_Called_Flintstone\"],\n    [\"William_Hanna\", \"directed\", \"Yogi's_Ark_Lark\"],\n    [\"William_Hanna\", \"hasGender\", \"male\"],\n    [\"William_Hanna\", \"hasWonPrize\", \"Emmy_Award\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Shizuoka_Airport\",\n  \"triples\": [\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Christchurch_International_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Fukuoka_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Kagoshima_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Naha_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"New_Chitose_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Wuhan_Tianhe_International_Airport\"],\n    [\"Shizuoka_Airport\", \"isLocatedIn\", \"Makinohara,_Shizuoka\"],\n    [\"Shizuoka_Airport\", \"isLocatedIn\", \"Shimada,_Shizuoka\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Mackay_Airport\",\n  \"triples\": [\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Brisbane_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Cairns_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Gladstone_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Gold_Coast_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Melbourne_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Rockhampton_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Sydney_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Townsville_Airport\"],\n    [\"Mackay_Airport\", \"isLocatedIn\", \"Mackay,_Queensland\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Bert_Kalmar\",\n  \"triples\": [\n    [\"Bert_Kalmar\", \"created\", \"Animal_Crackers_(film)\"],\n    [\"Bert_Kalmar\", \"created\", \"Duck_Soup_(1933_film)\"],\n    [\"Bert_Kalmar\", \"created\", \"Everybody_Sing_(film)\"],\n    [\"Bert_Kalmar\", \"created\", \"Horse_Feathers\"],\n    [\"Bert_Kalmar\", \"created\", \"Top_Speed\"],\n    [\"Bert_Kalmar\", \"diedIn\", \"Los_Angeles\"],\n    [\"Bert_Kalmar\", \"hasGender\", \"male\"],\n    [\"Bert_Kalmar\", \"wasBornIn\", \"New_York_City\"],\n    [\"Bert_Kalmar\", \"wroteMusicFor\", \"Animal_Crackers_(film)\"],\n    [\"Bert_Kalmar\", \"wroteMusicFor\", \"Duck_Soup_(1933_film)\"]\n  ]\n}\n</demo>\n\nNow we want to test your knowledge structuring ability with this knowledge graph construction ability.\nLet's output a set of triples where the head entity is the target entity, referring to the demo examples above.\nPlease respond in JSON object format as below.\n<generation>\n{\n  \"target_entity\": \"Loei_Province\",\n  \"triples_by_model\": [\n    [\"Loei_Province\", \"(predicted_relation)\", \"Thailand\"]\n  ],\n  \"number_of_triples\": 1,\n  \"generation_model\": \"gpt-4o-2024-08-06\",\n  \"generation_level\": 1\n}\n</generation>"
+        "content": "We want to compare how well a large-scale language model (LLM) internally structures and stores knowledge through a knowledge graph (KG).\nA knowledge graph typically represents knowledge in the form of a triple [\"head_entity\", \"relation\", \"tail_entity\"].\nWhere a relation is one of the following lists:\n[\n  \"actedIn\",\n  \"created\",\n  \"dealsWith\",\n  \"diedIn\",\n  \"directed\",\n  \"edited\",\n  \"exports\",\n  \"graduatedFrom\",\n  \"happenedIn\",\n  \"hasAcademicAdvisor\",\n  \"hasCapital\",\n  \"hasChild\",\n  \"hasCurrency\",\n  \"hasGender\",\n  \"hasMusicalRole\",\n  \"hasNeighbor\",\n  \"hasOfficialLanguage\",\n  \"hasWebsite\",\n  \"hasWonPrize\",\n  \"imports\",\n  \"influences\",\n  \"isAffiliatedTo\",\n  \"isCitizenOf\",\n  \"isConnectedTo\",\n  \"isInterestedIn\",\n  \"isKnownFor\",\n  \"isLeaderOf\",\n  \"isLocatedIn\",\n  \"isMarriedTo\",\n  \"isPoliticianOf\",\n  \"livesIn\",\n  \"owns\",\n  \"participatedIn\",\n  \"playsFor\",\n  \"wasBornIn\",\n  \"worksAt\",\n  \"wroteMusicFor\"\n]\n\nHere are some demo examples of such a knowledge graph.\n<demo>\n{\n  \"entity\": \"Pushing_Tin\",\n  \"triples\": [\n    [\"Pushing_Tin\", \"isLocatedIn\", \"United_States\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Gmina_Krościenko_nad_Dunajcem\",\n  \"triples\": [\n    [\"Gmina_Krościenko_nad_Dunajcem\", \"isLocatedIn\", \"Lesser_Poland_Voivodeship\"],\n    [\"Gmina_Krościenko_nad_Dunajcem\", \"isLocatedIn\", \"Nowy_Targ_County\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"North_London\",\n  \"triples\": [\n    [\"North_London\", \"isLocatedIn\", \"England\"],\n    [\"North_London\", \"isLocatedIn\", \"Greater_London\"],\n    [\"North_London\", \"isLocatedIn\", \"United_Kingdom\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Surprise,_Arizona\",\n  \"triples\": [\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"Arizona\"],\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"Maricopa_County,_Arizona\"],\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"Sonoran_Desert\"],\n    [\"Surprise,_Arizona\", \"isLocatedIn\", \"United_States\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Branford,_Connecticut\",\n  \"triples\": [\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"Connecticut\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"New_Haven,_Connecticut\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"New_Haven_County,_Connecticut\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"New_York_metropolitan_area\"],\n    [\"Branford,_Connecticut\", \"isLocatedIn\", \"United_States\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Brian_Moore_(novelist)\",\n  \"triples\": [\n    [\"Brian_Moore_(novelist)\", \"created\", \"Black_Robe_(film)\"],\n    [\"Brian_Moore_(novelist)\", \"diedIn\", \"Malibu,_California\"],\n    [\"Brian_Moore_(novelist)\", \"hasGender\", \"male\"],\n    [\"Brian_Moore_(novelist)\", \"hasWonPrize\", \"Genie_Awards\"],\n    [\"Brian_Moore_(novelist)\", \"hasWonPrize\", \"James_Tait_Black_Memorial_Prize\"],\n    [\"Brian_Moore_(novelist)\", \"wasBornIn\", \"Belfast\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"William_Hanna\",\n  \"triples\": [\n    [\"William_Hanna\", \"created\", \"Hanna-Barbera\"],\n    [\"William_Hanna\", \"created\", \"Scooby-Doo!_in_Where's_My_Mummy?\"],\n    [\"William_Hanna\", \"directed\", \"The_Banana_Splits_in_Hocus_Pocus_Park\"],\n    [\"William_Hanna\", \"directed\", \"The_Man_Called_Flintstone\"],\n    [\"William_Hanna\", \"directed\", \"Yogi's_Ark_Lark\"],\n    [\"William_Hanna\", \"hasGender\", \"male\"],\n    [\"William_Hanna\", \"hasWonPrize\", \"Emmy_Award\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Shizuoka_Airport\",\n  \"triples\": [\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Christchurch_International_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Fukuoka_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Kagoshima_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Naha_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"New_Chitose_Airport\"],\n    [\"Shizuoka_Airport\", \"isConnectedTo\", \"Wuhan_Tianhe_International_Airport\"],\n    [\"Shizuoka_Airport\", \"isLocatedIn\", \"Makinohara,_Shizuoka\"],\n    [\"Shizuoka_Airport\", \"isLocatedIn\", \"Shimada,_Shizuoka\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Mackay_Airport\",\n  \"triples\": [\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Brisbane_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Cairns_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Gladstone_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Gold_Coast_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Melbourne_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Rockhampton_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Sydney_Airport\"],\n    [\"Mackay_Airport\", \"isConnectedTo\", \"Townsville_Airport\"],\n    [\"Mackay_Airport\", \"isLocatedIn\", \"Mackay,_Queensland\"]\n  ]\n}\n</demo>\n\n<demo>\n{\n  \"entity\": \"Bert_Kalmar\",\n  \"triples\": [\n    [\"Bert_Kalmar\", \"created\", \"Animal_Crackers_(film)\"],\n    [\"Bert_Kalmar\", \"created\", \"Duck_Soup_(1933_film)\"],\n    [\"Bert_Kalmar\", \"created\", \"Everybody_Sing_(film)\"],\n    [\"Bert_Kalmar\", \"created\", \"Horse_Feathers\"],\n    [\"Bert_Kalmar\", \"created\", \"Top_Speed\"],\n    [\"Bert_Kalmar\", \"diedIn\", \"Los_Angeles\"],\n    [\"Bert_Kalmar\", \"hasGender\", \"male\"],\n    [\"Bert_Kalmar\", \"wasBornIn\", \"New_York_City\"],\n    [\"Bert_Kalmar\", \"wroteMusicFor\", \"Animal_Crackers_(film)\"],\n    [\"Bert_Kalmar\", \"wroteMusicFor\", \"Duck_Soup_(1933_film)\"]\n  ]\n}\n</demo>\n\nNow we want to test your knowledge structuring ability with this knowledge graph construction ability.\nLet's output a set of triples where the head entity is the target entity, referring to the demo examples above.\nPlease respond in JSON object format as below.\n<generation>\n{\n  \"target_entity\": \"Landsberg_(district)\",\n  \"triples_by_model\": [\n    [\"Landsberg_(district)\", \"(predicted_relation)\", \"Bavaria\"],\n    [\"Landsberg_(district)\", \"(predicted_relation)\", \"Landsberg_am_Lech\"],\n    [\"Landsberg_(district)\", \"(predicted_relation)\", \"Upper_Bavaria\"]\n  ],\n  \"number_of_triples\": 3,\n  \"generation_level\": 1\n}\n</generation>"
       }
     ],
     "generation_outputs": [
       {
-        "model": "gpt-4o-2024-08-06",
+        "type": "text",
+        "model": "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",
         "output": {
           "role": "assistant",
-          "content": "{\n  \"target_entity\": \"Loei_Province\",\n  \"triples_by_model\": [\n    [\"Loei_Province\", \"isLocatedIn\", \"Thailand\"]\n  ],\n  \"number_of_triples\": 1,\n  \"generation_model\": \"gpt-4o-2024-08-06\",\n  \"generation_level\": 1\n}",
+          "content": "{\n  \"target_entity\": \"Landsberg_(district)\",\n  \"triples_by_model\": [\n    [\"Landsberg_(district)\", \"isLocatedIn\", \"Bavaria\"],\n    [\"Landsberg_(district)\", \"isLocatedIn\", \"Landsberg_am_Lech\"],\n    [\"Landsberg_(district)\", \"isLocatedIn\", \"Upper_Bavaria\"]\n  ],\n  \"number_of_triples\": 3,\n  \"generation_level\": 1\n}",
+          "finish_reason": "eos"
+        },
+        "seconds": 0.64591,
+        "content_len": 308
+      },
+      {
+        "type": "json_object",
+        "model": "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",
+        "output": {
+          "role": "assistant",
+          "content": "{\n  \"target_entity\": \"Landsberg_(district)\",\n  \"triples_by_model\": [\n    [\"Landsberg_(district)\", \"isLocatedIn\", \"Bavaria\"],\n    [\"Landsberg_(district)\", \"isLocatedIn\", \"Landsberg_am_Lech\"],\n    [\"Landsberg_(district)\", \"isLocatedIn\", \"Upper_Bavaria\"]\n  ],\n  \"number_of_triples\": 3,\n  \"generation_level\": 1\n}",
           "finish_reason": "stop"
         },
-        "seconds": 1.120298,
-        "content_len": 210
+        "seconds": 1.045451,
+        "content_len": 308
+      },
+      {
+        "type": "text",
+        "model": "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
+        "output": {
+          "role": "assistant",
+          "content": "```\n{\n  \"target_entity\": \"Landsberg_(district)\",\n  \"triples_by_model\": [\n    [\"Landsberg_(district)\", \"isLocatedIn\", \"Bavaria\"],\n    [\"Landsberg_(district)\", \"isLocatedIn\", \"Landsberg_am_Lech\"],\n    [\"Landsberg_(district)\", \"isLocatedIn\", \"Upper_Bavaria\"]\n  ],\n  \"number_of_triples\": 3,\n  \"generation_level\": 1\n}\n```",
+          "finish_reason": "eos"
+        },
+        "seconds": 2.29276,
+        "content_len": 316
+      },
+      {
+        "type": "json_object",
+        "model": "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
+        "output": {
+          "role": "assistant",
+          "content": "{\"target_entity\": \"Landsberg_(district)\", \"triples_by_model\": [[\"Landsberg_(district)\", \"isLocatedIn\", \"Bavaria\"], [\"Landsberg_(district)\", \"isLocatedIn\", \"Landsberg_am_Lech\"], [\"Landsberg_(district)\", \"isLocatedIn\", \"Upper_Bavaria\"]], \"number_of_triples\": 3, \"generation_level\": 1}",
+          "finish_reason": "stop"
+        },
+        "seconds": 2.33435,
+        "content_len": 282
+      },
+      {
+        "type": "text",
+        "model": "mistralai/Mistral-7B-Instruct-v0.1",
+        "output": {
+          "role": "assistant",
+          "content": "{\n\"target_entity\": \"Landsberg_(district)\",\n\"triples_by_model\": [\n{\n\"head_entity\": \"Landsberg_(district)\",\n\"relation\": \"isLocatedIn\",\n\"tail_entity\": \"Bavaria\"\n},\n{\n\"head_entity\": \"Landsberg_(district)\",\n\"relation\": \"isLocatedIn\",\n\"tail_entity\": \"Landsberg_am_Lech\"\n},\n{\n\"head_entity\": \"Landsberg_(district)\",\n\"relation\": \"isLocatedIn\",\n\"tail_entity\": \"Upper_Bavaria\"\n}\n],\n\"number_of_triples\": 3,\n\"generation_level\": 1\n}",
+          "finish_reason": "eos"
+        },
+        "seconds": 1.654356,
+        "content_len": 418
+      },
+      {
+        "type": "json_object",
+        "model": "mistralai/Mistral-7B-Instruct-v0.1",
+        "output": {
+          "role": "assistant",
+          "content": "{\n  \"target_entity\": \"Pushing_Tin\",\n  \"triples_by_model\": [\n    [\"Pushing_Tin\", \"isLocatedIn\", \"United_States\"],\n    [\"Pushing_Tin\", \"isLocatedIn\", \"United_States\"],\n    [\"Pushing_Tin\", \"isLocatedIn\", \"United_States\"]\n  ],\n  \"number_of_triples\": 3,\n  \"generation_level\": 1\n}",
+          "finish_reason": "eos"
+        },
+        "seconds": 3.864078,
+        "content_len": 274
+      },
+      {
+        "type": "text",
+        "model": "mistralai/Mixtral-8x7B-Instruct-v0.1",
+        "output": {
+          "role": "assistant",
+          "content": "{\n  \"target_entity\": \"Landsberg_(district)\",\n  \"triples_by_model\": [\n    [\"Landsberg_(district)\", \"isLocatedIn\", \"Bavaria\"],\n    [\"Landsberg_(district)\", \"hasChild\", \"Landsberg_am_Lech\"],\n    [\"Landsberg_(district)\", \"isLocatedIn\", \"Upper_Bavaria\"]\n  ],\n  \"number_of_triples\": 3,\n  \"generation_level\": 1\n}",
+          "finish_reason": "eos"
+        },
+        "seconds": 1.00728,
+        "content_len": 305
+      },
+      {
+        "type": "json_object",
+        "model": "mistralai/Mixtral-8x7B-Instruct-v0.1",
+        "output": {
+          "role": "assistant",
+          "content": "{\n  \"target_entity\": \"Landsberg_(district)\",\"triples_by_model\": [\n    [\"Landsberg_(district)\",\"isLocatedIn\",\"Bavaria\"],\n    [\"Landsberg_(district)\",\"isLocatedIn\",\"Landsberg_am_Lech\"],\n    [\"Landsberg_(district)\",\"isLocatedIn\",\"Upper_Bavaria\"]\n  ],\"number_of_triples\": 3,\n  \"generation_level\": 1\n}",
+          "finish_reason": "eos"
+        },
+        "seconds": 2.084859,
+        "content_len": 296
       }
     ],
     "generation_errors": []
