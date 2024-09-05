@@ -164,34 +164,33 @@ for dataset_name in dataset_names:
                     number_of_triples = "unknown"
                 else:
                     assert False, f"Invalid generation_level: {generation_level}"
-                actual_generation_prompt = generation_prompt.format(
-                    defined_relations=json.dumps(defined_relations, indent=2),
-                    generation_demo_examples="\n\n".join(f"<demo>\n{x}\n</demo>" for x in demo_examples),
-                    generation_form=normalize_simple_list_in_json(json.dumps(
-                        {
-                            "target_entity": target_entity,
-                            "triples_by_model": triples_by_model,
-                            "number_of_triples": number_of_triples,
-                            "generation_model": "{generation_model}",
-                            "generation_level": generation_level
-                        }, indent=2, ensure_ascii=False,
-                    )),
-                )
-                generation_messages = [
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": actual_generation_prompt}
-                ]
-                generation_result = {
-                    "dataset_name": dataset_name,
-                    "entity": target_entity,
-                    "triples_by_human": triples_by_human,
-                    "generation_level": generation_level,
-                    "generation_messages": generation_messages,
-                    "generation_outputs": [],
-                    "generation_errors": [],
-                }
-                generation_data.append(generation_result)
                 for generation_model in tqdm(generation_models, desc=f"* Constructing KG ({i}/{len(test_data)})", unit="model", file=sys.stdout):
+                    actual_generation_prompt = generation_prompt.format(
+                        defined_relations=json.dumps(defined_relations, indent=2),
+                        generation_demo_examples="\n\n".join(f"<demo>\n{x}\n</demo>" for x in demo_examples),
+                        generation_form=normalize_simple_list_in_json(json.dumps(
+                            {
+                                "target_entity": target_entity,
+                                "triples_by_model": triples_by_model,
+                                "number_of_triples": number_of_triples,
+                                "generation_model": generation_model,
+                                "generation_level": generation_level
+                            }, indent=2, ensure_ascii=False,
+                        )),
+                    )
+                    generation_messages = [
+                        {"role": "system", "content": system_prompt},
+                        {"role": "user", "content": actual_generation_prompt}
+                    ]
+                    generation_result = {
+                        "dataset_name": dataset_name,
+                        "entity": target_entity,
+                        "triples_by_human": triples_by_human,
+                        "generation_level": generation_level,
+                        "generation_messages": generation_messages,
+                        "generation_outputs": [],
+                        "generation_errors": [],
+                    }
                     based = datetime.now()
                     if generation_model.startswith("gpt-"):
                         generation_output = chat_with_LLM_by_OpenAI(messages=generation_messages, model=generation_model, max_tokens=max_tokens)
@@ -212,6 +211,10 @@ for dataset_name in dataset_names:
                             "output": generation_output,
                             "seconds": seconds,
                         })
+                    # print(f'<actual_generation_prompt>\n{actual_generation_prompt}\n</actual_generation_prompt>')
+                    # print(f'<generation_output>\n{generation_output["content"]}\n</generation_output>')
+                    # print(f'<generation_result>\n{json.dumps(generation_result, indent=2, ensure_ascii=False)}\n</generation_result>')
+                    generation_data.append(generation_result)
                     save_json(generation_data, generation_file, indent=2, ensure_ascii=False)
 
         save_json(generation_data, generation_file, indent=2, ensure_ascii=False)
