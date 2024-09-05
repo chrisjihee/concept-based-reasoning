@@ -96,7 +96,7 @@ generation_models = [
     # "mistralai/Mixtral-8x7B-Instruct-v0.1",
     # "mistralai/Mixtral-8x22B-Instruct-v0.1",
     # "upstage/SOLAR-10.7B-Instruct-v1.0",
-    # "gpt-4o-mini-2024-07-18",
+    "gpt-4o-mini-2024-07-18",
     # "gpt-4o-2024-08-06",
 ]
 max_tokens = 4000
@@ -192,10 +192,13 @@ for dataset_name in dataset_names:
                         "generation_errors": [],
                     }
                     based = datetime.now()
+                    response_format = {
+                        "type": "json_object",
+                    }
                     if generation_model.startswith("gpt-"):
-                        generation_output = chat_with_LLM_by_OpenAI(messages=generation_messages, model=generation_model, max_tokens=max_tokens)
+                        generation_output = chat_with_LLM_by_OpenAI(messages=generation_messages, model=generation_model, max_tokens=max_tokens, response_format=response_format)
                     else:
-                        generation_output = chat_with_LLM_by_Together(messages=generation_messages, model=generation_model, max_tokens=max_tokens)
+                        generation_output = chat_with_LLM_by_Together(messages=generation_messages, model=generation_model, max_tokens=max_tokens, response_format=response_format)
                     seconds = (datetime.now() - based).total_seconds()
                     if generation_output and generation_output["content"]:
                         content_len = len(str(generation_output["content"]))
@@ -211,9 +214,14 @@ for dataset_name in dataset_names:
                             "output": generation_output,
                             "seconds": seconds,
                         })
-                    # print(f'<actual_generation_prompt>\n{actual_generation_prompt}\n</actual_generation_prompt>')
-                    # print(f'<generation_output>\n{generation_output["content"]}\n</generation_output>')
-                    # print(f'<generation_result>\n{json.dumps(generation_result, indent=2, ensure_ascii=False)}\n</generation_result>')
+                    print("\n" * 10)
+                    print("=" * 300)
+                    print(f'<actual_generation_prompt>\n{actual_generation_prompt}\n</actual_generation_prompt>')
+                    print("=" * 300)
+                    print("\n" * 10)
+                    print(f'<generation_output>\n{generation_output["content"]}\n</generation_output>')
+                    print("=" * 300)
+                    print("\n" * 10)
                     generation_data.append(generation_result)
                     save_json(generation_data, generation_file, indent=2, ensure_ascii=False)
 
