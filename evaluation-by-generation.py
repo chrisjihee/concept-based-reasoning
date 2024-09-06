@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 args = CommonArguments(
     env=ProjectEnv(
         project="LLM-based",
-        job_name="evaluation-by-extraction",
+        job_name="evaluation-by-generation",
         msg_level=logging.INFO,
         msg_format=LoggingFormat.BRIEF_00,
     )
@@ -41,7 +41,7 @@ def measure_performance(triples_by_human, triples_by_model):
 
 # setup program
 test_size = 100
-debug_test_size = -1
+debug_test_size = 1
 dataset_names = [
     "WN18RR",
     "YAGO3-10",
