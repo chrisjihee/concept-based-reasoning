@@ -68,32 +68,33 @@ for dataset_name in dataset_names:
 
         with JobTimer(f"LLM Evaluation(dataset_name={dataset_name}, generation_level={generation_level}, num_extraction={len(extraction_data)})",
                       rt=1, rb=1, rw=114, rc='=', mt=1, verbose=1):
-            for i, item in enumerate(tqdm(extraction_data, desc=f"* Evaluating LLM", unit="item", file=sys.stdout), start=1):
-                entity = item["entity"]
-                triples_by_human = normalize_triples(item["triples"])
-                generation_messages = item["generation_messages"]
-                extraction_messages = item["extraction_messages"]
-                extraction_responses = item["responses"]
+            performances = []
+            for i, sample in enumerate(tqdm(extraction_data, desc=f"* Evaluating LLM", unit="item", file=sys.stdout), start=1):
+                entity = sample["entity"]
+                triples_by_human = normalize_triples(sample["triples"])
+                generation_messages = sample["generation_messages"]
+                extraction_messages = sample["extraction_messages"]
+                extraction_responses = sample["responses"]
 
                 # DEBUG PRINT
-                print()
-                print("=" * 100)
-                print(f"entity: {entity}")
-                print("-" * 100)
-                print(f"triples by human: ")
-                for x in triples_by_human:
-                    print("  -", x)
-                print("-" * 100)
+                # print()
+                # print("=" * 100)
+                # print(f"entity: {entity}")
+                # print("-" * 100)
+                # print(f"triples by human: ")
+                # for x in triples_by_human:
+                #     print("  -", x)
+                # print("-" * 100)
                 # print(f"generation_messages: \n{generation_messages[-1]['content']}")
                 # print("-" * 100)
-                print(f"extraction_messages: \n{extraction_messages[-1]['content']}")
-                print("-" * 100)
+                # print(f"extraction_messages: \n{extraction_messages[-1]['content']}")
+                # print("-" * 100)
 
-                for j, response in enumerate(extraction_responses, start=1):
-                    extraction_model = response["model"].split("/")[-1]
-                    assert response["output"]["role"] == "assistant", f"role={response['output']['role']} != assistant"
-                    content = str(response["output"]["content"])
-                    if response["output"]["finish_reason"] in successful_finish_reasons:
+                for j, extraction_response in enumerate(extraction_responses, start=1):
+                    extraction_model = extraction_response["model"].split("/")[-1]
+                    assert extraction_response["output"]["role"] == "assistant", f"role={extraction_response['output']['role']} != assistant"
+                    content = str(extraction_response["output"]["content"])
+                    if extraction_response["output"]["finish_reason"] in successful_finish_reasons:
                         if '[' in content and ']' in content and content.index('[') < content.rindex(']'):
                             predictions = json.loads(content[content.index('['):content.rindex(']') + 1])
                             for prediction in predictions:
@@ -102,13 +103,15 @@ for dataset_name in dataset_names:
                                     "triples_by_model" in prediction,
                                     isinstance(prediction["triples_by_model"], (list, tuple)),
                                 ]):
-                                    # print(f"prediction: {prediction}")
-                                    # print("-" * 100)
                                     generation_model = prediction["model_id"]
                                     triples_by_model = normalize_triples(prediction["triples_by_model"])
-                                    print(f"triples by {generation_model}:")
-                                    for x in triples_by_model:
-                                        print("  -", x)
                                     prec, rec, f1 = measure_performance(triples_by_human, triples_by_model)
-                                    print(f"  => Prec: {prec:.4f}, Rec: {rec:.4f}, F1: {f1:.4f}")
-                                    print("-" * 100)
+                                    performances.append({
+                                        "i": i,
+                                        "model_id": generation_model,
+                                        "precision": prec,
+                                        "recall": rec,
+                                        "f1_score": f1
+                                    })
+            performances_df = pd.DataFrame(performances)
+            print(performances_df)
