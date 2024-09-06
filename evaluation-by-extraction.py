@@ -66,11 +66,9 @@ for dataset_name in dataset_names:
         if debug_test_size > 0:
             extraction_data = extraction_data[:debug_test_size]
         evaluation_data = []
-
-        performances = []
         with JobTimer(f"LLM Evaluation(dataset_name={dataset_name}, generation_level={generation_level}, num_extraction={len(extraction_data)})",
                       rt=1, rb=1, rw=114, rc='=', mt=1, verbose=1):
-            for i, sample in enumerate(tqdm(extraction_data, desc=f"* Evaluating LLM", unit="item", file=sys.stdout), start=1):
+            for i, sample in enumerate(tqdm(extraction_data, desc=f"* Evaluating LLM", unit="sample", file=sys.stdout), start=1):
                 entity = sample["entity"]
                 triples_by_human = normalize_triples(sample["triples"])
                 generation_messages = sample["generation_messages"]
@@ -107,7 +105,7 @@ for dataset_name in dataset_names:
                                     generation_model = prediction["model_id"]
                                     triples_by_model = normalize_triples(prediction["triples_by_model"])
                                     prec, rec, f1 = measure_performance(triples_by_human, triples_by_model)
-                                    performances.append({
+                                    evaluation_data.append({
                                         "i": i,
                                         "model_id": generation_model,
                                         "precision": prec,
@@ -115,13 +113,13 @@ for dataset_name in dataset_names:
                                         "f1_score": f1
                                     })
 
-        performances = pd.DataFrame(performances)
-        summary = performances.groupby('model_id').agg(
+        evaluation_data = pd.DataFrame(evaluation_data)
+        evaluation_summary = evaluation_data.groupby('model_id').agg(
             precision_mean=('precision', 'mean'),
             recall_mean=('recall', 'mean'),
             f1_score_mean=('f1_score', 'mean'),
             count=('i', 'count')
         ).reset_index().sort_values(by='model_id')
 
-        print(summary)
-        summary.to_excel(make_parent_dir(evaluation_file), index=False)
+        print(evaluation_summary)
+        evaluation_summary.to_excel(make_parent_dir(evaluation_file), index=False)
