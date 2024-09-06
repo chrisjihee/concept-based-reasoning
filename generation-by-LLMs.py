@@ -17,7 +17,7 @@ args = CommonArguments(
         project="LLM-based",
         job_name="LLM-based-generation",
         msg_level=logging.INFO,
-        msg_format=LoggingFormat.PRINT_00,
+        msg_format=LoggingFormat.BRIEF_00,
     )
 )
 if "OPENAI_API_KEY" not in os.environ:
