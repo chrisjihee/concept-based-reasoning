@@ -41,7 +41,7 @@ def measure_performance(triples_by_human, triples_by_model):
 
 # setup program
 test_size = 100
-debug_test_size = 10
+debug_test_size = -1
 dataset_names = [
     "WN18RR",
     "YAGO3-10",
@@ -60,15 +60,16 @@ successful_finish_reasons = {"stop"}
 for dataset_name in dataset_names:
     for generation_level in target_generation_levels:
         extraction_file = f"extraction/{dataset_name}/edges_as_text_all-responses-{test_size}@{generation_level}.json"
+        evaluation_file = f"evaluation/{dataset_name}/edges_as_text_all-responses-{test_size}@{generation_level}.xlsx"
 
         extraction_data = load_json(extraction_file)
         if debug_test_size > 0:
             extraction_data = extraction_data[:debug_test_size]
         evaluation_data = []
 
+        performances = []
         with JobTimer(f"LLM Evaluation(dataset_name={dataset_name}, generation_level={generation_level}, num_extraction={len(extraction_data)})",
                       rt=1, rb=1, rw=114, rc='=', mt=1, verbose=1):
-            performances = []
             for i, sample in enumerate(tqdm(extraction_data, desc=f"* Evaluating LLM", unit="item", file=sys.stdout), start=1):
                 entity = sample["entity"]
                 triples_by_human = normalize_triples(sample["triples"])
@@ -113,5 +114,14 @@ for dataset_name in dataset_names:
                                         "recall": rec,
                                         "f1_score": f1
                                     })
-            performances_df = pd.DataFrame(performances)
-            print(performances_df)
+
+        performances = pd.DataFrame(performances)
+        summary = performances.groupby('model_id').agg(
+            precision_mean=('precision', 'mean'),
+            recall_mean=('recall', 'mean'),
+            f1_score_mean=('f1_score', 'mean'),
+            count=('i', 'count')
+        ).reset_index().sort_values(by='model_id')
+
+        print(summary)
+        summary.to_excel(make_parent_dir(evaluation_file), index=False)
