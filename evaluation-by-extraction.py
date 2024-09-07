@@ -54,20 +54,21 @@ generation_levels = {
     # 5: "free_without_quantity",
 }
 target_generation_levels = sorted(generation_levels.keys())
-successful_finish_reasons = {"stop"}
+successful_finish_reasons = {"stop", "eos"}
 
 # run program
 for dataset_name in dataset_names:
     for generation_level in target_generation_levels:
         extraction_file = f"extraction/{dataset_name}/edges_as_text_all-responses-{test_size}@{generation_level}.json"
-        evaluation_file = f"evaluation/{dataset_name}/edges_as_text_all-responses-{test_size}@{generation_level}.xlsx"
-
+        evaluation_file = f"evaluation/{dataset_name}/{args.env.job_name}-{test_size}@{generation_level}.xlsx"
         extraction_data = load_json(extraction_file)
         if debug_test_size > 0:
             extraction_data = extraction_data[:debug_test_size]
-        evaluation_data = []
+
         with JobTimer(f"LLM Evaluation(dataset_name={dataset_name}, generation_level={generation_level}, num_extraction={len(extraction_data)})",
                       rt=1, rb=1, rw=114, rc='=', mt=1, verbose=1):
+
+            evaluation_data = []
             for i, sample in enumerate(tqdm(extraction_data, desc=f"* Evaluating LLM", unit="sample", file=sys.stdout), start=1):
                 entity = sample["entity"]
                 triples_by_human = normalize_triples(sample["triples"])
@@ -113,13 +114,13 @@ for dataset_name in dataset_names:
                                         "f1_score": f1
                                     })
 
-        evaluation_data = pd.DataFrame(evaluation_data)
-        evaluation_summary = evaluation_data.groupby('model_id').agg(
-            precision_mean=('precision', 'mean'),
-            recall_mean=('recall', 'mean'),
-            f1_score_mean=('f1_score', 'mean'),
-            count=('i', 'count')
-        ).reset_index().sort_values(by='model_id')
+            evaluation_data = pd.DataFrame(evaluation_data)
+            evaluation_summary = evaluation_data.groupby('model_id').agg(
+                precision_mean=('precision', 'mean'),
+                recall_mean=('recall', 'mean'),
+                f1_score_mean=('f1_score', 'mean'),
+                count=('i', 'count')
+            ).reset_index().sort_values(by='model_id')
 
-        print(evaluation_summary)
-        evaluation_summary.to_excel(make_parent_dir(evaluation_file), index=False)
+            logger.info(f"evaluation_summary: \n{evaluation_summary}")
+            evaluation_summary.to_excel(make_parent_dir(evaluation_file), index=False)

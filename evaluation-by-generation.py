@@ -66,7 +66,7 @@ BASIC_EXCEPTIONS = [JSON_RANGE_ERROR, JSON_FORMAT_ERROR, JSON_KEY_ERROR]
 for dataset_name in dataset_names:
     for generation_level in target_generation_levels:
         generation_file = f"generation/{dataset_name}/edges_as_text_all-responses-{test_size}@{generation_level}.json"
-        evaluation_file = f"evaluation-by-generation/{dataset_name}/edges_as_text_all-responses-{test_size}@{generation_level}.xlsx"
+        evaluation_file = f"evaluation/{dataset_name}/{args.env.job_name}-{test_size}@{generation_level}.xlsx"
         generation_data = load_json(generation_file)
         if debug_test_size > 0:
             generation_data = generation_data[:debug_test_size]
@@ -173,5 +173,6 @@ for dataset_name in dataset_names:
                 fill_value=0
             )
             evaluation_summary = pd.concat([evaluation_summary.drop(columns=['exception_counts']), exception_counts], axis=1)
+
             logger.info(f"evaluation_summary: \n{evaluation_summary}")
             evaluation_summary.to_excel(make_parent_dir(evaluation_file), index=False)
