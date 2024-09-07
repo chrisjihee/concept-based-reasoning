@@ -57,6 +57,10 @@ generation_levels = {
 }
 target_generation_levels = sorted(generation_levels.keys())
 successful_finish_reasons = {"stop", "eos"}
+JSON_FORMAT_ERROR = "JSON format error"
+JSON_RANGE_ERROR = "JSON range error"
+JSON_KEY_ERROR = "JSON key error"
+BASIC_EXCEPTIONS = [JSON_RANGE_ERROR, JSON_FORMAT_ERROR, JSON_KEY_ERROR]
 
 # run program
 for dataset_name in dataset_names:
@@ -118,7 +122,7 @@ for dataset_name in dataset_names:
                                             "j": j,
                                             "type": generation_type,
                                             "model": generation_model,
-                                            "exception": "no triples_by_model"
+                                            "exception": JSON_KEY_ERROR,
                                         })
                                 except JSONDecodeError as e:
                                     evaluation_data.append({
@@ -126,7 +130,7 @@ for dataset_name in dataset_names:
                                         "j": j,
                                         "type": generation_type,
                                         "model": generation_model,
-                                        "exception": "JSON format error"
+                                        "exception": JSON_FORMAT_ERROR,
                                     })
                             else:
                                 evaluation_data.append({
@@ -134,7 +138,7 @@ for dataset_name in dataset_names:
                                     "j": j,
                                     "type": generation_type,
                                     "model": generation_model,
-                                    "exception": "JSON range error"
+                                    "exception": JSON_RANGE_ERROR
                                 })
                         else:
                             evaluation_data.append({
@@ -142,7 +146,7 @@ for dataset_name in dataset_names:
                                 "j": j,
                                 "type": generation_type,
                                 "model": generation_model,
-                                "exception": "unsucessful finish reason"
+                                "exception": f"{str(generation_output['output']['role']).upper()}: {finish_reason}"
                             })
                     else:
                         evaluation_data.append({
@@ -150,7 +154,7 @@ for dataset_name in dataset_names:
                             "j": j,
                             "type": generation_type,
                             "model": generation_model,
-                            "exception": finish_reason
+                            "exception": f"{str(generation_output['output']['role']).upper()}: {finish_reason}"
                         })
 
             evaluation_data = pd.DataFrame(evaluation_data)
@@ -158,7 +162,16 @@ for dataset_name in dataset_names:
                 prec_mean=('prec', 'mean'),
                 rec_mean=('rec', 'mean'),
                 f1_mean=('f1', 'mean'),
-                count=('i', 'count')
+                valid_count=('f1', lambda x: x.notna().sum()),
+                invalid_count=('exception', 'count'),
+                exception_counts=('exception', lambda x: x.value_counts().to_dict())
             ).reset_index().sort_values(by='model')
+
+            exception_counts = evaluation_summary['exception_counts'].apply(pd.Series).fillna(0).astype(int)
+            exception_counts = exception_counts.reindex(
+                columns=BASIC_EXCEPTIONS + sorted([col for col in exception_counts.columns if col not in BASIC_EXCEPTIONS]),
+                fill_value=0
+            )
+            evaluation_summary = pd.concat([evaluation_summary.drop(columns=['exception_counts']), exception_counts], axis=1)
             logger.info(f"evaluation_summary: \n{evaluation_summary}")
             evaluation_summary.to_excel(make_parent_dir(evaluation_file), index=False)
