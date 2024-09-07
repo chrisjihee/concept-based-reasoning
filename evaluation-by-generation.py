@@ -63,13 +63,14 @@ for dataset_name in dataset_names:
     for generation_level in target_generation_levels:
         generation_file = f"generation/{dataset_name}/edges_as_text_all-responses-{test_size}@{generation_level}.json"
         evaluation_file = f"evaluation-by-generation/{dataset_name}/edges_as_text_all-responses-{test_size}@{generation_level}.xlsx"
-
         generation_data = load_json(generation_file)
         if debug_test_size > 0:
             generation_data = generation_data[:debug_test_size]
-        evaluation_data = []
+
         with JobTimer(f"LLM Evaluation(dataset_name={dataset_name}, generation_level={generation_level}, num_generation={len(generation_data)})",
                       rt=1, rb=1, rw=114, rc='=', mt=1, verbose=1):
+
+            evaluation_data = []
             for i, sample in enumerate(tqdm(generation_data, desc=f"* Evaluating LLM", unit="sample", file=sys.stdout), start=1):
                 entity = sample["entity"]
                 triples_by_human = normalize_triples(sample["triples_by_human"])
@@ -107,9 +108,9 @@ for dataset_name in dataset_names:
                                             "j": j,
                                             "type": generation_type,
                                             "model": generation_model,
-                                            "precision": prec,
-                                            "recall": rec,
-                                            "f1_score": f1
+                                            "prec": prec,
+                                            "rec": rec,
+                                            "f1": f1
                                         })
                                     else:
                                         evaluation_data.append({
@@ -152,12 +153,12 @@ for dataset_name in dataset_names:
                             "exception": finish_reason
                         })
 
-        evaluation_data = pd.DataFrame(evaluation_data)
-        evaluation_summary = evaluation_data.groupby(['model', 'type']).agg(
-            precision_mean=('precision', 'mean'),
-            recall_mean=('recall', 'mean'),
-            f1_score_mean=('f1_score', 'mean'),
-            count=('i', 'count')
-        ).reset_index().sort_values(by='model')
-        print(evaluation_summary)
-        evaluation_summary.to_excel(make_parent_dir(evaluation_file), index=False)
+            evaluation_data = pd.DataFrame(evaluation_data)
+            evaluation_summary = evaluation_data.groupby(['model', 'type']).agg(
+                prec_mean=('prec', 'mean'),
+                rec_mean=('rec', 'mean'),
+                f1_mean=('f1', 'mean'),
+                count=('i', 'count')
+            ).reset_index().sort_values(by='model')
+            logger.info(f"evaluation_summary: \n{evaluation_summary}")
+            evaluation_summary.to_excel(make_parent_dir(evaluation_file), index=False)
