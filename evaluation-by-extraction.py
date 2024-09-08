@@ -1,3 +1,5 @@
+from json import JSONDecodeError
+
 from tqdm import tqdm
 
 from chrisbase.data import *
@@ -54,7 +56,12 @@ generation_levels = {
     # 5: "free_without_quantity",
 }
 target_generation_levels = sorted(generation_levels.keys())
+successful_narrator_roles = {"ASSISTANT"}
 successful_finish_reasons = {"stop", "eos"}
+JSON_FORMAT_ERROR = "JSON format error"
+JSON_RANGE_ERROR = "JSON range error"
+JSON_KEY_ERROR = "JSON key error"
+BASIC_EXCEPTIONS = [JSON_RANGE_ERROR, JSON_FORMAT_ERROR, JSON_KEY_ERROR]
 
 # run program
 for dataset_name in dataset_names:
@@ -72,9 +79,8 @@ for dataset_name in dataset_names:
             for i, sample in enumerate(tqdm(extraction_data, desc=f"* Evaluating LLM", unit="sample", file=sys.stdout), start=1):
                 entity = sample["entity"]
                 triples_by_human = normalize_triples(sample["triples"])
-                generation_messages = sample["generation_messages"]
                 extraction_messages = sample["extraction_messages"]
-                extraction_responses = sample["responses"]
+                extraction_outputs = sample["responses"]
 
                 # DEBUG PRINT
                 # print()
@@ -85,42 +91,93 @@ for dataset_name in dataset_names:
                 # for x in triples_by_human:
                 #     print("  -", x)
                 # print("-" * 100)
-                # print(f"generation_messages: \n{generation_messages[-1]['content']}")
-                # print("-" * 100)
                 # print(f"extraction_messages: \n{extraction_messages[-1]['content']}")
                 # print("-" * 100)
 
-                for j, extraction_response in enumerate(extraction_responses, start=1):
-                    extraction_model = extraction_response["model"].split("/")[-1]
-                    assert extraction_response["output"]["role"] == "assistant", f"role={extraction_response['output']['role']} != assistant"
-                    content = str(extraction_response["output"]["content"])
-                    if extraction_response["output"]["finish_reason"] in successful_finish_reasons:
-                        if '[' in content and ']' in content and content.index('[') < content.rindex(']'):
-                            predictions = json.loads(content[content.index('['):content.rindex(']') + 1])
-                            for prediction in predictions:
-                                if all([
-                                    "model_id" in prediction,
-                                    "triples_by_model" in prediction,
-                                    isinstance(prediction["triples_by_model"], (list, tuple)),
-                                ]):
-                                    generation_model = prediction["model_id"]
-                                    triples_by_model = normalize_triples(prediction["triples_by_model"])
-                                    prec, rec, f1 = measure_performance(triples_by_human, triples_by_model)
+                for j, extraction_output in enumerate(extraction_outputs, start=1):
+                    extraction_model = extraction_output["model"].split("/")[-1]
+                    content = str(extraction_output["output"]["content"])
+                    # print(f"content: {content}")
+                    finish_reason = extraction_output["output"]["finish_reason"]
+                    narrator_role = extraction_output['output']['role'].upper()
+                    if narrator_role in successful_narrator_roles:
+                        if finish_reason in successful_finish_reasons:
+                            if '[' in content and ']' in content and content.index('[') < content.rindex(']'):
+                                try:
+                                    predictions = json.loads(content[content.index('['):content.rindex(']') + 1])
+                                    # print(f"predictions: {predictions}")
+                                    for prediction in predictions:
+                                        generation_model = prediction["model_id"] if "model_id" in prediction else "unknown"
+                                        if "triples_by_model" in prediction and isinstance(prediction["triples_by_model"], (list, tuple)):
+                                            triples_by_model = normalize_triples(prediction["triples_by_model"])
+                                            prec, rec, f1 = measure_performance(triples_by_human, triples_by_model)
+                                            evaluation_data.append({
+                                                "i": i,
+                                                "j": j,
+                                                "type": "generation",
+                                                "model": generation_model,
+                                                "prec": prec,
+                                                "rec": rec,
+                                                "f1": f1,
+                                                "exception": np.nan,
+                                            })
+                                        else:
+                                            evaluation_data.append({
+                                                "i": i,
+                                                "j": j,
+                                                "type": "generation",
+                                                "model": generation_model,
+                                                "exception": JSON_KEY_ERROR,
+                                            })
+                                except JSONDecodeError:
                                     evaluation_data.append({
                                         "i": i,
-                                        "model_id": generation_model,
-                                        "precision": prec,
-                                        "recall": rec,
-                                        "f1_score": f1
+                                        "j": j,
+                                        "type": "extraction",
+                                        "model": extraction_model,
+                                        "exception": JSON_FORMAT_ERROR,
                                     })
+                            else:
+                                evaluation_data.append({
+                                    "i": i,
+                                    "j": j,
+                                    "type": "extraction",
+                                    "model": extraction_model,
+                                    "exception": JSON_RANGE_ERROR
+                                })
+                        else:
+                            evaluation_data.append({
+                                "i": i,
+                                "j": j,
+                                "type": "extraction",
+                                "model": extraction_model,
+                                "exception": f"{narrator_role}: {finish_reason}"
+                            })
+                    else:
+                        evaluation_data.append({
+                            "i": i,
+                            "j": j,
+                            "type": "extraction",
+                            "model": extraction_model,
+                            "exception": f"{narrator_role}: {finish_reason}"
+                        })
 
             evaluation_data = pd.DataFrame(evaluation_data)
-            evaluation_summary = evaluation_data.groupby('model_id').agg(
-                precision_mean=('precision', 'mean'),
-                recall_mean=('recall', 'mean'),
-                f1_score_mean=('f1_score', 'mean'),
-                count=('i', 'count')
-            ).reset_index().sort_values(by='model_id')
+            evaluation_summary = evaluation_data.groupby(['type', 'model']).agg(
+                prec_mean=('prec', 'mean'),
+                rec_mean=('rec', 'mean'),
+                f1_mean=('f1', 'mean'),
+                valid_count=('f1', lambda x: x.notna().sum()),
+                invalid_count=('exception', 'count'),
+                exception_counts=('exception', lambda x: x.value_counts().to_dict())
+            ).reset_index().sort_values(by=['type', 'model'])
+
+            exception_counts = evaluation_summary['exception_counts'].apply(pd.Series).fillna(0).astype(int)
+            exception_counts = exception_counts.reindex(
+                columns=BASIC_EXCEPTIONS + sorted([col for col in exception_counts.columns if col not in BASIC_EXCEPTIONS]),
+                fill_value=0
+            )
+            evaluation_summary = pd.concat([evaluation_summary.drop(columns=['exception_counts']), exception_counts], axis=1)
 
             logger.info(f"evaluation_summary: \n{evaluation_summary}")
             evaluation_summary.to_excel(make_parent_dir(evaluation_file), index=False)

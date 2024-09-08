@@ -56,6 +56,7 @@ generation_levels = {
     # 5: "free_without_quantity",
 }
 target_generation_levels = sorted(generation_levels.keys())
+successful_narrator_roles = {"ASSISTANT"}
 successful_finish_reasons = {"stop", "eos"}
 JSON_FORMAT_ERROR = "JSON format error"
 JSON_RANGE_ERROR = "JSON range error"
@@ -97,8 +98,10 @@ for dataset_name in dataset_names:
                     generation_type = generation_output["type"]
                     generation_model = generation_output["model"].split("/")[-1]
                     content = str(generation_output["output"]["content"])
+                    # print(f"content: {content}")
                     finish_reason = generation_output["output"]["finish_reason"]
-                    if generation_output["output"]["role"] == "assistant":
+                    narrator_role = generation_output['output']['role'].upper()
+                    if narrator_role in successful_narrator_roles:
                         if finish_reason in successful_finish_reasons:
                             if '{' in content and '}' in content and content.index('{') < content.rindex('}'):
                                 try:
@@ -124,7 +127,7 @@ for dataset_name in dataset_names:
                                             "model": generation_model,
                                             "exception": JSON_KEY_ERROR,
                                         })
-                                except JSONDecodeError as e:
+                                except JSONDecodeError:
                                     evaluation_data.append({
                                         "i": i,
                                         "j": j,
@@ -146,7 +149,7 @@ for dataset_name in dataset_names:
                                 "j": j,
                                 "type": generation_type,
                                 "model": generation_model,
-                                "exception": f"{str(generation_output['output']['role']).upper()}: {finish_reason}"
+                                "exception": f"{narrator_role}: {finish_reason}"
                             })
                     else:
                         evaluation_data.append({
@@ -154,7 +157,7 @@ for dataset_name in dataset_names:
                             "j": j,
                             "type": generation_type,
                             "model": generation_model,
-                            "exception": f"{str(generation_output['output']['role']).upper()}: {finish_reason}"
+                            "exception": f"{narrator_role}: {finish_reason}"
                         })
 
             evaluation_data = pd.DataFrame(evaluation_data)
@@ -165,7 +168,7 @@ for dataset_name in dataset_names:
                 valid_count=('f1', lambda x: x.notna().sum()),
                 invalid_count=('exception', 'count'),
                 exception_counts=('exception', lambda x: x.value_counts().to_dict())
-            ).reset_index().sort_values(by='model')
+            ).reset_index().sort_values(by=['model', 'type'])
 
             exception_counts = evaluation_summary['exception_counts'].apply(pd.Series).fillna(0).astype(int)
             exception_counts = exception_counts.reindex(
