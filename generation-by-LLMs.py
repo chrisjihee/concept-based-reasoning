@@ -193,7 +193,7 @@ for dataset_name in dataset_names:
                 )
                 generation_messages = [
                     {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": actual_generation_prompt}
+                    {"role": "user", "content": actual_generation_prompt},
                 ]
                 generation_result = {
                     "dataset_name": dataset_name,

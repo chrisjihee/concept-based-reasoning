@@ -112,7 +112,7 @@ for dataset_name in dataset_names:
                 )
                 extraction_messages = [
                     {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": actual_extraction_prompt}
+                    {"role": "user", "content": actual_extraction_prompt},
                 ]
                 extraction_result = {
                     "entity": entity,
