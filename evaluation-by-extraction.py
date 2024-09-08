@@ -50,10 +50,10 @@ dataset_names = [
 ]
 generation_levels = {
     1: "relation_only",  # Relation Classification
-    # 2: "tail_only",  # Link Prediction
-    # 3: "tail_with_relation",
-    # 4: "free_with_quantity",
-    # 5: "free_without_quantity",
+    2: "tail_only",  # Link Prediction
+    3: "tail_with_relation",
+    4: "free_with_quantity",
+    5: "free_without_quantity",
 }
 target_generation_levels = sorted(generation_levels.keys())
 successful_narrator_roles = {"ASSISTANT"}
