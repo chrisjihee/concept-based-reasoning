@@ -188,7 +188,6 @@ for dataset_name in dataset_names:
                             "target_entity": target_entity,
                             "triples_by_model": triples_by_model,
                             "number_of_triples": number_of_triples,
-                            "generation_level": generation_level
                         }, indent=2, ensure_ascii=False,
                     )),
                 )
