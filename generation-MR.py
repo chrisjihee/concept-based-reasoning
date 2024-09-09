@@ -128,7 +128,7 @@ def normalize_simple_list_in_json(json_input):
 
 # setup program
 test_size = 100
-debug_test_size = 1
+debug_test_size = 3
 num_demo_sample = 1
 dataset_names = [
     "GSM8k",
@@ -141,17 +141,17 @@ generation_levels = {
     # 5: "answer_and_explanation_and_equation_without_quantity",
 }
 generation_models = [
-    ("mistralai/Mistral-7B-Instruct-v0.2", "text", None),
+    # ("mistralai/Mistral-7B-Instruct-v0.2", "text", None),
     ("mistralai/Mixtral-8x7B-Instruct-v0.1", "text", None),
     ("mistralai/Mixtral-8x7B-Instruct-v0.1", "json", None),
-    ("mistralai/Mixtral-8x22B-Instruct-v0.1", "text", None),
-    ("meta-llama/Meta-Llama-3-8B-Instruct-Turbo", "text", None),
-    ("meta-llama/Meta-Llama-3-70B-Instruct-Turbo", "text", None),
+    # ("mistralai/Mixtral-8x22B-Instruct-v0.1", "text", None),
+    # ("meta-llama/Meta-Llama-3-8B-Instruct-Turbo", "text", None),
+    # ("meta-llama/Meta-Llama-3-70B-Instruct-Turbo", "text", None),
     ("meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo", "text", None),
     ("meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo", "json", None),
-    ("meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo", "text", None),
-    ("meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo", "json", None),
-    ("meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo", "text", None),
+    # ("meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo", "text", None),
+    # ("meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo", "json", None),
+    # ("meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo", "text", None),
     # ("gpt-4o-mini-2024-07-18", "text", None),
     # ("gpt-4o-mini-2024-07-18", "json", MathWordProblem),
     # ("gpt-4o-2024-08-06", "text", None),
@@ -168,30 +168,45 @@ for dataset_name in dataset_names:
     dataset_train_file = Path(f"data/{dataset_name}/GSM8k_train.json")
     test_data = list(load_json(dataset_test_file).values())
     train_data = list(load_json(dataset_train_file).values())
-    # if debug_test_size > 0:
-    #     test_data = test_data[:debug_test_size]
-    #     test_data = shuffled(test_data, seed=random_seed)[:debug_test_size]
+    if debug_test_size > 0:  # TODO: shuffled
+        test_data = test_data[:debug_test_size]
+        # test_data = shuffled(test_data, seed=random_seed)[:debug_test_size]
     print(f"train_data: {len(train_data)}")
     print(f"test_data: {len(test_data)}")
-
-    demo_examples = []
-    for sample in shuffled(train_data, seed=random_seed)[:num_demo_sample]:
-        problem = sample["problem"]
-        final_answer = sample["answer"]
-        solution = sample["solution"]
-        math_word_problem = MathWordProblem(
-            problem=problem,
-            final_answer=final_answer,
-            reasoning_steps=ReasoningStep.to_reasoning_steps(solution),
-        )
-        # print(f"math_word_problem: {math_word_problem.model_dump_json(indent=2, exclude_none=True)}")
-        # print("=====\n")
-        demo_examples.append(math_word_problem.model_dump_json(indent=2, exclude_none=True))
-    # exit(1)
 
     for generation_level in sorted(generation_levels.keys()):
         generation_file = f"generation/{dataset_name}/{dataset_test_file.stem}-by-LLM-{test_size}@{generation_level}.json"
         generation_data = []
+
+        demo_examples = []
+        for sample in shuffled(train_data, seed=random_seed)[:num_demo_sample]:
+            problem = sample["problem"]
+            final_answer = sample["answer"]
+            solution = sample["solution"]
+            reasoning_by_human: list[ReasoningStep] = ReasoningStep.to_reasoning_steps(solution)
+            reasoning_for_demo = []
+            if generation_level == 1:
+                reasoning_for_demo = None
+            elif generation_level == 2:
+                for step in reasoning_by_human:
+                    reasoning_for_demo.append(ReasoningStep(explanation=step.explanation))
+            elif generation_level == 3:
+                for step in reasoning_by_human:
+                    reasoning_for_demo.append(ReasoningStep(explanation=step.explanation, equation=step.equation))
+            elif generation_level == 4:
+                for step in reasoning_by_human:
+                    reasoning_for_demo.append(ReasoningStep(explanation=step.explanation))
+            elif generation_level == 5:
+                for step in reasoning_by_human:
+                    reasoning_for_demo.append(ReasoningStep(explanation=step.explanation, equation=step.equation))
+            else:
+                assert False, f"Invalid generation_level: {generation_level}"
+            actual_generation_demo = MathWordProblem(
+                problem=problem,
+                final_answer=final_answer,
+                reasoning_steps=reasoning_for_demo,
+            ).model_dump_json(indent=2, exclude_none=True)
+            demo_examples.append(actual_generation_demo)
 
         with JobTimer(f"MR Generation(dataset_name={dataset_name}, generation_level={generation_level}, num_test={len(test_data)}, generation_models={len(generation_models)}, max_tokens={max_tokens})",
                       rt=1, rb=1, rw=114, rc='=', mt=1, verbose=1):
@@ -205,15 +220,15 @@ for dataset_name in dataset_names:
                     reasoning_by_model = None
                 elif generation_level == 2:
                     for step in reasoning_by_human:
-                        reasoning_by_model.append(ReasoningStep(explanation="(predicted_explanation)"))
+                        reasoning_by_model.append(ReasoningStep(explanation="(explanation)"))
                 elif generation_level == 3:
                     for step in reasoning_by_human:
-                        reasoning_by_model.append(ReasoningStep(explanation="(predicted_explanation)", equation="(predicted_equation)"))
+                        reasoning_by_model.append(ReasoningStep(explanation="(explanation)", equation="(equation)"))
                 elif generation_level == 4:
-                    reasoning_by_model.append(ReasoningStep(explanation="(predicted_explanation)"))
+                    reasoning_by_model.append(ReasoningStep(explanation="(explanation)"))
                     reasoning_by_model.append(ReasoningStep(explanation="..."))
                 elif generation_level == 5:
-                    reasoning_by_model.append(ReasoningStep(explanation="(predicted_explanation)", equation="(predicted_equation)"))
+                    reasoning_by_model.append(ReasoningStep(explanation="(explanation)", equation="(equation)"))
                     reasoning_by_model.append(ReasoningStep(explanation="...", equation="..."))
                 else:
                     assert False, f"Invalid generation_level: {generation_level}"
@@ -221,7 +236,7 @@ for dataset_name in dataset_names:
                     generation_demo_examples="\n\n".join(f"<demo>\n{x}\n</demo>" for x in demo_examples),
                     generation_form=MathWordProblem(
                         problem=problem,
-                        final_answer=final_answer,
+                        final_answer="(final_answer)",
                         reasoning_steps=reasoning_by_model,
                     ).model_dump_json(indent=2, exclude_none=True),
                 )
@@ -241,8 +256,14 @@ for dataset_name in dataset_names:
                 }
                 generation_data.append(generation_result)
                 print("\n" * 3)
+                print(f'<problem>\n{problem}\n</problem>')
+                print(f'<final_answer>\n{final_answer}\n</final_answer>')
+                print(f'<reasoning_by_human>\n{json.dumps([x.model_dump() for x in reasoning_by_human], indent=2, ensure_ascii=False)}\n</reasoning_by_human>')
+                print("\n" * 3)
+                print(f'<generation_level>\n{generation_level}\n</generation_level>')
+                print(f'<generation_messages>\n{generation_messages}\n</generation_messages>')
                 print(f'<actual_generation_prompt>\n{actual_generation_prompt}\n</actual_generation_prompt>')
-                # print(f'<reasoning_by_human>\n{json.dumps([x.model_dump() for x in reasoning_by_human], indent=2, ensure_ascii=False)}\n</reasoning_by_human>')
+                print("\n" * 3)
                 for (generation_model, generation_type, generation_schema) in tqdm(generation_models, desc=f"* Generating MR ({i}/{len(test_data)})", unit="model", file=sys.stdout):
                     based = datetime.now()
                     if generation_model.startswith("gpt-"):
@@ -306,6 +327,6 @@ for dataset_name in dataset_names:
                         print(f'<generation_output_content>\n{generation_output["content"]}\n</generation_output_content>')
                     print("=" * 200)
                     save_json(generation_data, generation_file, indent=2, ensure_ascii=False)
-                exit(1)
+                # exit(1)
 
         save_json(generation_data, generation_file, indent=2, ensure_ascii=False)
