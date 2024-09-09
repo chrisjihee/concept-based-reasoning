@@ -91,13 +91,17 @@ dataset_names = [
     "YAGO3-10",
 ]
 generation_levels = {
-    # 1: "relation_only",  # Relation Classification
+    1: "relation_only",  # Relation Classification
     2: "tail_only",  # Link Prediction
     3: "tail_with_relation",
     4: "free_with_quantity",
     5: "free_without_quantity",
 }
 generation_models = [
+    ("mistralai/Mistral-7B-Instruct-v0.2", "text"),
+    ("mistralai/Mixtral-8x7B-Instruct-v0.1", "text"),
+    ("mistralai/Mixtral-8x7B-Instruct-v0.1", "json_object"),
+    ("mistralai/Mixtral-8x22B-Instruct-v0.1", "text"),
     ("meta-llama/Meta-Llama-3-8B-Instruct-Turbo", "text"),
     ("meta-llama/Meta-Llama-3-70B-Instruct-Turbo", "text"),
     ("meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo", "text"),
@@ -105,11 +109,6 @@ generation_models = [
     ("meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo", "text"),
     ("meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo", "json_object"),
     ("meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo", "text"),
-    ("mistralai/Mistral-7B-Instruct-v0.2", "text"),
-    ("mistralai/Mistral-7B-Instruct-v0.3", "text"),
-    ("mistralai/Mixtral-8x7B-Instruct-v0.1", "text"),
-    ("mistralai/Mixtral-8x7B-Instruct-v0.1", "json_object"),
-    ("mistralai/Mixtral-8x22B-Instruct-v0.1", "text"),
     ("gpt-4o-mini-2024-07-18", "text"),
     ("gpt-4o-mini-2024-07-18", "json_object"),
     ("gpt-4o-2024-08-06", "text"),
