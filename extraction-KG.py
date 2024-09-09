@@ -14,13 +14,13 @@ logging.getLogger("httpx").setLevel(logging.ERROR)
 args = CommonArguments(
     env=ProjectEnv(
         project="LLM-based",
-        job_name="LLM-based-extraction",
+        job_name="extraction-KG",
         msg_level=logging.INFO,
         msg_format=LoggingFormat.BRIEF_00,
     )
 )
 if "OPENAI_API_KEY" not in os.environ:
-    os.environ["OPENAI_API_KEY"] = read_or("conf/key-openai.txt") or getpass("OpenAI API key: ")
+    os.environ["OPENAI_API_KEY"] = read_or("conf/key-openai-GPT4.txt") or getpass("OpenAI API key: ")
 openai_client = OpenAI(api_key=os.environ.get('OPENAI_API_KEY'))
 if "TOGETHER_API_KEY" not in os.environ:
     os.environ["TOGETHER_API_KEY"] = read_or("conf/key-togetherai.txt") or getpass("TogetherAI API key: ")
@@ -79,7 +79,7 @@ extraction_models = [
 ]
 max_tokens = 4000
 system_prompt = "You will be provided with unstructured data, and your task is to parse it into JSON format."
-extraction_prompt = read_or("template/extraction-KG.txt") or getpass("Extraction KGs Prompt: ")
+extraction_prompt = read_or("template/extraction-KG.txt") or getpass("Extraction KG Prompt: ")
 
 # run program
 for dataset_name in dataset_names:

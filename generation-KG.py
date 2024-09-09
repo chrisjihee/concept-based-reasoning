@@ -15,13 +15,13 @@ logging.getLogger("httpx").setLevel(logging.ERROR)
 args = CommonArguments(
     env=ProjectEnv(
         project="LLM-based",
-        job_name="LLM-based-generation",
+        job_name="generation-KG",
         msg_level=logging.INFO,
         msg_format=LoggingFormat.BRIEF_00,
     )
 )
 if "OPENAI_API_KEY" not in os.environ:
-    os.environ["OPENAI_API_KEY"] = read_or("conf/key-openai.txt") or getpass("OpenAI API key: ")
+    os.environ["OPENAI_API_KEY"] = read_or("conf/key-openai-GPT4.txt") or getpass("OpenAI API key: ")
 openai_client = OpenAI(api_key=os.environ.get('OPENAI_API_KEY'))
 if "TOGETHER_API_KEY" not in os.environ:
     os.environ["TOGETHER_API_KEY"] = read_or("conf/key-togetherai.txt") or getpass("TogetherAI API key: ")
@@ -100,23 +100,23 @@ generation_levels = {
 generation_models = [
     ("mistralai/Mistral-7B-Instruct-v0.2", "text"),
     ("mistralai/Mixtral-8x7B-Instruct-v0.1", "text"),
-    ("mistralai/Mixtral-8x7B-Instruct-v0.1", "json_object"),
+    ("mistralai/Mixtral-8x7B-Instruct-v0.1", "json"),
     ("mistralai/Mixtral-8x22B-Instruct-v0.1", "text"),
     ("meta-llama/Meta-Llama-3-8B-Instruct-Turbo", "text"),
     ("meta-llama/Meta-Llama-3-70B-Instruct-Turbo", "text"),
     ("meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo", "text"),
-    ("meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo", "json_object"),
+    ("meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo", "json"),
     ("meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo", "text"),
-    ("meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo", "json_object"),
+    ("meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo", "json"),
     ("meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo", "text"),
     ("gpt-4o-mini-2024-07-18", "text"),
-    ("gpt-4o-mini-2024-07-18", "json_object"),
+    ("gpt-4o-mini-2024-07-18", "json"),
     ("gpt-4o-2024-08-06", "text"),
-    ("gpt-4o-2024-08-06", "json_object"),
+    ("gpt-4o-2024-08-06", "json"),
 ]
 max_tokens = 4000
 system_prompt = "You will be provided with an target entity and demo examples, and your task is to generate knowledge triples. Respond in JSON format without any other explanation."
-generation_prompt = read_or("template/generation-KG.txt") or getpass("Generation KGs Prompt: ")
+generation_prompt = read_or("template/generation-KG.txt") or getpass("Generation KG Prompt: ")
 random_seed = 70
 
 # run program
@@ -206,10 +206,10 @@ for dataset_name in dataset_names:
                 generation_data.append(generation_result)
                 # print("\n" * 3)
                 # print(f'<triples_by_human>\n{normalize_simple_list_in_json(json.dumps(triples_by_human, indent=2, ensure_ascii=False))}\n</triples_by_human>')
-                for (generation_model, generation_type) in tqdm(generation_models, desc=f"* Constructing KG ({i}/{len(test_data)})", unit="model", file=sys.stdout):
+                for (generation_model, generation_type) in tqdm(generation_models, desc=f"* Generating KG ({i}/{len(test_data)})", unit="model", file=sys.stdout):
                     based = datetime.now()
                     if generation_model.startswith("gpt-"):
-                        if generation_type == "json_object":
+                        if generation_type == "json":
                             generation_output = chat_with_LLM_by_OpenAI(
                                 model=generation_model,
                                 messages=generation_messages,
@@ -223,7 +223,7 @@ for dataset_name in dataset_names:
                                 max_tokens=max_tokens,
                             )
                     else:
-                        if generation_type == "json_object":
+                        if generation_type == "json":
                             generation_output = chat_with_LLM_by_Together(
                                 model=generation_model,
                                 messages=generation_messages,
