@@ -116,7 +116,7 @@ generation_models = [
 ]
 max_tokens = 4000
 system_prompt = "You will be provided with an target entity and demo examples, and your task is to generate knowledge triples. Respond in JSON format without any other explanation."
-generation_prompt = read_or("template/generation_KGs.txt") or getpass("Generation KGs Prompt: ")
+generation_prompt = read_or("template/generation-KG.txt") or getpass("Generation KGs Prompt: ")
 random_seed = 70
 
 # run program

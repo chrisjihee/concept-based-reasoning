@@ -79,7 +79,7 @@ extraction_models = [
 ]
 max_tokens = 4000
 system_prompt = "You will be provided with unstructured data, and your task is to parse it into JSON format."
-extraction_prompt = read_or("template/extraction_KGs.txt") or getpass("Extraction KGs Prompt: ")
+extraction_prompt = read_or("template/extraction-KG.txt") or getpass("Extraction KGs Prompt: ")
 
 # run program
 for dataset_name in dataset_names:
