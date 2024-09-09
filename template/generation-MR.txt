@@ -1,13 +1,9 @@
-We want to compare how well a large-scale language model (LLM) internally structures and stores knowledge through a knowledge graph (KG).
-A knowledge graph typically represents knowledge in the form of a triple ["head_entity", "relation", "tail_entity"].
-Where a relation is one of the following lists:
-{defined_relations}
-
-Here are some demo examples of such a knowledge graph.
+We want to compare how well large-scale language models (LLMs) perform in mathematical reasoning using math word problems.
+Here are some demo examples of such a math word problem.
 {generation_demo_examples}
 
-Now we want to test your knowledge structuring ability with this knowledge graph construction ability.
-Let's output a set of triples where the head entity is the target entity, referring to the demo examples above.
+Now we want to test your mathematical reasoning skills by solving this math word problem.
+Let's print the answer to the following math word problem, referring to the demo example above.
 Please respond in JSON object format as below.
 <generation>
 {generation_form}
