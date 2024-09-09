@@ -134,7 +134,7 @@ dataset_names = [
     "GSM8k",
 ]
 generation_levels = {
-    1: "answer_only",
+    # 1: "answer_only",
     2: "answer_and_explanation_with_quantity",
     3: "answer_and_explanation_and_equation_with_quantity",
     4: "answer_and_explanation_without_quantity",
@@ -166,10 +166,10 @@ random_seed = 70
 for dataset_name in dataset_names:
     dataset_test_file = Path(f"data/{dataset_name}/GSM8k_test.json")
     dataset_train_file = Path(f"data/{dataset_name}/GSM8k_train.json")
-    test_data = list(load_json(dataset_test_file).values())
+    test_data = shuffled(load_json(dataset_test_file).values(), seed=random_seed)[:test_size]
     train_data = list(load_json(dataset_train_file).values())
     if debug_test_size > 0:
-        test_data = shuffled(test_data, seed=random_seed)[:debug_test_size]
+        test_data = test_data[:debug_test_size]
     # print(f"train_data: {len(train_data)}")
     # print(f"test_data: {len(test_data)}")
 
