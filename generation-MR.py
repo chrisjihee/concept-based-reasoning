@@ -134,11 +134,11 @@ dataset_names = [
     "GSM8k",
 ]
 generation_levels = {
-    1: "answer_only",
+    # 1: "answer_only",
     # 2: "answer_and_explanation_with_quantity",
     # 3: "answer_and_explanation_and_equation_with_quantity",
-    # 4: "answer_and_explanation_without_quantity",
-    # 5: "answer_and_explanation_and_equation_without_quantity",
+    4: "answer_and_explanation_without_quantity",
+    5: "answer_and_explanation_and_equation_without_quantity",
 }
 generation_models = [
     # ("mistralai/Mistral-7B-Instruct-v0.2", "text", None),
@@ -194,11 +194,13 @@ for dataset_name in dataset_names:
                 for step in reasoning_by_human:
                     reasoning_for_demo.append(ReasoningStep(explanation=step.explanation, equation=step.equation))
             elif generation_level == 4:
-                for step in reasoning_by_human:
-                    reasoning_for_demo.append(ReasoningStep(explanation=step.explanation))
+                step = reasoning_by_human[0]
+                reasoning_for_demo.append(ReasoningStep(explanation=step.explanation))
+                reasoning_for_demo.append(ReasoningStep(explanation="..."))
             elif generation_level == 5:
-                for step in reasoning_by_human:
-                    reasoning_for_demo.append(ReasoningStep(explanation=step.explanation, equation=step.equation))
+                step = reasoning_by_human[0]
+                reasoning_for_demo.append(ReasoningStep(explanation=step.explanation, equation=step.equation))
+                reasoning_for_demo.append(ReasoningStep(explanation="...", equation="..."))
             else:
                 assert False, f"Invalid generation_level: {generation_level}"
             actual_generation_demo = MathWordProblem(
