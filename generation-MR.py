@@ -128,30 +128,30 @@ def normalize_simple_list_in_json(json_input):
 
 # setup program
 test_size = 100
-debug_test_size = 3
-num_demo_sample = 1
+debug_test_size = -1
+num_demo_sample = 3
 dataset_names = [
     "GSM8k",
 ]
 generation_levels = {
-    # 1: "answer_only",
-    # 2: "answer_and_explanation_with_quantity",
-    # 3: "answer_and_explanation_and_equation_with_quantity",
+    1: "answer_only",
+    2: "answer_and_explanation_with_quantity",
+    3: "answer_and_explanation_and_equation_with_quantity",
     4: "answer_and_explanation_without_quantity",
     5: "answer_and_explanation_and_equation_without_quantity",
 }
 generation_models = [
-    # ("mistralai/Mistral-7B-Instruct-v0.2", "text", None),
+    ("mistralai/Mistral-7B-Instruct-v0.2", "text", None),
     ("mistralai/Mixtral-8x7B-Instruct-v0.1", "text", None),
     ("mistralai/Mixtral-8x7B-Instruct-v0.1", "json", None),
-    # ("mistralai/Mixtral-8x22B-Instruct-v0.1", "text", None),
-    # ("meta-llama/Meta-Llama-3-8B-Instruct-Turbo", "text", None),
-    # ("meta-llama/Meta-Llama-3-70B-Instruct-Turbo", "text", None),
+    ("mistralai/Mixtral-8x22B-Instruct-v0.1", "text", None),
+    ("meta-llama/Meta-Llama-3-8B-Instruct-Turbo", "text", None),
+    ("meta-llama/Meta-Llama-3-70B-Instruct-Turbo", "text", None),
     ("meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo", "text", None),
     ("meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo", "json", None),
-    # ("meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo", "text", None),
-    # ("meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo", "json", None),
-    # ("meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo", "text", None),
+    ("meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo", "text", None),
+    ("meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo", "json", None),
+    ("meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo", "text", None),
     # ("gpt-4o-mini-2024-07-18", "text", None),
     # ("gpt-4o-mini-2024-07-18", "json", MathWordProblem),
     # ("gpt-4o-2024-08-06", "text", None),
@@ -168,11 +168,10 @@ for dataset_name in dataset_names:
     dataset_train_file = Path(f"data/{dataset_name}/GSM8k_train.json")
     test_data = list(load_json(dataset_test_file).values())
     train_data = list(load_json(dataset_train_file).values())
-    if debug_test_size > 0:  # TODO: shuffled
-        test_data = test_data[:debug_test_size]
-        # test_data = shuffled(test_data, seed=random_seed)[:debug_test_size]
-    print(f"train_data: {len(train_data)}")
-    print(f"test_data: {len(test_data)}")
+    if debug_test_size > 0:
+        test_data = shuffled(test_data, seed=random_seed)[:debug_test_size]
+    # print(f"train_data: {len(train_data)}")
+    # print(f"test_data: {len(test_data)}")
 
     for generation_level in sorted(generation_levels.keys()):
         generation_file = f"generation/{dataset_name}/{dataset_test_file.stem}-by-LLM-{test_size}@{generation_level}.json"
@@ -257,15 +256,15 @@ for dataset_name in dataset_names:
                     "generation_errors": [],
                 }
                 generation_data.append(generation_result)
-                print("\n" * 3)
-                print(f'<problem>\n{problem}\n</problem>')
-                print(f'<final_answer>\n{final_answer}\n</final_answer>')
-                print(f'<reasoning_by_human>\n{json.dumps([x.model_dump() for x in reasoning_by_human], indent=2, ensure_ascii=False)}\n</reasoning_by_human>')
-                print("\n" * 3)
-                print(f'<generation_level>\n{generation_level}\n</generation_level>')
-                print(f'<generation_messages>\n{generation_messages}\n</generation_messages>')
-                print(f'<actual_generation_prompt>\n{actual_generation_prompt}\n</actual_generation_prompt>')
-                print("\n" * 3)
+                # print("\n" * 3)
+                # print(f'<problem>\n{problem}\n</problem>')
+                # print(f'<final_answer>\n{final_answer}\n</final_answer>')
+                # print(f'<reasoning_by_human>\n{json.dumps([x.model_dump() for x in reasoning_by_human], indent=2, ensure_ascii=False)}\n</reasoning_by_human>')
+                # print("\n" * 3)
+                # print(f'<generation_level>\n{generation_level}\n</generation_level>')
+                # print(f'<generation_messages>\n{generation_messages}\n</generation_messages>')
+                # print(f'<actual_generation_prompt>\n{actual_generation_prompt}\n</actual_generation_prompt>')
+                # print("\n" * 3)
                 for (generation_model, generation_type, generation_schema) in tqdm(generation_models, desc=f"* Generating MR ({i}/{len(test_data)})", unit="model", file=sys.stdout):
                     based = datetime.now()
                     if generation_model.startswith("gpt-"):
@@ -321,14 +320,13 @@ for dataset_name in dataset_names:
                             "output": generation_output,
                             "seconds": generation_seconds,
                         })
-                    print("\n" * 3)
-                    print("=" * 200)
-                    print(f'<generation_type>{generation_type}</generation_type>')
-                    print(f'<generation_model>{generation_model}</generation_model>')
-                    if generation_output and "content" in generation_output:
-                        print(f'<generation_output_content>\n{generation_output["content"]}\n</generation_output_content>')
-                    print("=" * 200)
+                    # print("\n" * 3)
+                    # print("=" * 200)
+                    # print(f'<generation_type>{generation_type}</generation_type>')
+                    # print(f'<generation_model>{generation_model}</generation_model>')
+                    # if generation_output and "content" in generation_output:
+                    #     print(f'<generation_output_content>\n{generation_output["content"]}\n</generation_output_content>')
+                    # print("=" * 200)
                     save_json(generation_data, generation_file, indent=2, ensure_ascii=False)
-                # exit(1)
 
         save_json(generation_data, generation_file, indent=2, ensure_ascii=False)
