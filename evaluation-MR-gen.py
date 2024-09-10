@@ -54,16 +54,16 @@ def measure_math_reasoning(answer_by_human, answer_by_model):
 
 
 # setup program
-test_size = 358
+test_size = 100
 debug_test_size = -1
 dataset_names = [
     "GSM8k",
 ]
 generation_levels = {
     1: "answer_only",
-    # 2: "answer_and_explanation_with_quantity",
-    # 3: "answer_and_explanation_and_equation_with_quantity",
-    # 4: "answer_and_explanation_without_quantity",
+    2: "answer_and_explanation_with_quantity",
+    3: "answer_and_explanation_and_equation_with_quantity",
+    4: "answer_and_explanation_without_quantity",
     # 5: "answer_and_explanation_and_equation_without_quantity",
 }
 successful_narrator_roles = {"ASSISTANT"}
