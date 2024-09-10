@@ -1,10 +1,11 @@
 jupyter
 matplotlib
 ipywidgets
+pydantic
 
 openai
-groq
 together
+groq
 replicate
 langchain
 langchain-groq
