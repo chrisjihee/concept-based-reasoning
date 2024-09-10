@@ -55,7 +55,6 @@ generation_levels = {
     4: "free_with_quantity",
     5: "free_without_quantity",
 }
-target_generation_levels = sorted(generation_levels.keys())
 successful_narrator_roles = {"ASSISTANT"}
 successful_finish_reasons = {"stop", "eos"}
 JSON_FORMAT_ERROR = "JSON format error"
@@ -65,7 +64,7 @@ BASIC_EXCEPTIONS = [JSON_RANGE_ERROR, JSON_FORMAT_ERROR, JSON_KEY_ERROR]
 
 # run program
 for dataset_name in dataset_names:
-    for generation_level in target_generation_levels:
+    for generation_level in sorted(generation_levels.keys()):
         generation_file = f"generation/{dataset_name}/edges_as_text_all-responses-{test_size}@{generation_level}.json"
         evaluation_file = f"evaluation/{dataset_name}/{args.env.job_name}-{test_size}@{generation_level}.xlsx"
         generation_data = load_json(generation_file)
@@ -87,7 +86,7 @@ for dataset_name in dataset_names:
                 # print("=" * 100)
                 # print(f"entity: {entity}")
                 # print("-" * 100)
-                # print(f"triples by human: ")
+                # print(f"triples_by_human: ")
                 # for x in triples_by_human:
                 #     print("  -", x)
                 # print("-" * 100)
@@ -97,16 +96,16 @@ for dataset_name in dataset_names:
                 for j, generation_output in enumerate(generation_outputs, start=1):
                     generation_type = generation_output["type"]
                     generation_model = generation_output["model"].split("/")[-1]
-                    content = str(generation_output["output"]["content"])
-                    # print(f"content: {content}")
+                    output_content = str(generation_output["output"]["content"])
+                    # print(f"output_content: {output_content}")
                     finish_reason = generation_output["output"]["finish_reason"]
                     narrator_role = generation_output['output']['role'].upper()
                     if narrator_role in successful_narrator_roles:
                         if finish_reason in successful_finish_reasons:
-                            if '{' in content and '}' in content and content.index('{') < content.rindex('}'):
+                            if '{' in output_content and '}' in output_content and output_content.index('{') < output_content.rindex('}'):
                                 try:
-                                    prediction = json.loads(content[content.index('{'):content.rindex('}') + 1])
-                                    # print(f"prediction: {prediction}")
+                                    prediction = json.loads(output_content[output_content.index('{'):output_content.rindex('}') + 1])
+                                    # print(f"prediction: {json.dumps(prediction, indent=2)}")
                                     if "triples_by_model" in prediction and isinstance(prediction["triples_by_model"], (list, tuple)):
                                         triples_by_model = normalize_triples(prediction["triples_by_model"])
                                         prec, rec, f1 = measure_KG_construction(triples_by_human, triples_by_model)
@@ -117,7 +116,8 @@ for dataset_name in dataset_names:
                                             "model": generation_model,
                                             "prec": prec,
                                             "rec": rec,
-                                            "f1": f1
+                                            "f1": f1,
+                                            "exception": np.nan,
                                         })
                                     else:
                                         evaluation_data.append({

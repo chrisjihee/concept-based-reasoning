@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 args = CommonArguments(
     env=ProjectEnv(
         project="LLM-based",
-        job_name="evaluation-KG-gen",
+        job_name="evaluation-MR-gen",
         msg_level=logging.INFO,
         msg_format=LoggingFormat.BRIEF_00,
     )
@@ -19,43 +19,53 @@ args = CommonArguments(
 
 
 # define functions
-def normalize_element(e):
-    return str(e).replace(' ', '_').lower()
+prefix_unit = re.compile(r"^[\"'A-Za-z_.,!?$ ]+")
+suffix_unit = re.compile(r"[\"'A-Za-z_.,!?$ ]+$")
 
-def normalize_triples(triples):
-    return [[normalize_element(e) for e in triple] for triple in triples if len(triple) == 3]
 
-def measure_KG_construction(triples_by_human, triples_by_model):
-    # Define the true labels and predicted labels
-    y_test = [f'{h} -> {r} -> {t}' for h, r, t in triples_by_human]
-    y_pred = [f'{h} -> {r} -> {t}' for h, r, t in triples_by_model]
+def normalize_math_answer(x: str | int | float):
+    x = str(x)
+    x = x.split("\r")[-1]
+    x = x.split("\n")[-1]
+    x = x.split(". ")[-1]
+    x = x.split("! ")[-1]
+    x = x.split("? ")[-1]
+    x = x.split(":")[-1]
+    x = x.split("=")[-1]
+    x = x.strip()
+    x = x.replace(",", "")
+    x = prefix_unit.sub("", x) if prefix_unit.sub("", x) else x
+    x = suffix_unit.sub("", x) if suffix_unit.sub("", x) else x
+    x = x.strip()
+    try:
+        x = str(float(x))
+    except ValueError:
+        x = str(x)
+    return x
 
-    # Convert to sets for handling as a multilabel problem (ignoring order)
-    y_test_set = set(y_test)
-    y_pred_set = set(y_pred)
 
-    # Precision, Recall, F1 score calculation
-    prec = len(y_test_set.intersection(y_pred_set)) / len(y_pred_set) if len(y_pred_set) > 0 else 0.0
-    rec = len(y_test_set.intersection(y_pred_set)) / len(y_test_set) if len(y_test_set) > 0 else 1.0
-    f1 = 2 * (prec * rec) / (prec + rec) if prec + rec > 0 else 0.0
-    return prec, rec, f1
+def measure_math_reasoning(answer_by_human, answer_by_model):
+    if answer_by_human == answer_by_model:
+        return 1.0
+    elif answer_by_human.replace(",", "") == answer_by_model.replace(",", ""):
+        return 0.9
+    else:
+        return 0.0
 
 
 # setup program
 test_size = 100
 debug_test_size = -1
 dataset_names = [
-    "WN18RR",
-    "YAGO3-10",
+    "GSM8k",
 ]
 generation_levels = {
-    1: "relation_only",  # Relation Classification
-    2: "tail_only",  # Link Prediction
-    3: "tail_with_relation",
-    4: "free_with_quantity",
-    5: "free_without_quantity",
+    1: "answer_only",
+    2: "answer_and_explanation_with_quantity",
+    # 3: "answer_and_explanation_and_equation_with_quantity",
+    # 4: "answer_and_explanation_without_quantity",
+    # 5: "answer_and_explanation_and_equation_without_quantity",
 }
-target_generation_levels = sorted(generation_levels.keys())
 successful_narrator_roles = {"ASSISTANT"}
 successful_finish_reasons = {"stop", "eos"}
 JSON_FORMAT_ERROR = "JSON format error"
@@ -65,8 +75,8 @@ BASIC_EXCEPTIONS = [JSON_RANGE_ERROR, JSON_FORMAT_ERROR, JSON_KEY_ERROR]
 
 # run program
 for dataset_name in dataset_names:
-    for generation_level in target_generation_levels:
-        generation_file = f"generation/{dataset_name}/edges_as_text_all-responses-{test_size}@{generation_level}.json"
+    for generation_level in sorted(generation_levels.keys()):
+        generation_file = f"generation/{dataset_name}/GSM8k_test-by-LLM-{test_size}@{generation_level}.json"
         evaluation_file = f"evaluation/{dataset_name}/{args.env.job_name}-{test_size}@{generation_level}.xlsx"
         generation_data = load_json(generation_file)
         if debug_test_size > 0:
@@ -77,18 +87,20 @@ for dataset_name in dataset_names:
 
             evaluation_data = []
             for i, sample in enumerate(tqdm(generation_data, desc=f"* Evaluating LLM", unit="sample", file=sys.stdout), start=1):
-                entity = sample["entity"]
-                triples_by_human = normalize_triples(sample["triples_by_human"])
+                problem = sample["problem"]
+                answer_by_human = normalize_math_answer(sample["final_answer"])
+                reasoning_by_human = sample["reasoning_by_human"]
                 generation_messages = sample["generation_messages"]
                 generation_outputs = sample["generation_outputs"]
 
                 # DEBUG PRINT
                 # print()
                 # print("=" * 100)
-                # print(f"entity: {entity}")
+                # print(f"problem: {problem}")
+                # print(f'answer_by_human: {sample["final_answer"]} -> {answer_by_human}')
                 # print("-" * 100)
-                # print(f"triples by human: ")
-                # for x in triples_by_human:
+                # print(f"reasoning_by_human: ")
+                # for x in reasoning_by_human:
                 #     print("  -", x)
                 # print("-" * 100)
                 # print(f"generation_messages: \n{generation_messages[-1]['content']}")
@@ -97,27 +109,29 @@ for dataset_name in dataset_names:
                 for j, generation_output in enumerate(generation_outputs, start=1):
                     generation_type = generation_output["type"]
                     generation_model = generation_output["model"].split("/")[-1]
-                    content = str(generation_output["output"]["content"])
-                    # print(f"content: {content}")
+                    output_content = str(generation_output["output"]["content"])
                     finish_reason = generation_output["output"]["finish_reason"]
                     narrator_role = generation_output['output']['role'].upper()
+                    # print(f"output_content: {output_content}")
+                    # print(f"finish_reason: {finish_reason}")
+                    # print(f"narrator_role: {narrator_role}")
                     if narrator_role in successful_narrator_roles:
                         if finish_reason in successful_finish_reasons:
-                            if '{' in content and '}' in content and content.index('{') < content.rindex('}'):
+                            if '{' in output_content and '}' in output_content and output_content.index('{') < output_content.rindex('}'):
                                 try:
-                                    prediction = json.loads(content[content.index('{'):content.rindex('}') + 1])
-                                    # print(f"prediction: {prediction}")
-                                    if "triples_by_model" in prediction and isinstance(prediction["triples_by_model"], (list, tuple)):
-                                        triples_by_model = normalize_triples(prediction["triples_by_model"])
-                                        prec, rec, f1 = measure_KG_construction(triples_by_human, triples_by_model)
+                                    prediction = json.loads(output_content[output_content.index('{'):output_content.rindex('}') + 1])
+                                    # print(f"prediction: {json.dumps(prediction, indent=2)}")
+                                    if "final_answer" in prediction and isinstance(prediction["final_answer"], (str, int, float)):
+                                        answer_by_model = normalize_math_answer(prediction["final_answer"])
+                                        # print(f'answer_by_model({generation_model:40s}): {prediction["final_answer"]} -> {answer_by_model}')
+                                        acc = measure_math_reasoning(answer_by_human, answer_by_model)
                                         evaluation_data.append({
                                             "i": i,
                                             "j": j,
                                             "type": generation_type,
                                             "model": generation_model,
-                                            "prec": prec,
-                                            "rec": rec,
-                                            "f1": f1
+                                            "acc": acc,
+                                            "exception": np.nan,
                                         })
                                     else:
                                         evaluation_data.append({
@@ -162,10 +176,8 @@ for dataset_name in dataset_names:
 
             evaluation_data = pd.DataFrame(evaluation_data)
             evaluation_summary = evaluation_data.groupby(['model', 'type']).agg(
-                prec_mean=('prec', 'mean'),
-                rec_mean=('rec', 'mean'),
-                f1_mean=('f1', 'mean'),
-                valid_count=('f1', lambda x: x.notna().sum()),
+                acc_mean=('acc', 'mean'),
+                valid_count=('acc', lambda x: x.notna().sum()),
                 invalid_count=('exception', 'count'),
                 exception_counts=('exception', lambda x: x.value_counts().to_dict())
             ).reset_index().sort_values(by=['model', 'type'])
