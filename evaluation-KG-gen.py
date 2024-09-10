@@ -25,7 +25,7 @@ def normalize_element(e):
 def normalize_triples(triples):
     return [[normalize_element(e) for e in triple] for triple in triples if len(triple) == 3]
 
-def measure_performance(triples_by_human, triples_by_model):
+def measure_KG_construction(triples_by_human, triples_by_model):
     # Define the true labels and predicted labels
     y_test = [f'{h} -> {r} -> {t}' for h, r, t in triples_by_human]
     y_pred = [f'{h} -> {r} -> {t}' for h, r, t in triples_by_model]
@@ -109,7 +109,7 @@ for dataset_name in dataset_names:
                                     # print(f"prediction: {prediction}")
                                     if "triples_by_model" in prediction and isinstance(prediction["triples_by_model"], (list, tuple)):
                                         triples_by_model = normalize_triples(prediction["triples_by_model"])
-                                        prec, rec, f1 = measure_performance(triples_by_human, triples_by_model)
+                                        prec, rec, f1 = measure_KG_construction(triples_by_human, triples_by_model)
                                         evaluation_data.append({
                                             "i": i,
                                             "j": j,
