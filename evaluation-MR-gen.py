@@ -64,7 +64,7 @@ generation_levels = {
     2: "answer_and_explanation_with_quantity",
     3: "answer_and_explanation_and_equation_with_quantity",
     4: "answer_and_explanation_without_quantity",
-    # 5: "answer_and_explanation_and_equation_without_quantity",
+    5: "answer_and_explanation_and_equation_without_quantity",
 }
 successful_narrator_roles = {"ASSISTANT"}
 successful_finish_reasons = {"stop", "eos"}
