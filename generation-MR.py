@@ -50,8 +50,8 @@ class ReasoningStep(BaseModel):
 
 class MathWordProblem(BaseModel):
     problem: str
+    reasoning_steps: Optional[list[ReasoningStep]]
     final_answer: str
-    reasoning_steps: Optional[list[ReasoningStep]] = None
 
 
 def parse_with_LLM_by_OpenAI(response_format, **kwargs):
@@ -141,16 +141,15 @@ generation_levels = {
     5: "answer_and_explanation_and_equation_without_quantity",
 }
 generation_models = [
+    ("mistralai/Mistral-7B-Instruct-v0.1", "text", None),
     ("mistralai/Mistral-7B-Instruct-v0.2", "text", None),
+    ("mistralai/Mistral-7B-Instruct-v0.3", "text", None),
     ("mistralai/Mixtral-8x7B-Instruct-v0.1", "text", None),
-    ("mistralai/Mixtral-8x7B-Instruct-v0.1", "json", None),
     ("mistralai/Mixtral-8x22B-Instruct-v0.1", "text", None),
     ("meta-llama/Meta-Llama-3-8B-Instruct-Turbo", "text", None),
     ("meta-llama/Meta-Llama-3-70B-Instruct-Turbo", "text", None),
     ("meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo", "text", None),
-    ("meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo", "json", None),
     ("meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo", "text", None),
-    ("meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo", "json", None),
     ("meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo", "text", None),
     # ("gpt-4o-mini-2024-07-18", "text", None),
     # ("gpt-4o-mini-2024-07-18", "json", MathWordProblem),
@@ -204,8 +203,8 @@ for dataset_name in dataset_names:
                 assert False, f"Invalid generation_level: {generation_level}"
             actual_generation_demo = MathWordProblem(
                 problem=problem,
-                final_answer=final_answer,
                 reasoning_steps=reasoning_for_demo,
+                final_answer=final_answer,
             ).model_dump_json(indent=2, exclude_none=True)
             demo_examples.append(actual_generation_demo)
 
@@ -237,8 +236,8 @@ for dataset_name in dataset_names:
                     generation_demo_examples="\n\n".join(f"<demo>\n{x}\n</demo>" for x in demo_examples),
                     generation_form=MathWordProblem(
                         problem=problem,
-                        final_answer="(final_answer)",
                         reasoning_steps=reasoning_by_model,
+                        final_answer="(final_answer)",
                     ).model_dump_json(indent=2, exclude_none=True),
                 )
                 generation_messages = [
@@ -265,6 +264,7 @@ for dataset_name in dataset_names:
                 # print(f'<generation_messages>\n{generation_messages}\n</generation_messages>')
                 # print(f'<actual_generation_prompt>\n{actual_generation_prompt}\n</actual_generation_prompt>')
                 # print("\n" * 3)
+                # exit(1)
                 for (generation_model, generation_type, generation_schema) in tqdm(generation_models, desc=f"* Generating MR ({i}/{len(test_data)})", unit="model", file=sys.stdout):
                     based = datetime.now()
                     if generation_model.startswith("gpt-"):
