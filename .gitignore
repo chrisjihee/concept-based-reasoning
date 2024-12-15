@@ -135,3 +135,4 @@ key-*
 *-token*
 *-extraction-prompt-*
 *-evaluation-prompt-*
+edges_as_text_all-messages-*.jsonl
