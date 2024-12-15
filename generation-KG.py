@@ -83,36 +83,37 @@ def normalize_simple_list_in_json(json_input):
 # setup program
 test_size = 100
 debug_test_size = -1
-max_entity_triples = 10
+max_entity_triples = 7
 num_demo_group = 10
+demo_groups = [1, 3, 5]
 each_demo_group_size = 1
 dataset_names = [
-    "WN18RR",
+    # "WN18RR",
     "YAGO3-10",
 ]
 generation_levels = {
     1: "relation_only",  # Relation Classification
     2: "tail_only",  # Link Prediction
     3: "tail_with_relation",
-    4: "free_with_quantity",
-    5: "free_without_quantity",
+    # 4: "free_with_quantity",
+    # 5: "free_without_quantity",
 }
 generation_models = [
-    ("mistralai/Mistral-7B-Instruct-v0.2", "text"),
-    ("mistralai/Mixtral-8x7B-Instruct-v0.1", "text"),
-    ("mistralai/Mixtral-8x7B-Instruct-v0.1", "json"),
-    ("mistralai/Mixtral-8x22B-Instruct-v0.1", "text"),
-    ("meta-llama/Meta-Llama-3-8B-Instruct-Turbo", "text"),
-    ("meta-llama/Meta-Llama-3-70B-Instruct-Turbo", "text"),
+    # ("mistralai/Mistral-7B-Instruct-v0.2", "text"),
+    # ("mistralai/Mixtral-8x7B-Instruct-v0.1", "text"),
+    # ("mistralai/Mixtral-8x7B-Instruct-v0.1", "json"),
+    # ("mistralai/Mixtral-8x22B-Instruct-v0.1", "text"),
+    # ("meta-llama/Meta-Llama-3-8B-Instruct-Turbo", "text"),
+    # ("meta-llama/Meta-Llama-3-70B-Instruct-Turbo", "text"),
     ("meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo", "text"),
-    ("meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo", "json"),
-    ("meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo", "text"),
-    ("meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo", "json"),
-    ("meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo", "text"),
-    ("gpt-4o-mini-2024-07-18", "text"),
-    ("gpt-4o-mini-2024-07-18", "json"),
-    ("gpt-4o-2024-08-06", "text"),
-    ("gpt-4o-2024-08-06", "json"),
+    # ("meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo", "json"),
+    # ("meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo", "text"),
+    # ("meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo", "json"),
+    # ("meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo", "text"),
+    # ("gpt-4o-mini-2024-07-18", "text"),
+    # ("gpt-4o-mini-2024-07-18", "json"),
+    # ("gpt-4o-2024-08-06", "text"),
+    # ("gpt-4o-2024-08-06", "json"),
 ]
 max_tokens = 4000
 system_prompt = "You will be provided with an target entity and demo examples, and your task is to generate knowledge triples. Respond in JSON format without any other explanation."
@@ -132,17 +133,17 @@ for dataset_name in dataset_names:
 
     test_data_per_size = {k: list(v) for k, v in grouped(test_data, key=lambda x: len(x["triples"]))}
     train_data_per_size = {k: list(v) for k, v in grouped(train_data, key=lambda x: len(x["triples"]))}
-    # print(f"dataset_file: {dataset_file}")
-    # print(f"total_triples: {len(total_triples)}")
-    # print(f"total_entities: {len(total_entities)}")
-    # print(f"defined_relations: {defined_relations}")
-    # print(f"train_data: {len(train_data)}")
-    # print(f"test_data: {len(test_data)}")
-    # print("test_data_per_size:", {k: len(v) for k, v in test_data_per_size.items()})
-    # print("train_data_per_size:", {k: len(v) for k, v in train_data_per_size.items()})
+    print(f"dataset_file: {dataset_file}")
+    print(f"total_triples: {len(total_triples)}")
+    print(f"total_entities: {len(total_entities)}")
+    print(f"defined_relations: {defined_relations}")
+    print(f"train_data: {len(train_data)}")
+    print(f"test_data: {len(test_data)}")
+    print("test_data_per_size:", {k: len(v) for k, v in test_data_per_size.items()})
+    print("train_data_per_size:", {k: len(v) for k, v in train_data_per_size.items()})
     demo_examples = []
-    for size in sorted(train_data_per_size.keys())[:num_demo_group]:  # TODO: sorted -> shuffled
-        for sample in shuffled(train_data_per_size[size], seed=random_seed)[:each_demo_group_size]:
+    for size in demo_groups:
+        for sample in shuffled(test_data_per_size[size], seed=random_seed)[:each_demo_group_size]:
             demo_examples.append(normalize_simple_list_in_json(json.dumps(
                 {
                     "entity": sample["entity"],
@@ -151,12 +152,13 @@ for dataset_name in dataset_names:
             )))
 
     for generation_level in sorted(generation_levels.keys()):
-        generation_file = f"generation/{dataset_name}/edges_as_text_all-responses-{test_size}@{generation_level}.json"
+        # generation_file = f"generation/{dataset_name}/edges_as_text_all-responses-{test_size}@{generation_level}.json"
+        generation_file = f"generation/{dataset_name}/edges_as_text_all-messages-{len(train_data)}@{generation_level}.jsonl"
         generation_data = []
 
-        with JobTimer(f"KG Generation(dataset_name={dataset_name}, defined_relations={len(defined_relations)}, generation_level={generation_level}, num_test={len(test_data)}, generation_models={len(generation_models)}, max_tokens={max_tokens})",
-                      rt=1, rb=1, rw=114, rc='=', mt=1, verbose=1):
-            for i, sample in enumerate(test_data, start=1):
+        with JobTimer(f"KG Generation(dataset_name={dataset_name}, defined_relations={len(defined_relations)}, generation_level={generation_level}, num_train={len(train_data)}, generation_models={len(generation_models)}, max_tokens={max_tokens})",
+                      rt=1, rb=1, rw=114, rc='=', mt=1, verbose=1), Path(generation_file).open("w") as fout:
+            for i, sample in enumerate(train_data, start=1):
                 target_entity = sample["entity"]
                 triples_by_human = sample["triples"]
                 number_of_triples = len(triples_by_human)
@@ -200,66 +202,67 @@ for dataset_name in dataset_names:
                     "triples_by_human": triples_by_human,
                     "generation_level": generation_level,
                     "generation_messages": generation_messages,
-                    "generation_outputs": [],
-                    "generation_errors": [],
+                    # "generation_outputs": [],
+                    # "generation_errors": [],
                 }
+                fout.write(json.dumps(generation_result, ensure_ascii=False) + "\n")
                 generation_data.append(generation_result)
                 # print("\n" * 3)
                 # print(f'<triples_by_human>\n{normalize_simple_list_in_json(json.dumps(triples_by_human, indent=2, ensure_ascii=False))}\n</triples_by_human>')
-                for (generation_model, generation_type) in tqdm(generation_models, desc=f"* Generating KG ({i}/{len(test_data)})", unit="model", file=sys.stdout):
-                    based = datetime.now()
-                    if generation_model.startswith("gpt-"):
-                        if generation_type == "json":
-                            generation_output = chat_with_LLM_by_OpenAI(
-                                model=generation_model,
-                                messages=generation_messages,
-                                max_tokens=max_tokens,
-                                response_format={"type": "json_object"},
-                            )
-                        else:
-                            generation_output = chat_with_LLM_by_OpenAI(
-                                model=generation_model,
-                                messages=generation_messages,
-                                max_tokens=max_tokens,
-                            )
-                    else:
-                        if generation_type == "json":
-                            generation_output = chat_with_LLM_by_Together(
-                                model=generation_model,
-                                messages=generation_messages,
-                                max_tokens=max_tokens,
-                                response_format={"type": "json_object"},
-                            )
-                        else:
-                            generation_output = chat_with_LLM_by_Together(
-                                model=generation_model,
-                                messages=generation_messages,
-                                max_tokens=max_tokens,
-                            )
-                    generation_seconds = (datetime.now() - based).total_seconds()
-                    if generation_output and generation_output["content"]:
-                        content_len = len(str(generation_output["content"]))
-                        generation_result["generation_outputs"].append({
-                            "type": generation_type,
-                            "model": generation_model,
-                            "output": generation_output,
-                            "seconds": generation_seconds,
-                            "content_len": content_len,
-                        })
-                    else:
-                        generation_result["generation_errors"].append({
-                            "type": generation_type,
-                            "model": generation_model,
-                            "output": generation_output,
-                            "seconds": generation_seconds,
-                        })
-                    # print("\n" * 3)
-                    # print("=" * 200)
-                    # print(f'<generation_type>{generation_type}</generation_type>')
-                    # print(f'<generation_model>{generation_model}</generation_model>')
-                    # if generation_output and "content" in generation_output:
-                    #     print(f'<generation_output_content>\n{generation_output["content"]}\n</generation_output_content>')
-                    # print("=" * 200)
-                    save_json(generation_data, generation_file, indent=2, ensure_ascii=False)
+                # for (generation_model, generation_type) in tqdm(generation_models, desc=f"* Generating KG ({i}/{len(test_data)})", unit="model", file=sys.stdout):
+                #     based = datetime.now()
+                #     if generation_model.startswith("gpt-"):
+                #         if generation_type == "json":
+                #             generation_output = chat_with_LLM_by_OpenAI(
+                #                 model=generation_model,
+                #                 messages=generation_messages,
+                #                 max_tokens=max_tokens,
+                #                 response_format={"type": "json_object"},
+                #             )
+                #         else:
+                #             generation_output = chat_with_LLM_by_OpenAI(
+                #                 model=generation_model,
+                #                 messages=generation_messages,
+                #                 max_tokens=max_tokens,
+                #             )
+                #     else:
+                #         if generation_type == "json":
+                #             generation_output = chat_with_LLM_by_Together(
+                #                 model=generation_model,
+                #                 messages=generation_messages,
+                #                 max_tokens=max_tokens,
+                #                 response_format={"type": "json_object"},
+                #             )
+                #         else:
+                #             generation_output = chat_with_LLM_by_Together(
+                #                 model=generation_model,
+                #                 messages=generation_messages,
+                #                 max_tokens=max_tokens,
+                #             )
+                #     generation_seconds = (datetime.now() - based).total_seconds()
+                #     if generation_output and generation_output["content"]:
+                #         content_len = len(str(generation_output["content"]))
+                #         generation_result["generation_outputs"].append({
+                #             "type": generation_type,
+                #             "model": generation_model,
+                #             "output": generation_output,
+                #             "seconds": generation_seconds,
+                #             "content_len": content_len,
+                #         })
+                #     else:
+                #         generation_result["generation_errors"].append({
+                #             "type": generation_type,
+                #             "model": generation_model,
+                #             "output": generation_output,
+                #             "seconds": generation_seconds,
+                #         })
+                #     # print("\n" * 3)
+                #     # print("=" * 200)
+                #     # print(f'<generation_type>{generation_type}</generation_type>')
+                #     # print(f'<generation_model>{generation_model}</generation_model>')
+                #     # if generation_output and "content" in generation_output:
+                #     #     print(f'<generation_output_content>\n{generation_output["content"]}\n</generation_output_content>')
+                #     # print("=" * 200)
+                #     save_json(generation_data, generation_file, indent=2, ensure_ascii=False)
 
-        save_json(generation_data, generation_file, indent=2, ensure_ascii=False)
+        # save_json(generation_data, generation_file, indent=2, ensure_ascii=False)
