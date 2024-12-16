@@ -64,22 +64,6 @@ def chat_with_LLM_by_Together(**kwargs):
         }
 
 
-# define function to normalize simple list in json
-def normalize_simple_list_in_json(json_input):
-    json_output = []
-    pattern = re.compile(r"\[[^\[\]]+?]")
-    if re.search(pattern, json_input):
-        pre_end = 0
-        for m in re.finditer(pattern, json_input):
-            json_output.append(m.string[pre_end: m.start()])
-            json_output.append("[" + " ".join(m.group().split()).removeprefix("[ ").removesuffix(" ]") + "]")
-            pre_end = m.end()
-        json_output.append(m.string[pre_end:])
-        return ''.join(json_output)
-    else:
-        return json_input
-
-
 # setup program
 test_size = 100
 debug_test_size = -1
