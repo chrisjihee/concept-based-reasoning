@@ -4,7 +4,7 @@ wget "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforg
 bash Miniforge3-$(uname)-$(uname -m).sh
 
 # basic
-mamba create -n LLM-based python=3.11 -y; mamba activate LLM-based
+mamba create -n LLM-based python=3.12 -y; mamba activate LLM-based
 pip install -U -r requirements.txt
 
 # chrisbase
